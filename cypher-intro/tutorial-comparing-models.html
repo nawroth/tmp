@@ -1,0 +1,160 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2.2. Comparing Database Models -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="what-is-a-graphdb.html" title="2.1. What is a Graph Database?" /><link rel="next" href="graphdb-neo4j.html" title="Chapter 3. The Neo4j Graph Database" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.2. Comparing Database Models" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-66060";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>2.2. Comparing Database Models</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="what-is-a-graphdb.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="graphdb-concepts.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="graphdb-neo4j.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorial-comparing-models"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">2.2. Comparing Database Models</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="tutorial-comparing-models.html#_a_graph_database_transforms_a_rdbms">A Graph Database transforms a RDBMS</a></span></li><li><span class="section"><a href="tutorial-comparing-models.html#_a_graph_database_elaborates_a_key_value_store">A Graph Database elaborates a Key-Value Store</a></span></li><li><span class="section"><a href="tutorial-comparing-models.html#_a_graph_database_relates_column_family">A Graph Database relates Column-Family</a></span></li><li><span class="section"><a href="tutorial-comparing-models.html#_a_graph_database_navigates_a_document_store">A Graph Database navigates a Document Store</a></span></li></ul></div>
+
+<p>A Graph Database stores data structured in the Nodes and Relationships of a graph.
+How does this compare to other persistence models?
+Because a graph is a generic structure, let’s compare how a few models would look in a graph.</p>
+<section class="section" id="_a_graph_database_transforms_a_rdbms"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">A Graph Database transforms a RDBMS</h3></div></div></div>
+
+<p>Topple the stacks of records in a relational database while keeping all the relationships, and you’ll see a graph.
+Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>
+<div class="figure" id="d5e212"><p class="title"><strong>Figure 2.1. RDBMS</strong></p><div class="figure-contents">
+<a class="ulink" href="images/graphdb-compare-rdbms.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-compare-rdbms.svg" alt="graphdb-compare-rdbms.svg" /></span>
+</a>
+</div></div>
+<div class="figure" id="d5e220"><p class="title"><strong>Figure 2.2. Graph Database as RDBMS</strong></p><div class="figure-contents">
+<a class="ulink" href="images/graphdb-compare-rdbms-g.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-compare-rdbms-g.svg" alt="graphdb-compare-rdbms-g.svg" /></span>
+</a>
+</div></div>
+</section>
+<section class="section" id="_a_graph_database_elaborates_a_key_value_store"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">A Graph Database elaborates a Key-Value Store</h3></div></div></div>
+
+<p>A Key-Value model is great for lookups of simple values or lists.
+When the values are themselves interconnected, you’ve got a graph.
+Neo4j lets you elaborate the simple data structures into more complex, interconnected data.</p>
+<div class="figure" id="d5e231"><p class="title"><strong>Figure 2.3. Key-Value Store</strong></p><div class="figure-contents">
+<a class="ulink" href="images/graphdb-compare-kvstore.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-compare-kvstore.svg" alt="graphdb-compare-kvstore.svg" /></span>
+</a>
+</div></div>
+<p><code class="literal">K*</code> represents a key, <code class="literal">V*</code> a value.
+Note that some keys point to other keys as well as plain values.</p>
+<div class="figure" id="d5e242"><p class="title"><strong>Figure 2.4. Graph Database as Key-Value Store</strong></p><div class="figure-contents">
+<a class="ulink" href="images/graphdb-compare-kvstore-g.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-compare-kvstore-g.svg" alt="graphdb-compare-kvstore-g.svg" /></span>
+</a>
+</div></div>
+</section>
+<section class="section" id="_a_graph_database_relates_column_family"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">A Graph Database relates Column-Family</h3></div></div></div>
+
+<p>Column Family (BigTable-style) databases are an evolution of key-value,  using "families" to allow grouping of rows.
+Stored in a graph, the families could become hierarchical, and the relationships among data becomes explicit.</p>
+</section>
+<section class="section" id="_a_graph_database_navigates_a_document_store"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">A Graph Database navigates a Document Store</h3></div></div></div>
+
+<p>The container hierarchy of a document database accommodates nice, schema-free data that can easily be represented as a tree.
+Which is of course a graph.
+Refer to other documents (or document elements) within that tree and you have a more expressive representation of the same data.
+When in Neo4j, those relationships are easily navigable.</p>
+<div class="figure" id="d5e256"><p class="title"><strong>Figure 2.5. Document Store</strong></p><div class="figure-contents">
+<a class="ulink" href="images/graphdb-compare-docdb.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-compare-docdb.svg" alt="graphdb-compare-docdb.svg" /></span>
+</a>
+</div></div>
+<p><code class="literal">D</code>=Document, <code class="literal">S</code>=Subdocument, <code class="literal">V</code>=Value, <code class="literal">D2/S2</code> = reference to subdocument in (other) document.</p>
+<div class="figure" id="d5e269"><p class="title"><strong>Figure 2.6. Graph Database as Document Store</strong></p><div class="figure-contents">
+<a class="ulink" href="images/graphdb-compare-docdb-g.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-compare-docdb-g.svg" alt="graphdb-compare-docdb-g.svg" /></span>
+</a>
+</div></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

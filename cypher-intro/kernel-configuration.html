@@ -1,0 +1,197 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>26.5. Kernel configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="performance-guide.html" title="26.4. Performance Guide" /><link rel="next" href="configuration-caches.html" title="26.6. Caches in Neo4j" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.5. Kernel configuration" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-66060";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.5. Kernel configuration</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="performance-guide.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-caches.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="kernel-configuration"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.5. Kernel configuration</h2></div></div></div>
+
+<p>These are the configuration options you can pass to the neo4j kernel. They
+can either be passed as a map when using the embedded database, or in the
+<span class="emphasis"><em>conf/neo4j.properties</em></span> file when using the Neo4j Server.</p>
+<div class="configsetting table" id="allow_file_urls"><p class="title"><strong>Allow file urls</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> true
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">allow_file_urls</code></p><p class="configsetting-desc">Determines if Cypher will allow using file URL when importing data using LOAD CSV. Setting this value to false will cause Neo4j to fail LOAD CSV queries that import data from the file system</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="allow_store_upgrade"><p class="title"><strong>Allow store upgrade</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">allow_store_upgrade</code></p><p class="configsetting-desc">Whether to allow a store upgrade in case the current version of the database starts against an older store version. Setting this to true does not guarantee successful upgrade, just that it allows an attempt at it.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="array_block_size"><p class="title"><strong>Array block size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 120
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">array_block_size</code></p><p class="configsetting-desc">Specifies the block size for storing arrays. This parameter is only honored when the store is created, otherwise it is ignored. The default block size is 120 bytes, and the overhead of each block is the same as for string blocks, i.e., 8 bytes.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="batched_writes"><p class="title"><strong>Batched writes</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> true
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">batched_writes</code></p><p class="configsetting-desc">Whether or not transactions are appended to the log in batches</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="cache_type"><p class="title"><strong>Cache type</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> soft
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">cache_type</code></p><p class="configsetting-desc">The type of cache to use for nodes and relationships. Note that the Neo4j Enterprise Edition has the additional 'hpc' cache type (High-Performance Cache). See the chapter on caches in the manual for more information.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="cypher_parser_version"><p class="title"><strong>Cypher parser version</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">cypher_parser_version
+</code></p><p class="configsetting-desc">Enable this to specify a parser other than the default one.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="dense_node_threshold"><p class="title"><strong>Dense node threshold</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 50
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">dense_node_threshold</code></p><p class="configsetting-desc">Relationship count threshold for considering a node dense</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="dump_configuration"><p class="title"><strong>Dump configuration</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">dump_configuration</code></p><p class="configsetting-desc">Print out the effective Neo4j configuration after startup.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="forced_kernel_id"><p class="title"><strong>Forced kernel id</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">forced_kernel_id
+</code></p><p class="configsetting-desc">An identifier that uniquely identifies this graph database instance within this JVM. Defaults to an auto-generated number depending on how many instance are started in this JVM.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="gc_monitor_threshold"><p class="title"><strong>Gc monitor threshold</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 200
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">gc_monitor_threshold</code></p><p class="configsetting-desc">The amount of time in ms the monitor thread has to be blocked before logging a message it was blocked.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="gc_monitor_wait_time"><p class="title"><strong>Gc monitor wait time</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 100
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">gc_monitor_wait_time</code></p><p class="configsetting-desc">Amount of time in ms the GC monitor thread will wait before taking another measurement.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="intercept_committing_transactions"><p class="title"><strong>Intercept committing transactions</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">intercept_committing_transactions</code></p><p class="configsetting-desc">Determines whether any TransactionInterceptors loaded will intercept prepared transactions before they reach the logical log.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="intercept_deserialized_transactions"><p class="title"><strong>Intercept deserialized transactions</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">intercept_deserialized_transactions</code></p><p class="configsetting-desc">Determines whether any TransactionInterceptors loaded will intercept externally received transactions (e.g. in HA) before they reach the logical log and are applied to the store.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="keep_logical_logs"><p class="title"><strong>Keep logical logs</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 7 days
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">keep_logical_logs</code></p><p class="configsetting-desc">Make Neo4j keep the logical transaction logs for being able to backup the database.Can be used for specifying the threshold to prune logical logs after. For example "10 days" will prune logical logs that only contains transactions older than 10 days from the current time, or "100k txs" will keep the 100k latest transactions and prune any older transactions.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="label_block_size"><p class="title"><strong>Label block size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 60
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">label_block_size</code></p><p class="configsetting-desc">Specifies the block size for storing labels exceeding in-lined space in node record. This parameter is only honored when the store is created, otherwise it is ignored. The default block size is 60 bytes, and the overhead of each block is the same as for string blocks, i.e., 8 bytes.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="log_mapped_memory_stats"><p class="title"><strong>Log mapped memory stats</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">log_mapped_memory_stats</code></p><p class="configsetting-desc">Tell Neo4j to regularly log memory mapping statistics.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="log_mapped_memory_stats_filename"><p class="title"><strong>Log mapped memory stats filename</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> mapped_memory_stats.log
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">log_mapped_memory_stats_filename</code></p><p class="configsetting-desc">The file where Neo4j will record memory mapping statistics.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="log_mapped_memory_stats_interval"><p class="title"><strong>Log mapped memory stats interval</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 1000000
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">log_mapped_memory_stats_interval</code></p><p class="configsetting-desc">The number of records to be loaded between regular logging of memory mapping statistics.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="logging.threshold_for_rotation"><p class="title"><strong>Logging.threshold for rotation</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 104857600
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">logging.threshold_for_rotation</code></p><p class="configsetting-desc">Threshold in bytes for when database logs (text logs, for debugging, that is) are rotated.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="logical_log_rotation_threshold"><p class="title"><strong>Logical log rotation threshold</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 26214400
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">logical_log_rotation_threshold</code></p><p class="configsetting-desc">Specifies at which file size the logical log will auto-rotate. 0 means that no rotation will automatically occur based on file size. Default is 25M</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="lucene_searcher_cache_size"><p class="title"><strong>Lucene searcher cache size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 2147483647
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">lucene_searcher_cache_size</code></p><p class="configsetting-desc">Integer value that sets the maximum number of open lucene index searchers.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="mapped_memory_page_size"><p class="title"><strong>Mapped memory page size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 8192
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">mapped_memory_page_size</code></p><p class="configsetting-desc">Target size for pages of mapped memory.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="mapped_memory_total_size"><p class="title"><strong>Mapped memory total size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th><p class="configsetting-key"><code class="literal">mapped_memory_total_size</code></p><p class="configsetting-desc">The amount of memory to use for mapping the store files, either in bytes or
+</p></th></tr><tr><th>Value</th></tr></thead><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 477364224
+</code></th></tr></tfoot><tbody><tr><td><p><code class="literal">as a percentage of available memory. This will be clipped at the amount of</code></p></td></tr><tr><td><p><code class="literal">free memory observed when the database starts, and automatically be rounded</code></p></td></tr><tr><td><p><code class="literal">down to the nearest whole page. For example, if "500MB" is configured, but</code></p></td></tr><tr><td><p><code class="literal">only 450MB of memory is free when the database starts, then the database will</code></p></td></tr><tr><td><p><code class="literal">map at most 450MB. If "50%" is configured, and the system has a capacity of</code></p></td></tr><tr><td><p><code class="literal">4GB, then at most 2GB of memory will be mapped, unless the database observes</code></p></td></tr><tr><td><p><code class="literal">that less than 2GB of memory is free when it starts.</code></p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neo_store"><p class="title"><strong>Neo store</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> neostore
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">neo_store</code></p><p class="configsetting-desc">The base name for the Neo4j Store files, either an absolute path or relative to the store_dir setting. This should generally not be changed.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.nodestore.db.mapped_memory"><p class="title"><strong>Neostore.nodestore.db.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.nodestore.db.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the node store.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.propertystore.db.arrays.mapped_memory"><p class="title"><strong>Neostore.propertystore.db.arrays.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.propertystore.db.arrays.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the array property store.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.propertystore.db.index.keys.mapped_memory"><p class="title"><strong>Neostore.propertystore.db.index.keys.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.propertystore.db.index.keys.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the store for property key strings.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.propertystore.db.index.mapped_memory"><p class="title"><strong>Neostore.propertystore.db.index.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.propertystore.db.index.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the store for property key indexes.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.propertystore.db.mapped_memory"><p class="title"><strong>Neostore.propertystore.db.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.propertystore.db.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the property value store.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.propertystore.db.strings.mapped_memory"><p class="title"><strong>Neostore.propertystore.db.strings.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.propertystore.db.strings.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the string property store.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="neostore.relationshipstore.db.mapped_memory"><p class="title"><strong>Neostore.relationshipstore.db.mapped memory</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">neostore.relationshipstore.db.mapped_memory
+</code></p><p class="configsetting-desc">The size to allocate for memory mapping the relationship store.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="node_auto_indexing"><p class="title"><strong>Node auto indexing</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">node_auto_indexing</code></p><p class="configsetting-desc">Controls the auto indexing feature for nodes. Setting to false shuts it down, while true enables it by default for properties listed in the node_keys_indexable setting.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="node_keys_indexable"><p class="title"><strong>Node keys indexable</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">node_keys_indexable
+</code></p><p class="configsetting-desc">A list of property names (comma separated) that will be indexed by default. This applies to Nodes only.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="query_cache_size"><p class="title"><strong>Query cache size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 100
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">query_cache_size</code></p><p class="configsetting-desc">Used to set the number of Cypher query execution plans that are cached.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="read_only"><p class="title"><strong>Read only database</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">read_only</code></p><p class="configsetting-desc">Only allow read operations from this Neo4j instance. This mode still requires write access to the directory for lock purposes</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="rebuild_idgenerators_fast"><p class="title"><strong>Rebuild idgenerators fast</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> true
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">rebuild_idgenerators_fast</code></p><p class="configsetting-desc">Use a quick approach for rebuilding the ID generators. This give quicker recovery time, but will limit the ability to reuse the space of deleted entities.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="relationship_auto_indexing"><p class="title"><strong>Relationship auto indexing</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">relationship_auto_indexing</code></p><p class="configsetting-desc">Controls the auto indexing feature for relationships. Setting to false shuts it down, while true enables it by default for properties listed in the relationship_keys_indexable setting.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="relationship_grab_size"><p class="title"><strong>Relationship grab size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 100
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">relationship_grab_size</code></p><p class="configsetting-desc">How many relationships to read at a time during iteration</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="relationship_keys_indexable"><p class="title"><strong>Relationship keys indexable</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">relationship_keys_indexable
+</code></p><p class="configsetting-desc"> A list of property names (comma separated) that will be indexed by default. This applies to Relationships only.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="remote_logging_enabled"><p class="title"><strong>Remote logging enabled</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> false
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">remote_logging_enabled</code></p><p class="configsetting-desc">Whether to enable logging to a remote server or not.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="remote_logging_host"><p class="title"><strong>Remote logging host</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 127.0.0.1
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">remote_logging_host</code></p><p class="configsetting-desc">Host for remote logging using LogBack SocketAppender.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="remote_logging_port"><p class="title"><strong>Remote logging port</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 4560
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">remote_logging_port</code></p><p class="configsetting-desc">Port for remote logging using LogBack SocketAppender.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="store_dir"><p class="title"><strong>Store dir</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td><p class="configsetting-key"><code class="literal">store_dir
+</code></p><p class="configsetting-desc">The directory where the database files are located.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="string_block_size"><p class="title"><strong>String block size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 120
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">string_block_size</code></p><p class="configsetting-desc">Specifies the block size for storing strings. This parameter is only honored when the store is created, otherwise it is ignored. Note that each character in a string occupies two bytes, meaning that a block size of 120 (the default size) will hold a 60 character long string before overflowing into a second block. Also note that each block carries an overhead of 8 bytes. This means that if the block size is 120, the size of the stored records will be 128 bytes.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="tx_manager_impl"><p class="title"><strong>Tx manager impl</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> native
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">tx_manager_impl</code></p><p class="configsetting-desc">The name of the Transaction Manager service to use as defined in the TM service provider constructor.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="use_memory_mapped_buffers"><p class="title"><strong>Use memory mapped buffers</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> true
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">use_memory_mapped_buffers</code></p><p class="configsetting-desc">Tell Neo4j to use memory mapped buffers for accessing the native storage layer.</p></td></tr></tbody></table></div></div>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
