@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.5. Directed Relationship By Id Seek -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-cartesian-product.html" title="17.4. Cartesian Product" /><link rel="next" href="query-plan-expand.html" title="17.6. Expand" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.5. Directed Relationship By Id Seek" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,15 +80,17 @@ WHERE id(r)= 0
 RETURN r, n1</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">Projection
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+Projection
   |
   +DirectedRelationshipByIdSeekPipe
 
 +----------------------------------+---------------+------+--------+--------------------+----------------------------------------------------+
 |                         Operator | EstimatedRows | Rows | DbHits |        Identifiers |                                              Other |
 +----------------------------------+---------------+------+--------+--------------------+----------------------------------------------------+
-|                       Projection |             5 |    1 |      0 |                    |                                              r, n1 |
-| DirectedRelationshipByIdSeekPipe |             5 |    1 |      1 | r,   UNNAMED17, n1 | EntityByIdRhs(EntityByIdExprs(List({  AUTOINT0}))) |
+|                       Projection |             0 |    1 |      0 |                    |                                              r, n1 |
+| DirectedRelationshipByIdSeekPipe |             0 |    1 |      1 | r,   UNNAMED17, n1 | EntityByIdRhs(EntityByIdExprs(List({  AUTOINT0}))) |
 +----------------------------------+---------------+------+--------+--------------------+----------------------------------------------------+
 
 Total database accesses: 1</pre><p>

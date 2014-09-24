@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.8. Using -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-union.html" title="11.7. Union" /><link rel="next" href="query-read.html" title="Chapter 12. Reading Clauses" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.8. Using" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -90,7 +90,7 @@ WHERE n.surname = 'Taylor'
 RETURN n</pre><p>
 </p>
 <p>The query result is returned as usual.</p>
-<div class="queryresult table" id="d5e7186"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",age:36,awesome:true,surname:"Taylor"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7300"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",age:36,awesome:true,surname:"Taylor"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create index on :`Swedish`(`surname`)
 create (_0 {`name`:"Emil"})
 create (_1:`German` {`name`:"Stefan", `surname`:"Plantikow"})
@@ -113,7 +113,7 @@ WHERE m.surname = 'Plantikow' AND n.surname = 'Taylor'
 RETURN m</pre><p>
 </p>
 <p>The query result is returned as usual.</p>
-<div class="queryresult table" id="d5e7216"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7330"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create index on :`German`(`surname`)
 create index on :`Swedish`(`surname`)
 create (_0 {`name`:"Emil"})
@@ -136,7 +136,7 @@ WHERE m.surname = 'Plantikow'
 RETURN m</pre><p>
 </p>
 <p>This query does its work by finding all <code class="literal">:German</code> labeled nodes and filtering them by the surname property.</p>
-<div class="queryresult table" id="d5e7247"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7361"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1:`German` {`name`:"Stefan", `surname`:"Plantikow"})
 create (_2 {`age`:34, `name`:"Peter"})

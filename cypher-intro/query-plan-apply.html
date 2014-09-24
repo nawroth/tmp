@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.1. Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="execution-plans.html" title="Chapter 17. Execution Plans" /><link rel="next" href="query-plan-anti-semi-apply.html" title="17.2. Anti Semi Apply" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.1. Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -82,7 +82,9 @@ MATCH (p)-[:WORKS_IN]-&gt;(city)
 RETURN p, city</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">Projection
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+Projection
   |
   +Apply
     |
@@ -99,13 +101,13 @@ RETURN p, city</pre><p>
 +------------------+---------------+------+--------+--------------------+-------------------+
 |         Operator | EstimatedRows | Rows | DbHits |        Identifiers |             Other |
 +------------------+---------------+------+--------+--------------------+-------------------+
-|       Projection |         37500 |    1 |      0 |                    |           p, city |
-|            Apply |         37500 |    1 |      0 |                    |                   |
+|       Projection |         50000 |    1 |      0 |                    |           p, city |
+|            Apply |         50000 |    1 |      0 |                    |                   |
 | EagerAggregation |             1 |    2 |      0 |                    |                 p |
-|        Expand(0) |         50000 |    2 |      5 |       UNNAMED16, f |                   |
+|        Expand(0) |         50000 |    2 |      5 |       UNNAMED17, f |                   |
 |  NodeByLabelScan |          2000 |    3 |      4 |                  p |                :2 |
-|        Expand(1) |         37500 |    1 |      2 |   UNNAMED116, city |                   |
-|           Filter |          7500 |    1 |      0 |                    | fs &gt; {  AUTOINT0} |
+|        Expand(1) |         50000 |    1 |      2 |   UNNAMED117, city |                   |
+|           Filter |             0 |    1 |      0 |                    | fs &gt; {  AUTOINT0} |
 +------------------+---------------+------+--------+--------------------+-------------------+
 
 Total database accesses: 11</pre><p>

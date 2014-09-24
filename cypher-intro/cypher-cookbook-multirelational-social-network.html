@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.10. Multirelational (social) graphs -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-similar-tags.html" title="7.9. Find friends based on similar tagging" /><link rel="next" href="cypher-cookbook-newsfeed.html" title="7.11. Implementing newsfeeds in a graph" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.10. Multirelational (social) graphs" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,7 +71,7 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>7.10. Multirelational (social) graphs</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-similar-tags.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-newsfeed.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-multirelational-social-network"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.10. Multirelational (social) graphs</h2></div></div></div>
 
-<div class="figure" id="d5e3383"><p class="title"><strong>Figure 7.8. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3497"><p class="title"><strong>Figure 7.8. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-multirelationalsocialnetwork-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-multirelationalsocialnetwork-graph.svg" alt="cypher-multirelationalsocialnetwork-graph.svg" /></span>
 </a>
@@ -84,7 +84,7 @@ WHERE type(r1)=type(r2)
 RETURN other.name, type(r1)</pre><p>
 </p>
 <p>The query returns people that <code class="literal">FOLLOWS</code> or <code class="literal">LOVES</code> <code class="literal">Joe</code> back.</p>
-<div class="queryresult table" id="d5e3400"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>other.name</th><th>type(r1)</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Maria"</code></p></td><td><p><code class="literal">"FOLLOWS"</code></p></td></tr><tr><td><p><code class="literal">"Sara"</code></p></td><td><p><code class="literal">"FOLLOWS"</code></p></td></tr><tr><td><p><code class="literal">"Maria"</code></p></td><td><p><code class="literal">"LOVES"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3514"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>other.name</th><th>type(r1)</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Maria"</code></p></td><td><p><code class="literal">"FOLLOWS"</code></p></td></tr><tr><td><p><code class="literal">"Sara"</code></p></td><td><p><code class="literal">"FOLLOWS"</code></p></td></tr><tr><td><p><code class="literal">"Maria"</code></p></td><td><p><code class="literal">"LOVES"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"cats"})
 create (_1 {`name`:"nature"})
 create (_2 {`name`:"Ben"})

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.14. Selection -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-projection.html" title="17.13. Projection" /><link rel="next" href="query-plan-select-or-anti-semi-apply.html" title="17.15. Select Or Anti Semi Apply" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.14. Selection" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,14 +80,16 @@ WHERE p.name =~ "^a.*"
 RETURN p</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">Filter
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+Filter
   |
   +NodeByLabelScan
 
 +-----------------+---------------+------+--------+-------------+---------------------------------------+
 |        Operator | EstimatedRows | Rows | DbHits | Identifiers |                                 Other |
 +-----------------+---------------+------+--------+-------------+---------------------------------------+
-|          Filter |          1500 |    0 |      6 |             | Property(p,name) ~= /{  AUTOSTRING0}/ |
+|          Filter |          2000 |    0 |      6 |             | Property(p,name) ~= /{  AUTOSTRING0}/ |
 | NodeByLabelScan |          2000 |    3 |      4 |           p |                                    :2 |
 +-----------------+---------------+------+--------+-------------+---------------------------------------+
 

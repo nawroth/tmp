@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.4. Delete -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-set.html" title="13.3. Set" /><link rel="next" href="query-remove.html" title="13.5. Remove" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.4. Delete" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -87,7 +87,7 @@
 DELETE n</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e10910"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11024"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2 {`age`:36, `name`:"Andres"})
@@ -105,7 +105,7 @@ create _2-[:`KNOWS`]-&gt;_0
 DELETE n, r</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e10935"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1
+<div class="queryresult table" id="d5e11049"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1
 </th></tr><tr><th>Relationships deleted: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
@@ -124,7 +124,7 @@ OPTIONAL MATCH (n)-[r]-()
 DELETE n,r</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e10962"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 3
+<div class="queryresult table" id="d5e11076"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 3
 </th></tr><tr><th>Relationships deleted: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})

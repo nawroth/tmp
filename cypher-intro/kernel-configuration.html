@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>26.5. Kernel configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="performance-guide.html" title="26.4. Performance Guide" /><link rel="next" href="configuration-caches.html" title="26.6. Caches in Neo4j" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.5. Kernel configuration" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -110,8 +110,8 @@ can either be passed as a map when using the embedded database, or in the
 </code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">log_mapped_memory_stats_filename</code></p><p class="configsetting-desc">The file where Neo4j will record memory mapping statistics.</p></td></tr></tbody></table></div></div>
 <div class="configsetting table" id="log_mapped_memory_stats_interval"><p class="title"><strong>Log mapped memory stats interval</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 1000000
 </code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">log_mapped_memory_stats_interval</code></p><p class="configsetting-desc">The number of records to be loaded between regular logging of memory mapping statistics.</p></td></tr></tbody></table></div></div>
-<div class="configsetting table" id="logging.threshold_for_rotation"><p class="title"><strong>Logging.threshold for rotation</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 104857600
-</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">logging.threshold_for_rotation</code></p><p class="configsetting-desc">Threshold in bytes for when database logs (text logs, for debugging, that is) are rotated.</p></td></tr></tbody></table></div></div>
+<div class="configsetting table" id="logging.history"><p class="title"><strong>Logging.history</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 7
+</code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">logging.history</code></p><p class="configsetting-desc">Max nr of history files for messages.log.</p></td></tr></tbody></table></div></div>
 <div class="configsetting table" id="logical_log_rotation_threshold"><p class="title"><strong>Logical log rotation threshold</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 26214400
 </code></th></tr></tfoot><tbody><tr><td><p class="configsetting-key"><code class="literal">logical_log_rotation_threshold</code></p><p class="configsetting-desc">Specifies at which file size the logical log will auto-rotate. 0 means that no rotation will automatically occur based on file size. Default is 25M</p></td></tr></tbody></table></div></div>
 <div class="configsetting table" id="lucene_searcher_cache_size"><p class="title"><strong>Lucene searcher cache size</strong></p><div class="configsetting table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th class="configsetting-default">Default value: <code class="literal"> 2147483647

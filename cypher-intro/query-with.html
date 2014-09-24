@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.5. With -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-skip.html" title="11.4. Skip" /><link rel="next" href="query-unwind.html" title="11.6. Unwind" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.5. With" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -82,7 +82,7 @@ predicates in <code class="literal">WHERE</code>. These aggregate expressions cr
 <p><code class="literal">WITH</code> is also used to separate reading from updating of the graph. Every part of a query must be either
 read-only or write-only. When going from a writing part to a reading part, the switch must be done
 with a <code class="literal">WITH</code> clause.</p>
-<div class="figure" id="d5e6852"><p class="title"><strong>Figure 11.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e6966"><p class="title"><strong>Figure 11.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-with-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-with-graph.svg" alt="cypher-with-graph.svg" /></span>
 </a>
@@ -97,7 +97,7 @@ WHERE foaf &gt; 1
 RETURN otherPerson</pre><p>
 </p>
 <p>The person connected to David with the at least more than one outgoing relationship will be returned by the query.</p>
-<div class="queryresult table" id="d5e6869"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>otherPerson</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Anders"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6983"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>otherPerson</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Anders"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"David"})
 create (_1 {`name`:"Emil"})
 create (_2 {`name`:"Anders"})
@@ -122,7 +122,7 @@ ORDER BY n.name DESC LIMIT 3
 RETURN collect(n.name)</pre><p>
 </p>
 <p>A list of the names of people in reverse order, limited to 3, in a collection.</p>
-<div class="queryresult table" id="d5e6897"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.name)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["Emil","David","Ceasar"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7011"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.name)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["Emil","David","Ceasar"]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"David"})
 create (_1 {`name`:"Emil"})
 create (_2 {`name`:"Anders"})
@@ -148,7 +148,7 @@ MATCH (m)--(o)
 RETURN o.name</pre><p>
 </p>
 <p>Starting at Anders, find all matching nodes, order by name descending and get the top result, then find all the nodes connected to that top result, and return their names.</p>
-<div class="queryresult table" id="d5e6925"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>o.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anders"</code></p></td></tr><tr><td><p><code class="literal">"Bossman"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7039"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>o.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anders"</code></p></td></tr><tr><td><p><code class="literal">"Bossman"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"David"})
 create (_1 {`name`:"Emil"})
 create (_2 {`name`:"Anders"})

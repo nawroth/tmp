@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>23.19. Unique Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="23.18. Legacy indexing" /><link rel="next" href="rest-api-auto-indexes.html" title="23.20. Legacy Automatic Indexes" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="23.19. Unique Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -127,19 +127,19 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
+  "paged_traverse" : "http://localhost:7474/db/data/node/22/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "labels" : "http://localhost:7474/db/data/node/22/labels",
   "outgoing_relationships" : "http://localhost:7474/db/data/node/22/relationships/out",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/22/traverse/{returnType}",
-  "self" : "http://localhost:7474/db/data/node/22",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/all/{-list|&amp;|types}",
   "property" : "http://localhost:7474/db/data/node/22/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/22/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/22/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/22/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/22/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "all_relationships" : "http://localhost:7474/db/data/node/22/relationships/all",
+  "self" : "http://localhost:7474/db/data/node/22",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/out/{-list|&amp;|types}",
+  "properties" : "http://localhost:7474/db/data/node/22/properties",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/22/relationships/in",
   "incoming_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/22/relationships",
   "data" : {
     "sequence" : 1,
     "name" : "Tobias"
@@ -191,19 +191,19 @@ already existing node.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
+  "paged_traverse" : "http://localhost:7474/db/data/node/12/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "labels" : "http://localhost:7474/db/data/node/12/labels",
   "outgoing_relationships" : "http://localhost:7474/db/data/node/12/relationships/out",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/12/traverse/{returnType}",
-  "self" : "http://localhost:7474/db/data/node/12",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/all/{-list|&amp;|types}",
   "property" : "http://localhost:7474/db/data/node/12/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/12/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/12/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/12/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/12/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "all_relationships" : "http://localhost:7474/db/data/node/12/relationships/all",
+  "self" : "http://localhost:7474/db/data/node/12",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/out/{-list|&amp;|types}",
+  "properties" : "http://localhost:7474/db/data/node/12/properties",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/12/relationships/in",
   "incoming_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/12/relationships",
   "data" : {
     "sequence" : 1,
     "name" : "Peter"
@@ -254,19 +254,19 @@ example, no existing indexed node is found and a new node is created.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
+  "paged_traverse" : "http://localhost:7474/db/data/node/21/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "labels" : "http://localhost:7474/db/data/node/21/labels",
   "outgoing_relationships" : "http://localhost:7474/db/data/node/21/relationships/out",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/21/traverse/{returnType}",
-  "self" : "http://localhost:7474/db/data/node/21",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/all/{-list|&amp;|types}",
   "property" : "http://localhost:7474/db/data/node/21/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/21/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/21/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/21/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/21/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "all_relationships" : "http://localhost:7474/db/data/node/21/relationships/all",
+  "self" : "http://localhost:7474/db/data/node/21",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/out/{-list|&amp;|types}",
+  "properties" : "http://localhost:7474/db/data/node/21/properties",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/21/relationships/in",
   "incoming_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/21/relationships",
   "data" : {
     "sequence" : 1,
     "name" : "Tobias"
@@ -314,19 +314,19 @@ is found and an error is returned.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
+  "paged_traverse" : "http://localhost:7474/db/data/node/6/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "labels" : "http://localhost:7474/db/data/node/6/labels",
   "outgoing_relationships" : "http://localhost:7474/db/data/node/6/relationships/out",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/6/traverse/{returnType}",
-  "self" : "http://localhost:7474/db/data/node/6",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/all/{-list|&amp;|types}",
   "property" : "http://localhost:7474/db/data/node/6/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/6/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/6/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/6/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/6/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "all_relationships" : "http://localhost:7474/db/data/node/6/relationships/all",
+  "self" : "http://localhost:7474/db/data/node/6",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/out/{-list|&amp;|types}",
+  "properties" : "http://localhost:7474/db/data/node/6/properties",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/6/relationships/in",
   "incoming_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/6/relationships",
   "data" : {
     "sequence" : 1,
     "name" : "Peter"
@@ -374,19 +374,19 @@ index.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
+  "paged_traverse" : "http://localhost:7474/db/data/node/17/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "labels" : "http://localhost:7474/db/data/node/17/labels",
   "outgoing_relationships" : "http://localhost:7474/db/data/node/17/relationships/out",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/17/traverse/{returnType}",
-  "self" : "http://localhost:7474/db/data/node/17",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/all/{-list|&amp;|types}",
   "property" : "http://localhost:7474/db/data/node/17/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/17/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/17/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/17/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/17/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "all_relationships" : "http://localhost:7474/db/data/node/17/relationships/all",
+  "self" : "http://localhost:7474/db/data/node/17",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/out/{-list|&amp;|types}",
+  "properties" : "http://localhost:7474/db/data/node/17/properties",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/17/relationships/in",
   "incoming_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/17/relationships",
   "data" : { },
   "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/17"
 }</pre>
@@ -426,19 +426,19 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
+  "paged_traverse" : "http://localhost:7474/db/data/node/19/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "labels" : "http://localhost:7474/db/data/node/19/labels",
   "outgoing_relationships" : "http://localhost:7474/db/data/node/19/relationships/out",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/19/traverse/{returnType}",
-  "self" : "http://localhost:7474/db/data/node/19",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/all/{-list|&amp;|types}",
   "property" : "http://localhost:7474/db/data/node/19/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/19/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/19/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/19/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/19/paged/traverse/{returnType}{?pageSize,leaseTime}",
   "all_relationships" : "http://localhost:7474/db/data/node/19/relationships/all",
+  "self" : "http://localhost:7474/db/data/node/19",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/out/{-list|&amp;|types}",
+  "properties" : "http://localhost:7474/db/data/node/19/properties",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/19/relationships/in",
   "incoming_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/19/relationships",
   "data" : {
     "some-key" : "some value"
   },

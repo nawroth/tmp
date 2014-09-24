@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.2. Anti Semi Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-apply.html" title="17.1. Apply" /><link rel="next" href="query-plan-all-nodes-scan.html" title="17.3. All Nodes Scan" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.2. Anti Semi Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,7 +80,9 @@ WHERE NOT ((me)-[:FRIENDS_WITH]-&gt;(other))
 RETURN other</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">Projection
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+Projection
   |
   +AntiSemiApply
     |
@@ -99,14 +101,14 @@ RETURN other</pre><p>
 +--------------------+---------------+------+--------+-----------------------+----------------------------------------------------------------------------------------------+
 |           Operator | EstimatedRows | Rows | DbHits |           Identifiers |                                                                                        Other |
 +--------------------+---------------+------+--------+-----------------------+----------------------------------------------------------------------------------------------+
-|         Projection |        600000 |    2 |      0 |                       |                                                                                        other |
-|      AntiSemiApply |        600000 |    2 |      0 |                       |                                                                                              |
+|         Projection |           400 |    2 |      0 |                       |                                                                                        other |
+|      AntiSemiApply |           400 |    2 |      0 |                       |                                                                                              |
 |   CartesianProduct |        800000 |    3 |      0 |                       |                                                                                              |
 |          Filter(0) |           400 |    1 |      6 |                       | any(-_-INNER-_- in Collection(List({  AUTOSTRING0})) where Property(me,name) == -_-INNER-_-) |
 | NodeByLabelScan(0) |          2000 |    3 |      4 |                    me |                                                                                           :2 |
 | NodeByLabelScan(1) |          2000 |    3 |      4 |                 other |                                                                                           :2 |
 |          Filter(1) |         50000 |    0 |      0 |                       |                                                                            other == other$$$ |
-|             Expand |         50000 |    1 |      2 |   UNNAMED72, other$$$ |                                                                                              |
+|             Expand |         50000 |    1 |      2 |   UNNAMED73, other$$$ |                                                                                              |
 +--------------------+---------------+------+--------+-----------------------+----------------------------------------------------------------------------------------------+
 
 Total database accesses: 16</pre><p>

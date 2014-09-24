@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.17. The Graphity activity stream model -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-similarity-calc.html" title="7.16. Complex similarity computations" /><link rel="next" href="examples-user-roles-in-graphs.html" title="7.18. User roles in graphs" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.17. The Graphity activity stream model" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -86,7 +86,7 @@ RETURN me.name, friend.name, status.name, length(p)
 ORDER BY length(p)</pre><p>
 </p>
 <p>The returns the activity stream for Jane.</p>
-<div class="queryresult table" id="d5e4119"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>me.name</th><th>friend.name</th><th>status.name</th><th>length(p)</th></tr></thead><tfoot><tr><th colspan="4">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bill"</code></p></td><td><p><code class="literal">"Bill_s1"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">"Joe_s1"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">"Bob_s1"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e4233"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>me.name</th><th>friend.name</th><th>status.name</th><th>length(p)</th></tr></thead><tfoot><tr><th colspan="4">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bill"</code></p></td><td><p><code class="literal">"Bill_s1"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">"Joe_s1"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">"Bob_s1"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Bill"})
 create (_1 {`name`:"Ted_s1"})
 create (_2 {`name`:"Bill_s1"})
@@ -113,7 +113,7 @@ create _11-[:`has`]-&gt;_6
 create _11-[:`jane_knows`]-&gt;_7
 </span><span class="command"><strong>
  MATCH p=(me {name: 'Jane'})-[:jane_knows*]-&gt;(friend), (friend)-[:has]-&gt;(status) RETURN me.name, friend.name, status.name, length(p) ORDER BY length(p)</strong></span></p>
-<div class="figure" id="d5e4180"><p class="title"><strong>Figure 7.20. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e4294"><p class="title"><strong>Figure 7.20. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-graphity-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-graphity-graph.svg" alt="cypher-graphity-graph.svg" /></span>
 </a>

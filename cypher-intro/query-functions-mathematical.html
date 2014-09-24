@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>14.4. Mathematical functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-collection.html" title="14.3. Collection functions" /><link rel="next" href="query-functions-string.html" title="14.5. String functions" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.4. Mathematical functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -73,7 +73,7 @@
 
 <p>These functions all operate on numerical expressions only, and will return an error if used on any other values.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-mathematical" title="Mathematical operators">the section called “Mathematical operators”</a>.</p>
-<div class="figure" id="d5e12627"><p class="title"><strong>Figure 14.4. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e12741"><p class="title"><strong>Figure 14.4. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -94,7 +94,7 @@ WHERE a.name = 'Alice' AND e.name = 'Eskil'
 RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 </p>
 <p>The absolute value of the age difference is returned.</p>
-<div class="queryresult table" id="d5e12653"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.age</th><th>e.age</th><th>abs(a.age - e.age)</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">38</code></p></td><td><p><code class="literal">41</code></p></td><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12767"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.age</th><th>e.age</th><th>abs(a.age - e.age)</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">38</code></p></td><td><p><code class="literal">41</code></p></td><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -122,7 +122,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN acos(0.5)</pre><p>
 </p>
 <p>The arccosine of 0.5.</p>
-<div class="queryresult table" id="d5e12701"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>acos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.0471975511965979</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12815"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>acos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.0471975511965979</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -150,7 +150,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN asin(0.5)</pre><p>
 </p>
 <p>The arcsine of 0.5.</p>
-<div class="queryresult table" id="d5e12739"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>asin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5235987755982989</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12853"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>asin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5235987755982989</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -178,7 +178,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN atan(0.5)</pre><p>
 </p>
 <p>The arctangent of 0.5.</p>
-<div class="queryresult table" id="d5e12777"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.4636476090008061</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12891"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.4636476090008061</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -210,7 +210,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN atan2(0.5, 0.6)</pre><p>
 </p>
 <p>The arctangent2 of 0.5, 0.6.</p>
-<div class="queryresult table" id="d5e12818"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan2(0.5, 0.6)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.6947382761967033</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12932"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan2(0.5, 0.6)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.6947382761967033</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -238,7 +238,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN cos(0.5)</pre><p>
 </p>
 <p>The cosine of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e12856"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.8775825618903728</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12970"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.8775825618903728</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -266,7 +266,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN cot(0.5)</pre><p>
 </p>
 <p>The cotangent of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e12894"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cot(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.830487721712452</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13008"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cot(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.830487721712452</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -294,7 +294,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN degrees(3.14159)</pre><p>
 </p>
 <p>The number of degrees in something close to pi.</p>
-<div class="queryresult table" id="d5e12932"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>degrees(3.14159)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">179.99984796050427</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13046"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>degrees(3.14159)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">179.99984796050427</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -317,7 +317,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN e()</pre><p>
 </p>
 <p>The constant e is returned (the base of natural log).</p>
-<div class="queryresult table" id="d5e12966"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>e()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2.718281828459045</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13080"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>e()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2.718281828459045</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -345,7 +345,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN exp(2)</pre><p>
 </p>
 <p>The exp of 2 is returned: e<sup>2</sup>.</p>
-<div class="queryresult table" id="d5e13005"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>exp(2)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">7.38905609893065</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13119"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>exp(2)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">7.38905609893065</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -373,7 +373,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN floor(0.9)</pre><p>
 </p>
 <p>The floor of 0.9 is returned.</p>
-<div class="queryresult table" id="d5e13043"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>floor(0.9)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13157"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>floor(0.9)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -401,7 +401,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN haversin(0.5)</pre><p>
 </p>
 <p>The haversine of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e13081"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>haversin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.06120871905481362</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13195"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>haversin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.06120871905481362</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -423,7 +423,7 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
   cos(radians(ber.lat))* haversin(radians(sm.lon - ber.lon)))) AS dist</pre><p>
 </p>
 <p>The distance between Berlin and San Mateo is returned (about 9129 km).</p>
-<div class="queryresult table" id="d5e13110"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>dist</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e13224"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>dist</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 2
 </th></tr><tr><th>Properties set: 4
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">9129.969740051658</code></p></td></tr></tbody></table></div></div>
@@ -455,7 +455,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN log(27)</pre><p>
 </p>
 <p>The log of 27 is returned.</p>
-<div class="queryresult table" id="d5e13154"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.295836866004329</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13268"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.295836866004329</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -483,7 +483,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN log10(27)</pre><p>
 </p>
 <p>The log10 of 27 is returned.</p>
-<div class="queryresult table" id="d5e13192"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log10(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.4313637641589874</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13306"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log10(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.4313637641589874</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -506,7 +506,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN pi()</pre><p>
 </p>
 <p>The constant pi is returned.</p>
-<div class="queryresult table" id="d5e13226"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>pi()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13340"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>pi()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -534,7 +534,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN radians(180)</pre><p>
 </p>
 <p>The number of radians in 180 is returned (pi).</p>
-<div class="queryresult table" id="d5e13264"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>radians(180)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13378"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>radians(180)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -562,7 +562,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN rand() AS x1</pre><p>
 </p>
 <p>A random number is returned.</p>
-<div class="queryresult table" id="d5e13302"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x1</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.11313439160728767</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13416"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x1</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.239985095868834</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -589,7 +589,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN round(3.141592)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13339"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>round(3.141592)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13453"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>round(3.141592)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -616,7 +616,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN sign(-17), sign(0.1)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13378"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sign(-17)</th><th>sign(0.1)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">-1.0</code></p></td><td><p><code class="literal">1.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13492"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sign(-17)</th><th>sign(0.1)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">-1.0</code></p></td><td><p><code class="literal">1.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -644,7 +644,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN sin(0.5)</pre><p>
 </p>
 <p>The sine of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e13421"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.479425538604203</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13535"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.479425538604203</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -671,7 +671,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN sqrt(256)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13458"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sqrt(256)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">16.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13572"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sqrt(256)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">16.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -699,7 +699,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN tan(0.5)</pre><p>
 </p>
 <p>The tangent of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e13496"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>tan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5463024898437905</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13610"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>tan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5463024898437905</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})

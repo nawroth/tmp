@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>4.3. Getting the Results You Want -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-patterns-in-practice.html" title="4.2. Patterns in Practice" /><link rel="next" href="cypherdoc-how-to-compose-large-statements.html" title="4.4. How to Compose Large Statements" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.3. Getting the Results You Want" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -69,30 +69,41 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>4.3. Getting the Results You Want</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-patterns-in-practice.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="_introduction_to_cypher.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-how-to-compose-large-statements.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-getting-the-results-you-want"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.3. Getting the Results You Want</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_filtering_results">Filtering Results</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_returning_results">Returning Results</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_aggregating_information">Aggregating Information</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_ordering_and_pagination">Ordering and Pagination</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_collecting_aggregation">Collecting Aggregation</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-patterns-in-practice.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-how-to-compose-large-statements.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-getting-the-results-you-want"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.3. Getting the Results You Want</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_filtering_results">Filtering Results</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_returning_results">Returning Results</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_aggregating_information">Aggregating Information</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_ordering_and_pagination">Ordering and Pagination</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_collecting_aggregation">Collecting Aggregation</a></span></li></ul></div>
 
+<p>Let’s first get some data in to retrieve results from:</p>
+<pre class="programlisting" data-lang="cypher">CREATE (matrix:Movie { title:"The Matrix",released:1997 }),
+  (cloudAtlas:Movie { title:"Cloud Atlas",released:2012 }),
+  (forrestGump:Movie { title:"Forrest Gump",released:1994 }),(keanu:Person { name:"Keanu Reeves",
+born:1964 }),(robert:Person { name:"Robert Zemeckis", born:1951 }),(tom:Person { name:"Tom Hanks",
+  born:1956 }),(tom)-[:ACTED_IN { roles: ["Forrest"]}]-&gt;(forrestGump),
+  (tom)-[:ACTED_IN { roles: ['Zachry']}]-&gt;(cloudAtlas),(robert)-[:DIRECTED]-&gt;(forrestGump)</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 6
+</th></tr><tr><th>Relationships created: 3
+</th></tr><tr><th>Properties set: 14
+</th></tr><tr><th>Labels added: 6</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
 <section class="section" id="_filtering_results"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Filtering Results</h3></div></div></div>
 
 <p>So far we’ve matched patterns in the graph and always returned all results we found.
 Quite often there are conditions in play for what we want to see.
-Similarly to <span class="emphasis"><em>SQL</em></span> those filter conditions are expressed in a <code class="literal">WHERE</code> clause.
+Similar to in <span class="emphasis"><em>SQL</em></span> those filter conditions are expressed in a <code class="literal">WHERE</code> clause.
 This clause allows to use any number of boolean expressions (predicates) combined with <code class="literal">AND</code>, <code class="literal">OR</code> and <code class="literal">NOT</code>.
 The simplest predicates are comparisons, especially equality.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (m:Movie)
 WHERE m.title = "The Matrix"
 RETURN m</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>0 row</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{title:"The Matrix",released:1997}</code></p></td></tr></tbody></table></div>
 <p>More interesting are numeric comparisons, matching regular expressions and checking the existence of values within a collection.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (p:Person)-[r:ACTED_IN]-&gt;(m:Movie)
 WHERE p.name =~ "K.+" OR m.released &gt; 2000 OR "Neo" IN r.roles
 RETURN p,r,m</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>r</th><th>m</th></tr></thead><tfoot><tr><th colspan="3">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="3"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>r</th><th>m</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">:ACTED_IN[1]{roles:["Zachry"]}</code></p></td><td><p><code class="literal">Node[1]{title:"Cloud Atlas",released:2012}</code></p></td></tr></tbody></table></div>
 <p>One aspect that might be little surprising is that you can even use patterns as predicates.
 Where <code class="literal">MATCH</code> expands the number and shape of patterns matched, a pattern predicate restricts the current result set again, only allowing the paths to pass that satisfy these additional patterns as well (or <code class="literal">NOT</code>).</p>
 <pre class="programlisting" data-lang="cypher">MATCH (p:Person)-[:ACTED_IN]-&gt;(m)
 WHERE NOT (p)-[:DIRECTED]-&gt;()
 RETURN p,m</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>m</th></tr></thead><tfoot><tr><th colspan="2">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="2"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>m</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">Node[1]{title:"Cloud Atlas",released:2012}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">Node[2]{title:"Forrest Gump",released:1994}</code></p></td></tr></tbody></table></div>
 <p>Here we find actors, because they sport an <code class="literal">ACTED_IN</code> relationship but then skip those that ever <code class="literal">DIRECTED</code> any movie.</p>
 <p>There are also more advanced ways of filtering like collection-predicates which we will look at later on.</p>
 </section>
@@ -112,7 +123,7 @@ You can later on refer to that column using its alias.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (p:Person)
 RETURN p, p.name AS name, upper(p.name), coalesce(p.nickname,"n/a") AS nickname, { name: p.name,
   label:head(labels(p))} AS person</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>name</th><th>upper(p.name)</th><th>nickname</th><th>person</th></tr></thead><tfoot><tr><th colspan="5">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="5"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>name</th><th>upper(p.name)</th><th>nickname</th><th>person</th></tr></thead><tfoot><tr><th colspan="5">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Keanu Reeves",born:1964}</code></p></td><td><p><code class="literal">"Keanu Reeves"</code></p></td><td><p><code class="literal">"KEANU REEVES"</code></p></td><td><p><code class="literal">"n/a"</code></p></td><td><p><code class="literal">{name -&gt; "Keanu Reeves", label -&gt; "Person"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"Robert Zemeckis",born:1951}</code></p></td><td><p><code class="literal">"Robert Zemeckis"</code></p></td><td><p><code class="literal">"ROBERT ZEMECKIS"</code></p></td><td><p><code class="literal">"n/a"</code></p></td><td><p><code class="literal">{name -&gt; "Robert Zemeckis", label -&gt; "Person"}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">"Tom Hanks"</code></p></td><td><p><code class="literal">"TOM HANKS"</code></p></td><td><p><code class="literal">"n/a"</code></p></td><td><p><code class="literal">{name -&gt; "Tom Hanks", label -&gt; "Person"}</code></p></td></tr></tbody></table></div>
 <p>If you’re interested in unique results you can use the <code class="literal">DISTINCT</code> keyword after <code class="literal">RETURN</code> to indicate that.</p>
 </section>
 <section class="section" id="_aggregating_information"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Aggregating Information</h3></div></div></div>
@@ -123,7 +134,7 @@ Many common aggregation functions are supported, e.g. <code class="literal">coun
 <p>Counting the number of people in your database could be achieved by this:</p>
 <pre class="programlisting" data-lang="cypher">MATCH (:Person)
 RETURN count(*) AS people</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>people</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>people</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div>
 <p>Please note that <code class="literal">NULL</code> values are skipped during aggregation.
 For aggregating only unique values use <code class="literal">DISTINCT</code>, like in <code class="literal">count(DISTINCT role)</code>.</p>
 <p>Aggregation in Cypher just works.
@@ -132,7 +143,7 @@ You specify which result columns you want to aggregate and <span class="emphasis
 <p>To find out how often an actor and director worked together, you’d run this statement:</p>
 <pre class="programlisting" data-lang="cypher">MATCH (actor:Person)-[:ACTED_IN]-&gt;(movie:Movie)&lt;-[:DIRECTED]-(director:Person)
 RETURN actor,director,count(*) AS collaborations</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor</th><th>director</th><th>collaborations</th></tr></thead><tfoot><tr><th colspan="3">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="3"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor</th><th>director</th><th>collaborations</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">Node[4]{name:"Robert Zemeckis",born:1951}</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div>
 <p>Frequently you want to sort and paginate after aggregating a <code class="literal">count(x)</code>.</p>
 </section>
 <section class="section" id="_ordering_and_pagination"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Ordering and Pagination</h3></div></div></div>
@@ -148,7 +159,7 @@ This is especially important with aggregation and <code class="literal">DISTINCT
 <pre class="programlisting" data-lang="cypher">MATCH (a:Person)-[:ACTED_IN]-&gt;(m:Movie)
 RETURN a,count(*) AS appearances
 ORDER BY appearances DESC LIMIT 10;</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th><th>appearances</th></tr></thead><tfoot><tr><th colspan="2">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="2"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th><th>appearances</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">2</code></p></td></tr></tbody></table></div>
 </section>
 <section class="section" id="_collecting_aggregation"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Collecting Aggregation</h3></div></div></div>
 
@@ -159,7 +170,7 @@ This means there’s no need to repeat the parent information per each child-row
 <p>To retrieve the cast of each movie in our database you could use this statement:</p>
 <pre class="programlisting" data-lang="cypher">MATCH (m:Movie)&lt;-[:ACTED_IN]-(a:Person)
 RETURN m.title AS movie, collect(a.name) AS cast, count(*) AS actors</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th><th>cast</th><th>actors</th></tr></thead><tfoot><tr><th colspan="3">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="3"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th><th>cast</th><th>actors</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Forrest Gump"</code></p></td><td><p><code class="literal">["Tom Hanks"]</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Cloud Atlas"</code></p></td><td><p><code class="literal">["Tom Hanks"]</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div>
 <p>The lists created by collect can either be used from the client consuming the Cypher results or directly within a statement with any of the collection functions or predicates.</p>
 <p class="cypherdoc-console"></p>
 </section>

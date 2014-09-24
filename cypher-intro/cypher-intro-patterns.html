@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4.1. Graphs, Patterns and Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="_introduction_to_cypher.html" title="Chapter 4. Introduction to Cypher" /><link rel="next" href="cypherdoc-patterns-in-practice.html" title="4.2. Patterns in Practice" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.1. Graphs, Patterns and Cypher" /><script type="text/javascript">
+    <title>4.1. Graphs, Patterns and Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-getting-started.html" title="Chapter 4. Introduction to Cypher" /><link rel="next" href="cypherdoc-patterns-in-practice.html" title="4.2. Patterns in Practice" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.1. Graphs, Patterns and Cypher" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -69,7 +69,7 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>4.1. Graphs, Patterns and Cypher</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="_introduction_to_cypher.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="_introduction_to_cypher.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-patterns-in-practice.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="_graphs_patterns_and_cypher"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.1. Graphs, Patterns and Cypher</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="_graphs_patterns_and_cypher.html#_it_8217_s_all_about_patterns">It’s all about Patterns</a></span></li><li><span class="section"><a href="_graphs_patterns_and_cypher.html#_cypher_concepts">Cypher Concepts</a></span></li><li><span class="section"><a href="_graphs_patterns_and_cypher.html#_clauses">Clauses</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-getting-started.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-patterns-in-practice.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-intro-patterns"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.1. Graphs, Patterns and Cypher</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-intro-patterns.html#_it_8217_s_all_about_patterns">It’s all about Patterns</a></span></li><li><span class="section"><a href="cypher-intro-patterns.html#_cypher_concepts">Cypher Concepts</a></span></li><li><span class="section"><a href="cypher-intro-patterns.html#_clauses">Clauses</a></span></li></ul></div>
 
 <section class="section" id="_it_8217_s_all_about_patterns"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">It’s all about Patterns</h3></div></div></div>
 
@@ -87,25 +87,26 @@ They are used to describe graph structures you want to create or information you
 
 <p>Cypher is a textual, declarative query language, much like SQL for relational databases, but for graphs.
 It doesn’t instruct the database to run certain operations but instead describes the things you want to create or find.
-Neo4j then figures out what’s the best way to do that.</p>
-<p>With Cypher, you describe graph patterns (circles and arrows for nodes and relationships) that you would usually draw on a whiteboard as symbolic, textual patterns.</p>
+Neo4j then figures out the best way to do that.</p>
+<p>With Cypher, you use symbolic textual patterns to describe graph patterns (circles for nodes and arrows for relationships) that you would usually draw on a whiteboard.</p>
 <p>It uses ASCII-art to visualize the typical circles for nodes with parentheses surrounding a piece of information.</p>
-<p>To describe a node for a  "Movie" entity with a "title" and a "released"-year we would use a textual pattern like this:</p>
+<p>To describe a node for a  <code class="literal">Movie</code> entity with a <code class="literal">title</code> and a <code class="literal">released</code>-year we would use a textual pattern like this:</p>
 <pre class="programlisting" data-lang="cypher">(matrix:Movie {title:"The Matrix", released:1997})</pre>
 <p>The <code class="literal">Movie</code> label tags the otherwise untyped node as a movie and is prefixed by a colon to become a symbol: <code class="literal">:Movie</code>.
-The <code class="literal">matrix</code> identifier is just a name that we use to refer to this node within the statement later on.
-It is optional and only relevant in the scope of the statement; it’s not persisted.</p>
-<p>The freely chosen properties of that node, <code class="literal">title</code> and <code class="literal">released</code> are represented as a map (you might want to call it a dictionary or javascript-object like structure).
+The <code class="literal">matrix</code> identifier is just a name that we use to refer to this node within the statement.
+It is optional and only relevant in the scope of the same statement; it’s not persisted.</p>
+<p>The freely chosen properties of that node, <code class="literal">title</code> and <code class="literal">released</code> are represented as a map (you might want to call it a dictionary or JSON-like structure).
 They are listed as keys/value pairs within curly braces.</p>
-<p>To “draw” the arrow of your pattern, you would just use the appropriate symbols, which, in the simplest case is <code class="literal">-→</code>.
-If you have more information about that relationship, like a relationship type or properties on it, you can include them in square brackets.</p>
-<p>For the movies domain, this could be the <span class="emphasis"><em>ACTED_IN</em></span> relationship.
-So a basic fact or pattern in this domain would be:</p>
+<p>To “draw” the relationships of your pattern, you would just use the appropriate symbols, which, in the simplest case is a <code class="literal">--</code>.
+The direction of a relationship can be denoted by using an arrowhead: <code class="literal">--&gt;</code> or <code class="literal">&lt;--</code>.
+If you have more information about that relationship, like a relationship type or properties on it, you can include them inside square brackets.</p>
+<p>For the movies domain, this could be an <span class="emphasis"><em>ACTED_IN</em></span> relationship.
+So the following could be a basic fact or pattern in this domain:</p>
 <pre class="programlisting" data-lang="cypher">(keanu:Person:Actor {name:"Keanu Reeves"}) -[role:ACTED_IN {roles : ["Neo"]}]-&gt; (matrix:Movie {title:"The Matrix"})</pre>
 <p>Like with node labels, the relationship-type <code class="literal">ACTED_IN</code> is added as a symbol, prefixed with a colon: <code class="literal">:ACTED_IN</code>.
-As with nodes you can use identifiers, in this case <code class="literal">role</code>, to refer to the relationship in later parts of the statement.
+As with nodes you can use identifiers, in this case <code class="literal">role</code>, to refer to the relationship later in the statement.
 You use the same notation for relationship properties as for node properties.
-In this case we went with an array property.</p>
+In this case we went with an array property for the <code class="literal">roles</code>.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Pattern Nodes vs. Database Nodes</b>
 
 <p>Note the difference between pattern nodes and database nodes.
@@ -115,8 +116,8 @@ A pattern node is used to <span class="emphasis"><em>describe</em></span> a node
 <p>You can also assign the whole pattern to an identifier which then allows you to access each of the matched paths in the graph.
 This way you can for instance inspect them or use them in other expressions.</p>
 <pre class="programlisting" data-lang="cypher">path = (:Person)-[:ACTED_IN]-&gt;(:Movie)</pre>
-<p>This path variable would contain 2 nodes and the connecting relationship for each such pattern found or created.
-There are a number of functions to access details of a path, including <code class="literal">nodes(path)</code>, <code class="literal">rels(path)</code>, and <code class="literal">length(path)</code>.</p>
+<p>This path variable would contain two nodes and the connecting relationship for each such pattern found or created.
+There are a number of functions to access details of a path, including <code class="literal">nodes(path)</code>, <code class="literal">rels(path)</code> (same as <code class="literal">relationships(path)</code>), and <code class="literal">length(path)</code>.</p>
 </section>
 <section class="section" id="_clauses"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Clauses</h3></div></div></div>
 

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.16. Select Or Semi Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-select-or-anti-semi-apply.html" title="17.15. Select Or Anti Semi Apply" /><link rel="next" href="query-plan-semi-apply.html" title="17.17. Semi Apply" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.16. Select Or Semi Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,7 +80,9 @@ WHERE other.age &gt; 25 OR (other)-[:FRIENDS_WITH]-&gt;()
 RETURN other</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">SelectOrSemiApply
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+SelectOrSemiApply
   |
   +NodeByLabelScan
   |
@@ -89,9 +91,9 @@ RETURN other</pre><p>
 +-------------------+---------------+------+--------+--------------------------+------------------------------------+
 |          Operator | EstimatedRows | Rows | DbHits |              Identifiers |                              Other |
 +-------------------+---------------+------+--------+--------------------------+------------------------------------+
-| SelectOrSemiApply |          1500 |    2 |      3 |                          | Property(other,age) &gt; {  AUTOINT0} |
+| SelectOrSemiApply |          2000 |    2 |      3 |                          | Property(other,age) &gt; {  AUTOINT0} |
 |   NodeByLabelScan |          2000 |    3 |      4 |                    other |                                 :2 |
-|            Expand |         50000 |    0 |      1 |   UNNAMED63,   UNNAMED82 |                                    |
+|            Expand |         50000 |    0 |      1 |   UNNAMED64,   UNNAMED82 |                                    |
 +-------------------+---------------+------+--------+--------------------------+------------------------------------+
 
 Total database accesses: 8</pre><p>

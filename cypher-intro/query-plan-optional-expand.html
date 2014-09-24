@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.12. Optional Expand -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-node-unique-index-seek.html" title="17.11. Node unique index seek" /><link rel="next" href="query-plan-projection.html" title="17.13. Projection" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.12. Optional Expand" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -82,7 +82,9 @@ WHERE works_in.duration &gt; 180
 RETURN p, l</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">Projection
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+Projection
   |
   +OptionalExpand
     |
@@ -91,8 +93,8 @@ RETURN p, l</pre><p>
 +-----------------+---------------+------+--------+-------------+-------+
 |        Operator | EstimatedRows | Rows | DbHits | Identifiers | Other |
 +-----------------+---------------+------+--------+-------------+-------+
-|      Projection |          2000 |    3 |      0 |             |  p, l |
-|  OptionalExpand |          2000 |    3 |      6 | works_in, l |       |
+|      Projection |         50000 |    3 |      0 |             |  p, l |
+|  OptionalExpand |         50000 |    3 |      6 | works_in, l |       |
 | NodeByLabelScan |          2000 |    3 |      4 |           p |    :2 |
 +-----------------+---------------+------+--------+-------------+-------+
 

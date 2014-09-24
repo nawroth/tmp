@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.14. Pretty graphs -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-clustering-coefficient.html" title="7.13. Calculating the clustering coefficient of a network" /><link rel="next" href="cypher-cookbook-path-tree.html" title="7.15. A multilevel indexing structure (path tree)" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.14. Pretty graphs" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@ FOREACH (x IN range(1,6)| CREATE (leaf),(center)-[:X]-&gt;(leaf))
 RETURN id(center) AS id;</pre><p>
 </p>
 <p>The query returns the id of the center node.</p>
-<div class="queryresult table" id="d5e3725"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e3839"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 7
 </th></tr><tr><th>Relationships created: 6</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
@@ -90,7 +90,7 @@ RETURN id(center) AS id;</pre><p>
     create (leaf), (center)-[:X]-&gt;(leaf)
  )
  return id(center) as id;</strong></span></p>
-<div class="figure" id="d5e3749"><p class="title"><strong>Figure 7.11. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3863"><p class="title"><strong>Figure 7.11. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-prettygraphsstar-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-prettygraphsstar-graph.svg" alt="cypher-prettygraphsstar-graph.svg" /></span>
 </a>
@@ -134,7 +134,7 @@ CREATE (last_leaf)-[:X]-&gt;(first_leaf)
 RETURN id(center) AS id</pre><p>
 </p>
 <p>The query returns the id of the center node.</p>
-<div class="queryresult table" id="d5e3776"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e3890"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 7
 </th></tr><tr><th>Relationships created: 12
 </th></tr><tr><th>Properties set: 6</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr></tbody></table></div></div>
@@ -154,7 +154,7 @@ RETURN id(center) AS id</pre><p>
  CREATE (last_leaf)-[:X]-&gt;(first_leaf)
 
  RETURN id(center) as id</strong></span></p>
-<div class="figure" id="d5e3802"><p class="title"><strong>Figure 7.12. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3916"><p class="title"><strong>Figure 7.12. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-prettygraphswheel-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-prettygraphswheel-graph.svg" alt="cypher-prettygraphswheel-graph.svg" /></span>
 </a>
@@ -172,7 +172,7 @@ WHERE id(leaf1)&lt; id(leaf2)
 CREATE (leaf1)-[:X]-&gt;(leaf2);</pre><p>
 </p>
 <p>Nothing is returned by this query.</p>
-<div class="queryresult table" id="d5e3818"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 6
+<div class="queryresult table" id="d5e3932"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 6
 </th></tr><tr><th>Relationships created: 15
 </th></tr><tr><th>Properties set: 6
 </th></tr><tr><th>Labels added: 6</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
@@ -182,7 +182,7 @@ CREATE (leaf1)-[:X]-&gt;(leaf2);</pre><p>
  MATCH (leaf1:Leaf), (leaf2:Leaf)
  WHERE id(leaf1) &lt; id(leaf2)
  CREATE (leaf1)-[:X]-&gt;(leaf2);</strong></span></p>
-<div class="figure" id="d5e3841"><p class="title"><strong>Figure 7.13. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3955"><p class="title"><strong>Figure 7.13. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-prettygraphscompletegraph-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-prettygraphscompletegraph-graph.svg" alt="cypher-prettygraphscompletegraph-graph.svg" /></span>
 </a>
@@ -198,7 +198,7 @@ FOREACH (x IN range(1,3)| CREATE (leaf1),(leaf2),(center)-[:X]-&gt;(leaf1),(cent
 RETURN ID(center) AS id</pre><p>
 </p>
 <p>The id of the center node is returned by the query.</p>
-<div class="queryresult table" id="d5e3857"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e3971"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 7
 </th></tr><tr><th>Relationships created: 9</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
@@ -207,7 +207,7 @@ RETURN ID(center) AS id</pre><p>
     CREATE (leaf1), (leaf2), (center)-[:X]-&gt;(leaf1), (center)-[:X]-&gt;(leaf2), (leaf1)-[:X]-&gt;(leaf2)
  )
  RETURN ID(center) as id</strong></span></p>
-<div class="figure" id="d5e3881"><p class="title"><strong>Figure 7.14. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3995"><p class="title"><strong>Figure 7.14. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-prettygraphsfriendshipgraph-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-prettygraphsfriendshipgraph-graph.svg" alt="cypher-prettygraphsfriendshipgraph-graph.svg" /></span>
 </a>

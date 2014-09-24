@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.6. Expand -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-directed-relationship-by-id-seek.html" title="17.5. Directed Relationship By Id Seek" /><link rel="next" href="query-plan-limit.html" title="17.7. Limit" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.6. Expand" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -79,7 +79,9 @@ MATCH (p:Person { name: "me" })-[:FRIENDS_WITH*2]-&gt;(fof)
 RETURN fof</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">Projection
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+Projection
   |
   +Var length expand
     |
@@ -90,8 +92,8 @@ RETURN fof</pre><p>
 +-------------------+---------------+------+--------+---------------------+---------------------------------------------------------------------------------------------+
 |          Operator | EstimatedRows | Rows | DbHits |         Identifiers |                                                                                       Other |
 +-------------------+---------------+------+--------+---------------------+---------------------------------------------------------------------------------------------+
-|        Projection | 3750000000000 |    1 |      0 |                     |                                                                                         fof |
-| Var length expand | 3750000000000 |    1 |      4 | p, fof,   UNNAMED29 |                                                                                             |
+|        Projection |         50000 |    1 |      0 |                     |                                                                                         fof |
+| Var length expand |         50000 |    1 |      4 | p, fof,   UNNAMED30 |                                                                                             |
 |            Filter |           400 |    1 |      6 |                     | any(-_-INNER-_- in Collection(List({  AUTOSTRING0})) where Property(p,name) == -_-INNER-_-) |
 |   NodeByLabelScan |          2000 |    3 |      4 |                   p |                                                                                          :2 |
 +-------------------+---------------+------+--------+---------------------+---------------------------------------------------------------------------------------------+

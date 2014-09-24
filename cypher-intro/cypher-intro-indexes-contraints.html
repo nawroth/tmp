@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Chapter 4. Introduction to Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials.html" title="Tutorials" /><link rel="next" href="_graphs_patterns_and_cypher.html" title="4.1. Graphs, Patterns and Cypher" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Chapter 4. Introduction to Cypher" /><script type="text/javascript">
+    <title>4.6. Indexes and Constraints -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-utilizing-data-structures.html" title="4.5. Utilizing Data Structures" /><link rel="next" href="cypherdoc-loading-data.html" title="4.7. Loading Data" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.6. Indexes and Constraints" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,36 +68,23 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Chapter 4. Introduction to Cypher</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="_graphs_patterns_and_cypher.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="chapter" id="_introduction_to_cypher"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title">Chapter 4. Introduction to Cypher</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><ul class="toc"><li><span class="section"><a href="_graphs_patterns_and_cypher.html">4.1. Graphs, Patterns and Cypher</a></span></li><li><span class="section"><a href="cypherdoc-patterns-in-practice.html">4.2. Patterns in Practice</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html">4.3. Getting the Results You Want</a></span></li><li><span class="section"><a href="cypherdoc-how-to-compose-large-statements.html">4.4. How to Compose Large Statements</a></span></li><li><span class="section"><a href="cypherdoc-utilizing-data-structures.html">4.5. Utilizing Data Structures</a></span></li><li><span class="section"><a href="_indexes_and_constraints.html">4.6. Indexes and Constraints</a></span></li><li><span class="section"><a href="cypherdoc-loading-data.html">4.7. Loading Data</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>4.6. Indexes and Constraints</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-utilizing-data-structures.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-loading-data.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-intro-indexes-contraints"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.6. Indexes and Constraints</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-intro-indexes-contraints.html#_lookup_indexes">Lookup Indexes</a></span></li><li><span class="section"><a href="cypher-intro-indexes-contraints.html#_unique_constraints">Unique Constraints</a></span></li></ul></div>
 
-<p>This friendly guide will introduce you to the Cypher query language, which is used by Neo4j.</p>
-<p>The guide will help you:</p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<p>Labels allow you to group nodes, and add indexes or constraints to them.
+Adding an index gives fast lookups for starting nodes in the graph.</p>
+<section class="section" id="_lookup_indexes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Lookup Indexes</h3></div></div></div>
 
-start thinking about graphs and patterns,
+<p>In general, for a graph query to run fast, you don’t need indexes, you only need them to find your starting points.
+After that initial lookups you rely on the in-graph structures and first class citizenship of relationships in the graph database to achieve high performance.</p>
+<p>You would create an index like this: <code class="literal">CREATE INDEX ON :Movie(title)</code></p>
+</section>
+<section class="section" id="_unique_constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Unique Constraints</h3></div></div></div>
 
-</li><li class="listitem">
-
-apply this knowledge to simple problems,
-
-</li><li class="listitem">
-
-learn how to write Cypher statements,
-
-</li><li class="listitem">
-
-use Cypher for loading data.
-
-</li></ul></div>
-<p>If you want to keep a reference on your side while reading, please see the <a class="ulink" href="http://docs.neo4j.org/refcard/2.2-SNAPSHOT" target="_blank">Cypher Refcard</a>.</p>
-
-
-
-
-
-
-
+<p>You can also specify unique constraints that guarantee uniqueness of a certain property on nodes with a specific label.</p>
+<p>These constraints are also used by the <code class="literal">MERGE</code> clause to make certain that a node only exists once.</p>
+<p>A constraint definition would look like this: <code class="literal">CREATE CONSTRAINT ON (p:Person) ASSERT p.name IS UNIQUE</code>.</p>
+</section>
 </section>
 
  <footer>

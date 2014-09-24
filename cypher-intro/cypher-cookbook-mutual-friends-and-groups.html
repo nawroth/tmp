@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.8. Find people based on mutual friends and groups -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-similar-favorites.html" title="7.7. Find people based on similar favorites" /><link rel="next" href="cypher-cookbook-similar-tags.html" title="7.9. Find friends based on similar tagging" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.8. Find people based on mutual friends and groups" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,7 +71,7 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>7.8. Find people based on mutual friends and groups</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-similar-favorites.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-similar-tags.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-mutual-friends-and-groups"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.8. Find people based on mutual friends and groups</h2></div></div></div>
 
-<div class="figure" id="d5e3269"><p class="title"><strong>Figure 7.6. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3383"><p class="title"><strong>Figure 7.6. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-mutualfriendsandgroups-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-mutualfriendsandgroups-graph.svg" alt="cypher-mutualfriendsandgroups-graph.svg" /></span>
 </a>
@@ -90,7 +90,7 @@ ORDER BY mutualFriends DESC</pre><p>
 <p>The question we are asking is — how many unique paths are there between me and Jill, the paths being common group memberships, and common friends.
 If the paths are mandatory, no results will be returned if me and Bob lack any common friends, and we don’t want that. To make a path optional,
 you have to make at least one of it’s relationships optional. That makes the whole path optional.</p>
-<div class="queryresult table" id="d5e3284"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>mutualGroups</th><th>mutualFriends</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Jill"</code></p></td><td><p><code class="literal">1</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">1</code></p></td><td><p><code class="literal">0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3398"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>mutualGroups</th><th>mutualFriends</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Jill"</code></p></td><td><p><code class="literal">1</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">1</code></p></td><td><p><code class="literal">0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Bill"})
 create (_1 {`name`:"Group1"})
 create (_2 {`name`:"Bob"})

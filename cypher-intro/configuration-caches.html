@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>26.6. Caches in Neo4j -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="kernel-configuration.html" title="26.5. Kernel configuration" /><link rel="next" href="configuration-logical-logs.html" title="26.7. Logical logs" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.6. Caches in Neo4j" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -189,17 +189,35 @@ The available cache types are:</p>
 <table cellspacing="0" cellpadding="0"><thead><tr><th> <code class="literal">cache_type</code> </th><th> Description</th></tr></thead><tbody><tr><td><p><code class="literal">none</code></p></td><td><p>Do not use a high level cache. No objects will be cached.</p></td></tr><tr><td><p><code class="literal">soft</code></p></td><td><p>Provides optimal utilization of the available memory.
                  Suitable for high performance traversal.
                  May run into GC issues under high load if the frequently accessed parts of the graph does not fit in the cache.</p>
-<p>                 This is the default cache implementation in Neo4j Community edition.</p></td></tr><tr><td><p><code class="literal">weak</code></p></td><td><p>Provides short life span for cached objects.
+<p>                 This is the default cache type in Neo4j Community Edition.</p></td></tr><tr><td><p><code class="literal">weak</code></p></td><td><p>Provides short life span for cached objects.
                  Suitable for high throughput applications where a larger portion of the graph than what can fit into memory is frequently accessed.</p></td></tr><tr><td><p><code class="literal">strong</code></p></td><td><p>This cache will hold on to <span class="strong"><strong>all data</strong></span> that gets loaded to never release it again.
                  Provides good performance if your graph is small enough to fit in memory.</p></td></tr><tr><td><p><code class="literal">hpc</code></p></td><td><p>The High-Performance Cache. Provides means of assigning a specific amount of memory to dedicate to caching loaded nodes and relationships.
                  Small footprint and fast insert/lookup. Should be the best option for most scenarios. See below on how to configure it.
-                 Note that this option is only available in Neo4j Enterprise Edition where it is the default implementation.</p></td></tr></tbody></table>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+                 Note that this option is only available in Neo4j Enterprise Edition where it is the default implementation.
+=======
+                 This cache type is only available in the Neo4j Enterprise Edition, and is the default in that edition.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/2.1-maint</p></td></tr></tbody></table>
 </div>
 </section>
 <section class="section" id="_high_performance_cache"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">High-Performance Cache</h4></div></div></div>
 
-<p>Since the High-Performance Cache operates with a maximum size in the JVM it may be configured per use case for optimal performance.
-There are two aspects of the cache size.</p>
+<p>How much memory to allocate to the High Performance Cache can be fine tuned to suit your use case.
+There are two ways to configure memory usage for it.</p>
+<p><span class="strong"><strong>Standard configuration</strong></span></p>
+<p>For most use cases, simply specifying a percentage of the memory available for caching to use is enough to tune the High-Performance Cache.</p>
+<p>Allocating more memory to the cache gives faster querying speed, but takes memory away from other components and may put strain on the JVM garbage collector.</p>
+<p>The max amount of memory available for caching depends on which garbage collector you are using.
+For CMS and G1 collectors (CMS is the Neo4j default), it will be equal to the max size of the old generation. How big
+the old generation is is platform-dependent, but can for CMS and G1 be configured using the "NewRatio" JVM configuration
+option.
+For other collectors, it will be half of the total heap size.</p>
+<div class="informaltable">
+<table cellspacing="0" cellpadding="0"><thead><tr><th> <code class="literal">configuration option</code>   </th><th> Description (what it controls)                                                           </th><th> Example value</th></tr></thead><tbody><tr><td><p><code class="literal">cache.memory_ratio</code></p></td><td><p>Percentage, 0-100, of memory available for caching to use for caching. Default is 50%.</p></td><td><p><code class="literal">50.0</code></p></td></tr></tbody></table>
+</div>
+<p><span class="strong"><strong>Advanced configuration</strong></span></p>
+<p>The advanced configuration gives more fine-grained control of how much memory to allocate specific parts of the cache.
+There are two aspects to this configuration.</p>
 <p>One is the size of the array referencing the objects that are put in the cache.
 It is specified as a fraction of the heap, for example specifying <code class="literal">5</code> will let that array itself take up 5% out of the entire heap.
 Increasing this figure (up to a maximum of 10) will reduce the chance of hash collisions at the expense of more heap used for it.

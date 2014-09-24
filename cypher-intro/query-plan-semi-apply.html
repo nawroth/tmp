@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>17.17. Semi Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-select-or-semi-apply.html" title="17.16. Select Or Semi Apply" /><link rel="next" href="query-plan-skip.html" title="17.18. Skip" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.17. Semi Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,7 +80,9 @@ WHERE (other)-[:FRIENDS_WITH]-&gt;()
 RETURN other</pre><p>
 </p>
 <p><strong>Query Plan. </strong>
-</p><pre class="programlisting" data-lang="plain">SemiApply
+</p><pre class="programlisting" data-lang="plain">Compiler CYPHER 2.2-cost
+
+SemiApply
   |
   +NodeByLabelScan
   |
@@ -89,9 +91,9 @@ RETURN other</pre><p>
 +-----------------+---------------+------+--------+--------------------------+-------+
 |        Operator | EstimatedRows | Rows | DbHits |              Identifiers | Other |
 +-----------------+---------------+------+--------+--------------------------+-------+
-|       SemiApply |          1500 |    2 |      0 |                          |       |
+|       SemiApply |          2000 |    2 |      0 |                          |       |
 | NodeByLabelScan |          2000 |    3 |      4 |                    other |    :2 |
-|          Expand |         50000 |    0 |      1 |   UNNAMED45,   UNNAMED64 |       |
+|          Expand |         50000 |    0 |      1 |   UNNAMED46,   UNNAMED64 |       |
 +-----------------+---------------+------+--------+--------------------------+-------+
 
 Total database accesses: 5</pre><p>

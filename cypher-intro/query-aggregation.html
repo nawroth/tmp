@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.5. Aggregation -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-start.html" title="12.4. Start" /><link rel="next" href="query-load-csv.html" title="12.6. Load CSV" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.5. Aggregation" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -104,7 +104,7 @@ RETURN count(DISTINCT friend_of_friend), count(friend_of_friend)</pre><p>
 The first aggregate function, <code class="literal">count(DISTINCT friend_of_friend)</code>, will only see a <code class="literal">friend_of_friend</code> once — <code class="literal">DISTINCT</code> removes the duplicates.
 The latter aggregate function, <code class="literal">count(friend_of_friend)</code>, might very well see the same <code class="literal">friend_of_friend</code> multiple times.
 In this case, both <code class="literal">B</code> and <code class="literal">C</code> know <code class="literal">D</code> and thus <code class="literal">D</code> will get counted twice, when not using <code class="literal">DISTINCT</code>.</p>
-<div class="queryresult table" id="d5e9017"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct friend_of_friend)</th><th>count(friend_of_friend)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9131"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct friend_of_friend)</th><th>count(friend_of_friend)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -115,7 +115,7 @@ create _1-[:`KNOWS`]-&gt;_2
 </span><span class="command"><strong>
  MATCH (me:Person)--&gt;(friend:Person)--&gt;(friend_of_friend:Person) WHERE me.name = 'A'RETURN count(distinct friend_of_friend), count(friend_of_friend)</strong></span></p>
 <p>The following examples are assuming the example graph structure below.</p>
-<div class="figure" id="d5e9043"><p class="title"><strong>Figure 12.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e9157"><p class="title"><strong>Figure 12.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-aggregation-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-aggregation-graph.svg" alt="cypher-aggregation-graph.svg" /></span>
 </a>
@@ -133,7 +133,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN n, count(*)</pre><p>
 </p>
 <p>This returns the start node and the count of related nodes.</p>
-<div class="queryresult table" id="d5e9069"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"A",property:13}</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9183"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"A",property:13}</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -152,7 +152,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN type(r), count(*)</pre><p>
 </p>
 <p>The relationship types and their group count is returned by the query.</p>
-<div class="queryresult table" id="d5e9103"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9217"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -171,7 +171,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN count(x)</pre><p>
 </p>
 <p>The example query returns the number of connected nodes from the start node.</p>
-<div class="queryresult table" id="d5e9137"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(x)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9251"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(x)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -190,7 +190,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN count(n.property)</pre><p>
 </p>
 <p>The count of related nodes with the <code class="literal">property</code> property set is returned by the query.</p>
-<div class="queryresult table" id="d5e9168"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9282"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -212,7 +212,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN sum(n.property)</pre><p>
 </p>
 <p>This returns the sum of all the values in the property <code class="literal">property</code>.</p>
-<div class="queryresult table" id="d5e9201"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sum(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">90</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9315"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sum(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">90</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -231,7 +231,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN avg(n.property)</pre><p>
 </p>
 <p>The average of all the values in the property <code class="literal">property</code> is returned by the example query.</p>
-<div class="queryresult table" id="d5e9231"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>avg(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">30.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9345"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>avg(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">30.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -252,7 +252,7 @@ For interpolated values, see <code class="literal">percentileCont</code>.</p>
 RETURN percentileDisc(n.property, 0.5)</pre><p>
 </p>
 <p>The 50th percentile of the values in the property <code class="literal">property</code> is returned by the example query. In this case, 0.5 is the median, or 50th percentile.</p>
-<div class="queryresult table" id="d5e9262"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileDisc(n.property, 0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">33</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9376"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileDisc(n.property, 0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">33</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -273,7 +273,7 @@ For nearest values using a rounding method, see <code class="literal">percentile
 RETURN percentileCont(n.property, 0.4)</pre><p>
 </p>
 <p>The 40th percentile of the values in the property <code class="literal">property</code> is returned by the example query, calculated with a weighted average.</p>
-<div class="queryresult table" id="d5e9293"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileCont(n.property, 0.4)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">29.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9407"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileCont(n.property, 0.4)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">29.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -295,7 +295,7 @@ WHERE n.name IN ['A', 'B', 'C']
 RETURN stdev(n.property)</pre><p>
 </p>
 <p>The standard deviation of the values in the property <code class="literal">property</code> is returned by the example query.</p>
-<div class="queryresult table" id="d5e9325"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdev(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">15.716233645501712</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9439"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdev(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">15.716233645501712</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -317,7 +317,7 @@ WHERE n.name IN ['A', 'B', 'C']
 RETURN stdevp(n.property)</pre><p>
 </p>
 <p>The population standard deviation of the values in the property <code class="literal">property</code> is returned by the example query.</p>
-<div class="queryresult table" id="d5e9357"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdevp(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">12.832251036613439</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9471"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdevp(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">12.832251036613439</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -336,7 +336,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN max(n.property)</pre><p>
 </p>
 <p>The largest of all the values in the property <code class="literal">property</code> is returned.</p>
-<div class="queryresult table" id="d5e9387"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>max(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">44</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9501"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>max(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">44</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -355,7 +355,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN min(n.property)</pre><p>
 </p>
 <p>This returns the smallest of all the values in the property <code class="literal">property</code>.</p>
-<div class="queryresult table" id="d5e9417"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>min(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">13</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9531"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>min(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">13</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -375,7 +375,7 @@ create _1-[:`KNOWS`]-&gt;_2
 RETURN collect(n.property)</pre><p>
 </p>
 <p>Returns a single row, with all the values collected.</p>
-<div class="queryresult table" id="d5e9447"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[13,33,44]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9561"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[13,33,44]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
@@ -395,7 +395,7 @@ So, to count the number of unique eye colors from nodes related to <code class="
 RETURN count(DISTINCT b.eyes)</pre><p>
 </p>
 <p>Returns the number of eye colors.</p>
-<div class="queryresult table" id="d5e9477"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct b.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9591"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct b.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})

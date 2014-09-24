@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>29.1. Securing access to the Neo4j Server -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="operations-security.html" title="Chapter 29. Security" /><link rel="next" href="operations-monitoring.html" title="Chapter 30. Monitoring" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.1. Securing access to the Neo4j Server" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -283,7 +283,7 @@ Exposing your server without implementing a security layer poses a substantial s
 </section>
 <section class="section" id="_security_in_depth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Security in Depth</h3></div></div></div>
 
-<p>Although the Neo4j server has a number of security features built-in (see the above chapters), for sensitive deployments it is often sensible to front against the outside world it with a proxy like Apache <code class="literal">mod_proxy</code> <a href="#ftn.d5e24247" class="footnote"><sup class="footnote" id="d5e24247">[2]</sup></a>.</p>
+<p>Although the Neo4j server has a number of security features built-in (see the above chapters), for sensitive deployments it is often sensible to front against the outside world it with a proxy like Apache <code class="literal">mod_proxy</code> <a href="#ftn.d5e24390" class="footnote"><sup class="footnote" id="d5e24390">[2]</sup></a>.</p>
 <p>This provides a number of advantages:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p class="simpara">
@@ -304,7 +304,7 @@ Run Neo4j Server as a non-root user on a Linux/Unix system on a port &lt; 1000 (
 ProxyPassReverse /neo4jdb/data http://localhost:7474/db/data</pre>
 </li><li class="listitem">
 <p class="simpara">
-Simple load balancing in a clustered environment to load-balance read load using the Apache <code class="literal">mod_proxy_balancer</code> <a href="#ftn.d5e24267" class="footnote"><sup class="footnote" id="d5e24267">[3]</sup></a> plugin
+Simple load balancing in a clustered environment to load-balance read load using the Apache <code class="literal">mod_proxy_balancer</code> <a href="#ftn.d5e24410" class="footnote"><sup class="footnote" id="d5e24410">[3]</sup></a> plugin
 </p>
 <pre class="programlisting" data-lang="plain">&lt;Proxy balancer://mycluster&gt;
 BalancerMember http://192.168.1.50:80
@@ -313,7 +313,7 @@ BalancerMember http://192.168.1.51:80
 ProxyPass /test balancer://mycluster</pre>
 </li></ul></div>
 </section>
-<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e24247" class="footnote"><p><a href="#d5e24247" class="simpara"><sup class="simpara">[2] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a></p></div><div id="ftn.d5e24267" class="footnote"><p><a href="#d5e24267" class="simpara"><sup class="simpara">[3] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html</a></p></div></div></section>
+<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e24390" class="footnote"><p><a href="#d5e24390" class="simpara"><sup class="simpara">[2] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a></p></div><div id="ftn.d5e24410" class="footnote"><p><a href="#d5e24410" class="simpara"><sup class="simpara">[3] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html</a></p></div></div></section>
 
  <footer>
    <p>

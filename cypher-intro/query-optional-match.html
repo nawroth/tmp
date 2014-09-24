@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.2. Optional Match -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-match.html" title="12.1. Match" /><link rel="next" href="query-where.html" title="12.3. Where" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.2. Optional Match" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@ Remember that <code class="literal">WHERE</code> is part of the pattern descript
 This matters especially in the case of multiple (<code class="literal">OPTIONAL</code>) <code class="literal">MATCH</code> clauses, where it is crucial to put <code class="literal">WHERE</code> together with the <code class="literal">MATCH</code> it belongs to.</p>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>To understand the patterns used in the <code class="literal">OPTIONAL</code> <code class="literal">MATCH</code> clause, read <a class="xref" href="introduction-pattern.html" title="10.8. Patterns">Section 10.8, “Patterns”</a>.</p></td></tr></table></div>
 <p>The following graph is used for the examples below:</p>
-<div class="figure" id="d5e8029"><p class="title"><strong>Figure 12.2. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e8143"><p class="title"><strong>Figure 12.2. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-optionalmatch-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-optionalmatch-graph.svg" alt="cypher-optionalmatch-graph.svg" /></span>
 </a>
@@ -96,7 +96,7 @@ OPTIONAL MATCH (a)--&gt;(x)
 RETURN x</pre><p>
 </p>
 <p>Returns <code class="literal">NULL</code>, since the node has no outgoing relationships.</p>
-<div class="queryresult table" id="d5e8049"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8163"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -124,7 +124,7 @@ OPTIONAL MATCH (a)--&gt;(x)
 RETURN x, x.name</pre><p>
 </p>
 <p>Returns the element x (<code class="literal">NULL</code> in this query), and <code class="literal">NULL</code> as its name.</p>
-<div class="queryresult table" id="d5e8081"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th><th>x.name</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8195"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th><th>x.name</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -152,7 +152,7 @@ OPTIONAL MATCH (a)-[r:ACTS_IN]-&gt;()
 RETURN r</pre><p>
 </p>
 <p>This returns a node, and <code class="literal">NULL</code>, since the node has no outgoing <code class="literal">ACTS_IN</code> relationships.</p>
-<div class="queryresult table" id="d5e8116"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8230"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9.4. Uniqueness -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-transactions.html" title="9.3. Transactions" /><link rel="next" href="cypher-parameters.html" title="9.5. Parameters" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.4. Uniqueness" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -96,7 +96,7 @@ If the query should return the user, it is possible to spread the matching over 
 <pre class="programlisting" data-lang="cypher">MATCH (user:User { name: 'Adam' })-[r1:FRIEND]-(friend)
 MATCH (friend)-[r2:FRIEND]-(friend_of_a_friend)
 RETURN friend_of_a_friend</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>friend_of_a_friend</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"David"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Adam"}</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>friend_of_a_friend</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Adam"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"David"}</code></p></td></tr></tbody></table></div>
 <p>Note that while the following query looks similar to the previous one, it is actually equivalent to the one before.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (user:User { name: 'Adam' })-[r1:FRIEND]-(friend),(friend)-[r2:FRIEND]-(friend_of_a_friend)
 RETURN friend_of_a_friend</pre>

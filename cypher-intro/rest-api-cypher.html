@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>23.5. Legacy Cypher HTTP endpoint -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-streaming.html" title="23.4. Streaming" /><link rel="next" href="rest-api-property-values.html" title="23.6. Property values" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="23.5. Legacy Cypher HTTP endpoint" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -87,7 +87,7 @@ which are submitted as JSON.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (x { name: { startName }})-[r]-(friend)
 WHERE friend.name = { name }
 RETURN TYPE(r)</pre>
-<div class="figure" id="d5e16535"><p class="title"><strong>Figure 23.3. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16649"><p class="title"><strong>Figure 23.3. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Use-parameters.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Use-parameters.svg" alt="Final-Graph-Use-parameters.svg" /></span>
 </a>
@@ -134,7 +134,7 @@ RETURN TYPE(r)</pre>
 See the request for the parameter sent with the query.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { name : { name }})
 RETURN n</pre>
-<div class="figure" id="d5e16580"><p class="title"><strong>Figure 23.4. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16694"><p class="title"><strong>Figure 23.4. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-a-node.svg" alt="Final-Graph-Create-a-node.svg" /></span>
 </a>
@@ -177,12 +177,12 @@ RETURN n</pre>
     "data" : {
       "name" : "Andres"
     },
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/183/relationships/all/{-list|&amp;|types}",
     "traverse" : "http://localhost:7474/db/data/node/183/traverse/{returnType}",
-    "self" : "http://localhost:7474/db/data/node/183",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/183/relationships/all/{-list|&amp;|types}",
     "property" : "http://localhost:7474/db/data/node/183/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/183/properties",
+    "self" : "http://localhost:7474/db/data/node/183",
     "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/183/relationships/out/{-list|&amp;|types}",
+    "properties" : "http://localhost:7474/db/data/node/183/properties",
     "incoming_relationships" : "http://localhost:7474/db/data/node/183/relationships/in",
     "extensions" : { },
     "create_relationship" : "http://localhost:7474/db/data/node/183/relationships",
@@ -198,7 +198,7 @@ RETURN n</pre>
 See the request for the parameter sent with the query.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre>
-<div class="figure" id="d5e16625"><p class="title"><strong>Figure 23.5. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16739"><p class="title"><strong>Figure 23.5. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-a-node-with-multiple-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-a-node-with-multiple-properties.svg" alt="Final-Graph-Create-a-node-with-multiple-properties.svg" /></span>
 </a>
@@ -249,12 +249,12 @@ RETURN n</pre>
       "name" : "Michael",
       "children" : 3
     },
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/180/relationships/all/{-list|&amp;|types}",
     "traverse" : "http://localhost:7474/db/data/node/180/traverse/{returnType}",
-    "self" : "http://localhost:7474/db/data/node/180",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/180/relationships/all/{-list|&amp;|types}",
     "property" : "http://localhost:7474/db/data/node/180/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/180/properties",
+    "self" : "http://localhost:7474/db/data/node/180",
     "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/180/relationships/out/{-list|&amp;|types}",
+    "properties" : "http://localhost:7474/db/data/node/180/properties",
     "incoming_relationships" : "http://localhost:7474/db/data/node/180/relationships/in",
     "extensions" : { },
     "create_relationship" : "http://localhost:7474/db/data/node/180/relationships",
@@ -270,7 +270,7 @@ RETURN n</pre>
 the parameter sent with the query.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre>
-<div class="figure" id="d5e16670"><p class="title"><strong>Figure 23.6. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16784"><p class="title"><strong>Figure 23.6. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-multiple-nodes-with-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-multiple-nodes-with-properties.svg" alt="Final-Graph-Create-multiple-nodes-with-properties.svg" /></span>
 </a>
@@ -320,12 +320,12 @@ RETURN n</pre>
       "position" : "Developer",
       "name" : "Andres"
     },
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/184/relationships/all/{-list|&amp;|types}",
     "traverse" : "http://localhost:7474/db/data/node/184/traverse/{returnType}",
-    "self" : "http://localhost:7474/db/data/node/184",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/184/relationships/all/{-list|&amp;|types}",
     "property" : "http://localhost:7474/db/data/node/184/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/184/properties",
+    "self" : "http://localhost:7474/db/data/node/184",
     "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/184/relationships/out/{-list|&amp;|types}",
+    "properties" : "http://localhost:7474/db/data/node/184/properties",
     "incoming_relationships" : "http://localhost:7474/db/data/node/184/relationships/in",
     "extensions" : { },
     "create_relationship" : "http://localhost:7474/db/data/node/184/relationships",
@@ -339,12 +339,12 @@ RETURN n</pre>
       "position" : "Developer",
       "name" : "Michael"
     },
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/185/relationships/all/{-list|&amp;|types}",
     "traverse" : "http://localhost:7474/db/data/node/185/traverse/{returnType}",
-    "self" : "http://localhost:7474/db/data/node/185",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/185/relationships/all/{-list|&amp;|types}",
     "property" : "http://localhost:7474/db/data/node/185/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/185/properties",
+    "self" : "http://localhost:7474/db/data/node/185",
     "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/185/relationships/out/{-list|&amp;|types}",
+    "properties" : "http://localhost:7474/db/data/node/185/properties",
     "incoming_relationships" : "http://localhost:7474/db/data/node/185/relationships/in",
     "extensions" : { },
     "create_relationship" : "http://localhost:7474/db/data/node/185/relationships",
@@ -360,7 +360,7 @@ RETURN n</pre>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { name: 'this property is to be deleted' })
 SET n = { props }
 RETURN n</pre>
-<div class="figure" id="d5e16715"><p class="title"><strong>Figure 23.7. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16829"><p class="title"><strong>Figure 23.7. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Set-all-properties-on-a-node-using-Cypher.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Set-all-properties-on-a-node-using-Cypher.svg" alt="Final-Graph-Set-all-properties-on-a-node-using-Cypher.svg" /></span>
 </a>
@@ -411,12 +411,12 @@ RETURN n</pre>
       "children" : 3,
       "firstName" : "Michael"
     },
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/211/relationships/all/{-list|&amp;|types}",
     "traverse" : "http://localhost:7474/db/data/node/211/traverse/{returnType}",
-    "self" : "http://localhost:7474/db/data/node/211",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/211/relationships/all/{-list|&amp;|types}",
     "property" : "http://localhost:7474/db/data/node/211/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/211/properties",
+    "self" : "http://localhost:7474/db/data/node/211",
     "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/211/relationships/out/{-list|&amp;|types}",
+    "properties" : "http://localhost:7474/db/data/node/211/properties",
     "incoming_relationships" : "http://localhost:7474/db/data/node/211/relationships/in",
     "extensions" : { },
     "create_relationship" : "http://localhost:7474/db/data/node/211/relationships",
@@ -432,7 +432,7 @@ RETURN n</pre>
 node and the name property, if it exists, otherwise <code class="literal">NULL</code>:</p>
 <pre class="programlisting" data-lang="cypher">MATCH (x { name: 'I' })-[r]-&gt;(n)
 RETURN type(r), n.name, n.age</pre>
-<div class="figure" id="d5e16761"><p class="title"><strong>Figure 23.8. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16875"><p class="title"><strong>Figure 23.8. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Send-a-query.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Send-a-query.svg" alt="Final-Graph-Send-a-query.svg" /></span>
 </a>
@@ -475,7 +475,7 @@ RETURN type(r), n.name, n.age</pre>
 <p>Paths can be returned just like other return types.</p>
 <pre class="programlisting" data-lang="cypher">MATCH path =(x { name: 'I' })--(friend)
 RETURN path, friend.name</pre>
-<div class="figure" id="d5e16806"><p class="title"><strong>Figure 23.9. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16920"><p class="title"><strong>Figure 23.9. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Return-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Return-paths.svg" alt="Final-Graph-Return-paths.svg" /></span>
 </a>
@@ -529,7 +529,7 @@ according to their types.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (n)
 WHERE n.name IN ['I', 'you']
 RETURN collect(n.name)</pre>
-<div class="figure" id="d5e16851"><p class="title"><strong>Figure 23.10. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16965"><p class="title"><strong>Figure 23.10. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-nested-results.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-nested-results.svg" alt="Final-Graph-nested-results.svg" /></span>
 </a>
@@ -575,7 +575,7 @@ be returned, such as how many labels were added or removed by the query.</p>
 SET n:Actor
 REMOVE n:Director
 RETURN labels(n)</pre>
-<div class="figure" id="d5e16896"><p class="title"><strong>Figure 23.11. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17010"><p class="title"><strong>Figure 23.11. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Retrieve-query-metadata.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Retrieve-query-metadata.svg" alt="Final-Graph-Retrieve-query-metadata.svg" /></span>
 </a>
@@ -633,7 +633,7 @@ RETURN labels(n)</pre>
 exception name and stacktrace.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (x { name: 'I' })
 RETURN x.dummy/0</pre>
-<div class="figure" id="d5e16941"><p class="title"><strong>Figure 23.12. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17055"><p class="title"><strong>Figure 23.12. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Errors.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Errors.svg" alt="Final-Graph-Errors.svg" /></span>
 </a>

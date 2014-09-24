@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.2. Constraints -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-schema-index.html" title="15.1. Indexes" /><link rel="next" href="examples-from-sql-to-cypher.html" title="Chapter 16. From SQL to Cypher" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.2. Constraints" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66060";
+      var treeCookieId = "treeview-66629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -85,7 +85,7 @@ If you drop a constraint and still want an index on the property, you will have 
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT book.isbn IS UNIQUE</pre><p>
 </p>
-<div class="queryresult table" id="d5e14127"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14241"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
 </span><span class="command"><strong>CREATE CONSTRAINT ON (book:Book) ASSERT book.isbn IS UNIQUE</strong></span></p>
 </section>
@@ -95,7 +95,7 @@ If you drop a constraint and still want an index on the property, you will have 
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON (book:Book) ASSERT book.isbn IS UNIQUE</pre><p>
 </p>
-<div class="queryresult table" id="d5e14153"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14267"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="constraints-create-a-node-that-complies-with-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that complies with constraints</h3></div></div></div>
 
@@ -103,7 +103,7 @@ If you drop a constraint and still want an index on the property, you will have 
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (book:Book { isbn: '1449356265', title: 'Graph Databases' })</pre><p>
 </p>
-<div class="queryresult table" id="d5e14174"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e14288"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
