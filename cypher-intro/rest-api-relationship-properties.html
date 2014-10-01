@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>23.11. Relationship properties -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-properties.html" title="23.10. Node properties" /><link rel="next" href="rest-api-node-labels.html" title="23.12. Node labels" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="23.11. Relationship properties" /><script type="text/javascript">
+    <title>22.11. Relationship properties -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-properties.html" title="22.10. Node properties" /><link rel="next" href="rest-api-node-labels.html" title="22.12. Node labels" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.11. Relationship properties" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,12 +68,12 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>23.11. Relationship properties</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-node-properties.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-node-labels.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-relationship-properties"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">23.11. Relationship properties</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-update-relationship-properties">Update relationship properties</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-properties-from-a-relationship">Remove properties from a relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-property-from-a-relationship">Remove property from a relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-non-existent-property-from-a-relationship">Remove non-existent property from a relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-properties-from-a-non-existing-relationship">Remove properties from a non-existing relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-property-from-a-non-existing-relationship">Remove property from a non-existing relationship</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.11. Relationship properties</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-node-properties.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-node-labels.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-relationship-properties"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.11. Relationship properties</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-update-relationship-properties">Update relationship properties</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-properties-from-a-relationship">Remove properties from a relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-property-from-a-relationship">Remove property from a relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-non-existent-property-from-a-relationship">Remove non-existent property from a relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-properties-from-a-non-existing-relationship">Remove properties from a non-existing relationship</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html#rest-api-remove-property-from-a-non-existing-relationship">Remove property from a non-existing relationship</a></span></li></ul></div>
 
 <section class="section" id="rest-api-update-relationship-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Update relationship properties</h3></div></div></div>
 
-<div class="figure" id="d5e18234"><p class="title"><strong>Figure 23.42. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17673"><p class="title"><strong>Figure 22.42. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Update-relationship-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Update-relationship-properties.svg" alt="Final-Graph-Update-relationship-properties.svg" /></span>
 </a>
@@ -105,7 +105,7 @@
 </section>
 <section class="section" id="rest-api-remove-properties-from-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove properties from a relationship</h3></div></div></div>
 
-<div class="figure" id="d5e18272"><p class="title"><strong>Figure 23.43. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17711"><p class="title"><strong>Figure 22.43. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-properties-from-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-properties-from-a-relationship.svg" alt="Final-Graph-Remove-properties-from-a-relationship.svg" /></span>
 </a>
@@ -131,12 +131,12 @@
 <section class="section" id="rest-api-remove-property-from-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove property from a relationship</h3></div></div></div>
 
 <p>See the example request below.</p>
-<div class="figure" id="d5e18305"><p class="title"><strong>Figure 23.44. Starting Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17744"><p class="title"><strong>Figure 22.44. Starting Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Starting-Graph-Remove-property-from-a-relationship1.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Starting-Graph-Remove-property-from-a-relationship1.svg" alt="Starting-Graph-Remove-property-from-a-relationship1.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e18313"><p class="title"><strong>Figure 23.45. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17752"><p class="title"><strong>Figure 22.45. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-property-from-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-property-from-a-relationship.svg" alt="Final-Graph-Remove-property-from-a-relationship.svg" /></span>
 </a>
@@ -163,7 +163,7 @@
 
 <p>Attempting to remove a property that doesn’t exist results in
 an error.</p>
-<div class="figure" id="d5e18346"><p class="title"><strong>Figure 23.46. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17785"><p class="title"><strong>Figure 22.46. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-non-existent-property-from-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-non-existent-property-from-a-relationship.svg" alt="Final-Graph-Remove-non-existent-property-from-a-relationship.svg" /></span>
 </a>
@@ -205,7 +205,7 @@ an error.</p>
 
 <p>Attempting to remove all properties from a relationship which doesn’t
 exist results in an error.</p>
-<div class="figure" id="d5e18384"><p class="title"><strong>Figure 23.47. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17823"><p class="title"><strong>Figure 22.47. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-properties-from-a-non-existing-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-properties-from-a-non-existing-relationship.svg" alt="Final-Graph-Remove-properties-from-a-non-existing-relationship.svg" /></span>
 </a>
@@ -247,7 +247,7 @@ exist results in an error.</p>
 
 <p>Attempting to remove a property from a relationship which doesn’t exist
 results in an error.</p>
-<div class="figure" id="d5e18422"><p class="title"><strong>Figure 23.48. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17861"><p class="title"><strong>Figure 22.48. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-property-from-a-non-existing-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-property-from-a-non-existing-relationship.svg" alt="Final-Graph-Remove-property-from-a-non-existing-relationship.svg" /></span>
 </a>

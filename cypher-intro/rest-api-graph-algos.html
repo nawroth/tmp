@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>23.16. Graph Algorithms -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-traverse.html" title="23.15. Traversals" /><link rel="next" href="rest-api-batch-ops.html" title="23.17. Batch operations" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="23.16. Graph Algorithms" /><script type="text/javascript">
+    <title>22.16. Graph Algorithms -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-traverse.html" title="22.15. Traversals" /><link rel="next" href="rest-api-batch-ops.html" title="22.17. Batch operations" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.16. Graph Algorithms" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>23.16. Graph Algorithms</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-traverse.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-batch-ops.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-graph-algos"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">23.16. Graph Algorithms</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-all-shortest-paths">Find all shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-one-of-the-shortest-paths">Find one of the shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-a-single-path">Execute a Dijkstra algorithm and get a single path</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-with-equal-weights-on-relationships">Execute a Dijkstra algorithm with equal weights on relationships</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-multiple-paths">Execute a Dijkstra algorithm and get multiple paths</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.16. Graph Algorithms</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-traverse.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-batch-ops.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-graph-algos"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.16. Graph Algorithms</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-all-shortest-paths">Find all shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-one-of-the-shortest-paths">Find one of the shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-a-single-path">Execute a Dijkstra algorithm and get a single path</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-with-equal-weights-on-relationships">Execute a Dijkstra algorithm with equal weights on relationships</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-multiple-paths">Execute a Dijkstra algorithm and get multiple paths</a></span></li></ul></div>
 
 <p>Neo4j comes with a number of built-in graph algorithms.
 They are performed from a start node.
@@ -111,7 +111,7 @@ Default is <code class="literal">1</code>.
 
 <p>The <code class="literal">shortestPath</code> algorithm can find multiple paths between the same
 nodes, like in this example.</p>
-<div class="figure" id="d5e19564"><p class="title"><strong>Figure 23.62. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19003"><p class="title"><strong>Figure 22.62. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Find-all-shortest-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Find-all-shortest-paths.svg" alt="Final-Graph-Find-all-shortest-paths.svg" /></span>
 </a>
@@ -170,7 +170,7 @@ nodes, like in this example.</p>
 <p>If no path algorithm is specified, a <code class="literal">shortestPath</code> algorithm with a max
 depth of 1 will be chosen. In this example, the <code class="literal">max_depth</code> is set to <code class="literal">3</code>
 in order to find the shortest path between a maximum of 3 linked nodes.</p>
-<div class="figure" id="d5e19611"><p class="title"><strong>Figure 23.63. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19050"><p class="title"><strong>Figure 22.63. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Find-one-of-the-shortest-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Find-one-of-the-shortest-paths.svg" alt="Final-Graph-Find-one-of-the-shortest-paths.svg" /></span>
 </a>
@@ -222,7 +222,7 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 <p>This example is running a Dijkstra algorithm over a graph with different
 cost properties on different relationships. Note that the request URI
 ends with <code class="literal">/path</code> which means a single path is what we want here.</p>
-<div class="figure" id="d5e19656"><p class="title"><strong>Figure 23.64. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19095"><p class="title"><strong>Figure 22.64. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-a-single-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-a-single-path.svg" alt="Final-Graph-Execute-a-Dijkstra-algorithm-and-get-a-single-path.svg" /></span>
 </a>
@@ -276,7 +276,7 @@ ends with <code class="literal">/path</code> which means a single path is what w
 weights on all relationships. This example is included to show the
 difference when the same graph structure is used, but the path weight is
 equal to the number of hops.</p>
-<div class="figure" id="d5e19700"><p class="title"><strong>Figure 23.65. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19139"><p class="title"><strong>Figure 22.65. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-a-Dijkstra-algorithm-with-equal-weights-on-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-a-Dijkstra-algorithm-with-equal-weights-on-relationships.svg" alt="Final-Graph-Execute-a-Dijkstra-algorithm-with-equal-weights-on-relationships.svg" /></span>
 </a>
@@ -330,7 +330,7 @@ equal to the number of hops.</p>
 cost properties on different relationships. Note that the request URI
 ends with <code class="literal">/paths</code> which means we want multiple paths returned, in case
 they exist.</p>
-<div class="figure" id="d5e19745"><p class="title"><strong>Figure 23.66. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19184"><p class="title"><strong>Figure 22.66. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-multiple-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-multiple-paths.svg" alt="Final-Graph-Execute-a-Dijkstra-algorithm-and-get-multiple-paths.svg" /></span>
 </a>

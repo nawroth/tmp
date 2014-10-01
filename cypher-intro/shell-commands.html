@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>32.6. How to use (individual commands) -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="shell-titles.html" title="32.5. Node titles" /><link rel="next" href="shell-sample-session.html" title="32.7. An example shell session" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="32.6. How to use (individual commands)" /><script type="text/javascript">
+    <title>31.6. How to use (individual commands) -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="shell-titles.html" title="31.5. Node titles" /><link rel="next" href="shell-sample-session.html" title="31.7. An example shell session" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="31.6. How to use (individual commands)" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>32.6. How to use (individual commands)</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="shell-titles.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="shell.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="shell-sample-session.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="shell-commands"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">32.6. How to use (individual commands)</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="shell-commands.html#comments">Comments</a></span></li><li><span class="section"><a href="shell-commands.html#shell-current-pos">Current node/relationship and path</a></span></li><li><span class="section"><a href="shell-commands.html#shell-listing">Listing the contents of a node/relationship</a></span></li><li><span class="section"><a href="shell-commands.html#_creating_nodes_and_relationships">Creating nodes and relationships</a></span></li><li><span class="section"><a href="shell-commands.html#_setting_renaming_and_removing_properties">Setting, renaming and removing properties</a></span></li><li><span class="section"><a href="shell-commands.html#_deleting_nodes_and_relationships">Deleting nodes and relationships</a></span></li><li><span class="section"><a href="shell-commands.html#shell-env-vars">Environment variables</a></span></li><li><span class="section"><a href="shell-commands.html#_executing_groovy_python_scripts">Executing groovy/python scripts</a></span></li><li><span class="section"><a href="shell-commands.html#_traverse">Traverse</a></span></li><li><span class="section"><a href="shell-commands.html#_query_with_cypher">Query with Cypher</a></span></li><li><span class="section"><a href="shell-commands.html#shell-listing-indexes-and-constraints">Listing Indexes and Constraints</a></span></li><li><span class="section"><a href="shell-commands.html#shell-legacy-indexing">Legacy Indexing</a></span></li><li><span class="section"><a href="shell-commands.html#_transactions">Transactions</a></span></li><li><span class="section"><a href="shell-commands.html#_dumping_the_database_or_cypher_statement_results">Dumping the database or Cypher statement results</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>31.6. How to use (individual commands)</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="shell-titles.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="shell.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="shell-sample-session.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="shell-commands"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">31.6. How to use (individual commands)</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="shell-commands.html#comments">Comments</a></span></li><li><span class="section"><a href="shell-commands.html#shell-current-pos">Current node/relationship and path</a></span></li><li><span class="section"><a href="shell-commands.html#shell-listing">Listing the contents of a node/relationship</a></span></li><li><span class="section"><a href="shell-commands.html#_creating_nodes_and_relationships">Creating nodes and relationships</a></span></li><li><span class="section"><a href="shell-commands.html#_setting_renaming_and_removing_properties">Setting, renaming and removing properties</a></span></li><li><span class="section"><a href="shell-commands.html#_deleting_nodes_and_relationships">Deleting nodes and relationships</a></span></li><li><span class="section"><a href="shell-commands.html#shell-env-vars">Environment variables</a></span></li><li><span class="section"><a href="shell-commands.html#_executing_groovy_python_scripts">Executing groovy/python scripts</a></span></li><li><span class="section"><a href="shell-commands.html#_traverse">Traverse</a></span></li><li><span class="section"><a href="shell-commands.html#_query_with_cypher">Query with Cypher</a></span></li><li><span class="section"><a href="shell-commands.html#shell-listing-indexes-and-constraints">Listing Indexes and Constraints</a></span></li><li><span class="section"><a href="shell-commands.html#shell-legacy-indexing">Legacy Indexing</a></span></li><li><span class="section"><a href="shell-commands.html#_transactions">Transactions</a></span></li><li><span class="section"><a href="shell-commands.html#_dumping_the_database_or_cypher_statement_results">Dumping the database or Cypher statement results</a></span></li></ul></div>
 
 <p>The shell is modeled after Unix shells like bash that you use to walk around your local file system.
 It has some of the same commands, like <code class="literal">cd</code> and <code class="literal">ls</code>.
@@ -119,7 +119,7 @@ When the shell first starts you are not positioned on any entity, but you can <c
 
 <p>List contents of the current node/relationship (or any other node) with the <code class="literal">ls</code> command.
 Please note that it will give an empty output if the current node/relationship has no properties or relationships (for example in the case of a brand new graph).
-<code class="literal">ls</code> can take a node id as argument as well as filters, see <a class="xref" href="shell-filters.html" title="32.4. Filters">Section 32.4, “Filters”</a> and for information about how to specify direction see <a class="xref" href="shell-options-enum.html" title="32.3. Enum options">Section 32.3, “Enum options”</a>.
+<code class="literal">ls</code> can take a node id as argument as well as filters, see <a class="xref" href="shell-filters.html" title="31.4. Filters">Section 31.4, “Filters”</a> and for information about how to specify direction see <a class="xref" href="shell-options-enum.html" title="31.3. Enum options">Section 31.3, “Enum options”</a>.
 Use <code class="literal">man ls</code> for more info.</p>
 </section>
 <section class="section" id="_creating_nodes_and_relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Creating nodes and relationships</h3></div></div></div>
@@ -180,8 +180,8 @@ Also please write your outputs to the <code class="literal">out</code> variable,
 You can supply which relationship types (w/ regex matching) and optionally direction as well as property filters for matching nodes.
 In addition to that you can supply a command line to execute for each match.
 An example: <code class="literal">trav -o depth -r KNOWS:both,HAS_.*:incoming -c "ls $n"</code>.
-Which means traverse depth first for relationships with type <code class="literal">KNOWS</code> disregarding direction and incoming relationships with type matching <code class="literal">HAS_.\*</code> and do a <code class="literal">ls &lt;matching node&gt;</code> for each match. The node filtering is supplied with the <code class="literal">-f</code> option, see <a class="xref" href="shell-filters.html" title="32.4. Filters">Section 32.4, “Filters”</a>.
-See <a class="xref" href="shell-options-enum.html" title="32.3. Enum options">Section 32.3, “Enum options”</a> for the traversal order option. Even relationship types/directions are supplied using the same format as filters.</p>
+Which means traverse depth first for relationships with type <code class="literal">KNOWS</code> disregarding direction and incoming relationships with type matching <code class="literal">HAS_.\*</code> and do a <code class="literal">ls &lt;matching node&gt;</code> for each match. The node filtering is supplied with the <code class="literal">-f</code> option, see <a class="xref" href="shell-filters.html" title="31.4. Filters">Section 31.4, “Filters”</a>.
+See <a class="xref" href="shell-options-enum.html" title="31.3. Enum options">Section 31.3, “Enum options”</a> for the traversal order option. Even relationship types/directions are supplied using the same format as filters.</p>
 </section>
 <section class="section" id="_query_with_cypher"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Query with Cypher</h3></div></div></div>
 
@@ -320,7 +320,7 @@ It might not work for your use case or data size.</p>
  neo4j-sh (Neo,0)$ mkrel -c -d i -t LIKES --np "{'app':'foobar'}"
 
  # Export the cypher statement results
- neo4j-sh (Neo,0)$ dump START n=node({self}) MATCH (n)-[r]-(m) return n,r,m;
+ neo4j-sh (Neo,0)$ dump MATCH (n)-[r]-(m) WHERE n = {self} return n,r,m;
  begin
  create (_0 {`name`:"Neo"})
  create (_1 {`app`:"foobar"})
@@ -333,7 +333,7 @@ It might not work for your use case or data size.</p>
  | No data returned. |
  +-------------------+
  Indexes added: 1
- 1123 ms
+ 1143 ms
 
 
  # create one labeled node and a relationship
@@ -345,7 +345,7 @@ It might not work for your use case or data size.</p>
  Relationships created: 1
  Properties set: 1
  Labels added: 2
- 424 ms
+ 366 ms
 
 
  # Export the whole database including indexes

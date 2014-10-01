@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>38.12. Automatic Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-lucene-extras.html" title="38.11. Extra features for Lucene indexes" /><link rel="next" href="batchinsert.html" title="Chapter 39. Batch Insertion" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="38.12. Automatic Indexing" /><script type="text/javascript">
+    <title>37.12. Automatic Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-lucene-extras.html" title="37.11. Extra features for Lucene indexes" /><link rel="next" href="batchinsert.html" title="Chapter 38. Batch Insertion" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="37.12. Automatic Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>38.12. Automatic Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing-lucene-extras.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="batchinsert.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="auto-indexing"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">38.12. Automatic Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="auto-indexing.html#auto-indexing-config">Configuration</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-api">Search</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-config-api">Runtime Configuration</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-update-removal">Updating the Automatic Index</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>37.12. Automatic Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing-lucene-extras.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="batchinsert.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="auto-indexing"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">37.12. Automatic Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="auto-indexing.html#auto-indexing-config">Configuration</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-api">Search</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-config-api">Runtime Configuration</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-update-removal">Updating the Automatic Index</a></span></li></ul></div>
 
 <p>Neo4j provides a single index for nodes and one for relationships in each database that automatically follow property values as they are added, deleted and changed on database primitives.
 This functionality is called <span class="emphasis"><em>auto indexing</em></span> and is controlled both from the database configuration Map and through its own API.</p>
@@ -190,88 +190,9 @@ the final configuration is the same regardless of the method used to reach it.</
 </section>
 <section class="section" id="auto-indexing-update-removal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Updating the Automatic Index</h3></div></div></div>
 
-<p>Updates to the auto indexed properties happen of course automatically as you update them. Removal of properties from the auto index happens for two reasons.
-One is that you actually removed the property. The other is that you stopped autoindexing on a property. When the latter happens, any primitive you touch and
-it has that property, it is removed from the auto index, regardless of any operations on the property.
-When you start or stop auto indexing on a property, no auto update operation happens currently. If you need to change the set of auto indexed properties and
-have them re-indexed, you currently have to do this by hand. An example will illustrate the above better:</p>
-<pre class="programlisting" data-lang="java">/*
- * Creating the configuration
- */
-GraphDatabaseService graphDb = new GraphDatabaseFactory().
-    newEmbeddedDatabaseBuilder( storeDirectory ).
-    setConfig( GraphDatabaseSettings.node_keys_indexable, "nodeProp1,nodeProp2" ).
-    setConfig( GraphDatabaseSettings.node_auto_indexing, "true" ).
-    newGraphDatabase();
-
-Node node1 = null, node2 = null, node3 = null, node4 = null;
-try ( Transaction tx = graphDb.beginTx() )
-{
-    // Create the primitives
-    node1 = graphDb.createNode();
-    node2 = graphDb.createNode();
-    node3 = graphDb.createNode();
-    node4 = graphDb.createNode();
-
-    // Add indexable and non-indexable properties
-    node1.setProperty( "nodeProp1", "nodeProp1Value" );
-    node2.setProperty( "nodeProp2", "nodeProp2Value" );
-    node3.setProperty( "nodeProp1", "nodeProp3Value" );
-    node4.setProperty( "nodeProp2", "nodeProp4Value" );
-
-    // Make things persistent
-    tx.success();
-}
-
-/*
- *  Here both nodes are indexed. To demonstrate removal, we stop
- *  autoindexing nodeProp1.
- */
-AutoIndexer&lt;Node&gt; nodeAutoIndexer = graphDb.index().getNodeAutoIndexer();
-nodeAutoIndexer.stopAutoIndexingProperty( "nodeProp1" );
-
-try ( Transaction tx = graphDb.beginTx() )
-{
-    /*
-     * nodeProp1 is no longer auto indexed. It will be
-     * removed regardless. Note that node3 will remain.
-     */
-    node1.setProperty( "nodeProp1", "nodeProp1Value2" );
-    /*
-     * node2 will be auto updated
-     */
-    node2.setProperty( "nodeProp2", "nodeProp2Value2" );
-    /*
-     * remove node4 property nodeProp2 from index.
-     */
-    node4.removeProperty( "nodeProp2" );
-    // Make things persistent
-    tx.success();
-}
-
-try ( Transaction tx = graphDb.beginTx() )
-{
-    // Verify
-    ReadableIndex&lt;Node&gt; nodeAutoIndex = nodeAutoIndexer.getAutoIndex();
-    // node1 is completely gone
-    assertFalse( nodeAutoIndex.get( "nodeProp1", "nodeProp1Value" ).hasNext() );
-    assertFalse( nodeAutoIndex.get( "nodeProp1", "nodeProp1Value2" ).hasNext() );
-    // node2 is updated
-    assertFalse( nodeAutoIndex.get( "nodeProp2", "nodeProp2Value" ).hasNext() );
-    assertEquals( node2,
-            nodeAutoIndex.get( "nodeProp2", "nodeProp2Value2" ).getSingle() );
-    /*
-     * node3 is still there, despite its nodeProp1 property not being monitored
-     * any more because it was not touched, in contrast with node1.
-     */
-    assertEquals( node3,
-            nodeAutoIndex.get( "nodeProp1", "nodeProp3Value" ).getSingle() );
-    // Finally, node4 is removed because the property was removed.
-    assertFalse( nodeAutoIndex.get( "nodeProp2", "nodeProp4Value" ).hasNext() );
-}
-</pre>
-<div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>If you start the database with auto indexing enabled but different auto indexed properties than the last run, then already auto-indexed properties will be deleted from the index when a value is written to them (assuming the property isn’t present in the new configuration).
-Make sure that the monitored set is what you want before enabling the functionality.</p></td></tr></table></div>
+<p>Updates to the auto indexed properties happen of course automatically as you update them. Removal of properties from the auto index similarly
+happens when you remove the actual property, but only while the property is auto indexed. In particular, if you had configured your database
+to auto index a property, but later removed it from the configuration, deleting that property will not remove it from the auto index.</p>
 </section>
 </section>
 

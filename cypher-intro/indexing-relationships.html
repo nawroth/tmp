@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>38.8. Relationship indexes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-search.html" title="38.7. Search" /><link rel="next" href="indexing-scores.html" title="38.9. Scores" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="38.8. Relationship indexes" /><script type="text/javascript">
+    <title>37.8. Relationship indexes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-search.html" title="37.7. Search" /><link rel="next" href="indexing-scores.html" title="37.9. Scores" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="37.8. Relationship indexes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>38.8. Relationship indexes</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing-search.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="indexing-scores.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="indexing-relationships"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">38.8. Relationship indexes</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>37.8. Relationship indexes</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing-search.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="indexing-scores.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="indexing-relationships"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">37.8. Relationship indexes</h2></div></div></div>
 
 <p>An index for relationships is just like an index for nodes, extended by providing support to constrain a search to relationships with a specific start and/or end nodes
 These extra methods reside in the <a class="ulink" href="javadocs/org/neo4j/graphdb/index/RelationshipIndex.html" target="_blank">RelationshipIndex</a> interface which extends <a class="ulink" href="javadocs/org/neo4j/graphdb/index/Index.html" target="_blank">Index&lt;Relationship&gt;</a>.</p>

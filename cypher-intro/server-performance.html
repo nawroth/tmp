@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>26.3. Server Performance Tuning -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-configuration.html" title="26.2. Server Configuration" /><link rel="next" href="performance-guide.html" title="26.4. Performance Guide" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.3. Server Performance Tuning" /><script type="text/javascript">
+    <title>25.3. Server Performance Tuning -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-configuration.html" title="25.2. Server Configuration" /><link rel="next" href="performance-guide.html" title="25.4. Performance Guide" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.3. Server Performance Tuning" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.3. Server Performance Tuning</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-configuration.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="performance-guide.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-performance"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.3. Server Performance Tuning</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-performance.html#_specifying_neo4j_tuning_properties">Specifying Neo4j tuning properties</a></span></li><li><span class="section"><a href="server-performance.html#_specifying_jvm_tuning_properties">Specifying JVM tuning properties</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.3. Server Performance Tuning</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-configuration.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="performance-guide.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-performance"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.3. Server Performance Tuning</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-performance.html#_specifying_neo4j_tuning_properties">Specifying Neo4j tuning properties</a></span></li><li><span class="section"><a href="server-performance.html#_specifying_jvm_tuning_properties">Specifying JVM tuning properties</a></span></li></ul></div>
 
 <p>At the heart of the Neo4j server is a regular Neo4j storage engine instance.
 That engine can be tuned in the same way as the other embedded configurations, using the same file format.
@@ -82,7 +82,7 @@ The <span class="emphasis"><em>conf/neo4j.properties</em></span> file is a stand
 
 </li><li class="listitem">
 
-See <a class="xref" href="configuration-caches.html" title="26.6. Caches in Neo4j">Section 26.6, “Caches in Neo4j”</a> for more information.
+See <a class="xref" href="configuration-caches.html" title="25.6. Caches in Neo4j">Section 25.6, “Caches in Neo4j”</a> for more information.
 
 </li></ul></div>
 </div>
@@ -98,11 +98,11 @@ This is done by setting a single property to point to a valid <span class="empha
 
 <p>Tuning the standalone server is achieved by editing the <span class="emphasis"><em>neo4j-wrapper.conf</em></span> file in the <code class="literal">conf</code> directory of <code class="literal">NEO4J_HOME</code>.</p>
 <p>Edit the following properties:</p>
-<div class="table" id="d5e21752"><p class="title"><strong>neo4j-wrapper.conf JVM tuning properties</strong></p><div class="table-contents">
+<div class="table" id="d5e21191"><p class="title"><strong>neo4j-wrapper.conf JVM tuning properties</strong></p><div class="table-contents">
 
 <table cellspacing="0" cellpadding="0"><thead><tr><th> Property Name             </th><th> Meaning</th></tr></thead><tbody><tr><td><p><code class="literal">wrapper.java.initmemory</code></p></td><td><p>initial heap size (in MB)</p></td></tr><tr><td><p><code class="literal">wrapper.java.maxmemory</code></p></td><td><p>maximum heap size (in MB)</p></td></tr><tr><td><p><code class="literal">wrapper.java.additional.N</code></p></td><td><p>additional literal JVM parameter, where N is a number for each</p></td></tr></tbody></table>
 </div></div>
-<p>For more information on the tuning properties, see <a class="xref" href="configuration-jvm.html" title="26.8. JVM Settings">Section 26.8, “JVM Settings”</a>.</p>
+<p>For more information on the tuning properties, see <a class="xref" href="configuration-jvm.html" title="25.8. JVM Settings">Section 25.8, “JVM Settings”</a>.</p>
 </section>
 </section>
 

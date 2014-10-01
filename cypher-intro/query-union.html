@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.7. Union -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-unwind.html" title="11.6. Unwind" /><link rel="next" href="query-using.html" title="11.8. Using" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.7. Union" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -76,7 +76,7 @@
 <p>The number and the names of the columns must be identical in all queries combined by using <code class="literal">UNION</code>.</p>
 <p>To keep all the result rows, use <code class="literal">UNION</code> <code class="literal">ALL</code>.
 Using just <code class="literal">UNION</code> will combine and remove duplicates from the result set.</p>
-<div class="figure" id="d5e7188"><p class="title"><strong>Figure 11.6. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7618"><p class="title"><strong>Figure 11.6. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-union-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-union-graph.svg" alt="cypher-union-graph.svg" /></span>
 </a>
@@ -91,7 +91,7 @@ UNION ALL MATCH (n:Movie)
 RETURN n.title AS name</pre><p>
 </p>
 <p>The combined result is returned, including duplicates.</p>
-<div class="queryresult table" id="d5e7205"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7635"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Actor` {`name`:"Anthony Hopkins"})
 create (_1:`Actor` {`name`:"Helen Mirren"})
 create (_2:`Actor` {`name`:"Hitchcock"})
@@ -115,7 +115,7 @@ MATCH (n:Movie)
 RETURN n.title AS name</pre><p>
 </p>
 <p>The combined result is returned, without duplicates.</p>
-<div class="queryresult table" id="d5e7247"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7677"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Actor` {`name`:"Anthony Hopkins"})
 create (_1:`Actor` {`name`:"Helen Mirren"})
 create (_2:`Actor` {`name`:"Hitchcock"})

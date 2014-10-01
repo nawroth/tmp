@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>14.5. String functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-mathematical.html" title="14.4. Mathematical functions" /><link rel="next" href="cypher-schema.html" title="Chapter 15. Schema" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.5. String functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -74,7 +74,7 @@
 <p>These functions all operate on string expressions only, and will return an error if used on any other values.
 Except <code class="literal">STR()</code>, which converts to strings.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-string" title="String operators">the section called “String operators”</a>.</p>
-<div class="figure" id="d5e13636"><p class="title"><strong>Figure 14.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e13971"><p class="title"><strong>Figure 14.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -92,7 +92,7 @@ Except <code class="literal">STR()</code>, which converts to strings.</p>
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN str(1)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13661"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13996"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -127,7 +127,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN replace("hello", "l", "w")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13704"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14039"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -162,7 +162,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN substring("hello", 1, 3), substring("hello", 2)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13747"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14082"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -193,7 +193,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN left("hello", 3)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13792"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14127"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -224,7 +224,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN right("hello", 3)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13832"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14167"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -251,7 +251,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN ltrim("   hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13869"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14204"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -278,7 +278,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN rtrim("hello   ")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13906"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14241"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -305,7 +305,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN trim("   hello   ")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13943"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14278"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -332,7 +332,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN lower("HELLO")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13980"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14315"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -359,7 +359,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN upper("hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14017"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14352"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -390,7 +390,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query. </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN split("one,two", ",")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14057"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14392"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})

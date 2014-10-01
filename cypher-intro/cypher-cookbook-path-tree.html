@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.15. A multilevel indexing structure (path tree) -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-pretty-graphs.html" title="7.14. Pretty graphs" /><link rel="next" href="cypher-cookbook-similarity-calc.html" title="7.16. Complex similarity computations" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.15. A multilevel indexing structure (path tree)" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -90,7 +90,7 @@ Using Cypher, the queries following different strategies can be expressed as pat
 
 </li></ul></div>
 <p>The graph below depicts a structure with 3 Events being attached to an index structure at different leafs.</p>
-<div class="figure" id="d5e4019"><p class="title"><strong>Figure 7.15. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e4449"><p class="title"><strong>Figure 7.15. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-path.svg" alt="cypher-pathtree-layout-path.svg" /></span>
 </a>
@@ -99,7 +99,7 @@ Using Cypher, the queries following different strategies can be expressed as pat
 
 <p>Here, only the events indexed under one leaf (2010-12-31) are returned.
 The query only needs one path segment <code class="literal">rootPath</code>  (color <code class="literal">Green</code>) through the index.</p>
-<div class="figure" id="d5e4032"><p class="title"><strong>Figure 7.16. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e4462"><p class="title"><strong>Figure 7.16. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-zero-range.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-zero-range.svg" alt="cypher-pathtree-layout-zero-range.svg" /></span>
 </a>
@@ -111,7 +111,7 @@ RETURN event.name
 ORDER BY event.name ASC</pre><p>
 </p>
 <p>Returning all events on the date 2010-12-31, in this case <code class="literal">Event1</code> and <code class="literal">Event2</code></p>
-<div class="queryresult table" id="d5e4047"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e4477"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Y11M01"})
 create (_1 {`name`:"Y10M12D31"})
 create (_2 {`name`:"Y10M12"})
@@ -147,7 +147,7 @@ create _11-[:`VALUE`]-&gt;_6
 <p>In this case, the range goes from the first to the last leaf of the index tree. Here,
 <code class="literal">startPath</code> (color <code class="literal">Greenyellow</code>) and <code class="literal">endPath</code>  (color <code class="literal">Green</code>) span up the range, <code class="literal">valuePath</code>  (color <code class="literal">Blue</code>) is then connecting the leafs, and the values can
 be read from the <code class="literal">middle</code> node, hanging off the <code class="literal">values</code> (color <code class="literal">Red</code>) path.</p>
-<div class="figure" id="d5e4083"><p class="title"><strong>Figure 7.17. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e4513"><p class="title"><strong>Figure 7.17. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-full-range-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-full-range-path.svg" alt="cypher-pathtree-layout-full-range-path.svg" /></span>
 </a>
@@ -162,7 +162,7 @@ RETURN event.name
 ORDER BY event.name ASC</pre><p>
 </p>
 <p>Returning all events between 2010-12-31 and 2011-01-03, in this case all events.</p>
-<div class="queryresult table" id="d5e4096"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e4526"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Y11M01"})
 create (_1 {`name`:"Y10M12D31"})
 create (_2 {`name`:"Y10M12"})
@@ -198,7 +198,7 @@ create _11-[:`VALUE`]-&gt;_6
 <p>Here, the query range results in partly shared paths when querying the index,
 making the introduction of and common path segment <code class="literal">commonPath</code> (color <code class="literal">Black</code>) necessary, before spanning up <code class="literal">startPath</code> (color <code class="literal">Greenyellow</code>) and
 <code class="literal">endPath</code> (color <code class="literal">Darkgreen</code>) . After that, <code class="literal">valuePath</code> (color <code class="literal">Blue</code>) connects the leafs and the indexed values are returned off <code class="literal">values</code> (color <code class="literal">Red</code>)  path.</p>
-<div class="figure" id="d5e4141"><p class="title"><strong>Figure 7.18. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e4571"><p class="title"><strong>Figure 7.18. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-shared-root-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-shared-root-path.svg" alt="cypher-pathtree-layout-shared-root-path.svg" /></span>
 </a>
@@ -213,7 +213,7 @@ RETURN event.name
 ORDER BY event.name ASC</pre><p>
 </p>
 <p>Returning all events between 2011-01-01 and 2011-01-03, in this case <code class="literal">Event2</code> and <code class="literal">Event3</code>.</p>
-<div class="queryresult table" id="d5e4156"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e4586"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Y11M01"})
 create (_1 {`name`:"Y10M12D31"})
 create (_2 {`name`:"Y10M12"})

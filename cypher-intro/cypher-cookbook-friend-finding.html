@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.5. Basic friend finding based on social neighborhood -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-hyperedges.html" title="7.4. Hyperedges" /><link rel="next" href="cypher-cookbook-co-favorited-places.html" title="7.6. Co-favorited places" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.5. Basic friend finding based on social neighborhood" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,7 +72,7 @@
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-hyperedges.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-co-favorited-places.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-friend-finding"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.5. Basic friend finding based on social neighborhood</h2></div></div></div>
 
 <p>Imagine an example graph like the following one:</p>
-<div class="figure" id="d5e3166"><p class="title"><strong>Figure 7.3. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3596"><p class="title"><strong>Figure 7.3. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-collabfiltering-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-collabfiltering-graph.svg" alt="cypher-collabfiltering-graph.svg" /></span>
 </a>
@@ -85,7 +85,7 @@ RETURN friend_of_friend.name, COUNT(*)
 ORDER BY COUNT(*) DESC , friend_of_friend.name</pre><p>
 </p>
 <p>This returns a list of friends-of-friends ordered by the number of connections to them, and secondly by their name.</p>
-<div class="queryresult table" id="d5e3180"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>friend_of_friend.name</th><th>COUNT(*)</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Ian"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Derrick"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Jill"</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3610"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>friend_of_friend.name</th><th>COUNT(*)</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Ian"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Derrick"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Jill"</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Bill"})
 create (_1 {`name`:"Sara"})
 create (_2 {`name`:"Derrick"})

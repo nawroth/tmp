@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>30.2. How to connect to a Neo4j instance using JMX and JConsole -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="jmx-remote.html" title="30.1. Adjusting remote JMX access to the Neo4j Server" /><link rel="next" href="jmx-connect-programmatic.html" title="30.3. How to connect to the JMX monitoring programmatically" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="30.2. How to connect to a Neo4j instance using JMX and JConsole" /><script type="text/javascript">
+    <title>29.2. How to connect to a Neo4j instance using JMX and JConsole -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="jmx-remote.html" title="29.1. Adjusting remote JMX access to the Neo4j Server" /><link rel="next" href="jmx-connect-programmatic.html" title="29.3. How to connect to the JMX monitoring programmatically" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.2. How to connect to a Neo4j instance using JMX and JConsole" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,24 +68,24 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>30.2. How to connect to a Neo4j instance using JMX and JConsole</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="jmx-remote.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-monitoring.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="jmx-connect-programmatic.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="jmx-connect-jconsole"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">30.2. How to connect to a Neo4j instance using JMX and JConsole</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>29.2. How to connect to a Neo4j instance using JMX and JConsole</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="jmx-remote.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-monitoring.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="jmx-connect-programmatic.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="jmx-connect-jconsole"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.2. How to connect to a Neo4j instance using JMX and JConsole</h2></div></div></div>
 
 <p>First, start your embedded database or the Neo4j Server, for instance using</p>
 <pre class="programlisting" data-lang="shell">$NEO4j_HOME/bin/neo4j start</pre>
 <p>Now, start JConsole with</p>
 <pre class="programlisting" data-lang="shell">$JAVA_HOME/bin/jconsole</pre>
 <p>Connect to the process running your Neo4j database instance:</p>
-<div class="figure" id="d5e24455"><p class="title"><strong>Figure 30.1. Connecting JConsole to the Neo4j Java process</strong></p><div class="figure-contents">
+<div class="figure" id="d5e23863"><p class="title"><strong>Figure 29.1. Connecting JConsole to the Neo4j Java process</strong></p><div class="figure-contents">
 <a class="ulink" href="images/jconsole_connect.png" target="_blank">
 <span class="inlinemediaobject"><img src="images/jconsole_connect.png" alt="Connecting with JConsole" /></span>
 </a>
 </div></div>
 <p>Now, beside the MBeans exposed by the JVM, you will see an <code class="literal">org.neo4j</code> section in the MBeans tab.
 Under that, you will have access to all the monitoring information exposed by Neo4j.</p>
-<p>For opening JMX to remote monitoring access, please see <a class="xref" href="jmx-remote.html" title="30.1. Adjusting remote JMX access to the Neo4j Server">Section 30.1, “Adjusting remote JMX access to the Neo4j Server”</a> and <a class="ulink" href="http://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html" target="_blank">the JMX documention</a>.
+<p>For opening JMX to remote monitoring access, please see <a class="xref" href="jmx-remote.html" title="29.1. Adjusting remote JMX access to the Neo4j Server">Section 29.1, “Adjusting remote JMX access to the Neo4j Server”</a> and <a class="ulink" href="http://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html" target="_blank">the JMX documention</a>.
 When using Neo4j in embedded mode, make sure to pass the <code class="literal">com.sun.management.jmxremote.port=portNum</code> or other configuration as JVM parameters to your running Java process.</p>
-<div class="figure" id="d5e24469"><p class="title"><strong>Figure 30.2. Neo4j MBeans View</strong></p><div class="figure-contents">
+<div class="figure" id="d5e23877"><p class="title"><strong>Figure 29.2. Neo4j MBeans View</strong></p><div class="figure-contents">
 <a class="ulink" href="images/jconsole_beans.png" target="_blank">
 <span class="inlinemediaobject"><img src="images/jconsole_beans.png" alt="Neo4j MBeans view" /></span>
 </a>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>8.1. How to use the REST API from Java -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="languages.html" title="Chapter 8. Languages" /><link rel="next" href="cypher-query-lang.html" title="Cypher Query Language" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.1. How to use the REST API from Java" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@ which are easily <a class="ulink" href="https://jersey.java.net/nonav/documentat
 </section>
 <section class="section" id="_start_the_server"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Start the server</h3></div></div></div>
 
-<p>Before we can perform any actions on the server, we need to start it as per <a class="xref" href="server-installation.html" title="25.2. Server Installation">Section 25.2, “Server Installation”</a>.</p>
+<p>Before we can perform any actions on the server, we need to start it as per <a class="xref" href="server-installation.html" title="24.2. Server Installation">Section 24.2, “Server Installation”</a>.</p>
 <pre class="programlisting" data-lang="java">WebResource resource = Client.create()
         .resource( SERVER_ROOT_URI );
 ClientResponse response = resource.get( ClientResponse.class );
@@ -118,11 +118,11 @@ System.out.println( String.format(
 
 response.close();
 </pre>
-<p>For more details, see <a class="xref" href="rest-api-transactional.html" title="23.1. Transactional Cypher HTTP endpoint">Section 23.1, “Transactional Cypher HTTP endpoint”</a>.</p>
+<p>For more details, see <a class="xref" href="rest-api-transactional.html" title="22.1. Transactional Cypher HTTP endpoint">Section 22.1, “Transactional Cypher HTTP endpoint”</a>.</p>
 </section>
 <section class="section" id="_fine_grained_rest_api_calls"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Fine-grained REST API calls</h3></div></div></div>
 
-<p>For exploratory and special purposes, there is a fine grained REST API, see <a class="xref" href="rest-api.html" title="Chapter 23. REST API">Chapter 23, <em>REST API</em></a>.
+<p>For exploratory and special purposes, there is a fine grained REST API, see <a class="xref" href="rest-api.html" title="Chapter 22. REST API">Chapter 22, <em>REST API</em></a>.
 The following sections highlight some of the basic operations.</p>
 <section class="section" id="_creating_a_node"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Creating a node</h4></div></div></div>
 

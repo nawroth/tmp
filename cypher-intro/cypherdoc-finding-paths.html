@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>6.4. Finding Paths -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-social-movie-database.html" title="6.3. Social Movie Database" /><link rel="next" href="cypherdoc-labels.html" title="6.5. Labels, Constraints and Indexes" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="6.4. Finding Paths" /><script type="text/javascript">
+    <title>5.4. Finding Paths -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-social-movie-database.html" title="5.3. Social Movie Database" /><link rel="next" href="cypherdoc-labels.html" title="5.5. Labels, Constraints and Indexes" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="5.4. Finding Paths" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>6.4. Finding Paths</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-social-movie-database.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-cypher.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-labels.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-finding-paths"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">6.4. Finding Paths</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>5.4. Finding Paths</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-social-movie-database.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-cypher.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-labels.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-finding-paths"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">5.4. Finding Paths</h2></div></div></div>
 
 <p>Our example graph consists of movies with title and year and actors with a name.
 Actors have <code class="literal">ACTS_IN</code> relationships to movies, which represents the role they played.
@@ -100,12 +100,12 @@ ORDER BY count(*) DESC ;</pre>
 <pre class="programlisting" data-lang="cypher">MATCH (:Movie { title: "The Matrix" })&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)
 RETURN movie.title, collect(actor.name), count(*) AS count
 ORDER BY count DESC ;</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th><th>collect(actor.name)</th><th>count</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The Matrix Revolutions"</code></p></td><td><p><code class="literal">["Carrie-Anne Moss","Laurence Fishburne","Keanu Reeves"]</code></p></td><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">"The Matrix Reloaded"</code></p></td><td><p><code class="literal">["Carrie-Anne Moss","Laurence Fishburne","Keanu Reeves"]</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th><th>collect(actor.name)</th><th>count</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The Matrix Revolutions"</code></p></td><td><p><code class="literal">["Keanu Reeves","Laurence Fishburne","Carrie-Anne Moss"]</code></p></td><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">"The Matrix Reloaded"</code></p></td><td><p><code class="literal">["Keanu Reeves","Laurence Fishburne","Carrie-Anne Moss"]</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div>
 <p>What about co-acting, that is actors that acted together:</p>
 <pre class="programlisting" data-lang="cypher">MATCH (:Movie { title: "The Matrix"
   })&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)&lt;-[:ACTS_IN]-(colleague)
 RETURN actor.name, collect(DISTINCT colleague.name);</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor.name</th><th>collect(distinct colleague.name)</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Carrie-Anne Moss"</code></p></td><td><p><code class="literal">["Laurence Fishburne","Keanu Reeves"]</code></p></td></tr><tr><td><p><code class="literal">"Keanu Reeves"</code></p></td><td><p><code class="literal">["Carrie-Anne Moss","Laurence Fishburne"]</code></p></td></tr><tr><td><p><code class="literal">"Laurence Fishburne"</code></p></td><td><p><code class="literal">["Carrie-Anne Moss","Keanu Reeves"]</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor.name</th><th>collect(distinct colleague.name)</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Carrie-Anne Moss"</code></p></td><td><p><code class="literal">["Laurence Fishburne","Keanu Reeves"]</code></p></td></tr><tr><td><p><code class="literal">"Laurence Fishburne"</code></p></td><td><p><code class="literal">["Carrie-Anne Moss","Keanu Reeves"]</code></p></td></tr><tr><td><p><code class="literal">"Keanu Reeves"</code></p></td><td><p><code class="literal">["Carrie-Anne Moss","Laurence Fishburne"]</code></p></td></tr></tbody></table></div>
 <p>Who of those other actors acted most often with anyone from the matrix cast?</p>
 <pre class="programlisting" data-lang="cypher">MATCH (:Movie { title: "The Matrix"
   })&lt;-[:ACTS_IN]-(actor)-[:ACTS_IN]-&gt;(movie)&lt;-[:ACTS_IN]-(colleague)

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.5. Remove -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-delete.html" title="13.4. Delete" /><link rel="next" href="query-foreach.html" title="13.6. Foreach" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.5. Remove" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -91,7 +91,7 @@ REMOVE andres.age
 RETURN andres</pre><p>
 </p>
 <p>The node is returned, and no property <code class="literal">age</code> exists on it.</p>
-<div class="queryresult table" id="d5e11122"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>andres</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11457"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>andres</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Swedish` {`age`:25, `name`:"Tobias"})
 create (_1:`Swedish`:`German` {`age`:34, `name`:"Peter"})
@@ -109,7 +109,7 @@ create _2-[:`KNOWS`]-&gt;_0
 REMOVE n:German
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e11152"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11487"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels removed: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Swedish` {`age`:25, `name`:"Tobias"})
 create (_1:`Swedish`:`German` {`age`:34, `name`:"Peter"})
@@ -127,7 +127,7 @@ create _2-[:`KNOWS`]-&gt;_0
 REMOVE n:German:Swedish
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e11182"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11517"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels removed: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Swedish` {`age`:25, `name`:"Tobias"})
 create (_1:`Swedish`:`German` {`age`:34, `name`:"Peter"})

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>26.1. Introduction -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration.html" title="Chapter 26. Configuration &amp; Performance" /><link rel="next" href="server-configuration.html" title="26.2. Server Configuration" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.1. Introduction" /><script type="text/javascript">
+    <title>25.1. Introduction -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration.html" title="Chapter 25. Configuration &amp; Performance" /><link rel="next" href="server-configuration.html" title="25.2. Server Configuration" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.1. Introduction" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.1. Introduction</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-configuration.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-introduction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.1. Introduction</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="configuration-introduction.html#_how_to_add_configuration_settings">How to add configuration settings</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.1. Introduction</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-configuration.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-introduction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.1. Introduction</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="configuration-introduction.html#_how_to_add_configuration_settings">How to add configuration settings</a></span></li></ul></div>
 
 <p>To gain good performance, these are the things to look into first:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -80,7 +80,7 @@ Make sure the JVM is not spending too much time performing garbage collection.
 
 </li><li class="listitem">
 
-Start the JVM with the -server flag and a good sized heap (see <a class="xref" href="configuration-jvm.html" title="26.8. JVM Settings">Section 26.8, “JVM Settings”</a>). Having too large heap may also hurt performance so you may have to try some different heap sizes.
+Start the JVM with the -server flag and a good sized heap (see <a class="xref" href="configuration-jvm.html" title="25.8. JVM Settings">Section 25.8, “JVM Settings”</a>). Having too large heap may also hurt performance so you may have to try some different heap sizes.
 
 </li><li class="listitem">
 
@@ -97,7 +97,7 @@ The most important configuration parameters for Neo4j are the ones that control 
 <pre class="programlisting" data-lang="plain">java -d64 -server -Xmx1024m -cp /path/to/neo4j-kernel.jar:/path/to/jta.jar:/path/to/your-application.jar com.example.yourapp.MainClass</pre>
 <p>Looking at the example above you will also notice one of the most basic command line parameters: the one for specifying the classpath. The classpath is the path in which the JVM searches for your classes. It is usually a list of jar-files. Specifying the classpath is done by specifying the flag <code class="literal">-cp</code> (or <code class="literal">-classpath</code>) and then the value of the classpath. For Neo4j applications this should at least include the path to the Neo4j <code class="literal">neo4j-kernel.jar</code> and the Java Transaction API (<code class="literal">jta.jar</code>) as well as the path where the classes for your application are located.</p>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>On Linux, Unix and Mac OS X each element in the path list are separated by a colon symbol (<code class="literal">:</code>), on Windows the path elements are separated by a semicolon (<code class="literal">;</code>).</p></td></tr></table></div>
-<p>When using the Neo4j REST server, see <a class="xref" href="server-configuration.html" title="26.2. Server Configuration">Section 26.2, “Server Configuration”</a> for how to add configuration settings for the database to the server.</p>
+<p>When using the Neo4j REST server, see <a class="xref" href="server-configuration.html" title="25.2. Server Configuration">Section 25.2, “Server Configuration”</a> for how to add configuration settings for the database to the server.</p>
 </section>
 </section>
 

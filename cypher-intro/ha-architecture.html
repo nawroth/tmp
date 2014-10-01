@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>27.1. Architecture -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha.html" title="Chapter 27. High Availability" /><link rel="next" href="ha-configuration.html" title="27.2. Setup and configuration" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.1. Architecture" /><script type="text/javascript">
+    <title>26.1. Architecture -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha.html" title="Chapter 26. High Availability" /><link rel="next" href="ha-configuration.html" title="26.2. Setup and configuration" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.1. Architecture" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,14 +68,14 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>27.1. Architecture</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-configuration.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-architecture"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.1. Architecture</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.1. Architecture</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-configuration.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-architecture"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.1. Architecture</h2></div></div></div>
 
 <p>Neo4j HA has been designed to make the transition from single machine to multi machine operation simple, by not having to change the already existing application.</p>
 <p>Consider an existing application with Neo4j embedded and running on a single machine.
 To deploy such an application in a multi machine setup the only required change is to switch the creation of the <code class="literal">GraphDatabaseService</code> from <code class="literal">GraphDatabaseFactory</code> to <code class="literal">HighlyAvailableGraphDatabaseFactory</code>.
 Since both implement the same interface, no additional changes are required.</p>
-<div class="figure" id="d5e23274"><p class="title"><strong>Figure 27.1. Multiple Neo4j instances in HA mode</strong></p><div class="figure-contents">
+<div class="figure" id="d5e22682"><p class="title"><strong>Figure 26.1. Multiple Neo4j instances in HA mode</strong></p><div class="figure-contents">
 <a class="ulink" href="images/ha-architecture.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/ha-architecture.svg" alt="Neo4j Highly Available Cluster" /></span>
 </a>

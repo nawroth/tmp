@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.18. User roles in graphs -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-graphity.html" title="7.17. The Graphity activity stream model" /><link rel="next" href="languages.html" title="Chapter 8. Languages" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.18. User roles in graphs" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -116,14 +116,14 @@ We also connect the top level groups to the reference node by <code class="liter
 This gives us a useful partitioning of the graph. Neo4j has no predefined relationship
 types, you are free to create any relationship types and give them the semantics you want.</p>
 <p>Lets now have a look at how to retrieve information from the graph. The the queries are done using <a class="link" href="cypher-query-lang.html" title="Cypher Query Language">Cypher</a>,
-the Java code is using the Neo4j Traversal API (see <a class="xref" href="tutorial-traversal-java-api.html" title="37.2. Traversal Framework Java API">Section 37.2, “Traversal Framework Java API”</a>, which is part of <a class="xref" href="advanced-usage.html" title="Advanced Usage">Advanced Usage</a>).</p>
+the Java code is using the Neo4j Traversal API (see <a class="xref" href="tutorial-traversal-java-api.html" title="36.2. Traversal Framework Java API">Section 36.2, “Traversal Framework Java API”</a>, which is part of <a class="xref" href="advanced-usage.html" title="Advanced Usage">Advanced Usage</a>).</p>
 <section class="section" id="_get_the_admins"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get the admins</h3></div></div></div>
 
 <p>In Cypher, we could get the admins like this:</p>
 <pre class="programlisting" data-lang="cypher">MATCH ({ name: 'Admins' })&lt;-[:PART_OF*0..]-(group)&lt;-[:MEMBER_OF]-(user)
 RETURN user.name, group.name</pre>
 <p>resulting in:</p>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>user.name</th><th>group.name</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Ali"</code></p></td><td><p><code class="literal">"Admins"</code></p></td></tr><tr><td><p><code class="literal">"Demet"</code></p></td><td><p><code class="literal">"HelpDesk"</code></p></td></tr><tr><td><p><code class="literal">"Engin"</code></p></td><td><p><code class="literal">"HelpDesk"</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>user.name</th><th>group.name</th></tr></thead><tfoot><tr><th colspan="2">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Demet"</code></p></td><td><p><code class="literal">"HelpDesk"</code></p></td></tr><tr><td><p><code class="literal">"Engin"</code></p></td><td><p><code class="literal">"HelpDesk"</code></p></td></tr><tr><td><p><code class="literal">"Ali"</code></p></td><td><p><code class="literal">"Admins"</code></p></td></tr></tbody></table></div>
 <p>And here’s the code when using the Java Traversal API:</p>
 <pre class="programlisting" data-lang="java">Node admins = getNodeByName( "Admins" );
 TraversalDescription traversalDescription = db.traversalDescription()
@@ -153,7 +153,7 @@ for ( Path path : traverser )
 <p>In Cypher:</p>
 <pre class="programlisting" data-lang="cypher">MATCH ({ name: 'Jale' })-[:MEMBER_OF]-&gt;()-[:PART_OF*0..]-&gt;(group)
 RETURN group.name</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>group.name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ABCTechnicians"</code></p></td></tr><tr><td><p><code class="literal">"Technicians"</code></p></td></tr><tr><td><p><code class="literal">"Users"</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>group.name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Users"</code></p></td></tr><tr><td><p><code class="literal">"ABCTechnicians"</code></p></td></tr><tr><td><p><code class="literal">"Technicians"</code></p></td></tr></tbody></table></div>
 <p>Using the Neo4j Java Traversal API, this query looks like:</p>
 <pre class="programlisting" data-lang="java">Node jale = getNodeByName( "Jale" );
 traversalDescription = db.traversalDescription()
@@ -173,7 +173,7 @@ Found: Users at depth: 2</pre>
 <p>In Cypher:</p>
 <pre class="programlisting" data-lang="cypher">MATCH ({ name: 'Reference_Node' })&lt;-[:ROOT]-&gt;()&lt;-[:PART_OF*0..]-(group)
 RETURN group.name</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>group.name</th></tr></thead><tfoot><tr><th>6 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Users"</code></p></td></tr><tr><td><p><code class="literal">"Managers"</code></p></td></tr><tr><td><p><code class="literal">"Technicians"</code></p></td></tr><tr><td><p><code class="literal">"ABCTechnicians"</code></p></td></tr><tr><td><p><code class="literal">"Admins"</code></p></td></tr><tr><td><p><code class="literal">"HelpDesk"</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>group.name</th></tr></thead><tfoot><tr><th>6 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Users"</code></p></td></tr><tr><td><p><code class="literal">"ABCTechnicians"</code></p></td></tr><tr><td><p><code class="literal">"Managers"</code></p></td></tr><tr><td><p><code class="literal">"Technicians"</code></p></td></tr><tr><td><p><code class="literal">"HelpDesk"</code></p></td></tr><tr><td><p><code class="literal">"Admins"</code></p></td></tr></tbody></table></div>
 <p>In Java:</p>
 <pre class="programlisting" data-lang="java">Node referenceNode = getNodeByName( "Reference_Node") ;
 traversalDescription = db.traversalDescription()

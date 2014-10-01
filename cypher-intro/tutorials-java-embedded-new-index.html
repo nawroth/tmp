@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>36.3. User database with indexes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-embedded-hello-world.html" title="36.2. Hello World" /><link rel="next" href="tutorials-java-embedded-index.html" title="36.4. User database with legacy index" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="36.3. User database with indexes" /><script type="text/javascript">
+    <title>35.3. User database with indexes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-embedded-hello-world.html" title="35.2. Hello World" /><link rel="next" href="tutorials-java-embedded-index.html" title="35.4. User database with legacy index" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="35.3. User database with indexes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>36.3. User database with indexes</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials-java-embedded-hello-world.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-java-embedded.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-java-embedded-index.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorials-java-embedded-new-index"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">36.3. User database with indexes</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>35.3. User database with indexes</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials-java-embedded-hello-world.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-java-embedded.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-java-embedded-index.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorials-java-embedded-new-index"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">35.3. User database with indexes</h2></div></div></div>
 
 <p>You have a user database, and want to retrieve users by name using indexes.</p>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>The source code used in this example is found here:
@@ -113,7 +113,7 @@ It is possible to use the core API to wait for index population to complete:</p>
 }
 </pre>
 <p>And here’s how to find a user by id:</p>
-<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Please read <a class="xref" href="tutorials-java-embedded-resource-iteration.html" title="36.5. Managing resources when using long running transactions">Section 36.5, “Managing resources when using long running transactions”</a> on how to properly close ResourceIterators returned from index lookups.</p></td></tr></table></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Please read <a class="xref" href="tutorials-java-embedded-resource-iteration.html" title="35.5. Managing resources when using long running transactions">Section 35.5, “Managing resources when using long running transactions”</a> on how to properly close ResourceIterators returned from index lookups.</p></td></tr></table></div>
 <pre class="programlisting" data-lang="java">Label label = DynamicLabel.label( "User" );
 int idToFind = 45;
 String nameToFind = "user" + idToFind + "@neo4j.org";

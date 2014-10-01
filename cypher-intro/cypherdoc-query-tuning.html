@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Chapter 18. Query Tuning -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-union.html" title="17.22. Union" /><link rel="next" href="reference-documentation.html" title="Reference" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Chapter 18. Query Tuning" /><script type="text/javascript">
+    <title>Chapter 17. Query Tuning -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-union.html" title="16.21. Union" /><link rel="next" href="reference-documentation.html" title="Reference" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Chapter 17. Query Tuning" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,12 +68,12 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Chapter 18. Query Tuning</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-plan-union.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-query-lang.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="reference-documentation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="chapter" id="cypherdoc-query-tuning"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title">Chapter 18. Query Tuning</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Chapter 17. Query Tuning</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-plan-union.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-query-lang.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="reference-documentation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="chapter" id="cypherdoc-query-tuning"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title">Chapter 17. Query Tuning</h2></div></div></div>
 
 <p>A short introduction of query tuning in Cypher. In particular we explain basic concept of how to make sure that
 your queries run as fast as possible by using all the feature given by Neo4j.
-You can read more about the <a class="link" href="execution-plans.html" title="Chapter 17. Execution Plans">execution plan operators</a> shown on this page.</p>
+You can read more about the <a class="link" href="execution-plans.html" title="Chapter 16. Execution Plans">execution plan operators</a> shown on this page.</p>
 <p>We start with the following data set:</p>
 <p class="setup-query"></p>
 <pre class="programlisting" data-lang="cypher">CREATE (adam:User { name: 'Adam' })
@@ -95,12 +95,12 @@ Filter
 +--------------+---------------+------+--------+-------------+---------------------------------------------------------------------------------------------+
 |     Operator | EstimatedRows | Rows | DbHits | Identifiers |                                                                                       Other |
 +--------------+---------------+------+--------+-------------+---------------------------------------------------------------------------------------------+
-|       Filter |          7500 |    1 |      6 |             | any(-_-INNER-_- in Collection(List({  AUTOSTRING0})) where Property(p,name) == -_-INNER-_-) |
+|       Filter |          1000 |    1 |      6 |             | any(-_-INNER-_- in Collection(List({  AUTOSTRING0})) where Property(p,name) == -_-INNER-_-) |
 | AllNodesScan |         10000 |    3 |      4 |           p |                                                                                             |
 +--------------+---------------+------+--------+-------------+---------------------------------------------------------------------------------------------+
 
 Total database accesses: 10</pre>
-<p>The inclusion of <a class="link" href="query-plan-all-nodes-scan.html" title="17.3. All Nodes Scan">All Nodes Scan</a> indicates that the query planner scanned all the nodes in the database, checking the <code class="literal">name</code> property on each one.</p>
+<p>The inclusion of <a class="link" href="query-plan-all-nodes-scan.html" title="16.3. All Nodes Scan">All Nodes Scan</a> indicates that the query planner scanned all the nodes in the database, checking the <code class="literal">name</code> property on each one.</p>
 <p>When searching for the start nodes for our query we should specify a label to narrow down the search area.
 For this query we can include a <code class="literal">Person</code> like so:</p>
 <pre class="programlisting" data-lang="cypher">cypher 2.2-cost
@@ -122,7 +122,7 @@ Filter
 +-----------------+---------------+------+--------+-------------+---------------------------------------------------------------------------------------------+
 
 Total database accesses: 1</pre>
-<p>The <a class="link" href="query-plan-node-by-label-scan.html" title="17.8. Node by label scan">Label Scan</a> operator indicates that when we look up <code class="literal">Pernilla</code> a linear scan of all the people in the database is being executed.</p>
+<p>The <a class="link" href="query-plan-node-by-label-scan.html" title="16.8. Node by label scan">Label Scan</a> operator indicates that when we look up <code class="literal">Pernilla</code> a linear scan of all the people in the database is being executed.</p>
 <p>If we’re going to be looking up people by name frequently then we’ll want to create an index on the <code class="literal">name</code> property for the <code class="literal">Person</code> label:</p>
 <pre class="programlisting" data-lang="cypher">CREATE INDEX ON :Person(name)</pre>
 <p>Now if we run the query again it will run more quickly:</p>
@@ -137,11 +137,11 @@ NodeIndexSeek
 +---------------+---------------+------+--------+-------------+---------------+
 |      Operator | EstimatedRows | Rows | DbHits | Identifiers |         Other |
 +---------------+---------------+------+--------+-------------+---------------+
-| NodeIndexSeek |           400 |    0 |      1 |           p | :Person(name) |
+| NodeIndexSeek |            40 |    0 |      1 |           p | :Person(name) |
 +---------------+---------------+------+--------+-------------+---------------+
 
 Total database accesses: 1</pre>
-<p>Now the query planner makes use of the <a class="link" href="query-plan-node-index-seek.html" title="17.10. Node index seek">Node Index Seek</a> operator which does an index lookup and therefore gives us a performance improvement as the number of people increases.</p>
+<p>Now the query planner makes use of the <a class="link" href="query-plan-node-index-seek.html" title="16.10. Node index seek">Node Index Seek</a> operator which does an index lookup and therefore gives us a performance improvement as the number of people increases.</p>
 <p class="cypherdoc-console"></p>
 </section>
 

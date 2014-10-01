@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>17.10. Node index seek -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-node-by-id-seek.html" title="17.9. Node by Id seek" /><link rel="next" href="query-plan-node-unique-index-seek.html" title="17.11. Node unique index seek" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="17.10. Node index seek" /><script type="text/javascript">
+    <title>16.10. Node index seek -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-node-by-id-seek.html" title="16.9. Node by Id seek" /><link rel="next" href="query-plan-node-unique-index-seek.html" title="16.11. Node unique index seek" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="16.10. Node index seek" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>17.10. Node index seek</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-plan-node-by-id-seek.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="execution-plans.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-plan-node-unique-index-seek.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-plan-node-index-seek"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">17.10. Node index seek</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>16.10. Node index seek</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-plan-node-by-id-seek.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="execution-plans.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-plan-node-unique-index-seek.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-plan-node-index-seek"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">16.10. Node index seek</h2></div></div></div>
 
 <p>Finds nodes using an index seek. The node identifier and the index used is shown in the arguments of the operator.
 The following query will return all nodes which have label <span class="emphasis"><em>Company</em></span> where the property <span class="emphasis"><em>name</em></span> has the value <span class="emphasis"><em>Malmo</em></span> using the Location index.</p>
@@ -86,7 +86,7 @@ NodeIndexSeek
 +---------------+---------------+------+--------+-------------+-----------------+
 |      Operator | EstimatedRows | Rows | DbHits | Identifiers |           Other |
 +---------------+---------------+------+--------+-------------+-----------------+
-| NodeIndexSeek |           400 |    1 |      2 |    location | :Location(name) |
+| NodeIndexSeek |            40 |    1 |      2 |    location | :Location(name) |
 +---------------+---------------+------+--------+-------------+-----------------+
 
 Total database accesses: 2</pre><p>

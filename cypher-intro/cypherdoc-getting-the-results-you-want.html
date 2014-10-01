@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>4.3. Getting the Results You Want -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-patterns-in-practice.html" title="4.2. Patterns in Practice" /><link rel="next" href="cypherdoc-how-to-compose-large-statements.html" title="4.4. How to Compose Large Statements" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.3. Getting the Results You Want" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,34 +72,44 @@
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-patterns-in-practice.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-how-to-compose-large-statements.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-getting-the-results-you-want"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.3. Getting the Results You Want</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_filtering_results">Filtering Results</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_returning_results">Returning Results</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_aggregating_information">Aggregating Information</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_ordering_and_pagination">Ordering and Pagination</a></span></li><li><span class="section"><a href="cypherdoc-getting-the-results-you-want.html#_collecting_aggregation">Collecting Aggregation</a></span></li></ul></div>
 
 <p>Let’s first get some data in to retrieve results from:</p>
-<pre class="programlisting" data-lang="cypher">CREATE (matrix:Movie { title:"The Matrix",released:1997 }),
-  (cloudAtlas:Movie { title:"Cloud Atlas",released:2012 }),
-  (forrestGump:Movie { title:"Forrest Gump",released:1994 }),(keanu:Person { name:"Keanu Reeves",
-born:1964 }),(robert:Person { name:"Robert Zemeckis", born:1951 }),(tom:Person { name:"Tom Hanks",
-  born:1956 }),(tom)-[:ACTED_IN { roles: ["Forrest"]}]-&gt;(forrestGump),
-  (tom)-[:ACTED_IN { roles: ['Zachry']}]-&gt;(cloudAtlas),(robert)-[:DIRECTED]-&gt;(forrestGump)</pre>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 6
-</th></tr><tr><th>Relationships created: 3
-</th></tr><tr><th>Properties set: 14
-</th></tr><tr><th>Labels added: 6</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<pre class="programlisting" data-lang="cypher">CREATE (matrix:Movie { title:"The Matrix",released:1997 })
+CREATE (cloudAtlas:Movie { title:"Cloud Atlas",released:2012 })
+CREATE (forrestGump:Movie { title:"Forrest Gump",released:1994 })
+CREATE (keanu:Person { name:"Keanu Reeves", born:1964 })
+CREATE (robert:Person { name:"Robert Zemeckis", born:1951 })
+CREATE (tom:Person { name:"Tom Hanks", born:1956 })
+CREATE (tom)-[:ACTED_IN { roles: ["Forrest"]}]-&gt;(forrestGump)
+CREATE (tom)-[:ACTED_IN { roles: ['Zachry']}]-&gt;(cloudAtlas)
+CREATE (robert)-[:DIRECTED]-&gt;(forrestGump)</pre>
+<p>This is the data we will start out with:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/cypherdoc--ee5ee0f8.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypherdoc--ee5ee0f8.svg" alt="cypherdoc--ee5ee0f8.svg" /></span>
+</a>
+</div>
 <section class="section" id="_filtering_results"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Filtering Results</h3></div></div></div>
 
 <p>So far we’ve matched patterns in the graph and always returned all results we found.
 Quite often there are conditions in play for what we want to see.
 Similar to in <span class="emphasis"><em>SQL</em></span> those filter conditions are expressed in a <code class="literal">WHERE</code> clause.
-This clause allows to use any number of boolean expressions (predicates) combined with <code class="literal">AND</code>, <code class="literal">OR</code> and <code class="literal">NOT</code>.
+This clause allows to use any number of boolean expressions (predicates) combined with <code class="literal">AND</code>, <code class="literal">OR</code>, <code class="literal">XOR</code> and <code class="literal">NOT</code>.
 The simplest predicates are comparisons, especially equality.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (m:Movie)
 WHERE m.title = "The Matrix"
 RETURN m</pre>
 <div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{title:"The Matrix",released:1997}</code></p></td></tr></tbody></table></div>
-<p>More interesting are numeric comparisons, matching regular expressions and checking the existence of values within a collection.</p>
+<p>For equality on one or more properties, a more compact syntax can be used as well:</p>
+<pre class="programlisting" data-lang="cypher">MATCH (m:Movie { title: "The Matrix" })
+RETURN m</pre>
+<p>Other options are numeric comparisons, matching regular expressions and checking the existence of values within a collection.</p>
+<p>The <code class="literal">WHERE</code> clause below includes a regular expression match, a greater than comparison and a test to see if a value exists in a collection.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (p:Person)-[r:ACTED_IN]-&gt;(m:Movie)
 WHERE p.name =~ "K.+" OR m.released &gt; 2000 OR "Neo" IN r.roles
 RETURN p,r,m</pre>
 <div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th><th>r</th><th>m</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[5]{name:"Tom Hanks",born:1956}</code></p></td><td><p><code class="literal">:ACTED_IN[1]{roles:["Zachry"]}</code></p></td><td><p><code class="literal">Node[1]{title:"Cloud Atlas",released:2012}</code></p></td></tr></tbody></table></div>
-<p>One aspect that might be little surprising is that you can even use patterns as predicates.
-Where <code class="literal">MATCH</code> expands the number and shape of patterns matched, a pattern predicate restricts the current result set again, only allowing the paths to pass that satisfy these additional patterns as well (or <code class="literal">NOT</code>).</p>
+<p>One aspect that might be a little surprising is that you can even use patterns as predicates.
+Where <code class="literal">MATCH</code> expands the number and shape of patterns matched, a pattern predicate restricts the current result set.
+It only allows the paths to pass that satisfy the additional patterns as well (or <code class="literal">NOT</code>).</p>
 <pre class="programlisting" data-lang="cypher">MATCH (p:Person)-[:ACTED_IN]-&gt;(m)
 WHERE NOT (p)-[:DIRECTED]-&gt;()
 RETURN p,m</pre>

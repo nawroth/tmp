@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>26.4. Performance Guide -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-performance.html" title="26.3. Server Performance Tuning" /><link rel="next" href="kernel-configuration.html" title="26.5. Kernel configuration" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.4. Performance Guide" /><script type="text/javascript">
+    <title>25.4. Performance Guide -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-performance.html" title="25.3. Server Performance Tuning" /><link rel="next" href="kernel-configuration.html" title="25.5. Kernel configuration" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.4. Performance Guide" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.4. Performance Guide</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-performance.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="kernel-configuration.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="performance-guide"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.4. Performance Guide</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="performance-guide.html#_try_this_first">Try this first</a></span></li><li><span class="section"><a href="performance-guide.html#_neo4j_primitives_lifecycle">Neo4j primitives' lifecycle</a></span></li><li><span class="section"><a href="performance-guide.html#_configuring_neo4j">Configuring Neo4j</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.4. Performance Guide</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-performance.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="kernel-configuration.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="performance-guide"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.4. Performance Guide</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="performance-guide.html#_try_this_first">Try this first</a></span></li><li><span class="section"><a href="performance-guide.html#_neo4j_primitives_lifecycle">Neo4j primitives' lifecycle</a></span></li><li><span class="section"><a href="performance-guide.html#_configuring_neo4j">Configuring Neo4j</a></span></li></ul></div>
 
 <p>This is the Neo4j performance guide. It will attempt to give you guidance on how to use Neo4j to achieve maximum performance.</p>
 <section class="section" id="_try_this_first"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Try this first</h3></div></div></div>
@@ -87,8 +87,8 @@ Make sure a parallel/concurrent garbage collector is running (<code class="liter
 <p>Finally make sure that the OS has some memory left to manage proper file system
 caches. This means, if your server has 8GB of RAM don’t use all of that RAM for
 heap (unless you have turned off memory mapped buffers), but leave a good part of it to the OS.
-For more information on configuration see <a class="xref" href="configuration.html" title="Chapter 26. Configuration &amp; Performance">Chapter 26, <em>Configuration &amp; Performance</em></a>.</p>
-<p>For Linux specific tweaks, see <a class="xref" href="linux-performance-guide.html" title="26.12. Linux Performance Guide">Section 26.12, “Linux Performance Guide”</a>.</p>
+For more information on configuration see <a class="xref" href="configuration.html" title="Chapter 25. Configuration &amp; Performance">Chapter 25, <em>Configuration &amp; Performance</em></a>.</p>
+<p>For Linux specific tweaks, see <a class="xref" href="linux-performance-guide.html" title="25.12. Linux Performance Guide">Section 25.12, “Linux Performance Guide”</a>.</p>
 </section>
 <section class="section" id="_neo4j_primitives_lifecycle"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Neo4j primitives' lifecycle</h3></div></div></div>
 
@@ -115,7 +115,7 @@ operation without having to go down and work with the file/disk I/O layer.</p>
 </section>
 <section class="section" id="_configuring_neo4j"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Configuring Neo4j</h3></div></div></div>
 
-<p>See <a class="xref" href="kernel-configuration.html" title="26.5. Kernel configuration">Section 26.5, “Kernel configuration”</a> and <a class="xref" href="configuration-jvm.html" title="26.8. JVM Settings">Section 26.8, “JVM Settings”</a> for information on how to configure Neo4j and the JVM.
+<p>See <a class="xref" href="kernel-configuration.html" title="25.5. Kernel configuration">Section 25.5, “Kernel configuration”</a> and <a class="xref" href="configuration-jvm.html" title="25.8. JVM Settings">Section 25.8, “JVM Settings”</a> for information on how to configure Neo4j and the JVM.
 These settings have a lot of impact on performance.</p>
 <section class="section" id="_disks_ram_and_other_tips"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Disks, RAM and other tips</h4></div></div></div>
 
@@ -151,7 +151,7 @@ achieve highest possible write speed that type of behavior should be avoided.</p
 transactions result in a lot of I/O writes to disc and should be avoided.
 Too big transactions can result in OutOfMemory errors, since the uncommitted
 transaction data is held on the Java Heap in memory. For details about transaction
-management in Neo4j, please see <a class="xref" href="transactions.html" title="Chapter 20. Transaction Management">Chapter 20, <em>Transaction Management</em></a>.</p>
+management in Neo4j, please see <a class="xref" href="transactions.html" title="Chapter 19. Transaction Management">Chapter 19, <em>Transaction Management</em></a>.</p>
 <p>The Neo4j kernel makes use of several store files and a logical log file
 to store the graph on disk. The store files contain the actual graph and the
 log contains modifying operations. All writes to the logical log are append-only
@@ -171,7 +171,7 @@ caused by writes to the memory mapped regions of the store files. As an example,
 if the machine has 8GB of RAM and the total size of the store files is 4GB (fully
 memory mapped) the OS has to be configured to accept at least 50% dirty pages in
 virtual memory to make sure we do not get random disk writes.</p>
-<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Make sure to read <a class="xref" href="linux-performance-guide.html" title="26.12. Linux Performance Guide">Section 26.12, “Linux Performance Guide”</a> as well for more specific information.</p></td></tr></table></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Make sure to read <a class="xref" href="linux-performance-guide.html" title="25.12. Linux Performance Guide">Section 25.12, “Linux Performance Guide”</a> as well for more specific information.</p></td></tr></table></div>
 </section>
 <section class="section" id="_second_level_caching"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Second level caching</h4></div></div></div>
 

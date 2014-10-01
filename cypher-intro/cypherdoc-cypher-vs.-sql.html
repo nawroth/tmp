@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>16.5. Cypher vs. SQL -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-sql-return.html" title="16.4. Return" /><link rel="next" href="execution-plans.html" title="Chapter 17. Execution Plans" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="16.5. Cypher vs. SQL" /><script type="text/javascript">
+    <title>4.8. Cypher vs. SQL -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-loading-data.html" title="4.7. Loading Data" /><link rel="next" href="tutorials-cypher.html" title="Chapter 5. Getting started with Cypher" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.8. Cypher vs. SQL" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,10 +68,12 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>16.5. Cypher vs. SQL</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-sql-return.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="examples-from-sql-to-cypher.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="execution-plans.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-cypher-vs.-sql"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">16.5. Cypher vs. SQL</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_data_model_2">Data Model</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_sample_data_2">Sample Data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_simple_read_of_data">Simple read of data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_join">Join</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_aggregation">Aggregation</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>4.8. Cypher vs. SQL</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-loading-data.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-cypher.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-cypher-vs.-sql"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.8. Cypher vs. SQL</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_data_model">Data Model</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_sample_data">Sample Data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_simple_read_of_data">Simple read of data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_join">Join</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs.-sql.html#_aggregation">Aggregation</a></span></li></ul></div>
 
-<section class="section" id="_data_model_2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Data Model</h3></div></div></div>
+<p>If you have used <code class="literal">SQL</code> and want to learn Cypher, this chapter is for you!
+We won’t dig very deep into either of the languages, but focus on bridging the gap.</p>
+<section class="section" id="_data_model"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Data Model</h3></div></div></div>
 
 <p>For our example, we will use data about persons who <span class="emphasis"><em>act in, direct, produce</em></span> movies.</p>
 <p>Here’s an entity-relationship model for the example:</p>
@@ -95,7 +97,7 @@ Also, the relationships always have full referential integrity.
 There’s no constraints to enable for this, as it’s not optional; it’s really part of the underlying data model.
 Relationships always have a type, and we will differentiate the different kinds of relationships by using the types <code class="literal">ACTED_IN</code>, <code class="literal">DIRECTED</code>, <code class="literal">PRODUCED</code>.</p>
 </section>
-<section class="section" id="_sample_data_2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Sample Data</h3></div></div></div>
+<section class="section" id="_sample_data"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Sample Data</h3></div></div></div>
 
 <p>First off, let’s see how to set up our example data in a RDBMS.
 We’ll start out creating a few tables and then go on to populate them.</p>

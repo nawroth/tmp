@@ -190,7 +190,7 @@ WHERE n.name="Alice"</pre></div>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">MATCH (n)--&gt;(m)</pre></div>
+<pre class="programlisting brush: cypher">RETURN n,m</pre></div>
 <div class="paragraph"><p>Any pattern can be used in <span class="monospaced">MATCH</span>.</p></div></div></td>
 </tr>
 <tr>
@@ -200,7 +200,7 @@ WHERE n.name="Alice"</pre></div>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">MATCH p = (n)--&gt;(m)</pre></div>
+<pre class="programlisting brush: cypher">RETURN p</pre></div>
 <div class="paragraph"><p>Assign a path to <span class="monospaced">p</span>.</p></div></div></td>
 </tr>
 <tr>
@@ -225,7 +225,7 @@ width:100%;
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">WHERE n.property &lt;&gt; {value}</pre></div>
+<pre class="programlisting brush: cypher">AND n.property &lt;&gt; {value}</pre></div>
 <div class="paragraph"><p>Use a predicate to filter.
 Note that <span class="monospaced">WHERE</span> is always part of a  <span class="monospaced">MATCH</span>, <span class="monospaced">OPTIONAL MATCH</span>, <span class="monospaced">WITH</span> or <span class="monospaced">START</span> clause.
 Putting it after a different clause in a query will alter what it does.</p></div></div></td>
@@ -799,7 +799,7 @@ See the performance tips.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">(n)-[:KNOWS]-&gt;(m {property: {value}})</pre></div>
+<pre class="programlisting brush: cypher">CREATE UNIQUE</pre></div>
 <div class="paragraph"><p>Match or set properties in <span class="monospaced">MATCH</span>, <span class="monospaced">CREATE</span>, <span class="monospaced">CREATE UNIQUE</span> or <span class="monospaced">MERGE</span> clauses.</p></div></div></td>
 </tr>
 <tr>
@@ -1181,12 +1181,14 @@ width:100%;
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">MATCH path=(n)--&gt;(m)
+WHERE id(n) = %A% AND id(m) = %B%
 RETURN extract(x IN nodes(path) | x.prop)</pre></div>
 <div class="paragraph"><p>Assign a path and process its nodes.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">MATCH path = (begin) -[*]-&gt; (end)
+WHERE id(begin) = %A% AND id(end) = %B%
 FOREACH
   (n IN rels(path) | SET n.marked = TRUE)</pre></div>
 <div class="paragraph"><p>Execute a mutating operation for each relationship of a path.</p></div></div></td>
@@ -1534,17 +1536,18 @@ width:100%;
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">START n=node(*)</pre></div>
+<pre class="programlisting brush: cypher">MATCH n</pre></div>
 <div class="paragraph"><p>Start from all nodes.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">START n=node({ids})</pre></div>
+<pre class="programlisting brush: cypher">MATCH n WHERE id(n) IN {ids}</pre></div>
 <div class="paragraph"><p>Start from one or more nodes specified by id.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">START n=node({id1}), m=node({id2})</pre></div>
+<pre class="programlisting brush: cypher">MATCH n, m
+WHERE id(n) = {id1} AND id(m) = {id2}</pre></div>
 <div class="paragraph"><p>Multiple starting points.</p></div></div></td>
 </tr>
 <tr>

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>23.6. Property values -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-cypher.html" title="23.5. Legacy Cypher HTTP endpoint" /><link rel="next" href="rest-api-nodes.html" title="23.7. Nodes" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="23.6. Property values" /><script type="text/javascript">
+    <title>22.6. Property values -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-cypher.html" title="22.5. Legacy Cypher HTTP endpoint" /><link rel="next" href="rest-api-nodes.html" title="22.7. Nodes" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.6. Property values" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>23.6. Property values</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-cypher.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-nodes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-property-values"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">23.6. Property values</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-property-values.html#_arrays">Arrays</a></span></li><li><span class="section"><a href="rest-api-property-values.html#_property_keys">Property keys</a></span></li><li><span class="section"><a href="rest-api-property-values.html#rest-api-list-all-property-keys">List all property keys</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.6. Property values</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-cypher.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-nodes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-property-values"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.6. Property values</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-property-values.html#_arrays">Arrays</a></span></li><li><span class="section"><a href="rest-api-property-values.html#_property_keys">Property keys</a></span></li><li><span class="section"><a href="rest-api-property-values.html#rest-api-list-all-property-keys">List all property keys</a></span></li></ul></div>
 
 <p>The REST API allows setting properties on nodes and relationships through direct RESTful operations.
 However, there are restrictions as to what types of values can be used as property values.
@@ -130,7 +130,7 @@ If no array exists already, the server will reject the request.</p>
 <span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
 
 </li></ul></div>
-<pre class="programlisting" data-lang="javascript">[ "key_get", "kvkey1", "kvkey2", "name" ]</pre>
+<pre class="programlisting" data-lang="javascript">[ "key_get", "kvkey2", "kvkey1", "name" ]</pre>
 </section>
 </section>
 

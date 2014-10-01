@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>39.2. Index Batch Insertion -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="batchinsert-examples.html" title="39.1. Batch Inserter Examples" /><link rel="next" href="manpages.html" title="Appendix A. Manpages" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="39.2. Index Batch Insertion" /><script type="text/javascript">
+    <title>38.2. Index Batch Insertion -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="batchinsert-examples.html" title="38.1. Batch Inserter Examples" /><link rel="next" href="manpages.html" title="Appendix A. Manpages" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="38.2. Index Batch Insertion" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,10 +68,10 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>39.2. Index Batch Insertion</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="batchinsert-examples.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="batchinsert.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="manpages.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="indexing-batchinsert"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">39.2. Index Batch Insertion</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="indexing-batchinsert.html#indexing-batchinsert-best-practices">Best practices</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>38.2. Index Batch Insertion</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="batchinsert-examples.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="batchinsert.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="manpages.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="indexing-batchinsert"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">38.2. Index Batch Insertion</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="indexing-batchinsert.html#indexing-batchinsert-best-practices">Best practices</a></span></li></ul></div>
 
-<p>For general notes on batch insertion, see <a class="xref" href="batchinsert.html" title="Chapter 39. Batch Insertion">Chapter 39, <em>Batch Insertion</em></a>.</p>
+<p>For general notes on batch insertion, see <a class="xref" href="batchinsert.html" title="Chapter 38. Batch Insertion">Chapter 38, <em>Batch Insertion</em></a>.</p>
 <p>Indexing during batch insertion is done using <a class="ulink" href="javadocs/org/neo4j/unsafe/batchinsert/BatchInserterIndex.html" target="_blank">BatchInserterIndex</a> which are provided via <a class="ulink" href="javadocs/org/neo4j/unsafe/batchinsert/BatchInserterIndexProvider.html" target="_blank">BatchInserterIndexProvider</a>.
 An example:</p>
 <pre class="programlisting" data-lang="java">BatchInserter inserter = BatchInserters.inserter( "target/neo4jdb-batchinsert" );
@@ -92,7 +92,7 @@ actors.flush();
 indexProvider.shutdown();
 inserter.shutdown();
 </pre>
-<p>The configuration parameters are the same as mentioned in <a class="xref" href="indexing-create-advanced.html" title="38.10. Configuration and fulltext indexes">Section 38.10, “Configuration and fulltext indexes”</a>.</p>
+<p>The configuration parameters are the same as mentioned in <a class="xref" href="indexing-create-advanced.html" title="37.10. Configuration and fulltext indexes">Section 37.10, “Configuration and fulltext indexes”</a>.</p>
 <section class="section" id="indexing-batchinsert-best-practices"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Best practices</h3></div></div></div>
 
 <p>Here are some pointers to get the most performance out of <code class="literal">BatchInserterIndex</code>:</p>

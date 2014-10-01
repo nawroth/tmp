@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>27.6. High Availability setup tutorial -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha-upgrade-guide.html" title="27.5. Upgrade of a Neo4j HA Cluster" /><link rel="next" href="ha-rest-info.html" title="27.7. REST endpoint for HA status information" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.6. High Availability setup tutorial" /><script type="text/javascript">
+    <title>26.6. High Availability setup tutorial -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha-upgrade-guide.html" title="26.5. Upgrade of a Neo4j HA Cluster" /><link rel="next" href="ha-rest-info.html" title="26.7. REST endpoint for HA status information" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.6. High Availability setup tutorial" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>27.6. High Availability setup tutorial</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha-upgrade-guide.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-rest-info.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-setup-tutorial"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.6. High Availability setup tutorial</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-setup-tutorial.html#_background_2">Background</a></span></li><li><span class="section"><a href="ha-setup-tutorial.html#_getting_started_setting_up_a_production_cluster">Getting started: Setting up a production cluster</a></span></li><li><span class="section"><a href="ha-setup-tutorial.html#ha-local-cluster">Alternative setup: Creating a local cluster for testing</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.6. High Availability setup tutorial</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha-upgrade-guide.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-rest-info.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-setup-tutorial"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.6. High Availability setup tutorial</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-setup-tutorial.html#_background_2">Background</a></span></li><li><span class="section"><a href="ha-setup-tutorial.html#_getting_started_setting_up_a_production_cluster">Getting started: Setting up a production cluster</a></span></li><li><span class="section"><a href="ha-setup-tutorial.html#ha-local-cluster">Alternative setup: Creating a local cluster for testing</a></span></li></ul></div>
 
 <p>This guide will help you understand how to configure and deploy a Neo4j High Availability cluster.
 Two scenarios will be considered:</p>
@@ -225,11 +225,11 @@ To keep track of the startup state you can follow the messages in console.log - 
 <p><a class="ulink" href="http://neo4j-01.local:7474/webadmin/#/info/org.neo4j/High%20Availability/" target="_blank">http://neo4j-01.local:7474/webadmin/#/info/org.neo4j/High%20Availability/</a></p>
 <p><a class="ulink" href="http://neo4j-02.local:7474/webadmin/#/info/org.neo4j/High%20Availability/" target="_blank">http://neo4j-02.local:7474/webadmin/#/info/org.neo4j/High%20Availability/</a></p>
 <p><a class="ulink" href="http://neo4j-03.local:7474/webadmin/#/info/org.neo4j/High%20Availability/" target="_blank">http://neo4j-03.local:7474/webadmin/#/info/org.neo4j/High%20Availability/</a></p>
-<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>You can replace database #3 with an <span class="emphasis"><em>arbiter</em></span> instance, see <a class="link" href="arbiter-instances.html" title="27.4. Arbiter Instances">Arbiter Instances</a>.</p></td></tr></table></div>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>You can replace database #3 with an <span class="emphasis"><em>arbiter</em></span> instance, see <a class="link" href="arbiter-instances.html" title="26.4. Arbiter Instances">Arbiter Instances</a>.</p></td></tr></table></div>
 <p>That’s it!
 You now have a Neo4j HA cluster of 3 instances running.
 You can start by making a change on any instance and those changes will be propagated between them.
-For more HA related configuration options take a look at <a class="link" href="ha-configuration.html" title="27.2. Setup and configuration">HA Configuration</a>.</p>
+For more HA related configuration options take a look at <a class="link" href="ha-configuration.html" title="26.2. Setup and configuration">HA Configuration</a>.</p>
 </section>
 </section>
 <section class="section" id="ha-local-cluster"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Alternative setup: Creating a local cluster for testing</h3></div></div></div>

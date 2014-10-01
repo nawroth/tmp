@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.11. Implementing newsfeeds in a graph -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-multirelational-social-network.html" title="7.10. Multirelational (social) graphs" /><link rel="next" href="cypher-cookbook-boostingrecommendations.html" title="7.12. Boosting recommendation results" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.11. Implementing newsfeeds in a graph" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -110,7 +110,7 @@ Sort the status updates by posted date (<code class="literal">ORDER BY statusupd
 <code class="literal">LIMIT</code> the number of updates you need in every query (<code class="literal">LIMIT 3</code>).
 
 </li></ol></div>
-<div class="queryresult table" id="d5e3593"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>date</th><th>text</th></tr></thead><tfoot><tr><th colspan="3">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">6</code></p></td><td><p><code class="literal">"Joe status2"</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">4</code></p></td><td><p><code class="literal">"bobs status2"</code></p></td></tr><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">3</code></p></td><td><p><code class="literal">"Joe status1"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e4023"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>date</th><th>text</th></tr></thead><tfoot><tr><th colspan="3">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">6</code></p></td><td><p><code class="literal">"Joe status2"</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">4</code></p></td><td><p><code class="literal">"bobs status2"</code></p></td></tr><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">3</code></p></td><td><p><code class="literal">"Joe status1"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Bob"})
 create (_1 {`date`:1, `name`:"bob_s1", `text`:"bobs status1"})
 create (_2 {`date`:4, `name`:"bob_s2", `text`:"bobs status2"})
@@ -173,7 +173,7 @@ Pipe over <code class="literal">statusupdate</code> or an empty collection to th
 Now, create a <code class="literal">NEXT</code> relationship between the latest status update and the second latest status update (if it exists) (<code class="literal">FOREACH(x in seconds | CREATE (latest_update)-[:NEXT]-&gt;(x))</code>).
 
 </li></ol></div>
-<div class="queryresult table" id="d5e3675"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>new_status</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e4105"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>new_status</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Properties set: 2

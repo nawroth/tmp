@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.4. Upgrading -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-installation-cloud.html" title="25.3. Server Installation in the Cloud" /><link rel="next" href="server-debugging.html" title="25.5. Setup for remote debugging" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.4. Upgrading" /><script type="text/javascript">
+    <title>24.4. Upgrading -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-installation-cloud.html" title="24.3. Server Installation in the Cloud" /><link rel="next" href="server-debugging.html" title="24.5. Setup for remote debugging" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.4. Upgrading" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,12 +68,12 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.4. Upgrading</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-installation-cloud.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="deployment.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-debugging.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="deployment-upgrading"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.4. Upgrading</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="deployment-upgrading.html#automatic-upgrade">Automatic Store Upgrade</a></span></li><li><span class="section"><a href="deployment-upgrading.html#explicit-upgrade">Explicit Store Upgrade</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>24.4. Upgrading</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-installation-cloud.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="deployment.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-debugging.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="deployment-upgrading"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">24.4. Upgrading</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="deployment-upgrading.html#automatic-upgrade">Automatic Store Upgrade</a></span></li><li><span class="section"><a href="deployment-upgrading.html#explicit-upgrade">Explicit Store Upgrade</a></span></li></ul></div>
 
 <div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>This section describes upgrading a single Neo4j instance. Upgrading a Neo4j HA
 cluster (Neo4j Enterprise) requires a very specific process be followed. Please
-refer to <a class="xref" href="ha-upgrade-guide.html" title="27.5. Upgrade of a Neo4j HA Cluster">Section 27.5, “Upgrade of a Neo4j HA Cluster”</a>.</p></td></tr></table></div>
+refer to <a class="xref" href="ha-upgrade-guide.html" title="26.5. Upgrade of a Neo4j HA Cluster">Section 26.5, “Upgrade of a Neo4j HA Cluster”</a>.</p></td></tr></table></div>
 <p>A database created by an older version of Neo4j will be upgraded when opened by
 Neo4j 2.2-SNAPSHOT during startup. Whilst this upgrade will occur
 automatically for minor changes, larger migrations require explicit
@@ -115,7 +115,7 @@ Install Neo4j 2.2-SNAPSHOT, and set it up to use the same database store directo
 
 </li><li class="listitem">
 
-<span class="strong"><strong>NOTE: It is strongly advised to make a copy of the database store directory at this time, to use as a backup in case rollback/downgrade is required.</strong></span> This is not necessary if a backup has been made using the <a class="link" href="operations-backup.html" title="Chapter 28. Backup">online backup tool</a>, available with Neo4j Enterprise.
+<span class="strong"><strong>NOTE: It is strongly advised to make a copy of the database store directory at this time, to use as a backup in case rollback/downgrade is required.</strong></span> This is not necessary if a backup has been made using the <a class="link" href="operations-backup.html" title="Chapter 27. Backup">online backup tool</a>, available with Neo4j Enterprise.
 
 </li><li class="listitem">
 

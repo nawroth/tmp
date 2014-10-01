@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>27.5. Upgrade of a Neo4j HA Cluster -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="arbiter-instances.html" title="27.4. Arbiter Instances" /><link rel="next" href="ha-setup-tutorial.html" title="27.6. High Availability setup tutorial" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.5. Upgrade of a Neo4j HA Cluster" /><script type="text/javascript">
+    <title>26.5. Upgrade of a Neo4j HA Cluster -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="arbiter-instances.html" title="26.4. Arbiter Instances" /><link rel="next" href="ha-setup-tutorial.html" title="26.6. High Availability setup tutorial" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.5. Upgrade of a Neo4j HA Cluster" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-66629";
+      var treeCookieId = "treeview-65659";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,11 +68,11 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>27.5. Upgrade of a Neo4j HA Cluster</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="arbiter-instances.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-setup-tutorial.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-upgrade-guide"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.5. Upgrade of a Neo4j HA Cluster</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-upgrade-guide.html#ha-standard-upgrade">Standard upgrade</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html#ha-rolling-upgrade">Rolling upgrade</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html#ha-downgrade">Downgrading</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.5. Upgrade of a Neo4j HA Cluster</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="arbiter-instances.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-setup-tutorial.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-upgrade-guide"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.5. Upgrade of a Neo4j HA Cluster</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-upgrade-guide.html#ha-standard-upgrade">Standard upgrade</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html#ha-rolling-upgrade">Rolling upgrade</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html#ha-downgrade">Downgrading</a></span></li></ul></div>
 
 <div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>Before attempting any of the upgrades described here, please
-<a class="link" href="operations-backup.html" title="Chapter 28. Backup">backup your database store!</a></p></td></tr></table></div>
+<a class="link" href="operations-backup.html" title="Chapter 27. Backup">backup your database store!</a></p></td></tr></table></div>
 <p>To upgrade a Neo4j HA cluster to Neo4j 2.2-SNAPSHOT requires following
 a specific process that ensures the cluster remains consistent and all cluster
 instances are able to join and participate following their upgrade.</p>
@@ -82,7 +82,7 @@ the <a class="link" href="ha-upgrade-guide.html#ha-standard-upgrade" title="Stan
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>It is strongly recommended to follow the <a class="link" href="ha-upgrade-guide.html#ha-standard-upgrade" title="Standard upgrade">standard upgrade process</a> over the <a class="link" href="ha-upgrade-guide.html#ha-rolling-upgrade" title="Rolling upgrade">rolling upgrade process</a>, as
 it is much simpler and less likely to encounter issues.</p></td></tr></table></div>
 <div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>After upgrade is complete, existing backups will not be suitable for updating
-via the <a class="link" href="operations-backup.html" title="Chapter 28. Backup">incremental online backup</a>. Please ensure that
+via the <a class="link" href="operations-backup.html" title="Chapter 27. Backup">incremental online backup</a>. Please ensure that
 the first backup after upgrading uses an empty target directory, and thus
 performs a full backup.</p></td></tr></table></div>
 <section class="section" id="ha-standard-upgrade"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Standard upgrade</h3></div></div></div>
@@ -95,7 +95,7 @@ propagate out to slaves.</p>
 <p>The following process is recommended:</p>
 <div class="itemizedlist"><p class="title"><strong>Backup</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-Before anything else, <a class="link" href="operations-backup.html" title="Chapter 28. Backup">backup your database store!</a>
+Before anything else, <a class="link" href="operations-backup.html" title="Chapter 27. Backup">backup your database store!</a>
 
 </li></ul></div>
 <div class="itemizedlist"><p class="title"><strong>Shut down the cluster</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -116,7 +116,7 @@ Disable HA in the configuration, by setting <code class="literal">org.neo4j.serv
 
 </li><li class="listitem">
 
-<a class="link" href="deployment-upgrading.html" title="25.4. Upgrading">Upgrade as described for a single instance of Neo4j</a> (this may involve configuring with <code class="literal">allow_store_upgrade=true</code>, as described in <a class="link" href="deployment-upgrading.html#explicit-upgrade" title="Explicit Store Upgrade">"Explicit Upgrades"</a>).
+<a class="link" href="deployment-upgrading.html" title="24.4. Upgrading">Upgrade as described for a single instance of Neo4j</a> (this may involve configuring with <code class="literal">allow_store_upgrade=true</code>, as described in <a class="link" href="deployment-upgrading.html#explicit-upgrade" title="Explicit Store Upgrade">"Explicit Upgrades"</a>).
 
 </li><li class="listitem">
 
@@ -161,7 +161,7 @@ instance with the upgraded version, one at a time, with the cluster master done 
 <p>The following process is recommended:</p>
 <div class="itemizedlist"><p class="title"><strong>Backup</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-Before anything else, <a class="link" href="operations-backup.html" title="Chapter 28. Backup">backup your database store!</a>
+Before anything else, <a class="link" href="operations-backup.html" title="Chapter 27. Backup">backup your database store!</a>
 
 </li></ul></div>
 <div class="itemizedlist"><p class="title"><strong>Upgrade a single database store</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -182,7 +182,7 @@ Disable HA in the configuration, by setting <code class="literal">org.neo4j.serv
 
 </li><li class="listitem">
 
-<a class="link" href="deployment-upgrading.html" title="25.4. Upgrading">Upgrade as described for a single instance of Neo4j</a>. This may involve configuring with <code class="literal">allow_store_upgrade=true</code>, as described in <a class="link" href="deployment-upgrading.html#explicit-upgrade" title="Explicit Store Upgrade">"Explicit Upgrades"</a>).
+<a class="link" href="deployment-upgrading.html" title="24.4. Upgrading">Upgrade as described for a single instance of Neo4j</a>. This may involve configuring with <code class="literal">allow_store_upgrade=true</code>, as described in <a class="link" href="deployment-upgrading.html#explicit-upgrade" title="Explicit Store Upgrade">"Explicit Upgrades"</a>).
 
 </li><li class="listitem">
 
@@ -248,7 +248,7 @@ Start up the old master, and allow to join the cluster. It will now be a slave.
 </section>
 <section class="section" id="ha-downgrade"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Downgrading</h3></div></div></div>
 
-<p>Downgrade is only supported between Neo4j versions that <a class="link" href="deployment-upgrading.html" title="25.4. Upgrading">for automatic upgrades</a>. This typically means only within patch releases of the same Neo4j version.</p>
+<p>Downgrade is only supported between Neo4j versions that <a class="link" href="deployment-upgrading.html" title="24.4. Upgrading">for automatic upgrades</a>. This typically means only within patch releases of the same Neo4j version.</p>
 <p>Downgrade follows the same process as for <a class="link" href="ha-upgrade-guide.html#ha-standard-upgrade" title="Standard upgrade">standard upgrade</a>.</p>
 </section>
 </section>
