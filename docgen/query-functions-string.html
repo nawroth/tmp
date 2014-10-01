@@ -1,0 +1,434 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>12.5. String functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-mathematical.html" title="12.4. Mathematical functions" /><link rel="next" href="cypher-schema.html" title="Chapter 13. Schema" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.5. String functions" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-68358";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.5. String functions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-functions-mathematical.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-schema.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-string"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.5. String functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-string.html#functions-str">STR</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-replace">REPLACE</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-substring">SUBSTRING</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-left">LEFT</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-right">RIGHT</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-ltrim">LTRIM</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-rtrim">RTRIM</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-trim">TRIM</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-lower">LOWER</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-upper">UPPER</a></span></li><li><span class="section"><a href="query-functions-string.html#functions-split">SPLIT</a></span></li></ul></div>
+
+<p>These functions all operate on string expressions only, and will return an error if used on any other values.
+Except <code class="literal">STR()</code>, which converts to strings.</p>
+<p>See also <a class="xref" href="query-operators.html#query-operators-string" title="String operators">the section called “String operators”</a>.</p>
+<div class="figure" id="d5e12623"><p class="title"><strong>Figure 12.5. Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
+</a>
+</div></div>
+<section class="section" id="functions-str"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">STR</h3></div></div></div>
+
+<p><code class="literal">STR</code> returns a string representation of the expression.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">STR( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> An expression that returns anything
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN str(1)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12648"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return str(1)</strong></span></p>
+</section>
+<section class="section" id="functions-replace"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">REPLACE</h3></div></div></div>
+
+<p><code class="literal">REPLACE</code> returns a string with the search string replaced by the replace string. It replaces all occurrences.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">REPLACE( original, search, replace )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>search:</em></span> An expression that returns a string to search for
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>replace:</em></span> An expression that returns the string to replace the search string with
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN replace("hello", "l", "w")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12691"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return replace("hello", "l", "w")</strong></span></p>
+</section>
+<section class="section" id="functions-substring"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SUBSTRING</h3></div></div></div>
+
+<p><code class="literal">SUBSTRING</code> returns a substring of the original, with a 0-based index start and length. If length is omitted, it returns a substring from start until the end of the string.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">SUBSTRING( original, start [, length] )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>start:</em></span> An expression that returns a positive number
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>length:</em></span> An expression that returns a positive number
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN substring("hello", 1, 3), substring("hello", 2)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12734"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return substring("hello", 1, 3), substring("hello", 2)</strong></span></p>
+</section>
+<section class="section" id="functions-left"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LEFT</h3></div></div></div>
+
+<p><code class="literal">LEFT</code> returns a string containing the left n characters of the original string.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">LEFT( original, length )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>n:</em></span> An expression that returns a positive number
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN left("hello", 3)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12779"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return left("hello", 3)</strong></span></p>
+</section>
+<section class="section" id="functions-right"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RIGHT</h3></div></div></div>
+
+<p><code class="literal">RIGHT</code> returns a string containing the right n characters of the original string.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">RIGHT( original, length )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>n:</em></span> An expression that returns a positive number
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN right("hello", 3)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12819"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return right("hello", 3)</strong></span></p>
+</section>
+<section class="section" id="functions-ltrim"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LTRIM</h3></div></div></div>
+
+<p><code class="literal">LTRIM</code> returns the original string with whitespace removed from the left side.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">LTRIM( original )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN ltrim("   hello")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12856"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return ltrim("   hello")</strong></span></p>
+</section>
+<section class="section" id="functions-rtrim"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RTRIM</h3></div></div></div>
+
+<p><code class="literal">RTRIM</code> returns the original string with whitespace removed from the right side.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">RTRIM( original )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN rtrim("hello   ")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12893"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return rtrim("hello   ")</strong></span></p>
+</section>
+<section class="section" id="functions-trim"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TRIM</h3></div></div></div>
+
+<p><code class="literal">TRIM</code> returns the original string with whitespace removed from both sides.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TRIM( original )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN trim("   hello   ")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12930"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return trim("   hello   ")</strong></span></p>
+</section>
+<section class="section" id="functions-lower"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LOWER</h3></div></div></div>
+
+<p><code class="literal">LOWER</code> returns the original string in lowercase.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">LOWER( original )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN lower("HELLO")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12967"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return lower("HELLO")</strong></span></p>
+</section>
+<section class="section" id="functions-upper"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">UPPER</h3></div></div></div>
+
+<p><code class="literal">UPPER</code> returns the original string in uppercase.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">UPPER( original )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN upper("hello")</pre><p>
+</p>
+<div class="queryresult table" id="d5e13004"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return upper("hello")</strong></span></p>
+</section>
+<section class="section" id="functions-split"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SPLIT</h3></div></div></div>
+
+<p><code class="literal">SPLIT</code> returns the sequence of strings witch are delimited by split patterns.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">SPLIT( original, splitPattern )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>original:</em></span> An expression that returns a string
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>splitPattern:</em></span> The string to split to original string with
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN split("one,two", ",")</pre><p>
+</p>
+<div class="queryresult table" id="d5e13044"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return split("one,two", ",")</strong></span></p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

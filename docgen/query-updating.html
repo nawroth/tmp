@@ -1,0 +1,142 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>7.2. Updating the graph -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-introduction.html" title="7.1. What is Cypher?" /><link rel="next" href="query-transactions.html" title="7.3. Transactions" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.2. Updating the graph" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-68358";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>7.2. Updating the graph</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-introduction.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-intro.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-transactions.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-updating"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.2. Updating the graph</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-updating.html#query-updating-structure">The Structure of Updating Queries</a></span></li><li><span class="section"><a href="query-updating.html#query-updating-return">Returning data</a></span></li></ul></div>
+
+<p>Cypher can be used for both querying and updating your graph.</p>
+<section class="section" id="query-updating-structure"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">The Structure of Updating Queries</h3></div></div></div>
+
+<div class="sidebar"><div xmlns="" class="titlepage"><div><div><p xmlns="http://www.w3.org/1999/xhtml" class="title"><strong>Quick info</strong></p></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+A Cypher query part can’t both match and update the graph at the same time.
+
+</li><li class="listitem">
+
+Every part can either read and match on the graph, or make updates on it.
+
+</li></ul></div>
+</div>
+<p>If you read from the graph, and then update the graph, your query implicitly has two parts — the reading is the first
+part, and the writing is the second. If your query is read-only, Cypher will be lazy, and not actually match the pattern
+until you ask for the results. In an updating query, the semantics are that <span class="emphasis"><em>all</em></span> the reading will be done before any
+writing actually happens.
+First reading, and then writing, is the only pattern where the query parts are implicit — any other order and you
+have to be explicit about your query parts. The parts are separated using the <code class="literal">WITH</code> statement. <code class="literal">WITH</code> is like the event
+horizon — it’s a barrier between a plan and the finished execution of that plan.</p>
+<p>When you want to filter using aggregated data, you have to chain together two reading query parts — the first one does the
+aggregating, and the second query filters on the results coming from the first one.</p>
+<pre class="programlisting" data-lang="cypher">MATCH (n {name: 'John'})-[:FRIEND]-friend
+WITH n, count(friend) as friendsCount
+WHERE friendsCount &gt; 3
+RETURN n, friendsCount</pre>
+<p>Using <code class="literal">WITH</code>, you specify how you want the aggregation to happen, and that the aggregation has to be finished before
+Cypher can start filtering.</p>
+<p>You can chain together as many query parts as you have JVM heap for.</p>
+</section>
+<section class="section" id="query-updating-return"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Returning data</h3></div></div></div>
+
+<p>Any query can return data. If your query only reads, it has to return data — it serves no purpose if it doesn’t, and
+ it is not a valid Cypher query. Queries that update the graph don’t have to return anything, but they can.</p>
+<p>After all the parts of the query comes one final <code class="literal">RETURN</code> clause. <code class="literal">RETURN</code> is not part of any query part — it
+is a period symbol at the end of a query. The <code class="literal">RETURN</code> clause has three sub-clauses that come with it <code class="literal">SKIP</code>/<code class="literal">LIMIT</code> and <code class="literal">ORDER BY</code>.</p>
+<p>If you return graph elements from a query that has just deleted them — beware, you are holding a pointer that is no
+ longer valid. Operations on that node might fail mysteriously and unpredictably.</p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

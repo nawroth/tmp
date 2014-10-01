@@ -1,0 +1,390 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>12.3. Collection functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-scalar.html" title="12.2. Scalar functions" /><link rel="next" href="query-functions-mathematical.html" title="12.4. Mathematical functions" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.3. Collection functions" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-68358";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.3. Collection functions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-functions-scalar.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-functions-mathematical.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-collection"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.3. Collection functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-collection.html#functions-nodes">NODES</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-relationships">RELATIONSHIPS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-labels">LABELS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-extract">EXTRACT</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-filter">FILTER</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-tail">TAIL</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-range">RANGE</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-reduce">REDUCE</a></span></li></ul></div>
+
+<p>Collection functions return collections of things — nodes in a path, and so on.</p>
+<p>See also <a class="xref" href="query-operators.html#query-operators-collection" title="Collection operators">the section called “Collection operators”</a>.</p>
+<div class="figure" id="d5e11361"><p class="title"><strong>Figure 12.3. Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
+</a>
+</div></div>
+<section class="section" id="functions-nodes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">NODES</h3></div></div></div>
+
+<p>Returns all nodes in a path.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">NODES( path )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>path:</em></span> A path.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH p=(a)--&gt;(b)--&gt;(c)
+WHERE a.name='Alice' AND c.name='Eskil'
+RETURN nodes(p)</pre><p>
+</p>
+<p>All the nodes in the path <code class="literal">p</code> are returned by the example query.</p>
+<div class="queryresult table" id="d5e11387"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>nodes(p)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},Node[3]{name:"Bob",age:25,eyes:"blue"},Node[1]{name:"Eskil",age:41,eyes:"blue",array:["one","two","three"]}]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match p=(a)--&gt;(b)--&gt;(c) where a.name='Alice' and c.name='Eskil' return nodes(p)</strong></span></p>
+</section>
+<section class="section" id="functions-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RELATIONSHIPS</h3></div></div></div>
+
+<p>Returns all relationships in a path.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">RELATIONSHIPS( path )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>path:</em></span> A path.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH p=(a)--&gt;(b)--&gt;(c)
+WHERE a.name='Alice' AND c.name='Eskil'
+RETURN relationships(p)</pre><p>
+</p>
+<p>All the relationships in the path <code class="literal">p</code> are returned.</p>
+<div class="queryresult table" id="d5e11425"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>relationships(p)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:KNOWS[0]{},:MARRIED[4]{}]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match p=(a)--&gt;(b)--&gt;(c) where a.name='Alice' and c.name='Eskil' return relationships(p)</strong></span></p>
+</section>
+<section class="section" id="functions-labels"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LABELS</h3></div></div></div>
+
+<p>Returns a collection of string representations for the labels attached to a node.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">LABELS( node )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>node:</em></span> Any expression that returns a single node
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Alice'
+RETURN labels(a)</pre><p>
+</p>
+<p>The labels of <code class="literal">n</code> is returned by the query.</p>
+<div class="queryresult table" id="d5e11463"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>labels(a)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["foo","bar"]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Alice' return labels(a)</strong></span></p>
+</section>
+<section class="section" id="functions-extract"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">EXTRACT</h3></div></div></div>
+
+<p>To return a single property, or the value of a function from a collection of nodes or relationships,
+ you can use <code class="literal">EXTRACT</code>. It will go through a collection, run an expression on every element, and return the results
+ in an collection with these values. It works like the <code class="literal">map</code> method in functional languages such as Lisp and Scala.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">EXTRACT( identifier in collection | expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>collection:</em></span> An expression that returns a collection
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>identifier:</em></span> The closure will have an identifier introduced in it’s context. Here you decide which identifier to use.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> This expression will run once per value in the collection, and produces the result collection.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH p=(a)--&gt;(b)--&gt;(c)
+WHERE a.name='Alice' AND b.name='Bob' AND c.name='Daniel'
+RETURN extract(n IN nodes(p)| n.age) AS extracted</pre><p>
+</p>
+<p>The age property of all nodes in the path are returned.</p>
+<div class="queryresult table" id="d5e11508"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>extracted</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[38,25,54]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match p=(a)--&gt;(b)--&gt;(c) where a.name='Alice' and b.name='Bob' and c.name='Daniel' return extract(n in nodes(p) | n.age) AS extracted</strong></span></p>
+</section>
+<section class="section" id="functions-filter"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">FILTER</h3></div></div></div>
+
+<p><code class="literal">FILTER</code> returns all the elements in a collection that comply to a predicate.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">FILTER(identifier in collection WHERE predicate)</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>collection:</em></span> An expression that returns a collection
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>identifier:</em></span> This is the identifier that can be used from the predicate.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>predicate:</em></span> A predicate that is tested against all items in the collection.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Eskil'
+RETURN a.array, filter(x IN a.array WHERE length(x)= 3)</pre><p>
+</p>
+<p>This returns the property named <code class="literal">array</code> and a list of values in it, which have the length <code class="literal">3</code>.</p>
+<div class="queryresult table" id="d5e11554"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>filter(x in a.array WHERE length(x) = 3)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Eskil' return a.array, filter(x in a.array WHERE length(x) = 3)</strong></span></p>
+</section>
+<section class="section" id="functions-tail"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TAIL</h3></div></div></div>
+
+<p><code class="literal">TAIL</code> returns all but the first element in a collection.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TAIL( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> This expression should return a collection of some kind.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Eskil'
+RETURN a.array, tail(a.array)</pre><p>
+</p>
+<p>This returns the property named <code class="literal">array</code> and all elements of that property except the first one.</p>
+<div class="queryresult table" id="d5e11598"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>tail(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">["two","three"]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Eskil' return a.array, tail(a.array)</strong></span></p>
+</section>
+<section class="section" id="functions-range"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RANGE</h3></div></div></div>
+
+<p>Returns numerical values in a range with a non-zero step value step. Range is inclusive in both ends.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">RANGE( start, end [, step] )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>start:</em></span> A numerical expression.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>end:</em></span> A numerical expression.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>step:</em></span> A numerical expression.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN range(0,10), range(2,18,3)</pre><p>
+</p>
+<p>Two lists of numbers are returned.</p>
+<div class="queryresult table" id="d5e11646"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)</th><th>range(2,18,3)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5,6,7,8,9,10]</code></p></td><td><p><code class="literal">[2,5,8,11,14,17]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return range(0,10), range(2,18,3)</strong></span></p>
+</section>
+<section class="section" id="functions-reduce"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">REDUCE</h3></div></div></div>
+
+<p>To run an expression against individual elements of a collection, and store the result of the expression in
+ an accumulator, you can use <code class="literal">REDUCE</code>. It will go through a collection, run an expression on every element, storing the partial result
+ in the accumulator. It works like the <code class="literal">fold</code> or <code class="literal">reduce</code> method in functional languages such as Lisp and Scala.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">REDUCE( accumulator = initial,  identifier in collection | expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>accumulator:</em></span> An identifier that will hold the result and the partial results as the collection is iterated
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>initial:</em></span> An expression that runs once to give a starting value to the accumulator
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>collection:</em></span> An expression that returns a collection
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>identifier:</em></span> The closure will have an identifier introduced in it’s context. Here you decide which identifier to use.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> This expression will run once per value in the collection, and produces the result value.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH p=(a)--&gt;(b)--&gt;(c)
+WHERE a.name='Alice' AND b.name='Bob' AND c.name='Daniel'
+RETURN reduce(totalAge = 0, n IN nodes(p)| totalAge + n.age) AS reduction</pre><p>
+</p>
+<p>The age property of all nodes in the path are summed and returned as a single value.</p>
+<div class="queryresult table" id="d5e11703"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>reduction</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">117</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match p=(a)--&gt;(b)--&gt;(c) where a.name='Alice' and b.name='Bob' and c.name='Daniel' return reduce(totalAge = 0, n in nodes(p) | totalAge + n.age) AS reduction</strong></span></p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
