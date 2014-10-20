@@ -1,0 +1,1274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>Neo4j简体中文手册 v1.9-SNAPSHOT</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="http://neo4j.org/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="icon" href="http://neo4j.org/favicon.ico" type="image/x-icon" />
+
+<!-- style -->
+
+<link href="css/shCore.css" rel="stylesheet" type="text/css" />
+<link href="css/shCoreEclipse.css" rel="stylesheet" type="text/css" />
+<link href="css/shThemeEclipse.css" rel="stylesheet" type="text/css" />
+<link href="css/neo.css" rel="stylesheet" type="text/css" />
+<link href="css/neo-asciidoc.css" rel="stylesheet" type="text/css" />
+
+<!-- Syntax Highlighter -->
+
+<script type="text/javascript" src="js/shCore.js"></script>
+<script type="text/javascript" src="js/shBrushJava.js"></script>
+<script type="text/javascript" src="js/shBrushJScript.js"></script>
+<script type="text/javascript" src="js/shBrushBash.js"></script>
+<script type="text/javascript" src="js/shBrushPlain.js"></script>
+<script type="text/javascript" src="js/shBrushXml.js"></script>
+<script type="text/javascript" src="js/shBrushGroovy.js"></script>
+<script type="text/javascript" src="js/shBrushCypher.js"></script>
+<script type="text/javascript" src="js/shBrushScala.js"></script>
+<script type="text/javascript" src="js/shBrushSql.js"></script>
+<script type="text/javascript" src="js/shBrushPython.js"></script>
+
+<!-- activate when needed
+<script type="text/javascript" src="js/shBrushRuby.js"></script>
+<script type="text/javascript" src="js/shBrushCSharp.js"></script>
+-->
+
+<script type="text/javascript">
+  SyntaxHighlighter.defaults['tab-size'] = 4;
+  SyntaxHighlighter.defaults['gutter'] = false;
+  SyntaxHighlighter.defaults['toolbar'] = false;
+  SyntaxHighlighter.all()
+</script>
+
+<!-- JQuery -->
+
+<script type="text/javascript" src="js/jquery-1.6.4.min.js"></script>
+
+<!-- Replace SVG for browsers that lack support. -->
+<script type="text/javascript" src="js/svgreplacer.js"></script>
+
+<!-- Image Scaler -->
+
+<script type="text/javascript" src="js/imagescaler.js"></script>
+
+<!-- Table Styler -->
+
+<script type="text/javascript" src="js/tablestyler.js"></script>
+
+<!-- Version -->
+
+<script type="text/javascript" src="js/version.js"></script>
+
+<!-- Offline Sidebar -->
+
+<!-- script type="text/javascript" src="js/sidebar.js"></script -->
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1192232-16']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body class="article">
+<div id="header">
+<h1>Neo4j简体中文手册 v1.9-SNAPSHOT</h1>
+<div id="toc">
+  <div id="toctitle">目录</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="preface">前言</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>这是由Neo4j团队书写的Neo4j v1.9-SNAPSHOT的参考手册。</p></div>
+<div class="paragraph"><p>手册主要包括以下几部分：</p></div>
+<div class="paragraph"><p>这些内容是经过实践的，技术性的，并关注于解答特别的问题。
+它告知我们在一个实际运行Neo4j的生产环境中如何工作，做什么以及不做什么，来保证我们项目的成功运行。</p></div>
+<div class="paragraph"><p>我们的目标是使用方便和易于经验规则的吸收。</p></div>
+<div class="paragraph"><p>每个片段应该都只包括独立的内容，因此你可以跳到任何你感兴趣的部分阅读。
+当你在房子周围散步没带手册时，这些章节也可以提取"经验规则"让你记住。</p></div>
+<div class="paragraph"><p>这还包括在Neo4j编译和单元测试时执行的范例代码。REST API输入输出范例也与一个Neo4j服务器进行真实的交互。
+因此，范例总是与Neo4j同步的。</p></div>
+<div class="paragraph"><p><em>谁需要阅读这个文档?</em></p></div>
+<div class="paragraph"><p>这些话题适合相关的架构师，管理员，开发人员和操作人员阅读。</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction">简介</h2>
+<div class="sectionbody">
+<div class="openblock">
+<div class="content">
+<div class="paragraph"><p>这个部分让我们了解一个图数据库到底是什么,以及总览下Neo4j相关的一些规则.</p></div>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction-highlights">Neo4j的亮点</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>作为一款强健的，可伸缩的高性能数据库，Neo4j最适合完整的企业部署或者用于一个轻量级项目中完整服务器的一个子集存在。</p></div>
+<div class="paragraph"><p>它包括如下几个显著特点:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+完整的ACID支持
+</p>
+</li>
+<li>
+<p>
+高可用性
+</p>
+</li>
+<li>
+<p>
+轻易扩展到上亿级别的节点和关系
+</p>
+</li>
+<li>
+<p>
+通过遍历工具高速检索数据
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>适当的ACID操作是保证数据一致性的基础。Neo4j确保了在一个事务里面的多个操作同时发生，保证数据一致性。不管是采用嵌入模式还是多服务器集群部署，都支持这一特性。更多详细的介绍，请参考章节:<a href="#transactions">[transactions]</a>。</p></div>
+<div class="paragraph"><p>可靠的图型存储可以非常轻松的集成到任何一个应用中。随着我们开发的应用在运营中不断发展，性能问题肯定会逐步凸显出来，而Neo4j不管应用如何变化，他只会受到计算机硬件性能的影响，不受业务本身的约束。</p></div>
+<div class="paragraph"><p>部署一个neo4j服务器便可以承载上亿级的节点和关系。当然，当单节点无法承载我们的数据需求时，我们可以进行分布式集群部署，详细的细节，请参考章节：<a href="#ha">[ha]</a>。</p></div>
+<div class="paragraph"><p>将图数据库用于存储关系复杂的数据是他最大的优势。通过Neo4j提供的遍历工具，可以非常高效的进行数据检索，每秒可以达到上亿级的检索量。一个检索操作类似于RDBMS里面的连接（_join_）操作。</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="graphdb-concepts">图数据库概要</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>这个章节包括一个对图数据模型的介绍以及将它与其他我们常见的数据持久化模型的比较. persisting data.</p></div>
+<div class="sect2">
+<h3 id="what-is-a-graphdb">什么是图数据库?</h3>
+<div class="paragraph"><p>图数据库用图来存储数据，是最接近高性能的一种用于存储数据的数据结构方式之一。让我们跟随下面的图表，用他们来解释图数据库相关概念。我们将跟随图表中箭头方向来读懂图想表达的真正含义。</p></div>
+<div class="paragraph"><p>A</p></div>
+<div class="sect3">
+<h4 id="_一个图由无数的节点和关系组成">一个图由无数的节点和关系组成</h4>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>&#8220;一张图 – 数据记录在 &#8594; 节点 &#8594; 包括的 &#8594; 属性里面&#8221;</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>最简单的图是单节点的，一个记录，记录了一些属性。一个节点可以从单属性开始，成长为成千上亿，虽然会有一点点麻烦。从某种意义上讲，将数据用关系连接起来分布到不同节点上才是有意义的。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-GVE.svg" alt="graphdb-GVE.svg" />
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_关系将图各个部分组织起来">关系将图各个部分组织起来</h4>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>&#8220;节点 — 被组织 &#8594; 关系 — 可以有 &#8594; 属性&#8221;</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>关系可以将节点组织成任意的结构，允许一张图被组织成一个列表，一棵树，一张地图，或者一个复杂的实体 – 这个实体本身也是由复杂的，关系高度关联的结构组成。</p></div>
+</div>
+<div class="sect3">
+<h4 id="_用_traversal_进行数据库查询">用 Traversal 进行数据库查询</h4>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>&#8220;一个 Traversal — 导航 &#8594; 一张图; 他 — 标示 &#8594; 路径 — 包含 &#8594; 节点&#8221;</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>一次 Traversal, 你可以理解为是你通过一种算法，从一些开始节点开始查询与其关联的节点，比如你想找到 “我朋友喜欢但我不喜欢的那首音乐是什么呢？”，又或者 “如果断电了，拿下服务器的服务会首影响？”等等问题。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-traversal.svg" alt="graphdb-traversal.svg" />
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_为节点和关系建立索引">为节点和关系建立索引</h4>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>&#8220;一个索引 — 映射到 &#8594; 属性 — 属于 &#8594; 节点或者关系&#8221;</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>经常，你想通过某一给定的属性值找到节点或者关系。比起通过遍历我们的图来书，用索引将会更加高效。比如“找到用户名是tony的用户”。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-indexes.svg" alt="graphdb-indexes.svg" />
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_neo4j是一个图数据库">Neo4j是一个图数据库</h4>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>&#8220;一个图数据库 — 管理 &#8594; 一张图 和与图相关的 &#8594; 索引&#8221;</p></div>
+</div>
+<div class="attribution">
+</div></div>
+<div class="paragraph"><p>Neo4j是一个有商业支持的开源图数据库。他被设计来用于拿下数据不断高速成长的数据存储，用高效的图数据结构代替传统的表设计。用Neo4j工作，您的应用将得到图的所有优越表现，以及您期望的高可靠性。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-overview.svg" alt="graphdb-overview.svg" />
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tutorial-comparing-models">比较各种数据库模型</h3>
+<div class="paragraph"><p>图数据库通过在一张图上存储节点和关系来持久化我们的数据结构。比起其他持久化数据模型如何呢？因为图是一种常规数据结构，让我们与其他的进行一下比较试试看。</p></div>
+<div class="sect3">
+<h4 id="_从图数据库转换成_rdbms">从图数据库转换成 RDBMS</h4>
+<div class="paragraph"><p>将所有的数据用竖立的堆栈表示，并且保持他们直接的关系，你可以看到下面一张图。一个 RDBMS 被优化用于聚合数据，而Neo4j擅长于高度关联的数据。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-compare-rdbms.svg" alt="graphdb-compare-rdbms.svg" />
+</div>
+<div class="title">图 1. RDBMS</div>
+</div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-compare-rdbms-g.svg" alt="graphdb-compare-rdbms-g.svg" />
+</div>
+<div class="title">图 2. 用图实现RDBMS模型</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_从图数据库转换成key_value数据库">从图数据库转换成Key-Value数据库</h4>
+<div class="paragraph"><p>Key-Value模型适合用于简单的数据或者列表。当数据之间不断交互关联时，你更需要一张图模型。Neo4j让你能惊醒制作简单的数据结构到复杂，互相连接的数据。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-compare-kvstore.svg" alt="graphdb-compare-kvstore.svg" />
+</div>
+<div class="title">图 3. Key-Value 存储模型</div>
+</div>
+<div class="paragraph"><p>K* 代表一个键，V* 代表一个值。请注意，某些键指向其他键以及普通值。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-compare-kvstore-g.svg" alt="graphdb-compare-kvstore-g.svg" />
+</div>
+<div class="title">图 4. 用图实现 Key-Value 模型</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_从图数据库转换成列数据库">从图数据库转换成列数据库</h4>
+<div class="paragraph"><p>列式（大表）数据库是 Key-Value模型的升级，用 “”来允许行数据增加。如果存储一张图，这个表将是分层的，关系也是非常明确的。</p></div>
+</div>
+<div class="sect3">
+<h4 id="_从图数据库转换成文档型数据库">从图数据库转换成文档型数据库</h4>
+<div class="paragraph"><p>文档型数据库用文档进行层次划分，而自由的数据规划也很容易被表示成一颗树。成长为一张图的话，文档之间的关联你需要更有代表性的数据结构来存储，而在Neo4j中，这些关系是非常容易处理的。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-compare-docdb.svg" alt="graphdb-compare-docdb.svg" />
+</div>
+<div class="title">图 5. 文档型数据库</div>
+</div>
+<div class="paragraph"><p><code>D</code>=文档, <code>S</code>=子文档, <code>V</code>=值, <code>D2/S2</code> = 关联到（其他）文档的索引。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-compare-docdb-g.svg" alt="graphdb-compare-docdb-g.svg" />
+</div>
+<div class="title">图 6. 从图数据库转换成文档型数据库</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="graphdb-neo4j">Neo4j图数据库</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>这个章节将讲述Neo4j模型和行为的更多细节。</p></div>
+<div class="sect2">
+<h3 id="graphdb-neo4j-nodes">节点</h3>
+<div class="paragraph"><p>构成一张图的基本元素是节点和关系。在Neo4j中，节点和关系都可以包含<a href="#graphdb-neo4j-properties">属性</a>。</p></div>
+<div class="paragraph"><p>节点经常被用于表示一些_实体_，但依赖关系也一样可以表示实体。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-nodes-overview.svg" alt="graphdb-nodes-overview.svg" />
+</div>
+</div>
+<div class="paragraph"><p>下面让我们认识一个最简单的节点，他只有一个属性，属性名是name,属性值是Marko：</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-nodes.svg" alt="graphdb-nodes.svg" />
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graphdb-neo4j-relationships">关系</h3>
+<div class="paragraph"><p>节点之间的关系是图数据库很重要的一部分。通过关系可以找到很多关联的数据，比如节点集合，关系集合以及他们的<a href="#graphdb-neo4j-properties">属性</a>集合。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-rels-overview.svg" alt="graphdb-rels-overview.svg" />
+</div>
+</div>
+<div class="paragraph"><p>一个关系连接两个节点，必须有一个开始节点和结束节点。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-rels.svg" alt="graphdb-rels.svg" />
+</div>
+</div>
+<div class="paragraph"><p>因为关系总是直接相连的，所以对于一个节点来说，与他关联的关系看起来有输入/输出两个方向，这个特性对于我们遍历图非常有帮助：</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-rels-dir.svg" alt="graphdb-rels-dir.svg" />
+</div>
+</div>
+<div class="paragraph"><p>关系在任一方向都会被遍历访问。这意味着我们并不需要在不同方向都新增关系。</p></div>
+<div class="paragraph"><p>而关系总是会有一个方向，所以当这个方向对你的应用没有意义时你可以忽略方向。</p></div>
+<div class="paragraph"><p>特别注意一个节点可以有一个关系是指向自己的：</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-rels-loop.svg" alt="graphdb-rels-loop.svg" />
+</div>
+</div>
+<div class="paragraph"><p>为了将来增强遍历图中所有的关系，我们需要为关系设置类型。注意 关键字 type 在这可能会被误解，你其实可以把他简单的理解为一个标签而已。</p></div>
+<div class="paragraph"><p>下面的例子是一个有两种关系的最简单的社会化网络图。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-rels-twitter.svg" alt="graphdb-rels-twitter.svg" />
+</div>
+</div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">表 1. 使用到的关系和关系类型</caption>
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top"> 功能 </th>
+<th align="left" valign="top"> 实现</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">get who a person follows</p></td>
+<td align="left" valign="top"><p class="table">outgoing <code>follows</code> relationships, depth one</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get the followers of a person</p></td>
+<td align="left" valign="top"><p class="table">incoming <code>follows</code> relationships, depth one</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get who a person blocks</p></td>
+<td align="left" valign="top"><p class="table">outgoing <code>blocks</code> relationships, depth one</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get who a person is blocked by</p></td>
+<td align="left" valign="top"><p class="table">incoming <code>blocks</code> relationships, depth one</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>下面的放里是一个简单的文件系统，包括一些符号软链接：</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-rels-filesys.svg" alt="graphdb-rels-filesys.svg" />
+</div>
+</div>
+<div class="paragraph"><p>根据你看到的，你在遍历的时候会用到关系的方向和关系的类型。</p></div>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="50%" />
+<col width="50%" />
+<thead>
+<tr>
+<th align="left" valign="top">What </th>
+<th align="left" valign="top"> How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">get the full path of a file</p></td>
+<td align="left" valign="top"><p class="table">incoming <code>file</code> relationships</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get all paths for a file</p></td>
+<td align="left" valign="top"><p class="table">incoming <code>file</code> and <code>symbolic link</code> relationships</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get all files in a directory</p></td>
+<td align="left" valign="top"><p class="table">outgoing <code>file</code> and <code>symbolic link</code> relationships, depth one</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get all files in a directory, excluding symbolic links</p></td>
+<td align="left" valign="top"><p class="table">outgoing <code>file</code> relationships, depth one</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">get all files in a directory, recursively</p></td>
+<td align="left" valign="top"><p class="table">outgoing <code>file</code> and <code>symbolic link</code> relationships</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graphdb-neo4j-properties">属性</h3>
+<div class="paragraph"><p>节点和关系都可以设置自己的属性。</p></div>
+<div class="paragraph"><p>属性是由Key-Value键值对组成，键名是字符串。属性值是要么是原始值，要么是原始值类型的一个数组。比如+String+，+int+和i+int[]+都是合法的。</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">注意</div>
+</td>
+<td class="content">null不是一个合法的属性值。
+Nulls能代替模仿一个不存在的Key。</td>
+</tr></table>
+</div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-properties.svg" alt="graphdb-properties.svg" />
+</div>
+</div>
+<div class="tableblock" id="property-value-types">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<caption class="title">表 2. 属性值类型</caption>
+<col width="15%" />
+<col width="45%" />
+<col width="40%" />
+<thead>
+<tr>
+<th align="left" valign="top">Type </th>
+<th align="left" valign="top"> Description </th>
+<th align="left" valign="top"> Value range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table"><code>boolean</code></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"><code>true</code>/<code>false</code></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>byte</code></p></td>
+<td align="left" valign="top"><p class="table">8-bit integer</p></td>
+<td align="left" valign="top"><p class="table"><code>-128</code> to <code>127</code>, inclusive</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>short</code></p></td>
+<td align="left" valign="top"><p class="table">16-bit integer</p></td>
+<td align="left" valign="top"><p class="table"><code>-32768</code> to <code>32767</code>, inclusive</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>int</code></p></td>
+<td align="left" valign="top"><p class="table">32-bit integer</p></td>
+<td align="left" valign="top"><p class="table"><code>-2147483648</code> to <code>2147483647</code>, inclusive</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>long</code></p></td>
+<td align="left" valign="top"><p class="table">64-bit integer</p></td>
+<td align="left" valign="top"><p class="table"><code>-9223372036854775808</code> to <code>9223372036854775807</code>, inclusive</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>float</code></p></td>
+<td align="left" valign="top"><p class="table">32-bit IEEE 754 floating-point number</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>double</code></p></td>
+<td align="left" valign="top"><p class="table">64-bit IEEE 754 floating-point number</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>char</code></p></td>
+<td align="left" valign="top"><p class="table">16-bit unsigned integers representing Unicode characters</p></td>
+<td align="left" valign="top"><p class="table"><code>u0000</code> to <code>uffff</code> (<code>0</code> to <code>65535</code>)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table"><code>String</code></p></td>
+<td align="left" valign="top"><p class="table">sequence of Unicode characters</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="paragraph"><p>如果要了解float/double类型的更多细节，请参考：<a href="http://docs.oracle.com/javase/specs/jls/se5.0/html/typesValues.html#4.2.3">Java Language Specification</a>。</p></div>
+</div>
+<div class="sect2">
+<h3 id="graphdb-neo4j-paths">路径</h3>
+<div class="paragraph"><p>路径由至少一个节点，通过各种关系连接组成，经常是作为一个查询或者遍历的结果。</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-path.svg" alt="graphdb-path.svg" />
+</div>
+</div>
+<div class="paragraph"><p>最短的路径是0长度的像下面这样：</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-path-example1.svg" alt="graphdb-path-example1.svg" />
+</div>
+</div>
+<div class="paragraph"><p>长度为1的路径如下:</p></div>
+<div class="imageblock dot">
+<div class="content">
+<img src="images/graphdb-path-example2.svg" alt="graphdb-path-example2.svg" />
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="graphdb-neo4j-traversal">遍历（Traversal）</h3>
+<div class="paragraph"><p>遍历一张图就是按照一定的规则，跟随他们的关系，访问关联的的节点集合。
+最多的情况是只有一部分子图被访问到，因为你知道你对那一部分节点或者关系感兴趣。</p></div>
+<div class="paragraph"><p>Neo4j提供了遍历的API，可以让你指定遍历规则。
+最简单的设置就是设置遍历是宽度优先还是深度优先。</p></div>
+<div class="paragraph"><p>想对遍历框架有一个深入的了解，请参考章节：<a href="#tutorial-traversal">[tutorial-traversal]</a>。</p></div>
+<div class="paragraph"><p>想了解更多的Java代码范例，请参考章节：<a href="#tutorials-java-embedded-traversal">[tutorials-java-embedded-traversal]</a>。</p></div>
+<div class="paragraph"><p>其他查询图的方式还有<a href="#cypher-query-lang">Cypher</a>和<a href="#gremlin-plugin">Gremlin</a>。</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2013-05-21 17:37:12 BST
+</div>
+</div>
+</body>
+</html>
