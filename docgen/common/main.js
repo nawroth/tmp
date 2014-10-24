@@ -106,7 +106,7 @@ function addSmoothScroll($element)
   'triggerHardware': true,
   'filterTarget': function(target) {
     return target.tagName.toLowerCase() !== 'a';
-  };
+  }
   });
 }
 
