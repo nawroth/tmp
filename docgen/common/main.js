@@ -103,7 +103,10 @@ function addSmoothScroll($element)
   $element.kinetic({
   'slowdown': 0.96,
   'maxvelocity': 50,
-  'triggerHardware': true
+  'triggerHardware': true,
+  'filterTarget': function(target) {
+    return target.tagName.toLowerCase() !== 'a';
+  };
   });
 }
 
