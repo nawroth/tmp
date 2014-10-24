@@ -100,7 +100,8 @@ function addBootstrapStyling()
 
 function addSmoothScroll($element)
 {
-  $element.kinetic({
+  //$element.css('overflow', 'scroll');
+/*  $element.kinetic({
   'slowdown': 0.96,
   'maxvelocity': 50,
   'throttleFPS': 30,
@@ -116,7 +117,7 @@ function addSmoothScroll($element)
     }
     return true;    
   }
-  });
+  });*/
 }
 
 function addSearchHighlightButton()
