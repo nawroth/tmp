@@ -18,7 +18,13 @@
  */
 jQuery( window ).load( function()
 {
-  versionSwitcher( jQuery );
+  var location = window.location;
+  if ( location.hostname === 'neo4j.com' ) 
+  {
+    jQuery.getScript( location.protocol + '//neo4j.com/docs/meta/versions.js', function() {
+      versionSwitcher( jQuery );    
+    })
+  }
 } );
 
 /**
@@ -28,6 +34,7 @@ jQuery( window ).load( function()
 function versionSwitcher( $ )
 {
   var MAX_STABLE_COUNT = 2;
+  var DOCS_BASE_URL = 'http://neo4j.com/docs/';
 
   var currentVersion = window.neo4jVersion;
   var currentPage = window.neo4jPageId + '.html';
@@ -63,7 +70,7 @@ function versionSwitcher( $ )
   {
     var $optionWrapper = $( '<li />' );
     var $newOption = $( '<a role="menuitem">' + version + '</a>' ).appendTo( $optionWrapper );
-    var url = 'http://docs.neo4j.org/chunked/' + version + '/' + currentPage;
+    var url = DOCS_BASE_URL + version + '/' + currentPage;
     $container.append( $optionWrapper );
     checkUrlExistence( url, function()
     {

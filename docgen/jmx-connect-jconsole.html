@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>28.2. How to connect to a Neo4j instance using JMX and JConsole -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="jmx-remote.html" title="28.1. Adjusting remote JMX access to the Neo4j Server" /><link rel="next" href="jmx-connect-programmatic.html" title="28.3. How to connect to the JMX monitoring programmatically" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="28.2. How to connect to a Neo4j instance using JMX and JConsole" /><script type="text/javascript">
+    <title>28.2. How to connect to a Neo4j instance using JMX and JConsole -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="jmx-remote.html" title="28.1. Adjusting remote JMX access to the Neo4j Server" /><link rel="next" href="jmx-connect-programmatic.html" title="28.3. How to connect to the JMX monitoring programmatically" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="28.2. How to connect to a Neo4j instance using JMX and JConsole" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -76,7 +79,7 @@
 <p>Now, start JConsole with</p>
 <pre class="programlisting" data-lang="shell">$JAVA_HOME/bin/jconsole</pre>
 <p>Connect to the process running your Neo4j database instance:</p>
-<div class="figure" id="d5e24855"><p class="title"><strong>Figure 28.1. Connecting JConsole to the Neo4j Java process</strong></p><div class="figure-contents">
+<div class="figure" id="d5e24761"><p class="title"><strong>Figure 28.1. Connecting JConsole to the Neo4j Java process</strong></p><div class="figure-contents">
 <a class="ulink" href="images/jconsole_connect.png" target="_blank">
 <span class="inlinemediaobject"><img src="images/jconsole_connect.png" alt="Connecting with JConsole" /></span>
 </a>
@@ -85,7 +88,7 @@
 Under that, you will have access to all the monitoring information exposed by Neo4j.</p>
 <p>For opening JMX to remote monitoring access, please see <a class="xref" href="jmx-remote.html" title="28.1. Adjusting remote JMX access to the Neo4j Server">Section 28.1, “Adjusting remote JMX access to the Neo4j Server”</a> and <a class="ulink" href="http://docs.oracle.com/javase/7/docs/technotes/guides/management/agent.html" target="_blank">the JMX documention</a>.
 When using Neo4j in embedded mode, make sure to pass the <code class="literal">com.sun.management.jmxremote.port=portNum</code> or other configuration as JVM parameters to your running Java process.</p>
-<div class="figure" id="d5e24869"><p class="title"><strong>Figure 28.2. Neo4j MBeans View</strong></p><div class="figure-contents">
+<div class="figure" id="d5e24775"><p class="title"><strong>Figure 28.2. Neo4j MBeans View</strong></p><div class="figure-contents">
 <a class="ulink" href="images/jconsole_beans.png" target="_blank">
 <span class="inlinemediaobject"><img src="images/jconsole_beans.png" alt="Neo4j MBeans view" /></span>
 </a>
@@ -96,7 +99,7 @@ When using Neo4j in embedded mode, make sure to pass the <code class="literal">c
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

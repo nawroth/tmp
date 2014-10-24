@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>11.1. Create -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-write.html" title="Chapter 11. Writing Clauses" /><link rel="next" href="query-merge.html" title="11.2. Merge" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.1. Create" /><script type="text/javascript">
+    <title>11.1. Create -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-write.html" title="Chapter 11. Writing Clauses" /><link rel="next" href="query-merge.html" title="11.2. Merge" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.1. Create" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -83,7 +86,7 @@ Read <a class="xref" href="introduction-pattern.html" title="8.8. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n)</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e8863"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8870"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
 </span><span class="command"><strong>create (n)</strong></span></p>
 </section>
@@ -94,7 +97,7 @@ Read <a class="xref" href="introduction-pattern.html" title="8.8. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person)</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e8888"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e8895"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
 </span><span class="command"><strong>create (n:Person)</strong></span></p>
@@ -106,7 +109,7 @@ Read <a class="xref" href="introduction-pattern.html" title="8.8. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person:Swedish)</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e8915"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e8922"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
 </span><span class="command"><strong>create (n:Person:Swedish)</strong></span></p>
@@ -118,7 +121,7 @@ Read <a class="xref" href="introduction-pattern.html" title="8.8. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person { name : 'Andres', title : 'Developer' })</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e8942"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e8949"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
@@ -132,7 +135,7 @@ Read <a class="xref" href="introduction-pattern.html" title="8.8. Patterns">Sec
 RETURN a</pre><p>
 </p>
 <p>The newly created node is returned.</p>
-<div class="queryresult table" id="d5e8971"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e8978"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">none
@@ -151,7 +154,7 @@ CREATE (a)-[r:RELTYPE]-&gt;(b)
 RETURN r</pre><p>
 </p>
 <p>The created relationship is returned by the query.</p>
-<div class="queryresult table" id="d5e9005"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e9012"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:RELTYPE[0]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`name`:"Node A"})
 create (_1:`Person` {`name`:"Node B"})
@@ -168,7 +171,7 @@ CREATE (a)-[r:RELTYPE { name : a.name + '&lt;-&gt;' + b.name }]-&gt;(b)
 RETURN r</pre><p>
 </p>
 <p>The newly created relationship is returned by the example query.</p>
-<div class="queryresult table" id="d5e9035"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e9042"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:RELTYPE[0]{name:"Node A&lt;-&gt;Node B"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`name`:"Node A"})
@@ -186,7 +189,7 @@ will be created.</p>
 RETURN p</pre><p>
 </p>
 <p>This query creates three nodes and two relationships in one go, assigns it to a path identifier, and returns it.</p>
-<div class="queryresult table" id="d5e9068"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e9075"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 3
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[0]{name:"Andres"},:WORKS_AT[0]{},Node[1]{},:WORKS_AT[1]{},Node[2]{name:"Michael"}]</code></p></td></tr></tbody></table></div></div>
@@ -212,7 +215,7 @@ In this case we add a <code class="literal">Person</code> label to the node as w
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e9108"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e9115"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
@@ -236,7 +239,7 @@ RETURN n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n { props })
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e9143"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e9150"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Nodes created: 2
 </th></tr><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres",position:"Developer"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Michael",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -247,7 +250,7 @@ RETURN n</pre><p>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

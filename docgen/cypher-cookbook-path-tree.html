@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>5.15. A multilevel indexing structure (path tree) -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-pretty-graphs.html" title="5.14. Pretty graphs" /><link rel="next" href="cypher-cookbook-similarity-calc.html" title="5.16. Complex similarity computations" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="5.15. A multilevel indexing structure (path tree)" /><script type="text/javascript">
+    <title>5.15. A multilevel indexing structure (path tree) -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-pretty-graphs.html" title="5.14. Pretty graphs" /><link rel="next" href="cypher-cookbook-similarity-calc.html" title="5.16. Complex similarity computations" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="5.15. A multilevel indexing structure (path tree)" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -90,7 +93,7 @@ Using Cypher, the queries following different strategies can be expressed as pat
 
 </li></ul></div>
 <p>The graph below depicts a structure with 3 Events being attached to an index structure at different leafs.</p>
-<div class="figure" id="d5e3101"><p class="title"><strong>Figure 5.15. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3099"><p class="title"><strong>Figure 5.15. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-path.svg" alt="cypher-pathtree-layout-path.svg" /></span>
 </a>
@@ -99,7 +102,7 @@ Using Cypher, the queries following different strategies can be expressed as pat
 
 <p>Here, only the events indexed under one leaf (2010-12-31) are returned.
 The query only needs one path segment <code class="literal">rootPath</code>  (color <code class="literal">Green</code>) through the index.</p>
-<div class="figure" id="d5e3114"><p class="title"><strong>Figure 5.16. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3112"><p class="title"><strong>Figure 5.16. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-zero-range.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-zero-range.svg" alt="cypher-pathtree-layout-zero-range.svg" /></span>
 </a>
@@ -111,7 +114,7 @@ RETURN event.name
 ORDER BY event.name ASC</pre><p>
 </p>
 <p>Returning all events on the date 2010-12-31, in this case <code class="literal">Event1</code> and <code class="literal">Event2</code></p>
-<div class="queryresult table" id="d5e3129"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3127"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Y11M01"})
 create (_1 {`name`:"Y10M12D31"})
 create (_2 {`name`:"Y10M12"})
@@ -147,7 +150,7 @@ create _11-[:`VALUE`]-&gt;_6
 <p>In this case, the range goes from the first to the last leaf of the index tree. Here,
 <code class="literal">startPath</code> (color <code class="literal">Greenyellow</code>) and <code class="literal">endPath</code>  (color <code class="literal">Green</code>) span up the range, <code class="literal">valuePath</code>  (color <code class="literal">Blue</code>) is then connecting the leafs, and the values can
 be read from the <code class="literal">middle</code> node, hanging off the <code class="literal">values</code> (color <code class="literal">Red</code>) path.</p>
-<div class="figure" id="d5e3165"><p class="title"><strong>Figure 5.17. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3163"><p class="title"><strong>Figure 5.17. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-full-range-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-full-range-path.svg" alt="cypher-pathtree-layout-full-range-path.svg" /></span>
 </a>
@@ -162,7 +165,7 @@ RETURN event.name
 ORDER BY event.name ASC</pre><p>
 </p>
 <p>Returning all events between 2010-12-31 and 2011-01-03, in this case all events.</p>
-<div class="queryresult table" id="d5e3178"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3176"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event1"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Y11M01"})
 create (_1 {`name`:"Y10M12D31"})
 create (_2 {`name`:"Y10M12"})
@@ -198,7 +201,7 @@ create _11-[:`VALUE`]-&gt;_6
 <p>Here, the query range results in partly shared paths when querying the index,
 making the introduction of and common path segment <code class="literal">commonPath</code> (color <code class="literal">Black</code>) necessary, before spanning up <code class="literal">startPath</code> (color <code class="literal">Greenyellow</code>) and
 <code class="literal">endPath</code> (color <code class="literal">Darkgreen</code>) . After that, <code class="literal">valuePath</code> (color <code class="literal">Blue</code>) connects the leafs and the indexed values are returned off <code class="literal">values</code> (color <code class="literal">Red</code>)  path.</p>
-<div class="figure" id="d5e3223"><p class="title"><strong>Figure 5.18. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3221"><p class="title"><strong>Figure 5.18. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-pathtree-layout-shared-root-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-pathtree-layout-shared-root-path.svg" alt="cypher-pathtree-layout-shared-root-path.svg" /></span>
 </a>
@@ -213,7 +216,7 @@ RETURN event.name
 ORDER BY event.name ASC</pre><p>
 </p>
 <p>Returning all events between 2011-01-01 and 2011-01-03, in this case <code class="literal">Event2</code> and <code class="literal">Event3</code>.</p>
-<div class="queryresult table" id="d5e3238"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3236"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>event.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Event2"</code></p></td></tr><tr><td><p><code class="literal">"Event3"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Y11M01"})
 create (_1 {`name`:"Y10M12D31"})
 create (_2 {`name`:"Y10M12"})
@@ -250,7 +253,7 @@ create _11-[:`VALUE`]-&gt;_6
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

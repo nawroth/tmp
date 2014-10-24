@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>21.11. Relationship properties -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-properties.html" title="21.10. Node properties" /><link rel="next" href="rest-api-node-labels.html" title="21.12. Node labels" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.11. Relationship properties" /><script type="text/javascript">
+    <title>21.11. Relationship properties -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-properties.html" title="21.10. Node properties" /><link rel="next" href="rest-api-node-labels.html" title="21.12. Node labels" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.11. Relationship properties" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -73,7 +76,7 @@
 
 <section class="section" id="rest-api-update-relationship-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Update relationship properties</h3></div></div></div>
 
-<div class="figure" id="d5e16781"><p class="title"><strong>Figure 21.42. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16801"><p class="title"><strong>Figure 21.42. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Update-relationship-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Update-relationship-properties.svg" alt="Final-Graph-Update-relationship-properties.svg" /></span>
 </a>
@@ -81,7 +84,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/4/properties</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/21/properties</code>
 
 </li><li class="listitem">
 
@@ -105,7 +108,7 @@
 </section>
 <section class="section" id="rest-api-remove-properties-from-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove properties from a relationship</h3></div></div></div>
 
-<div class="figure" id="d5e16819"><p class="title"><strong>Figure 21.43. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16839"><p class="title"><strong>Figure 21.43. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-properties-from-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-properties-from-a-relationship.svg" alt="Final-Graph-Remove-properties-from-a-relationship.svg" /></span>
 </a>
@@ -113,7 +116,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/0/properties</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/112/properties</code>
 
 </li><li class="listitem">
 
@@ -131,12 +134,12 @@
 <section class="section" id="rest-api-remove-property-from-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove property from a relationship</h3></div></div></div>
 
 <p>See the example request below.</p>
-<div class="figure" id="d5e16852"><p class="title"><strong>Figure 21.44. Starting Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16872"><p class="title"><strong>Figure 21.44. Starting Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Starting-Graph-Remove-property-from-a-relationship1.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Starting-Graph-Remove-property-from-a-relationship1.svg" alt="Starting-Graph-Remove-property-from-a-relationship1.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e16860"><p class="title"><strong>Figure 21.45. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16880"><p class="title"><strong>Figure 21.45. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-property-from-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-property-from-a-relationship.svg" alt="Final-Graph-Remove-property-from-a-relationship.svg" /></span>
 </a>
@@ -144,7 +147,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/3/properties/cost</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/115/properties/cost</code>
 
 </li><li class="listitem">
 
@@ -163,7 +166,7 @@
 
 <p>Attempting to remove a property that doesn’t exist results in
 an error.</p>
-<div class="figure" id="d5e16893"><p class="title"><strong>Figure 21.46. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16913"><p class="title"><strong>Figure 21.46. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-non-existent-property-from-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-non-existent-property-from-a-relationship.svg" alt="Final-Graph-Remove-non-existent-property-from-a-relationship.svg" /></span>
 </a>
@@ -171,7 +174,7 @@ an error.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/1/properties/non-existent</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/113/properties/non-existent</code>
 
 </li><li class="listitem">
 
@@ -189,12 +192,12 @@ an error.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "message": "Relationship[1] does not have a property \"non-existent\"",
+  "message": "Relationship[113] does not have a property \"non-existent\"",
   "exception": "NoSuchPropertyException",
   "fullname": "org.neo4j.server.rest.web.NoSuchPropertyException",
   "stacktrace": [
-    "org.neo4j.server.rest.web.DatabaseActions.removeRelationshipProperty(DatabaseActions.java:656)",
-    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:796)",
+    "org.neo4j.server.rest.web.DatabaseActions.removeRelationshipProperty(DatabaseActions.java:647)",
+    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:798)",
     "java.lang.reflect.Method.invoke(Method.java:606)",
     "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
     "java.lang.Thread.run(Thread.java:745)"
@@ -205,7 +208,7 @@ an error.</p>
 
 <p>Attempting to remove all properties from a relationship which doesn’t
 exist results in an error.</p>
-<div class="figure" id="d5e16931"><p class="title"><strong>Figure 21.47. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16951"><p class="title"><strong>Figure 21.47. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-properties-from-a-non-existing-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-properties-from-a-non-existing-relationship.svg" alt="Final-Graph-Remove-properties-from-a-non-existing-relationship.svg" /></span>
 </a>
@@ -234,9 +237,9 @@ exist results in an error.</p>
   "exception": "RelationshipNotFoundException",
   "fullname": "org.neo4j.server.rest.web.RelationshipNotFoundException",
   "stacktrace": [
-    "org.neo4j.server.rest.web.DatabaseActions.relationship(DatabaseActions.java:196)",
-    "org.neo4j.server.rest.web.DatabaseActions.removeAllRelationshipProperties(DatabaseActions.java:646)",
-    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteAllRelationshipProperties(RestfulGraphDatabase.java:775)",
+    "org.neo4j.server.rest.web.DatabaseActions.relationship(DatabaseActions.java:187)",
+    "org.neo4j.server.rest.web.DatabaseActions.removeAllRelationshipProperties(DatabaseActions.java:637)",
+    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteAllRelationshipProperties(RestfulGraphDatabase.java:777)",
     "java.lang.reflect.Method.invoke(Method.java:606)",
     "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
     "java.lang.Thread.run(Thread.java:745)"
@@ -247,7 +250,7 @@ exist results in an error.</p>
 
 <p>Attempting to remove a property from a relationship which doesn’t exist
 results in an error.</p>
-<div class="figure" id="d5e16969"><p class="title"><strong>Figure 21.48. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e16989"><p class="title"><strong>Figure 21.48. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Remove-property-from-a-non-existing-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Remove-property-from-a-non-existing-relationship.svg" alt="Final-Graph-Remove-property-from-a-non-existing-relationship.svg" /></span>
 </a>
@@ -276,9 +279,9 @@ results in an error.</p>
   "exception": "RelationshipNotFoundException",
   "fullname": "org.neo4j.server.rest.web.RelationshipNotFoundException",
   "stacktrace": [
-    "org.neo4j.server.rest.web.DatabaseActions.relationship(DatabaseActions.java:196)",
-    "org.neo4j.server.rest.web.DatabaseActions.removeRelationshipProperty(DatabaseActions.java:652)",
-    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:796)",
+    "org.neo4j.server.rest.web.DatabaseActions.relationship(DatabaseActions.java:187)",
+    "org.neo4j.server.rest.web.DatabaseActions.removeRelationshipProperty(DatabaseActions.java:643)",
+    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:798)",
     "java.lang.reflect.Method.invoke(Method.java:606)",
     "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
     "java.lang.Thread.run(Thread.java:745)"
@@ -291,7 +294,7 @@ results in an error.</p>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

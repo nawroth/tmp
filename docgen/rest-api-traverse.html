@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>21.15. Traversals -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-schema-constraints.html" title="21.14. Constraints" /><link rel="next" href="rest-api-graph-algos.html" title="21.16. Graph Algorithms" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.15. Traversals" /><script type="text/javascript">
+    <title>21.15. Traversals -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-schema-constraints.html" title="21.14. Constraints" /><link rel="next" href="rest-api-graph-algos.html" title="21.16. Graph Algorithms" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.15. Traversals" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -209,7 +212,7 @@ See the examples for the exact syntax of the request.</p>
 is supplied in order to return all names containing "t".
 The result is to be returned as nodes and the max depth is
 set to 3.</p>
-<div class="figure" id="d5e17742"><p class="title"><strong>Figure 21.58. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17762"><p class="title"><strong>Figure 21.58. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Traversal-using-a-return-filter.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Traversal-using-a-return-filter.svg" alt="Final-Graph-Traversal-using-a-return-filter.svg" /></span>
 </a>
@@ -217,7 +220,7 @@ set to 3.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/97/traverse/node</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/123/traverse/node</code>
 
 </li><li class="listitem">
 
@@ -259,98 +262,98 @@ set to 3.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/97/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/97/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/123/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/123/labels",
   "data" : {
     "name" : "Root"
   },
-  "traverse" : "http://localhost:7474/db/data/node/97/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/97/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/97",
-  "property" : "http://localhost:7474/db/data/node/97/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/97/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/97/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/97/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/123/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/123/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/123",
+  "property" : "http://localhost:7474/db/data/node/123/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/123/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/123/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/123/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/97/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/97/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/97/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/97/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/123/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/123/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/123/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/123/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 97,
+    "id" : 123,
     "labels" : [ ]
   }
 }, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/100/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/100/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/126/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/126/labels",
   "data" : {
     "name" : "Mattias"
   },
-  "traverse" : "http://localhost:7474/db/data/node/100/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/100/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/100",
-  "property" : "http://localhost:7474/db/data/node/100/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/100/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/100/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/100/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/126/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/126/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/126",
+  "property" : "http://localhost:7474/db/data/node/126/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/126/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/126/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/126/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/100/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/100/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/100/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/100/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/126/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/126/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/126/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/126/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 100,
+    "id" : 126,
     "labels" : [ ]
   }
 }, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/98/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/98/labels",
-  "data" : {
-    "name" : "Tobias"
-  },
-  "traverse" : "http://localhost:7474/db/data/node/98/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/98/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/98",
-  "property" : "http://localhost:7474/db/data/node/98/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/98/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/98/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/98/relationships/in",
-  "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/98/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/98/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/98/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/98/relationships/in/{-list|&amp;|types}",
-  "metadata" : {
-    "id" : 98,
-    "labels" : [ ]
-  }
-}, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/99/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/99/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/125/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/125/labels",
   "data" : {
     "name" : "Peter"
   },
-  "traverse" : "http://localhost:7474/db/data/node/99/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/99/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/99",
-  "property" : "http://localhost:7474/db/data/node/99/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/99/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/99/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/99/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/125/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/125/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/125",
+  "property" : "http://localhost:7474/db/data/node/125/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/125/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/125/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/125/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/99/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/99/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/99/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/99/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/125/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/125/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/125/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/125/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 99,
+    "id" : 125,
+    "labels" : [ ]
+  }
+}, {
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/124/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/124/labels",
+  "data" : {
+    "name" : "Tobias"
+  },
+  "traverse" : "http://localhost:7474/db/data/node/124/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/124/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/124",
+  "property" : "http://localhost:7474/db/data/node/124/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/124/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/124/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/124/relationships/in",
+  "extensions" : { },
+  "create_relationship" : "http://localhost:7474/db/data/node/124/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/124/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/124/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/124/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 124,
     "labels" : [ ]
   }
 } ]</pre>
 </section>
 <section class="section" id="rest-api-return-relationships-from-a-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Return relationships from a traversal</h3></div></div></div>
 
-<div class="figure" id="d5e17785"><p class="title"><strong>Figure 21.59. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17805"><p class="title"><strong>Figure 21.59. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-return-relationships-from-a-traversal.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-return-relationships-from-a-traversal.svg" alt="Final-Graph-return-relationships-from-a-traversal.svg" /></span>
 </a>
@@ -358,7 +361,7 @@ set to 3.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/91/traverse/relationship</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/117/traverse/relationship</code>
 
 </li><li class="listitem">
 
@@ -388,36 +391,36 @@ set to 3.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "start" : "http://localhost:7474/db/data/node/91",
+  "start" : "http://localhost:7474/db/data/node/117",
   "data" : { },
-  "self" : "http://localhost:7474/db/data/relationship/49",
-  "property" : "http://localhost:7474/db/data/relationship/49/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/49/properties",
+  "self" : "http://localhost:7474/db/data/relationship/51",
+  "property" : "http://localhost:7474/db/data/relationship/51/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/51/properties",
   "type" : "know",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/90",
+  "end" : "http://localhost:7474/db/data/node/116",
   "metadata" : {
-    "id" : 49,
+    "id" : 51,
     "type" : "know"
   }
 }, {
-  "start" : "http://localhost:7474/db/data/node/91",
+  "start" : "http://localhost:7474/db/data/node/117",
   "data" : { },
-  "self" : "http://localhost:7474/db/data/relationship/50",
-  "property" : "http://localhost:7474/db/data/relationship/50/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/50/properties",
+  "self" : "http://localhost:7474/db/data/relationship/52",
+  "property" : "http://localhost:7474/db/data/relationship/52/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/52/properties",
   "type" : "own",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/89",
+  "end" : "http://localhost:7474/db/data/node/115",
   "metadata" : {
-    "id" : 50,
+    "id" : 52,
     "type" : "own"
   }
 } ]</pre>
 </section>
 <section class="section" id="rest-api-return-paths-from-a-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Return paths from a traversal</h3></div></div></div>
 
-<div class="figure" id="d5e17828"><p class="title"><strong>Figure 21.60. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17848"><p class="title"><strong>Figure 21.60. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-return-paths-from-a-traversal.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-return-paths-from-a-traversal.svg" alt="Final-Graph-return-paths-from-a-traversal.svg" /></span>
 </a>
@@ -425,7 +428,7 @@ set to 3.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/81/traverse/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/107/traverse/path</code>
 
 </li><li class="listitem">
 
@@ -456,31 +459,31 @@ set to 3.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "directions" : [ ],
-  "start" : "http://localhost:7474/db/data/node/81",
-  "nodes" : [ "http://localhost:7474/db/data/node/81" ],
+  "start" : "http://localhost:7474/db/data/node/107",
+  "nodes" : [ "http://localhost:7474/db/data/node/107" ],
   "length" : 0,
   "relationships" : [ ],
-  "end" : "http://localhost:7474/db/data/node/81"
+  "end" : "http://localhost:7474/db/data/node/107"
 }, {
   "directions" : [ "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/81",
-  "nodes" : [ "http://localhost:7474/db/data/node/81", "http://localhost:7474/db/data/node/80" ],
+  "start" : "http://localhost:7474/db/data/node/107",
+  "nodes" : [ "http://localhost:7474/db/data/node/107", "http://localhost:7474/db/data/node/106" ],
   "length" : 1,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/41" ],
-  "end" : "http://localhost:7474/db/data/node/80"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/43" ],
+  "end" : "http://localhost:7474/db/data/node/106"
 }, {
   "directions" : [ "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/81",
-  "nodes" : [ "http://localhost:7474/db/data/node/81", "http://localhost:7474/db/data/node/79" ],
+  "start" : "http://localhost:7474/db/data/node/107",
+  "nodes" : [ "http://localhost:7474/db/data/node/107", "http://localhost:7474/db/data/node/105" ],
   "length" : 1,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/42" ],
-  "end" : "http://localhost:7474/db/data/node/79"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/44" ],
+  "end" : "http://localhost:7474/db/data/node/105"
 } ]</pre>
 </section>
 <section class="section" id="rest-api-traversal-returning-nodes-below-a-certain-depth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Traversal returning nodes below a certain depth</h3></div></div></div>
 
 <p>Here, all nodes at a traversal depth below 3 are returned.</p>
-<div class="figure" id="d5e17872"><p class="title"><strong>Figure 21.61. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17892"><p class="title"><strong>Figure 21.61. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Traversal-returning-nodes-below-a-certain-depth.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Traversal-returning-nodes-below-a-certain-depth.svg" alt="Final-Graph-Traversal-returning-nodes-below-a-certain-depth.svg" /></span>
 </a>
@@ -488,7 +491,7 @@ set to 3.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/85/traverse/node</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/111/traverse/node</code>
 
 </li><li class="listitem">
 
@@ -520,91 +523,91 @@ set to 3.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/85/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/85/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/111/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/111/labels",
   "data" : {
     "name" : "Root"
   },
-  "traverse" : "http://localhost:7474/db/data/node/85/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/85/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/85",
-  "property" : "http://localhost:7474/db/data/node/85/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/85/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/85/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/85/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/111/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/111/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/111",
+  "property" : "http://localhost:7474/db/data/node/111/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/111/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/111/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/111/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/85/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/85/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/85/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/85/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/111/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/111/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/111/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/111/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 85,
+    "id" : 111,
     "labels" : [ ]
   }
 }, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/83/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/83/labels",
-  "data" : {
-    "name" : "Johan"
-  },
-  "traverse" : "http://localhost:7474/db/data/node/83/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/83/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/83",
-  "property" : "http://localhost:7474/db/data/node/83/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/83/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/83/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/83/relationships/in",
-  "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/83/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/83/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/83/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/83/relationships/in/{-list|&amp;|types}",
-  "metadata" : {
-    "id" : 83,
-    "labels" : [ ]
-  }
-}, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/84/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/84/labels",
-  "data" : {
-    "name" : "Emil"
-  },
-  "traverse" : "http://localhost:7474/db/data/node/84/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/84/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/84",
-  "property" : "http://localhost:7474/db/data/node/84/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/84/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/84/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/84/relationships/in",
-  "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/84/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/84/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/84/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/84/relationships/in/{-list|&amp;|types}",
-  "metadata" : {
-    "id" : 84,
-    "labels" : [ ]
-  }
-}, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/88/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/88/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/114/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/114/labels",
   "data" : {
     "name" : "Mattias"
   },
-  "traverse" : "http://localhost:7474/db/data/node/88/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/88/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/88",
-  "property" : "http://localhost:7474/db/data/node/88/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/88/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/88/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/88/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/114/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/114",
+  "property" : "http://localhost:7474/db/data/node/114/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/114/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/114/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/88/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/88/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/88/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/88/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/114/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/114/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/114/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 88,
+    "id" : 114,
+    "labels" : [ ]
+  }
+}, {
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/109/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/109/labels",
+  "data" : {
+    "name" : "Johan"
+  },
+  "traverse" : "http://localhost:7474/db/data/node/109/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/109/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/109",
+  "property" : "http://localhost:7474/db/data/node/109/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/109/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/109/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/109/relationships/in",
+  "extensions" : { },
+  "create_relationship" : "http://localhost:7474/db/data/node/109/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/109/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/109/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/109/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 109,
+    "labels" : [ ]
+  }
+}, {
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/110/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/110/labels",
+  "data" : {
+    "name" : "Emil"
+  },
+  "traverse" : "http://localhost:7474/db/data/node/110/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/110/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/110",
+  "property" : "http://localhost:7474/db/data/node/110/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/110/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/110/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/110/relationships/in",
+  "extensions" : { },
+  "create_relationship" : "http://localhost:7474/db/data/node/110/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/110/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/110/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/110/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 110,
     "labels" : [ ]
   }
 } ]</pre>
@@ -656,7 +659,7 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/297/paged/traverse/node/d8ef012fa7fe4ee5934ab7e4549a5834</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/297/paged/traverse/node/cd7cb9c583fc40ee945baae404d11519</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
@@ -964,7 +967,7 @@ expect a 404 response as the traverser is disposed by the server.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/330/paged/traverse/node/70b1aafde4eb4f40b2770bd5c26954c7</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/330/paged/traverse/node/7fbfb8243c0e4ecfb644dbe0d2d1d2d6</code>
 
 </li><li class="listitem">
 
@@ -1490,7 +1493,7 @@ appropriate. This can be set by adding a <code class="literal">pageSize</code> q
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/33/paged/traverse/node/b94397650c04454f93d4fbdd9e811f8f</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/33/paged/traverse/node/a41d47c0f4cb4bef9ddcd83826d1b331</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
@@ -1563,7 +1566,7 @@ parameter with the number of seconds the paged traverser should last.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/807/paged/traverse/node/5a0123a3f0584e6c864bfa1221c3fc9f</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/807/paged/traverse/node/00f18399b81e44758e83294aca794ad7</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
@@ -1860,7 +1863,7 @@ parameter with the number of seconds the paged traverser should last.</p>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

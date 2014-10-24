@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>21.5. Legacy Cypher HTTP endpoint -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-streaming.html" title="21.4. Streaming" /><link rel="next" href="rest-api-property-values.html" title="21.6. Property values" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.5. Legacy Cypher HTTP endpoint" /><script type="text/javascript">
+    <title>21.5. Legacy Cypher HTTP endpoint -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-streaming.html" title="21.4. Streaming" /><link rel="next" href="rest-api-property-values.html" title="21.6. Property values" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.5. Legacy Cypher HTTP endpoint" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -87,7 +90,7 @@ which are submitted as JSON.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (x { name: { startName }})-[r]-(friend)
 WHERE friend.name = { name }
 RETURN TYPE(r)</pre>
-<div class="figure" id="d5e15196"><p class="title"><strong>Figure 21.3. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15216"><p class="title"><strong>Figure 21.3. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Use-parameters.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Use-parameters.svg" alt="Final-Graph-Use-parameters.svg" /></span>
 </a>
@@ -134,7 +137,7 @@ RETURN TYPE(r)</pre>
 See the request for the parameter sent with the query.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { name : { name }})
 RETURN n</pre>
-<div class="figure" id="d5e15241"><p class="title"><strong>Figure 21.4. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15261"><p class="title"><strong>Figure 21.4. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-a-node.svg" alt="Final-Graph-Create-a-node.svg" /></span>
 </a>
@@ -172,25 +175,25 @@ RETURN n</pre>
 <pre class="programlisting" data-lang="javascript">{
   "columns" : [ "n" ],
   "data" : [ [ {
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/140/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/140/labels",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/183/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/183/labels",
     "data" : {
       "name" : "Andres"
     },
-    "traverse" : "http://localhost:7474/db/data/node/140/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/140/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/140",
-    "property" : "http://localhost:7474/db/data/node/140/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/140/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/140/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/140/relationships/in",
+    "traverse" : "http://localhost:7474/db/data/node/183/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/183/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/183",
+    "property" : "http://localhost:7474/db/data/node/183/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/183/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/183/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/183/relationships/in",
     "extensions" : { },
-    "create_relationship" : "http://localhost:7474/db/data/node/140/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/140/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/140/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/140/relationships/in/{-list|&amp;|types}",
+    "create_relationship" : "http://localhost:7474/db/data/node/183/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/183/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/183/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/183/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 140,
+      "id" : 183,
       "labels" : [ "Person" ]
     }
   } ] ]
@@ -202,7 +205,7 @@ RETURN n</pre>
 See the request for the parameter sent with the query.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre>
-<div class="figure" id="d5e15286"><p class="title"><strong>Figure 21.5. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15306"><p class="title"><strong>Figure 21.5. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-a-node-with-multiple-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-a-node-with-multiple-properties.svg" alt="Final-Graph-Create-a-node-with-multiple-properties.svg" /></span>
 </a>
@@ -245,28 +248,28 @@ RETURN n</pre>
 <pre class="programlisting" data-lang="javascript">{
   "columns" : [ "n" ],
   "data" : [ [ {
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/137/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/137/labels",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/180/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/180/labels",
     "data" : {
       "position" : "Developer",
       "awesome" : true,
       "name" : "Michael",
       "children" : 3
     },
-    "traverse" : "http://localhost:7474/db/data/node/137/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/137/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/137",
-    "property" : "http://localhost:7474/db/data/node/137/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/137/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/137/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/137/relationships/in",
+    "traverse" : "http://localhost:7474/db/data/node/180/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/180/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/180",
+    "property" : "http://localhost:7474/db/data/node/180/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/180/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/180/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/180/relationships/in",
     "extensions" : { },
-    "create_relationship" : "http://localhost:7474/db/data/node/137/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/137/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/137/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/137/relationships/in/{-list|&amp;|types}",
+    "create_relationship" : "http://localhost:7474/db/data/node/180/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/180/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/180/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/180/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 137,
+      "id" : 180,
       "labels" : [ "Person" ]
     }
   } ] ]
@@ -278,7 +281,7 @@ RETURN n</pre>
 the parameter sent with the query.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre>
-<div class="figure" id="d5e15331"><p class="title"><strong>Figure 21.6. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15351"><p class="title"><strong>Figure 21.6. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-multiple-nodes-with-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-multiple-nodes-with-properties.svg" alt="Final-Graph-Create-multiple-nodes-with-properties.svg" /></span>
 </a>
@@ -322,49 +325,49 @@ RETURN n</pre>
 <pre class="programlisting" data-lang="javascript">{
   "columns" : [ "n" ],
   "data" : [ [ {
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/141/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/141/labels",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/184/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/184/labels",
     "data" : {
       "position" : "Developer",
       "name" : "Andres"
     },
-    "traverse" : "http://localhost:7474/db/data/node/141/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/141/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/141",
-    "property" : "http://localhost:7474/db/data/node/141/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/141/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/141/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/141/relationships/in",
+    "traverse" : "http://localhost:7474/db/data/node/184/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/184/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/184",
+    "property" : "http://localhost:7474/db/data/node/184/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/184/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/184/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/184/relationships/in",
     "extensions" : { },
-    "create_relationship" : "http://localhost:7474/db/data/node/141/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/141/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/141/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/141/relationships/in/{-list|&amp;|types}",
+    "create_relationship" : "http://localhost:7474/db/data/node/184/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/184/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/184/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/184/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 141,
+      "id" : 184,
       "labels" : [ "Person" ]
     }
   } ], [ {
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/142/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/142/labels",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/185/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/185/labels",
     "data" : {
       "position" : "Developer",
       "name" : "Michael"
     },
-    "traverse" : "http://localhost:7474/db/data/node/142/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/142/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/142",
-    "property" : "http://localhost:7474/db/data/node/142/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/142/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/142/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/142/relationships/in",
+    "traverse" : "http://localhost:7474/db/data/node/185/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/185/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/185",
+    "property" : "http://localhost:7474/db/data/node/185/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/185/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/185/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/185/relationships/in",
     "extensions" : { },
-    "create_relationship" : "http://localhost:7474/db/data/node/142/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/142/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/142/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/142/relationships/in/{-list|&amp;|types}",
+    "create_relationship" : "http://localhost:7474/db/data/node/185/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/185/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/185/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/185/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 142,
+      "id" : 185,
       "labels" : [ "Person" ]
     }
   } ] ]
@@ -376,7 +379,7 @@ RETURN n</pre>
 <pre class="programlisting" data-lang="cypher">CREATE (n:Person { name: 'this property is to be deleted' })
 SET n = { props }
 RETURN n</pre>
-<div class="figure" id="d5e15376"><p class="title"><strong>Figure 21.7. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15396"><p class="title"><strong>Figure 21.7. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Set-all-properties-on-a-node-using-Cypher.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Set-all-properties-on-a-node-using-Cypher.svg" alt="Final-Graph-Set-all-properties-on-a-node-using-Cypher.svg" /></span>
 </a>
@@ -419,28 +422,28 @@ RETURN n</pre>
 <pre class="programlisting" data-lang="javascript">{
   "columns" : [ "n" ],
   "data" : [ [ {
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/168/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/168/labels",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/211/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/211/labels",
     "data" : {
       "position" : "Developer",
       "awesome" : true,
       "children" : 3,
       "firstName" : "Michael"
     },
-    "traverse" : "http://localhost:7474/db/data/node/168/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/168/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/168",
-    "property" : "http://localhost:7474/db/data/node/168/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/168/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/168/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/168/relationships/in",
+    "traverse" : "http://localhost:7474/db/data/node/211/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/211/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/211",
+    "property" : "http://localhost:7474/db/data/node/211/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/211/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/211/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/211/relationships/in",
     "extensions" : { },
-    "create_relationship" : "http://localhost:7474/db/data/node/168/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/168/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/168/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/168/relationships/in/{-list|&amp;|types}",
+    "create_relationship" : "http://localhost:7474/db/data/node/211/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/211/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/211/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/211/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 168,
+      "id" : 211,
       "labels" : [ "Person" ]
     }
   } ] ]
@@ -452,7 +455,7 @@ RETURN n</pre>
 node and the name property, if it exists, otherwise <code class="literal">NULL</code>:</p>
 <pre class="programlisting" data-lang="cypher">MATCH (x { name: 'I' })-[r]-&gt;(n)
 RETURN type(r), n.name, n.age</pre>
-<div class="figure" id="d5e15422"><p class="title"><strong>Figure 21.8. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15442"><p class="title"><strong>Figure 21.8. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Send-a-query.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Send-a-query.svg" alt="Final-Graph-Send-a-query.svg" /></span>
 </a>
@@ -495,7 +498,7 @@ RETURN type(r), n.name, n.age</pre>
 <p>Paths can be returned just like other return types.</p>
 <pre class="programlisting" data-lang="cypher">MATCH path =(x { name: 'I' })--(friend)
 RETURN path, friend.name</pre>
-<div class="figure" id="d5e15467"><p class="title"><strong>Figure 21.9. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15487"><p class="title"><strong>Figure 21.9. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Return-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Return-paths.svg" alt="Final-Graph-Return-paths.svg" /></span>
 </a>
@@ -532,11 +535,11 @@ RETURN path, friend.name</pre>
   "columns" : [ "path", "friend.name" ],
   "data" : [ [ {
     "directions" : [ "-&gt;" ],
-    "start" : "http://localhost:7474/db/data/node/167",
-    "nodes" : [ "http://localhost:7474/db/data/node/167", "http://localhost:7474/db/data/node/166" ],
+    "start" : "http://localhost:7474/db/data/node/210",
+    "nodes" : [ "http://localhost:7474/db/data/node/210", "http://localhost:7474/db/data/node/209" ],
     "length" : 1,
-    "relationships" : [ "http://localhost:7474/db/data/relationship/73" ],
-    "end" : "http://localhost:7474/db/data/node/166"
+    "relationships" : [ "http://localhost:7474/db/data/relationship/122" ],
+    "end" : "http://localhost:7474/db/data/node/209"
   }, "you" ] ]
 }</pre>
 </section>
@@ -549,7 +552,7 @@ according to their types.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (n)
 WHERE n.name IN ['I', 'you']
 RETURN collect(n.name)</pre>
-<div class="figure" id="d5e15512"><p class="title"><strong>Figure 21.10. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15532"><p class="title"><strong>Figure 21.10. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-nested-results.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-nested-results.svg" alt="Final-Graph-nested-results.svg" /></span>
 </a>
@@ -595,7 +598,7 @@ be returned, such as how many labels were added or removed by the query.</p>
 SET n:Actor
 REMOVE n:Director
 RETURN labels(n)</pre>
-<div class="figure" id="d5e15557"><p class="title"><strong>Figure 21.11. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15577"><p class="title"><strong>Figure 21.11. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Retrieve-query-metadata.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Retrieve-query-metadata.svg" alt="Final-Graph-Retrieve-query-metadata.svg" /></span>
 </a>
@@ -653,7 +656,7 @@ RETURN labels(n)</pre>
 exception name and stacktrace.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (x { name: 'I' })
 RETURN x.dummy/0</pre>
-<div class="figure" id="d5e15602"><p class="title"><strong>Figure 21.12. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e15622"><p class="title"><strong>Figure 21.12. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Errors.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Errors.svg" alt="Final-Graph-Errors.svg" /></span>
 </a>
@@ -691,23 +694,12 @@ RETURN x.dummy/0</pre>
   "exception": "ArithmeticException",
   "fullname": "org.neo4j.cypher.ArithmeticException",
   "stacktrace": [
-    "org.neo4j.cypher.internal.compiler.v2_2.commands.expressions.Divide.apply(Divide.scala:36)",
-    "org.neo4j.cypher.internal.compiler.v2_2.pipes.ProjectionNewPipe$$anonfun$internalCreateResults$1$$anonfun$apply$1.apply(ProjectionNewPipe.scala:44)",
-    "org.neo4j.cypher.internal.compiler.v2_2.pipes.ProjectionNewPipe$$anonfun$internalCreateResults$1$$anonfun$apply$1.apply(ProjectionNewPipe.scala:42)",
-    "scala.collection.immutable.Map$Map1.foreach(Map.scala:109)",
-    "org.neo4j.cypher.internal.compiler.v2_2.pipes.ProjectionNewPipe$$anonfun$internalCreateResults$1.apply(ProjectionNewPipe.scala:42)",
-    "org.neo4j.cypher.internal.compiler.v2_2.pipes.ProjectionNewPipe$$anonfun$internalCreateResults$1.apply(ProjectionNewPipe.scala:40)",
-    "scala.collection.Iterator$$anon$11.next(Iterator.scala:328)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator$$anonfun$next$1.apply(ResultIterator.scala:73)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator$$anonfun$next$1.apply(ResultIterator.scala:70)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator$$anonfun$failIfThrows$1.apply(ResultIterator.scala:119)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator.decoratedCypherException(ResultIterator.scala:128)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator.failIfThrows(ResultIterator.scala:117)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator.next(ResultIterator.scala:70)",
-    "org.neo4j.cypher.internal.compiler.v2_2.ClosingIterator.next(ResultIterator.scala:50)",
-    "org.neo4j.cypher.internal.compiler.v2_2.PipeExecutionResult.next(PipeExecutionResult.scala:72)",
-    "org.neo4j.cypher.internal.compiler.v2_2.PipeExecutionResult$$anon$2.next(PipeExecutionResult.scala:65)",
-    "org.neo4j.cypher.internal.compiler.v2_2.PipeExecutionResult$$anon$2.next(PipeExecutionResult.scala:63)",
+    "org.neo4j.cypher.internal.compatability.exceptionHandlerFor2_2$.arithmeticException(CompatibilityFor2_2.scala:46)",
+    "org.neo4j.cypher.internal.compatability.exceptionHandlerFor2_2$.arithmeticException(CompatibilityFor2_2.scala:43)",
+    "org.neo4j.cypher.internal.compiler.v2_2.ArithmeticException.mapToPublic(CypherException.scala:94)",
+    "org.neo4j.cypher.internal.compatability.exceptionHandlerFor2_2$.runSafely(CompatibilityFor2_2.scala:97)",
+    "org.neo4j.cypher.internal.compatability.ExecutionResultWrapperFor2_2$$anon$1.next(CompatibilityFor2_2.scala:157)",
+    "org.neo4j.cypher.internal.compatability.ExecutionResultWrapperFor2_2$$anon$1.next(CompatibilityFor2_2.scala:155)",
     "org.neo4j.helpers.collection.ExceptionHandlingIterable$1.next(ExceptionHandlingIterable.java:53)",
     "org.neo4j.helpers.collection.IteratorWrapper.next(IteratorWrapper.java:47)",
     "org.neo4j.server.rest.repr.ListRepresentation.serialize(ListRepresentation.java:64)",
@@ -732,7 +724,7 @@ RETURN x.dummy/0</pre>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

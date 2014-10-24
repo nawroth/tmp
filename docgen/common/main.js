@@ -42,32 +42,44 @@ $( document ).ready( function()
     } );
   }
   addBootstrapStyling();
+  addSmoothScroll($content);
   
-  $( 'h3, h4, h5, h6, div.table > p.title', $content ).click(function()
+  $( 'h3, h4, h5, h6', $content ).click(function()
   {
     var $heading = $( this );
-    var isH = this.nodeName.toLowerCase() !== 'p';
-    var $section = $heading.parents( isH ? 'section' : 'div' ).first();
-    if ( !$section.length )
-    {
-      return;
-    }
-    var id = $section.attr( 'id' );
-    if ( id )
-    {
-      var ident = '#' + id;
-      if ( window.history && window.history.pushState )
-      {
-        window.history.pushState( null, $heading.text(), ident );
-        $content.scrollTo( $section, { 'duration': 300 } );
-      }
-      else
-      {
-        window.location.assign( ident );
-      }
-    }
+    var $section = $heading.parents( 'section' ).first();
+    headingClickHandler($content, $heading, $section);
+  });
+
+  $( 'div.table[id] > p.title', $content ).click(function()
+  {
+    var $heading = $( this );
+    var $section = $heading.parent();
+    headingClickHandler($content, $heading, $section)
   });
 } );
+
+function headingClickHandler($content, $heading, $section)
+{
+  if ( !$section.length )
+  {
+    return;
+  }
+  var id = $section.attr( 'id' );
+  if ( id )
+  {
+    var ident = '#' + id;
+    if ( window.history && window.history.pushState )
+    {
+      window.history.pushState( null, $heading.text(), ident );
+      $content.scrollTo( $section, { 'duration': 300 } );
+    }
+    else
+    {
+      window.location.assign( ident );
+    }
+  }
+}
 
 function addBootstrapStyling()
 {
@@ -84,7 +96,15 @@ function addBootstrapStyling()
   $admonblocks.filter('.Warning').find('td.content').addClass('alert alert-danger');
   $('div.sidebar', $content).addClass('alert alert-info');
   $('#content div.titlepage div.abstract').addClass('alert alert-info');
-  $('div[id^="config_"]').addClass('configuration-setting');
+}
+
+function addSmoothScroll($element)
+{
+  $element.kinetic({
+  'slowdown': 0.96,
+  'maxvelocity': 50,
+  'triggerHardware': true
+  });
 }
 
 function addSearchHighlightButton()
@@ -116,15 +136,6 @@ function initialize()
       }
     } );
   }
-  /*
-   * works better without this. // When you click on a link to an // anchor, scroll down // 105 px to cope with the fact
-   * that the // banner // hides the top 95px or so of the page. // This code deals with the problem when // you click
-   * on a link within a page. $('a[href*=#]') .click( function() { if (location.pathname.replace(/^\//, '') ==
-   * this.pathname .replace(/^\//, '') && location.hostname == this.hostname) { var $target = $(this.hash); $target =
-   * $target.length && $target || $('[name=' + this.hash.slice(1) + ']'); if (!(this.hash == "#searchDiv" || this.hash ==
-   * "#treeDiv" || this.hash == "") && $target.length) { var targetOffset = $target.offset().top - 120;
-   * $('html,body').animate({ 'scrollTop' : targetOffset }, 200); return false; } } });
-   */
   // Generate tabs in nav-pane with JQuery
   $( function()
   {

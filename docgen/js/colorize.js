@@ -24,8 +24,8 @@ CodeMirror.colorize = (function() {
         mode = "text/x-java";
       } else if (mode === "sql") {
         mode = "text/x-sql";
-      } else if (mode === "bash") {
-        mode = "text/x-sh";
+      } else if (mode  === "properties") {
+        mode = "text/x-properties";
       }
 
       var text = [];

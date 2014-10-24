@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>21.17. Batch operations -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-graph-algos.html" title="21.16. Graph Algorithms" /><link rel="next" href="rest-api-indexes.html" title="21.18. Legacy indexing" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.17. Batch operations" /><script type="text/javascript">
+    <title>21.17. Batch operations -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-graph-algos.html" title="21.16. Graph Algorithms" /><link rel="next" href="rest-api-indexes.html" title="21.18. Legacy indexing" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.17. Batch operations" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -96,7 +99,7 @@ descriptions:</p>
 <span class="inlinemediaobject"><img src="images/batch-request-api.png" alt="batch-request-api.png" /></span>
 </a>
 </div>
-<div class="figure" id="d5e18357"><p class="title"><strong>Figure 21.67. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18377"><p class="title"><strong>Figure 21.67. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-multiple-operations-in-batch.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-multiple-operations-in-batch.svg" alt="Final-Graph-Execute-multiple-operations-in-batch.svg" /></span>
 </a>
@@ -117,14 +120,14 @@ descriptions:</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "method" : "PUT",
-  "to" : "/node/91/properties",
+  "to" : "/node/228/properties",
   "body" : {
     "age" : 1
   },
   "id" : 0
 }, {
   "method" : "GET",
-  "to" : "/node/91",
+  "to" : "/node/228",
   "id" : 1
 }, {
   "method" : "POST",
@@ -153,53 +156,53 @@ descriptions:</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "id" : 0,
-  "from" : "/node/91/properties"
+  "from" : "/node/228/properties"
 }, {
   "id" : 1,
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/91/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/91/labels",
-    "traverse" : "http://localhost:7474/db/data/node/91/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/91/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/91",
-    "property" : "http://localhost:7474/db/data/node/91/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/91/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/91/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/91/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/91/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/91/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/91/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/91/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/228/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/228/labels",
+    "traverse" : "http://localhost:7474/db/data/node/228/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/228/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/228",
+    "property" : "http://localhost:7474/db/data/node/228/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/228/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/228/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/228/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/228/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/228/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/228/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/228/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 91,
+      "id" : 228,
       "labels" : [ ]
     },
     "data" : {
       "age" : 1
     }
   },
-  "from" : "/node/91"
+  "from" : "/node/228"
 }, {
   "id" : 2,
-  "location" : "http://localhost:7474/db/data/node/92",
+  "location" : "http://localhost:7474/db/data/node/229",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/92/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/92/labels",
-    "traverse" : "http://localhost:7474/db/data/node/92/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/92/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/92",
-    "property" : "http://localhost:7474/db/data/node/92/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/92/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/92/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/92/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/92/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/92/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/92/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/92/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/229/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/229/labels",
+    "traverse" : "http://localhost:7474/db/data/node/229/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/229/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/229",
+    "property" : "http://localhost:7474/db/data/node/229/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/229/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/229/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/229/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/229/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/229/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/229/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/229/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 92,
+      "id" : 229,
       "labels" : [ ]
     },
     "data" : {
@@ -209,24 +212,24 @@ descriptions:</p>
   "from" : "/node"
 }, {
   "id" : 3,
-  "location" : "http://localhost:7474/db/data/node/93",
+  "location" : "http://localhost:7474/db/data/node/230",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/93/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/93/labels",
-    "traverse" : "http://localhost:7474/db/data/node/93/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/93/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/93",
-    "property" : "http://localhost:7474/db/data/node/93/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/93/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/93/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/93/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/93/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/93/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/93/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/93/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/230/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/230/labels",
+    "traverse" : "http://localhost:7474/db/data/node/230/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/230/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/230",
+    "property" : "http://localhost:7474/db/data/node/230/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/230/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/230/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/230/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/230/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/230/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/230/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/230/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 93,
+      "id" : 230,
       "labels" : [ ]
     },
     "data" : {
@@ -243,7 +246,7 @@ created resource in subsequent job descriptions, within the same batch
 call.</p>
 <p>Use the <code class="literal">{[JOB ID]}</code> special syntax to inject URIs from created resources
 into JSON strings in subsequent job descriptions.</p>
-<div class="figure" id="d5e18403"><p class="title"><strong>Figure 21.68. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18423"><p class="title"><strong>Figure 21.68. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Refer-to-items-created-earlier-in-the-same-batch-job.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Refer-to-items-created-earlier-in-the-same-batch-job.svg" alt="Final-Graph-Refer-to-items-created-earlier-in-the-same-batch-job.svg" /></span>
 </a>
@@ -309,24 +312,24 @@ into JSON strings in subsequent job descriptions.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "id" : 0,
-  "location" : "http://localhost:7474/db/data/node/83",
+  "location" : "http://localhost:7474/db/data/node/220",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/83/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/83/labels",
-    "traverse" : "http://localhost:7474/db/data/node/83/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/83/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/83",
-    "property" : "http://localhost:7474/db/data/node/83/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/83/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/83/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/83/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/83/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/83/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/83/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/83/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/220/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/220/labels",
+    "traverse" : "http://localhost:7474/db/data/node/220/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/220/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/220",
+    "property" : "http://localhost:7474/db/data/node/220/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/220/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/220/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/220/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/220/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/220/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/220/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/220/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 83,
+      "id" : 220,
       "labels" : [ ]
     },
     "data" : {
@@ -336,24 +339,24 @@ into JSON strings in subsequent job descriptions.</p>
   "from" : "/node"
 }, {
   "id" : 1,
-  "location" : "http://localhost:7474/db/data/node/84",
+  "location" : "http://localhost:7474/db/data/node/221",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/84/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/84/labels",
-    "traverse" : "http://localhost:7474/db/data/node/84/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/84/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/84",
-    "property" : "http://localhost:7474/db/data/node/84/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/84/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/84/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/84/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/84/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/84/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/84/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/84/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/221/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/221/labels",
+    "traverse" : "http://localhost:7474/db/data/node/221/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/221/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/221",
+    "property" : "http://localhost:7474/db/data/node/221/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/221/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/221/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/221/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/221/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/221/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/221/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/221/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 84,
+      "id" : 221,
       "labels" : [ ]
     },
     "data" : {
@@ -363,50 +366,50 @@ into JSON strings in subsequent job descriptions.</p>
   "from" : "/node"
 }, {
   "id" : 3,
-  "location" : "http://localhost:7474/db/data/relationship/53",
+  "location" : "http://localhost:7474/db/data/relationship/125",
   "body" : {
     "extensions" : { },
-    "start" : "http://localhost:7474/db/data/node/83",
-    "property" : "http://localhost:7474/db/data/relationship/53/properties/{key}",
-    "self" : "http://localhost:7474/db/data/relationship/53",
-    "properties" : "http://localhost:7474/db/data/relationship/53/properties",
+    "start" : "http://localhost:7474/db/data/node/220",
+    "property" : "http://localhost:7474/db/data/relationship/125/properties/{key}",
+    "self" : "http://localhost:7474/db/data/relationship/125",
+    "properties" : "http://localhost:7474/db/data/relationship/125/properties",
     "type" : "KNOWS",
-    "end" : "http://localhost:7474/db/data/node/84",
+    "end" : "http://localhost:7474/db/data/node/221",
     "metadata" : {
-      "id" : 53,
+      "id" : 125,
       "type" : "KNOWS"
     },
     "data" : {
       "since" : "2010"
     }
   },
-  "from" : "http://localhost:7474/db/data/node/83/relationships"
+  "from" : "http://localhost:7474/db/data/node/220/relationships"
 }, {
   "id" : 4,
-  "location" : "http://localhost:7474/db/data/index/relationship/my_rels/since/2010/53",
+  "location" : "http://localhost:7474/db/data/index/relationship/my_rels/since/2010/125",
   "body" : {
     "extensions" : { },
-    "start" : "http://localhost:7474/db/data/node/83",
-    "property" : "http://localhost:7474/db/data/relationship/53/properties/{key}",
-    "self" : "http://localhost:7474/db/data/relationship/53",
-    "properties" : "http://localhost:7474/db/data/relationship/53/properties",
+    "start" : "http://localhost:7474/db/data/node/220",
+    "property" : "http://localhost:7474/db/data/relationship/125/properties/{key}",
+    "self" : "http://localhost:7474/db/data/relationship/125",
+    "properties" : "http://localhost:7474/db/data/relationship/125/properties",
     "type" : "KNOWS",
-    "end" : "http://localhost:7474/db/data/node/84",
+    "end" : "http://localhost:7474/db/data/node/221",
     "metadata" : {
-      "id" : 53,
+      "id" : 125,
       "type" : "KNOWS"
     },
     "data" : {
       "since" : "2010"
     },
-    "indexed" : "http://localhost:7474/db/data/index/relationship/my_rels/since/2010/53"
+    "indexed" : "http://localhost:7474/db/data/index/relationship/my_rels/since/2010/125"
   },
   "from" : "/index/relationship/my_rels"
 } ]</pre>
 </section>
 <section class="section" id="rest-api-execute-multiple-operations-in-batch-streaming"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute multiple operations in batch streaming</h3></div></div></div>
 
-<div class="figure" id="d5e18446"><p class="title"><strong>Figure 21.69. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18466"><p class="title"><strong>Figure 21.69. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-execute-multiple-operations-in-batch-streaming.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-execute-multiple-operations-in-batch-streaming.svg" alt="Final-Graph-execute-multiple-operations-in-batch-streaming.svg" /></span>
 </a>
@@ -431,14 +434,14 @@ into JSON strings in subsequent job descriptions.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "method" : "PUT",
-  "to" : "/node/207/properties",
+  "to" : "/node/113/properties",
   "body" : {
     "age" : 1
   },
   "id" : 0
 }, {
   "method" : "GET",
-  "to" : "/node/207",
+  "to" : "/node/113",
   "id" : 1
 }, {
   "method" : "POST",
@@ -467,29 +470,29 @@ into JSON strings in subsequent job descriptions.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "id" : 0,
-  "from" : "/node/207/properties",
+  "from" : "/node/113/properties",
   "body" : null,
   "status" : 204
 }, {
   "id" : 1,
-  "from" : "/node/207",
+  "from" : "/node/113",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/207/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/207/labels",
-    "traverse" : "http://localhost:7474/db/data/node/207/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/207/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/207",
-    "property" : "http://localhost:7474/db/data/node/207/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/207/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/207/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/207/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/207/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/207/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/207/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/207/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/113/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/113/labels",
+    "traverse" : "http://localhost:7474/db/data/node/113/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/113/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/113",
+    "property" : "http://localhost:7474/db/data/node/113/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/113/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/113/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/113/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/113/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/113/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/113/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/113/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 207,
+      "id" : 113,
       "labels" : [ ]
     },
     "data" : {
@@ -502,56 +505,56 @@ into JSON strings in subsequent job descriptions.</p>
   "from" : "/node",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/208/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/208/labels",
-    "traverse" : "http://localhost:7474/db/data/node/208/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/208/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/208",
-    "property" : "http://localhost:7474/db/data/node/208/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/208/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/208/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/208/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/208/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/208/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/208/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/208/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/114/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/114/labels",
+    "traverse" : "http://localhost:7474/db/data/node/114/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/114",
+    "property" : "http://localhost:7474/db/data/node/114/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/114/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/114/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/114/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/114/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/114/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 208,
+      "id" : 114,
       "labels" : [ ]
     },
     "data" : {
       "age" : 1
     }
   },
-  "location" : "http://localhost:7474/db/data/node/208",
+  "location" : "http://localhost:7474/db/data/node/114",
   "status" : 201
 }, {
   "id" : 3,
   "from" : "/node",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/209/relationships/out",
-    "labels" : "http://localhost:7474/db/data/node/209/labels",
-    "traverse" : "http://localhost:7474/db/data/node/209/traverse/{returnType}",
-    "all_typed_relationships" : "http://localhost:7474/db/data/node/209/relationships/all/{-list|&amp;|types}",
-    "self" : "http://localhost:7474/db/data/node/209",
-    "property" : "http://localhost:7474/db/data/node/209/properties/{key}",
-    "properties" : "http://localhost:7474/db/data/node/209/properties",
-    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/209/relationships/out/{-list|&amp;|types}",
-    "incoming_relationships" : "http://localhost:7474/db/data/node/209/relationships/in",
-    "create_relationship" : "http://localhost:7474/db/data/node/209/relationships",
-    "paged_traverse" : "http://localhost:7474/db/data/node/209/paged/traverse/{returnType}{?pageSize,leaseTime}",
-    "all_relationships" : "http://localhost:7474/db/data/node/209/relationships/all",
-    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/209/relationships/in/{-list|&amp;|types}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/115/relationships/out",
+    "labels" : "http://localhost:7474/db/data/node/115/labels",
+    "traverse" : "http://localhost:7474/db/data/node/115/traverse/{returnType}",
+    "all_typed_relationships" : "http://localhost:7474/db/data/node/115/relationships/all/{-list|&amp;|types}",
+    "self" : "http://localhost:7474/db/data/node/115",
+    "property" : "http://localhost:7474/db/data/node/115/properties/{key}",
+    "properties" : "http://localhost:7474/db/data/node/115/properties",
+    "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/115/relationships/out/{-list|&amp;|types}",
+    "incoming_relationships" : "http://localhost:7474/db/data/node/115/relationships/in",
+    "create_relationship" : "http://localhost:7474/db/data/node/115/relationships",
+    "paged_traverse" : "http://localhost:7474/db/data/node/115/paged/traverse/{returnType}{?pageSize,leaseTime}",
+    "all_relationships" : "http://localhost:7474/db/data/node/115/relationships/all",
+    "incoming_typed_relationships" : "http://localhost:7474/db/data/node/115/relationships/in/{-list|&amp;|types}",
     "metadata" : {
-      "id" : 209,
+      "id" : 115,
       "labels" : [ ]
     },
     "data" : {
       "age" : 1
     }
   },
-  "location" : "http://localhost:7474/db/data/node/209",
+  "location" : "http://localhost:7474/db/data/node/115",
   "status" : 201
 } ]</pre>
 </section>
@@ -561,7 +564,7 @@ into JSON strings in subsequent job descriptions.</p>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

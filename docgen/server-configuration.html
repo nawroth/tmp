@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>24.2. Server Configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-introduction.html" title="24.1. Introduction" /><link rel="next" href="server-performance.html" title="24.3. Server Performance Tuning" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.2. Server Configuration" /><script type="text/javascript">
+    <title>24.2. Server Configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-introduction.html" title="24.1. Introduction" /><link rel="next" href="server-performance.html" title="24.3. Server Performance Tuning" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.2. Server Configuration" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-68358";
+      var treeCookieId = "treeview-68604";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,12 +54,14 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
 <script type="text/javascript" src="js/mutate.min.js"></script>
 <script type="text/javascript" src="js/disqus.js"></script>
+
+<!-- Scrolling -->
+<script type="text/javascript" src="common/jquery/jquery.kinetic.min.js"></script>
 
 <script type="text/javascript">
     /*@cc_on @*/
@@ -97,32 +100,32 @@ HTTP logging configuration is found in <span class="emphasis"><em>conf/neo4j-htt
 This file contains several important settings, and although the defaults are sensible
 administrators might choose to make changes (especially to the port settings).</p>
 <p>Set the location on disk of the database directory like this:</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.database.location=data/graph.db</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.database.location=data/graph.db</pre>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>On Windows systems, absolute locations including drive letters need to read <span class="emphasis"><em>"c:/data/db"</em></span>.</p></td></tr></table></div>
 <p>Specify the HTTP server port supporting data, administrative, and UI access:</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.webserver.port=7474</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.webserver.port=7474</pre>
 <p>Specify the client accept pattern for the webserver (default is <code class="literal">127.0.0.1</code>, localhost only):</p>
-<pre class="programlisting" data-lang="plain">#allow any client to connect
+<pre class="programlisting" data-lang="properties">#allow any client to connect
 org.neo4j.server.webserver.address=0.0.0.0</pre>
 <p>For securing the Neo4j Server, see also <a class="xref" href="operations-security.html" title="Chapter 27. Security">Chapter 27, <em>Security</em></a></p>
 <p>Set the location of the round-robin database directory which gathers metrics on the running server instance:</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.webadmin.rrdb.location=data/graph.db/../rrd</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.webadmin.rrdb.location=data/graph.db/../rrd</pre>
 <p>Set the URI path for the REST data API through which the database is accessed. This should be a relative path.</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.webadmin.data.uri=/db/data/</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.webadmin.data.uri=/db/data/</pre>
 <p>Setting the management URI for the administration API that the Webadmin tool uses. This should be a relative path.</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.webadmin.management.uri=/db/manage</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.webadmin.management.uri=/db/manage</pre>
 <p>Force the server to use IPv4 network addresses, in <span class="emphasis"><em>conf/neo4j-wrapper.conf</em></span> under the section <span class="emphasis"><em>Java Additional Parameters</em></span> add a new paramter:</p>
-<pre class="programlisting" data-lang="plain">wrapper.java.additional.3=-Djava.net.preferIPv4Stack=true</pre>
+<pre class="programlisting" data-lang="properties">wrapper.java.additional.3=-Djava.net.preferIPv4Stack=true</pre>
 <p>Specify the number of threads used by the Neo4j Web server to control the level of concurrent HTTP requests that the server will service.</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.webserver.maxthreads=200</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.webserver.maxthreads=200</pre>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The default value is the number of CPUs reported available by the JVM, limited to a maximum of 500. The limit can be exceeded by specifying a larger value.</p></td></tr></table></div>
 <p>The server guards against orphaned transactions by using a timeout. If there are no requests for a given transaction
 within the timeout period, the server will roll it back. You can configure the timeout period by setting
 the following property to the number of seconds before timeout. The default timeout is 60 seconds.</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.transaction.timeout=60</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.transaction.timeout=60</pre>
 <p>Low-level performance tuning parameters can be explicitly set by referring
 to the following property:</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.db.tuning.properties=neo4j.properties</pre>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.db.tuning.properties=neo4j.properties</pre>
 <p>If this property isn’t set, the server will look for a file called <span class="emphasis"><em>neo4j.properties</em></span> in
 the same directory as the <span class="emphasis"><em>neo4j-server.properties</em></span> file.</p>
 <p>If this property isn’t set, and there is no <span class="emphasis"><em>neo4j.properties</em></span> file in the default
@@ -133,11 +136,8 @@ database engine will attempt tune itself based on the prevailing conditions.</p>
 
 <p>The fine-tuning of the low-level Neo4j graph database engine is specified in a separate
 properties file, <span class="emphasis"><em>conf/neo4j.properties</em></span>.</p>
-<p>The graph database engine has a range of performance tuning options which are enumerated in
-<a class="xref" href="server-performance.html" title="24.3. Server Performance Tuning">Section 24.3, “Server Performance Tuning”</a>. Note that other factors than Neo4j tuning should be considered
-when performance tuning a server, including general server load, memory and file contention,
-and even garbage collection penalties on the JVM, though such considerations are beyond the scope
-of this configuration document.</p>
+<p>The graph database engine has a range of performance tuning options which are enumerated in <a class="xref" href="server-performance.html" title="24.3. Server Performance Tuning">Section 24.3, “Server Performance Tuning”</a>.
+Note that other factors than Neo4j tuning should be considered when performance tuning a server, including general server load, memory and file contention, and even garbage collection penalties on the JVM, though such considerations are beyond the scope of this configuration document.</p>
 </section>
 <section class="section" id="_server_logging_configuration"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Server logging configuration</h3></div></div></div>
 
@@ -148,10 +148,10 @@ of this configuration document.</p>
 Most deployments will choose to use their own configuration here to meet local standards.
 During development, much useful information can be found in the logs so some form of logging to disk is well worth keeping.
 On the other hand, if you want to completely silence the console output, set:</p>
-<pre class="programlisting" data-lang="plain">java.util.logging.ConsoleHandler.level=OFF</pre>
+<pre class="programlisting" data-lang="properties">java.util.logging.ConsoleHandler.level=OFF</pre>
 <p>By default log files are rotated at approximately 10Mb and named consecutively neo4j.&lt;id&gt;.&lt;rotation sequence #&gt;.log
 To change the naming scheme, rotation frequency and backlog size modify</p>
-<pre class="programlisting" data-lang="plain">java.util.logging.FileHandler.pattern
+<pre class="programlisting" data-lang="properties">java.util.logging.FileHandler.pattern
 java.util.logging.FileHandler.limit
 java.util.logging.FileHandler.count</pre>
 <p>respectively to your needs. Details are available at the Javadoc for <code class="literal"><a class="ulink" href="http://download.oracle.com/javase/7/docs/api/java/util/logging/FileHandler.html" target="_blank">java.util.logging.FileHandler</a></code>.</p>
@@ -160,53 +160,47 @@ through various frameworks.</p>
 </section>
 <section class="section" id="_http_logging_configuration"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">HTTP logging configuration</h3></div></div></div>
 
-<p>As well as logging events happening within the Neo4j server, it is possible to log the HTTP requests and responses
-that the server consumes and produces. Configuring HTTP logging requires operators to enable and configure the
-logger and where it will log; and then to optionally configure the log format.</p>
-<div class="admonitionblock Warning"><table><tr><td class="icon"><img alt="[Warning]" src="images/icons/admon/warning.svg" /></td><td class="content"><b>Warning</b><p>By default the HTTP logger uses <code class="literal"><a class="ulink" href="http://en.wikipedia.org/wiki/Common_Log_Format" target="_blank">Common Log Format</a></code>
-meaning that most Web server tooling can automtically consume such logs. In general users should only enable HTTP logging,
-select an output directory, and if necessary alter the rollover and retention policies.</p></td></tr></table></div>
+<p>As well as logging events happening within the Neo4j server, it is possible to log the HTTP requests and responses that the server consumes and produces.
+Configuring HTTP logging requires operators to enable and configure the logger and where it will log; and then to optionally configure the log format.</p>
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>By default the HTTP logger uses <a class="ulink" href="http://en.wikipedia.org/wiki/Common_Log_Format" target="_blank">Common Log Format</a> meaning that most Web server tooling can automatically consume such logs.
+In general users should only enable HTTP logging, select an output directory, and if necessary alter the rollover and retention policies.</p></td></tr></table></div>
 <p>To enable HTTP logging, edit the <span class="emphasis"><em>conf/neo4j-server.properties</em></span> file to resemble the following:</p>
-<pre class="programlisting" data-lang="plain">org.neo4j.server.http.log.enabled=true
+<pre class="programlisting" data-lang="properties">org.neo4j.server.http.log.enabled=true
 org.neo4j.server.http.log.config=conf/neo4j-http-logging.xml</pre>
-<p><span class="emphasis"><em>org.neo4j.server.http.log.enabled=true</em></span> tells the server that HTTP logging is enabled. HTTP logging can be totally
-disabled by setting this property to <span class="emphasis"><em>false</em></span>.
-<span class="emphasis"><em>org.neo4j.server.http.log.config=conf/neo4j-http-logging.xml</em></span> specifies the logging format and rollover policy file
-that governs how HTTP log output is presented and archived. The defaults provided with Neo4j server uses an hourly log
-rotation and <code class="literal"><a class="ulink" href="http://en.wikipedia.org/wiki/Common_Log_Format" target="_blank">Common Log Format</a></code>.</p>
-<p>If logging is set up to use log files then the server will check that the log file directory exists and is writable. If
-this check fails, then the server will not startup and wil report the failure another available channel like standard out.</p>
+<p>Using <code class="literal">org.neo4j.server.http.log.enabled=true</code> tells the server that HTTP logging is enabled.
+HTTP logging can be disabled completely by setting this property to <code class="literal">false</code>.
+The setting <code class="literal">org.neo4j.server.http.log.config=conf/neo4j-http-logging.xml</code> specifies the logging format and rollover policy file that governs how HTTP log output is presented and archived.
+The defaults provided with Neo4j server uses an hourly log rotation and Common Log Format.</p>
+<p>If logging is set up to use log files then the server will check that the log file directory exists and is writable.
+If this check fails, then the server will not start and will report the failure to another available channel like standard out.</p>
 </section>
 <section class="section" id="_using_x_forwarded_proto_and_x_forwarded_host_to_parameterize_the_base_uri_for_rest_responses"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using X-Forwarded-Proto and X-Forwarded-Host to parameterize the base URI for REST responses</h3></div></div></div>
 
-<p>There are occasions, for example when you want to host Neo4j server behind a proxy (e.g. one that handles HTTPS traffic),
-and still have Neo4j respect the base URI of that externally visible proxy.</p>
-<p>Ordinarily Neo4j uses the <code class="literal">HOST</code> header of the HTTP request to construct URIs in its responses. Where a proxy is involved
-however, this is often undesirable. Instead Neo4j, uses the
-<code class="literal">X-Forwarded-Host</code> and <code class="literal">X-Forwarded-Proto</code> headers provided by proxies to parameterize the URIs in the responses from
-the database’s REST API. From the outside it looks as if the proxy generated that payload. If an <code class="literal">X-Forwarded-Host</code>
-header value contains more than one address (<code class="literal">X-Forwarded-Host</code> allows comma-and-space separated lists of addresses),
-Neo4j picks the first, which represents the client request.</p>
-<p>In order to take advantage of this functionality, your proxy server must be configured to transmit these headers to the
-Neo4j server. Failure to transmit both <code class="literal">X-Forwarded-Host</code> and <code class="literal">X-Forwarded-Proto</code> headers will result in the original
-base URI being used.</p>
+<p>There are occasions, for example when you want to host Neo4j server behind a proxy (e.g. one that handles HTTPS traffic), and still have Neo4j respect the base URI of that externally visible proxy.</p>
+<p>Ordinarily Neo4j uses the <code class="literal">HOST</code> header of the HTTP request to construct URIs in its responses.
+Where a proxy is involved however, this is often undesirable.
+Instead Neo4j uses the <code class="literal">X-Forwarded-Host</code> and <code class="literal">X-Forwarded-Proto</code> headers provided by proxies to parameterize the URIs in the responses from the database’s REST API.
+From the outside it looks as if the proxy generated that payload.
+If an <code class="literal">X-Forwarded-Host</code> header value contains more than one address (<code class="literal">X-Forwarded-Host</code> allows comma-and-space separated lists of addresses), Neo4j picks the first, which represents the client request.</p>
+<p>In order to take advantage of this functionality your proxy server must be configured to transmit these headers to the Neo4j server.
+Failure to transmit both <code class="literal">X-Forwarded-Host</code> and <code class="literal">X-Forwarded-Proto</code> headers will result in the original base URI being used.</p>
 </section>
 <section class="section" id="_other_configuration_options"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Other configuration options</h3></div></div></div>
 
 <section class="section" id="_enabling_logging_from_the_garbage_collector"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Enabling logging from the garbage collector</h4></div></div></div>
 
-<p>To get garbage collection logging output you have to pass the corresponding option to the server JVM
-executable by setting in <span class="emphasis"><em>conf/neo4j-wrapper.conf</em></span> the value</p>
-<pre class="programlisting" data-lang="plain">wrapper.java.additional.3=-Xloggc:data/log/neo4j-gc.log</pre>
-<p>This line is already present and needs uncommenting. Note also that logging is not directed to console ;
-You will find the logging statements in <span class="emphasis"><em>data/log/ne4j-gc.log</em></span> or whatever directory you set at the option.</p>
+<p>To get garbage collection logging output you have to pass the corresponding option to the server JVM executable by setting the following value in <span class="emphasis"><em>conf/neo4j-wrapper.conf</em></span>:</p>
+<pre class="programlisting" data-lang="properties">wrapper.java.additional.3=-Xloggc:data/log/neo4j-gc.log</pre>
+<p>This line is already present and needs uncommenting.
+Note also that logging is not directed to console.
+You will find the logging statements in <span class="emphasis"><em>data/log/ne4j-gc.log</em></span> or whatever directory you set the option to.</p>
 </section>
 <section class="section" id="_disabling_console_types_in_webadmin"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Disabling console types in Webadmin</h4></div></div></div>
 
 <p>You may, for security reasons, want to disable the the Neo4j Shell in Webadmin.
 Shells allow arbitrary code execution, and so they could constitute a security risk if you do not trust all users of your Neo4j Server.</p>
 <p>In the <span class="emphasis"><em>conf/neo4j-server.properties</em></span> file:</p>
-<pre class="programlisting" data-lang="plain"># To disable all shells:
+<pre class="programlisting" data-lang="properties"># To disable all shells:
 org.neo4j.server.manage.console_engines=
 
 # To enable only the Neo4j Shell:
@@ -219,7 +213,7 @@ org.neo4j.server.manage.console_engines=shell</pre>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">
