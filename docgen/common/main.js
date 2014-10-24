@@ -100,7 +100,7 @@ function addBootstrapStyling()
 
 function addSmoothScroll($element)
 {
-  //$element.css('overflow', 'scroll');
+  $element.css('overflow-y', 'scroll');
 /*  $element.kinetic({
   'slowdown': 0.96,
   'maxvelocity': 50,
