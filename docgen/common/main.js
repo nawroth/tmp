@@ -105,7 +105,15 @@ function addSmoothScroll($element)
   'maxvelocity': 50,
   'triggerHardware': true,
   'filterTarget': function(target) {
-    return target.tagName.toLowerCase() !== 'a';
+    if ( target.tagName.toLowerCase() === 'a' )
+    {
+      return false;
+    }
+    if ( target.id === 'discuss-header' )
+    {
+      return false;
+    }
+    return true;    
   }
   });
 }
