@@ -103,6 +103,7 @@ function addSmoothScroll($element)
   $element.kinetic({
   'slowdown': 0.96,
   'maxvelocity': 50,
+  'throttleFPS': 30,
   'triggerHardware': false,
   'filterTarget': function(target) {
     if ( target.tagName.toLowerCase() === 'a' )
