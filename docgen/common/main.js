@@ -104,7 +104,7 @@ function addSmoothScroll($element)
   'slowdown': 0.96,
   'maxvelocity': 50,
   'throttleFPS': 30,
-  'triggerHardware': false,
+  'triggerHardware': true,
   'filterTarget': function(target) {
     if ( target.tagName.toLowerCase() === 'a' )
     {
