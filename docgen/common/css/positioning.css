@@ -397,6 +397,7 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   
   body.index-page #header h1 #book-title {
     display: block;
+    font-size: 14px;
   }
   
   body #header {
@@ -414,9 +415,9 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   body #logo {
     height: 48px;
   }
-  
+
   body #header h1 span {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   #content h2 {
@@ -435,3 +436,10 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
     width: 5.33em;
   }
 }
+
+@media screen and (max-width: 640px) {
+  body #sidebar-wrapper {
+    width: 100%;
+  }
+}
+

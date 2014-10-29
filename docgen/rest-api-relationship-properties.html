@@ -81,7 +81,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/21/properties</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/4/properties</code>
 
 </li><li class="listitem">
 
@@ -113,7 +113,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/112/properties</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/0/properties</code>
 
 </li><li class="listitem">
 
@@ -144,7 +144,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/115/properties/cost</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/3/properties/cost</code>
 
 </li><li class="listitem">
 
@@ -171,7 +171,7 @@ an error.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/113/properties/non-existent</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/1/properties/non-existent</code>
 
 </li><li class="listitem">
 
@@ -189,7 +189,7 @@ an error.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "message": "Relationship[113] does not have a property \"non-existent\"",
+  "message": "Relationship[1] does not have a property \"non-existent\"",
   "exception": "NoSuchPropertyException",
   "fullname": "org.neo4j.server.rest.web.NoSuchPropertyException",
   "stacktrace": [

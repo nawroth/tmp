@@ -337,6 +337,7 @@ function Effectuer_recherche(expressionInput) {
     }
     $('a', searchResultsElement).click(function(){
       $.cookie( 'ui-tabs-1', '1' );
+      $.cookie( 'manual_toc_visible', 'no', { expires: 3, path: '/' } );
       return true;
     });
 }
