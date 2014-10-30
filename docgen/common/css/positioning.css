@@ -176,6 +176,11 @@ footer img {
   width: 150px;
 }
 
+#searchResults {
+  float: left;
+  clear: both;
+}
+
 .searchButton {
   padding: 2px 12px 2px 12px;
   background-color: #bbb;
@@ -458,9 +463,11 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   body .pointLeft, body .pointRight {
     padding-right: 2%;
   }
-
   body #navLinks a {
     font-size: 11px;
+  }
+  .searchText {
+    width: 70%;
   }
 }
 
