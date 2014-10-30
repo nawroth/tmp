@@ -455,10 +455,6 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   body #textToSearch {
     font-size: 32px !important;
   }
-  body #tree li {
-    line-height: 1.333334;
-  }
-
   body .pointLeft, body .pointRight {
     padding-right: 2%;
   }
