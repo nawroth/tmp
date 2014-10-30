@@ -43,7 +43,11 @@ body.console-is-expanded #header {
   left: 0;
   width: 280px;
   bottom: 0;
-  overflow: auto;
+  /*overflow: auto;*/
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 body.toc-is-hidden #sidebar-wrapper,body.console-is-expanded #sidebar-wrapper {
@@ -440,6 +444,9 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
 @media screen and (max-width: 640px) {
   body #sidebar-wrapper {
     width: 100%;
+  }
+  body #navLinks span {
+    padding-right: 2%;
   }
 }
 
