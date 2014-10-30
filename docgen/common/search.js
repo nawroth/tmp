@@ -293,12 +293,12 @@ function Effectuer_recherche(expressionInput) {
                     linkString += "</li>";
                     
                     // Add rating values for scoring at the list of matches 
-          linkString += "<div id=\"rightDiv\">";
-          linkString += "<div id=\"star\">";
+          linkString += "<div class=\"rightDiv\">";
+          linkString += "<div class=\"star\">";
           //linkString += "<div style=\"color: rgb(136, 136, 136);\" id=\"starUser0\" class=\"user\">" 
           //        + ((ttScore * 100/ hundredProcent)/(ttScore_first/hundredProcent)) * 1 + "</div>";
-                  linkString += "<ul id=\"star0\" class=\"star\">";
-          linkString += "<li id=\"starCur0\" class=\"curr\" style=\"width: " + starWidth + "px;\"></li>";
+                  linkString += "<ul class=\"star\">";
+          linkString += "<li class=\"curr\" style=\"width: " + starWidth + "px;\"></li>";
                   linkString += "</ul>";
                   
                   linkString += "<br style=\"clear: both;\">";

@@ -162,6 +162,10 @@ footer img {
   color: #0050A0;
 }
 
+.searchresult div.rightDiv {
+  line-height: 15px;
+}
+
 .shortdesclink {
   color: gray;
   font-size: 9pt;
@@ -192,20 +196,20 @@ footer img {
   font-weight: bold;
 }
 
-#star ul.star {
+div.star ul.star {
   list-style: none;
   margin: 0;
   padding: 0;
   width: 85px;
-  height: 20px;
+  height: 16px;
   left: 1px;
-  top: -5px;
+  top: -6px;
   position: relative;
   float: right;
   background: url('../images/starsSmall.png') repeat-x 0 -25px;
 }
 
-#star li {
+ul.star li {
   padding: 0;
   margin: 0;
   float: right;
@@ -219,7 +223,7 @@ footer img {
   padding: 0;
 }
 
-#star li.curr {
+ul.star li.curr {
   background: url('../images/starsSmall.png') left 25px;
   font-size: 1px;
 }
@@ -450,6 +454,26 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   }
   body #textToSearch {
     font-size: 32px !important;
+  }
+  body #tree li {
+    line-height: 1.25;
+  }
+
+  body .pointLeft, body .pointRight {
+    padding-right: 2%;
+  }
+
+  body #navLinks a {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body #textToSearch {
+    font-size: 16px !important;
+  }
+  body #navLinks a {
+    font-size: 10px;
   }
 }
 
