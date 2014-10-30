@@ -448,5 +448,8 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   body #navLinks span {
     padding-right: 2%;
   }
+  body #textToSearch {
+    font-size: 16px !important;
+  }
 }
 
