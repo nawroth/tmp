@@ -91,7 +91,7 @@ function Verifie(searchForm) {
           expressionInput = expressionInput + " " + noWords[x]; 
         }       
         Effectuer_recherche(expressionInput);
-        document.searchForm.textToSearch.focus();
+        //document.searchForm.textToSearch.focus();
       } else {
           // Effectuer la recherche
              expressionInput = '';
@@ -100,7 +100,7 @@ function Verifie(searchForm) {
              }
           Effectuer_recherche(expressionInput);
           // reactive la fenetre de search (utile car cadres)
-          document.searchForm.textToSearch.focus();        
+          //document.searchForm.textToSearch.focus();        
       }
     }
 }
