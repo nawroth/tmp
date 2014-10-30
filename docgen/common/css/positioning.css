@@ -456,7 +456,7 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
     font-size: 32px !important;
   }
   body #tree li {
-    line-height: 1.4;
+    line-height: 1.333334;
   }
 
   body .pointLeft, body .pointRight {
