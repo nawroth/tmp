@@ -46,6 +46,7 @@ function Verifie(searchForm) {
         return;
     }
 
+    document.searchForm.textToSearch.blur();
     searchTextField = trim(document.searchForm.textToSearch.value);
     searchTextField = searchTextField.replace(/['"]/g,'');
   var expressionInput = searchTextField;
