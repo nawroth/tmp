@@ -1,0 +1,175 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>34.2. Unmanaged Extensions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-plugins.html" title="34.1. Server Plugins" /><link rel="next" href="_testing_your_extension.html" title="34.3. Testing your extension" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="34.2. Unmanaged Extensions" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-69563";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>34.2. Unmanaged Extensions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-plugins.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="server-extending.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="_testing_your_extension.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-unmanaged-extensions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">34.2. Unmanaged Extensions</h2></div></div></div>
+
+<div class="sidebar"><div xmlns="" class="titlepage"><div><div><p xmlns="http://www.w3.org/1999/xhtml" class="title"><strong>Quick info</strong></p></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Danger: Men at Work!
+  The unmanaged extensions are a way of deploying arbitrary JAX-RS code into the Neo4j server.
+
+</li><li class="listitem">
+
+The unmanaged extensions are exactly that: unmanaged.
+  If you drop poorly tested code into the server, it’s highly likely you’ll degrade its performance, so be careful.
+
+</li></ul></div>
+</div>
+<p>Some projects want extremely fine control over their server-side code.
+For this we’ve introduced an unmanaged extension API.</p>
+<div class="admonitionblock Warning"><table><tr><td class="icon"><img alt="[Warning]" src="images/icons/admon/warning.svg" /></td><td class="content"><b>Warning</b><p>This is a sharp tool, allowing users to deploy arbitrary <a class="ulink" href="http://en.wikipedia.org/wiki/JAX-RS" target="_blank">JAX-RS</a> classes to the server and so you should be careful when thinking about using this.
+In particular you should understand that it’s easy to consume lots of heap space on the server and hinder performance if you’re not careful.</p></td></tr></table></div>
+<p>Still, if you understand the disclaimer, then you load your JAX-RS classes into the Neo4j server simply by adding a @Context annotation to your code, compiling against the JAX-RS jar and any Neo4j jars you’re making use of.
+Then add your classes to the runtime classpath (just drop it in the lib directory of the Neo4j server).
+In return you get access to the hosted environment of the Neo4j server like logging through the <code class="literal">org.neo4j.server.logging.Logger</code>.</p>
+<p>In your code, you get access to the underlying <code class="literal">GraphDatabaseService</code> through the <code class="literal">@Context</code> annotation like so:</p>
+<pre class="programlisting" data-lang="java">public MyCoolService( @Context GraphDatabaseService database )
+{
+  // Have fun here, but be safe!
+}</pre>
+<p>Remember, the unmanaged API is a very sharp tool.
+It’s all to easy to compromise the server by deploying code this way, so think first and see if you could use one
+of the other APIs that come with Neo4j by default.
+However, a number of context parameters can be automatically provided for you, like the reference to the database.</p>
+<p>In order to specify the mount point of your extension, a full class looks like this:</p>
+<p><strong>Unmanaged extension example. </strong>
+</p><pre class="programlisting" data-lang="java">@Path( "/helloworld" )
+public class HelloWorldResource
+{
+    private final GraphDatabaseService database;
+    private final ExecutionEngine cypher;
+
+    public HelloWorldResource( @Context GraphDatabaseService database, @Context ExecutionEngine cypher )
+    {
+        this.database = database;
+        this.cypher = cypher;
+    }
+
+    @GET
+    @Produces( MediaType.TEXT_PLAIN )
+    @Path( "/{nodeId}" )
+    public Response hello( @PathParam( "nodeId" ) long nodeId )
+    {
+        // Do stuff with the database
+        return Response.status( Status.OK ).entity(
+                ("Hello World, nodeId=" + nodeId).getBytes( Charset.forName("UTF-8") ) ).build();
+    }
+}
+</pre><p>
+</p>
+<p>The full source code is found here:
+<a class="ulink" href="https://github.com/neo4j/neo4j/blob/master/community/server-examples/src/main/java/org/neo4j/examples/server/unmanaged/HelloWorldResource.java" target="_blank">HelloWorldResource.java</a></p>
+<p>Build this code, and place the resulting jar file (and any custom dependencies) into the <code class="literal">$NEO4J_SERVER_HOME/plugins</code> directory, and include this class in the <span class="emphasis"><em>conf/neo4j-server.properties</em></span> file, like so:</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>Make sure the directories listings are retained in the jarfile by either building with default Maven, or with <code class="literal">jar -cvf myext.jar *</code>, making sure
+to jar directories instead of specifying single files.</p></td></tr></table></div>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>You will need to include a dependency to JAX-RS API on your classpath when you compile. In Maven this would be achieved by adding the following to the pom file:</p></td></tr></table></div>
+<pre class="programlisting" data-lang="xml">&lt;dependency&gt;
+    &lt;groupId&gt;javax.ws.rs&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.ws.rs-api&lt;/artifactId&gt;
+    &lt;version&gt;2.0&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+&lt;/dependency&gt;</pre>
+<pre class="programlisting" data-lang="plain">#Comma separated list of JAXRS packages containing JAXRS Resource, one package name for each mountpoint.
+org.neo4j.server.thirdparty_jaxrs_classes=org.neo4j.examples.server.unmanaged=/examples/unmanaged</pre>
+<p>Which binds the hello method to respond to <code class="literal">GET</code> requests at the URI: <code class="literal">http://{neo4j_server}:{neo4j_port}/examples/unmanaged/helloworld/{nodeId}</code></p>
+<pre class="programlisting" data-lang="bash">curl http://localhost:7474/examples/unmanaged/helloworld/123</pre>
+<p>which results in</p>
+<pre class="programlisting" data-lang="plain">Hello World, nodeId=123</pre>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>33.4. Translating the Neo4j Manual -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="community-docs.html" title="33.3. Writing Neo4j Documentation" /><link rel="next" href="community-contributing-code.html" title="33.5. Contributing Code to Neo4j" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="33.4. Translating the Neo4j Manual" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-69563";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>33.4. Translating the Neo4j Manual</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="community-docs.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="community-contributing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="community-contributing-code.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="community-translating"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">33.4. Translating the Neo4j Manual</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="community-translating.html#_prerequisites_2">Prerequisites</a></span></li><li><span class="section"><a href="community-translating.html#_build_flow_and_file_layout">Build flow and file layout</a></span></li><li><span class="section"><a href="community-translating.html#_adding_a_chapter_to_a_translation_file">Adding a chapter to a translation file</a></span></li><li><span class="section"><a href="community-translating.html#_workflow">Workflow</a></span></li><li><span class="section"><a href="community-translating.html#community-translating-tools">Translation tools</a></span></li></ul></div>
+
+<p>To translate the Neo4j Manual, there’s a special project setup to use.
+See the French translation project for an example:
+<a class="ulink" href="https://github.com/neo4j/manual-french" target="_blank">https://github.com/neo4j/manual-french</a></p>
+<p>The project contains:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>conf/</em></span> — configuration for the project.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>docs/</em></span> — translated files for content provided by Neo4j modules.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>po/</em></span> — translation files and po4a configuration files.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>src/</em></span> — translated files for content provided by the original manual.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>Makefile</em></span> — a makefile with project-specific configuration.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>pom.xml</em></span> — Maven build configuration.
+
+</li></ul></div>
+<section class="section" id="_prerequisites_2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Prerequisites</h3></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Apache Maven
+
+</li><li class="listitem">
+
+GNU Make
+
+</li><li class="listitem">
+
+Python
+
+</li><li class="listitem">
+
+Perl
+
+</li><li class="listitem">
+
+Perl module: <code class="literal">Unicode::GCString</code>
+
+</li></ul></div>
+<p>To check if you have the <code class="literal">Unicode::GCString</code> module installed, you can issue the following command:</p>
+<pre class="programlisting" data-lang="bash">perl -MUnicode::GCString -e ''</pre>
+<p>If there’s no error, the module has been successfully installed on your system.</p>
+<p>To install the module, you can use <a class="ulink" href="http://search.cpan.org/dist/App-cpanminus/lib/App/cpanminus.pm" target="_blank">cpanminus</a>.
+For a convenient way to install it, see <a class="ulink" href="http://cpanmin.us" target="_blank">http://cpanmin.us</a>.
+With cpanminus installed, execute this command:</p>
+<pre class="programlisting" data-lang="bash">cpanm Unicode::GCString</pre>
+<p>You will probably want to use a <span class="emphasis"><em>.po</em></span> file editor as well, see <a class="xref" href="community-translating.html#community-translating-tools" title="Translation tools">the section called “Translation tools”</a>.</p>
+</section>
+<section class="section" id="_build_flow_and_file_layout"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Build flow and file layout</h3></div></div></div>
+
+<p>The build is essentially a two-step process.
+The first step generates or copies translated documents, while the second step is an ordinary AsciiDoc build using the output from the first step as sources.</p>
+<p>Other than the <span class="emphasis"><em>src/</em></span> and <span class="emphasis"><em>docs/</em></span> diirectories of the project, the build generates files with the same layout in two more places:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+<span class="emphasis"><em>target/original/(src|docs)/</em></span> — the contents of the original manual. Note that’s it easier to look for content here than to dig into the original manual itself.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>target/(src|docs)/</em></span> — the translated source to use for the AsciiDoc build.
+
+</li></ol></div>
+<p>The translated documents in <span class="emphasis"><em>target/(src|docs)/</em></span> are generated in three steps:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+It starts out as a copy of the original manual.
+
+</li><li class="listitem">
+
+Next, any static translated files fromt the <span class="emphasis"><em>src/</em></span> and <span class="emphasis"><em>docs/</em></span> directories of the project are copied.
+
+</li><li class="listitem">
+
+Finally, the translation files in the <span class="emphasis"><em>po/</em></span> directory are used to generate translated documents.
+
+</li></ol></div>
+<p>Files produced by later steps will overwrite existing files from earlier steps.</p>
+</section>
+<section class="section" id="_adding_a_chapter_to_a_translation_file"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding a chapter to a translation file</h3></div></div></div>
+
+<p>The translation is split over multiple translation files, one per “part” of the manual.
+It’s all about making the translation easier to manage and the tools to perform well.
+The basic rule of thumb is that if some content is moved, it should likely still end up in the same translation file.
+In that case, the tools will even detect this and the translation will be moved automatically.</p>
+<p>To add a document to a translation file, do like this:</p>
+<pre class="programlisting" data-lang="bash">make add DOCUMENT="src/introduction/the-neo4j-graphdb.asciidoc" PART="introduction"</pre>
+<p>If the translation file does not already exist, it will be created.
+The document will be added to the translation build configuration file as well.
+(The configuration is in the corresponding <span class="emphasis"><em>.conf</em></span> file in the <span class="emphasis"><em>po/</em></span> directory.)</p>
+<p>If there exists a translated copy of the document at the location the <code class="literal">DOCUMENT</code> parameter points to, the script will attempt to populate the translation file with translated paragraphs from that document.
+Note that the structure of the document has to be a <span class="emphasis"><em>perfect match</em></span>, or it will fail.
+However, the error messages are helpful, so just fix and try again until it works!
+Translation file and configuration are only changed when the first part succeeds.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Only documents that need to be translated should be added.
+For example Cypher queries and query results should not be translated.
+In general, documents residing in a directory named <span class="emphasis"><em>includes</em></span> should not be translated.</p></td></tr></table></div>
+<p>Also note that AsciiDoc <code class="literal">include::</code> lines are normally not part of the translation at all, but handled automatically.
+In case they need to be handled differently in a document, this has to be configured in the corresponding <span class="emphasis"><em>.conf</em></span> file.
+For example a normal document entry in such a file can look like this:</p>
+<pre class="programlisting" data-lang="plain">[type: asciidoc] target/original/src/operations/index.asciidoc fr:target/src/operations/index.asciidoc</pre>
+<p>To configure a single document not to handle <code class="literal">include::</code> lines automatically, add the following at the end of the line:</p>
+<pre class="programlisting" data-lang="plain">opt: "-o definitions=target/tools/main/resources/conf/translate-includes"</pre>
+</section>
+<section class="section" id="_workflow"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Workflow</h3></div></div></div>
+
+<p>First, use Maven to set up the environment and download the original manual and documentation tools:</p>
+<pre class="programlisting" data-lang="bash">mvn clean package</pre>
+<p>To refresh the original manual and the tools, use the maven command again.
+For the sake of keeping in sync with the original manual, a daily run of this command is recommended.</p>
+<p>Once things are set up, use <code class="literal">make</code> during work.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<code class="literal">make</code> — same as <code class="literal">make preview</code>.
+
+</li><li class="listitem">
+
+<code class="literal">make add</code> — add a document to a translation file.
+
+</li><li class="listitem">
+
+<code class="literal">make preview</code> — refresh and build preview of the manual.
+
+</li><li class="listitem">
+
+<code class="literal">make refresh</code> — refresh translation files from the original and generated translated documents.
+
+</li></ul></div>
+<p>The preview of the translated manual is found in the <span class="emphasis"><em>target/html/</em></span> directory.</p>
+<p>The actual work on translation is done by editing translation files.
+Suggested tools for that are found below.</p>
+</section>
+<section class="section" id="community-translating-tools"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Translation tools</h3></div></div></div>
+
+<p>There are different editors for <span class="emphasis"><em>.po</em></span> files containing the translations
+Below is a list of editors.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<a class="ulink" href="http://projects.gnome.org/gtranslator/" target="_blank">Gtranslator</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://userbase.kde.org/Lokalize" target="_blank">Lokalize</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://translate.sourceforge.net/wiki/virtaal/index" target="_blank">Virtaal</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://www.poedit.net/" target="_blank">Poedit</a>
+
+</li></ul></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

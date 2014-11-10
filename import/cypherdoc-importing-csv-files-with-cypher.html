@@ -1,0 +1,175 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>11.8. Importing CSV files with Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create-unique.html" title="11.7. Create Unique" /><link rel="next" href="query-periodic-commit.html" title="11.9. Using Periodic Commit" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.8. Importing CSV files with Cypher" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-69563";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>11.8. Importing CSV files with Cypher</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-create-unique.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-periodic-commit.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-importing-csv-files-with-cypher"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.8. Importing CSV files with Cypher</h2></div></div></div>
+
+<p>This tutorial will show you how to import data from CSV files using <code class="literal">LOAD CSV</code>.</p>
+<p>In this example, we’re given three CSV files: a list of persons, a list of movies, and a list of which role was played by some of these persons in each movie.</p>
+<p>CSV files can be stored on the database server and are then accessible using a <code class="literal">file://</code> URL.
+Alternatively, <code class="literal">LOAD CSV</code> also supports accessing CSV files via <code class="literal">HTTPS</code>, <code class="literal">HTTP</code>, and <code class="literal">FTP</code>.</p>
+<p>Using the following Cypher queries, we’ll create a node for each person, a node for each movie and a relationship between the two with a property denoting the role.
+We’re also keeping track of the country in which each movie was made.</p>
+<p class="cypherdoc-console"></p>
+<p>Let’s start with importing the persons:</p>
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://docs.neo4j.org/chunked/2.2-SNAPSHOT/csv/import/persons.csv" AS
+  csvLine
+CREATE (p:Person { id: toInt(csvLine.id), name: csvLine.name })</pre>
+<p>The CSV file we’re using looks like this:</p>
+<p><strong>persons.csv. </strong>
+</p><pre class="programlisting" data-lang="plain">id,name
+1,Charlie Sheen
+2,Oliver Stone
+3,Michael Douglas
+4,Martin Sheen
+5,Morgan Freeman</pre><p>
+</p>
+<p>Now, let’s import the movies.
+This time, we’re also creating a relationship to the country in which the movie was made.
+If you are storing your data in a SQL database, this is the one-to-many relationship type.</p>
+<p>We’re using <code class="literal">MERGE</code> to create nodes that represent countries.
+Using <code class="literal">MERGE</code> avoids creating duplicate country nodes in the case where multiple movies have been made in the same country.</p>
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>When using <code class="literal">MERGE</code> or <code class="literal">MATCH</code> with <code class="literal">LOAD CSV</code> we need to make sure we have an index (see <a class="xref" href="query-schema-index.html" title="13.1. Indexes">Section 13.1, “Indexes”</a>) or a unique constraint (see <a class="xref" href="query-constraints.html" title="13.2. Constraints">Section 13.2, “Constraints”</a>) on the property we’re merging.
+This will ensure the query executes in a performant way.</p></td></tr></table></div>
+<p>Before running our query to connect movies and countries we’ll create an index for the name property on the Country label to ensure the query runs as fast as it can:</p>
+<pre class="programlisting" data-lang="cypher">CREATE INDEX ON :Country(name)</pre>
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://docs.neo4j.org/chunked/2.2-SNAPSHOT/csv/import/movies.csv" AS
+  csvLine
+MERGE (country:Country { name: csvLine.country })
+CREATE (movie:Movie { id: toInt(csvLine.id), title: csvLine.title, year:toInt(csvLine.year)})
+CREATE (movie)-[:MADE_IN]-&gt;(country)</pre>
+<p><strong>movies.csv. </strong>
+</p><pre class="programlisting" data-lang="plain">id,title,country,year
+1,Wall Street,USA,1987
+2,The American President,USA,1995
+3,The Shawshank Redemption,USA,1994</pre><p>
+</p>
+<p>Lastly, we create the relationships between the persons and the movies.
+Since the relationship is a many to many relationship, one actor can participate in many movies, and one movie has many actors in it.
+We have this data in a separate file.</p>
+<p>We’ll index the id property on Person and Movie nodes.
+The id property is a temporary property used to look up the appropriate nodes for a relationship when importing the third file.
+By indexing the id property, node lookup (e.g. by <code class="literal">MATCH</code>) will be much faster.
+Since we expect the ids to be unique in each set, we’ll create a unique constraint.
+This protects us from invalid data since constraint creation will fail if there are multiple nodes with the same id property.
+Creating a unique constraint also creates a unique index (which is faster than a regular index).</p>
+<pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE</pre>
+<pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE</pre>
+<p>Now importing the relationships is a matter of finding the nodes and then creating relationships between them.</p>
+<p>For this query we’ll use <code class="literal">USING PERIODIC COMMIT</code> (see <a class="xref" href="query-periodic-commit.html" title="11.9. Using Periodic Commit">Section 11.9, “Using Periodic Commit”</a>) which is helpful for queries that operate on large CSV files.
+This hint tells Neo4j that the query might build up inordinate amounts of transaction state, and so needs to be periodically committed.</p>
+<pre class="programlisting" data-lang="cypher">USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM "http://docs.neo4j.org/chunked/2.2-SNAPSHOT/csv/import/roles.csv" AS
+  csvLine
+MATCH (person:Person { id: toInt(csvLine.personId)}),(movie:Movie { id: toInt(csvLine.movieId)})
+CREATE (person)-[:PLAYED { role: csvLine.role }]-&gt;(movie)</pre>
+<p><strong>roles.csv. </strong>
+</p><pre class="programlisting" data-lang="plain">personId,movieId,role
+1,1,Bud Fox
+4,1,Carl Fox
+3,1,Gordon Gekko
+4,2,A.J. MacInerney
+3,2,President Andrew Shepherd
+5,3,Ellis Boyd 'Red' Redding</pre><p>
+</p>
+<p>Finally, as the <code class="literal">id</code> property was only necessary to import the relationships, we can drop the constraints and the id property from all movie and person nodes.</p>
+<pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE</pre>
+<pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE</pre>
+<pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n:Person OR n:Movie
+REMOVE n.id</pre>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

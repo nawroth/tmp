@@ -1,0 +1,394 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>23.2. Server Installation -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="deployment-requirements.html" title="23.1. System Requirements" /><link rel="next" href="server-installation-cloud.html" title="23.3. Server Installation in the Cloud" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="23.2. Server Installation" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-69563";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>23.2. Server Installation</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="deployment-requirements.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="deployment.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-installation-cloud.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-installation"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">23.2. Server Installation</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-installation.html#_deployment_scenarios">Deployment Scenarios</a></span></li><li><span class="section"><a href="server-installation.html#_prerequisites">Prerequisites</a></span></li><li><span class="section"><a href="server-installation.html#windows-install">Windows</a></span></li><li><span class="section"><a href="server-installation.html#linux-install">Linux</a></span></li><li><span class="section"><a href="server-installation.html#osx-install">Mac OSX</a></span></li><li><span class="section"><a href="server-installation.html#_multiple_server_instances_on_one_machine">Multiple Server instances on one machine</a></span></li></ul></div>
+
+<section class="section" id="_deployment_scenarios"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Deployment Scenarios</h3></div></div></div>
+
+<p>As a developer, you may wish to download Neo4j and run it locally on your desktop computer.
+We recommend this as an easy way to discover Neo4j.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+For Windows, see <a class="xref" href="server-installation.html#windows-install" title="Windows">the section called “Windows”</a>.
+
+</li><li class="listitem">
+
+For Unix/Linux, see <a class="xref" href="server-installation.html#linux-install" title="Linux">the section called “Linux”</a>.
+
+</li><li class="listitem">
+
+For OSX, see <a class="xref" href="server-installation.html#osx-install" title="Mac OSX">the section called “Mac OSX”</a>.
+
+</li></ul></div>
+<p>As a systems administrator, you may wish to install Neo4j using a packaging system so you can ensure that a cluster of machines have identical installs.
+See <a class="xref" href="server-installation.html#linux-packages" title="Linux Packages">the section called “Linux Packages”</a> for more information on this.</p>
+<p>For information on High Availability, please refer to <a class="xref" href="ha.html" title="Chapter 25. High Availability">Chapter 25, <em>High Availability</em></a>.</p>
+</section>
+<section class="section" id="_prerequisites"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Prerequisites</h3></div></div></div>
+
+<p>With the exception of our Windows Installer, you’ll need a Java Virtual Machine installed on your computer.
+We recommend that you install <a class="ulink" href="http://openjdk.java.net/" target="_blank">OpenJDK 7</a> or <a class="ulink" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Oracle Java 7</a>.</p>
+</section>
+<section class="section" id="windows-install"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Windows</h3></div></div></div>
+
+<section class="section" id="windows-installer"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Windows Installer</h4></div></div></div>
+
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+<p class="simpara">
+Download the version that you want from <a class="ulink" href="http://www.neo4j.org/download" target="_blank">http://www.neo4j.org/download</a>.
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Select the appropriate version and architecture for your platform.
+
+</li></ul></div>
+</li><li class="listitem">
+
+Double-click the downloaded installer file.
+
+</li><li class="listitem">
+
+Follow the prompts.
+
+</li></ol></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The installer will prompt to be granted Administrator privileges.
+Newer versions of Windows come with a SmartScreen feature that may prevent the installer from running — you can make it run anyway by clicking "More info" on the "Windows protected your PC" screen.</p></td></tr></table></div>
+</section>
+<section class="section" id="windows-console"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Windows Console Application</h4></div></div></div>
+
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+<p class="simpara">
+Download the latest release from <a class="ulink" href="http://www.neo4j.org/download" target="_blank">http://www.neo4j.org/download</a>.
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Select the appropriate Zip distribution.
+
+</li></ul></div>
+</li><li class="listitem">
+<p class="simpara">
+Right-click the downloaded file, click Extract All.
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Refer to the top-level extracted directory as: <code class="literal">NEO4J_HOME</code>
+
+</li></ul></div>
+</li><li class="listitem">
+
+Double-click on <span class="emphasis"><em>%NEO4J_HOME%\bin\Neo4j.bat</em></span>
+
+</li><li class="listitem">
+
+Stop the server by typing Ctrl-C in the console that got opened.
+
+</li></ol></div>
+</section>
+<section class="section" id="_as_a_windows_service"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">As a Windows service</h4></div></div></div>
+
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+<p class="simpara">
+Download the latest release from <a class="ulink" href="http://www.neo4j.org/download" target="_blank">http://www.neo4j.org/download</a>.
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Select the appropriate Zip distribution.
+
+</li></ul></div>
+</li><li class="listitem">
+<p class="simpara">
+Right-click the downloaded file, click Extract All.
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Refer to the top-level extracted directory as: <code class="literal">NEO4J_HOME</code>
+
+</li></ul></div>
+</li></ol></div>
+<p>With administrative rights, Neo4j can be installed as a Windows service.</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+Click Start → All Programs → Accessories.
+
+</li><li class="listitem">
+
+Right click Command Prompt → Run as Administrator.
+
+</li><li class="listitem">
+
+Provide authorization and/or the Administrator password.
+
+</li><li class="listitem">
+
+Navigate to: <code class="literal">%NEO4J_HOME%</code>
+
+</li><li class="listitem">
+
+Run: <code class="literal">bin\Neo4jInstaller.bat install</code>
+
+</li></ol></div>
+<p>To uninstall, run <code class="literal">bin\Neo4jInstaller.bat remove</code> as Administrator.</p>
+<p>To query the status of the service, run: <code class="literal">bin\Neo4jInstaller.bat status</code></p>
+<p>To start the service from the command prompt, run: <code class="literal">sc start Neo4j-Server</code></p>
+<p>To stop the service from the command prompt, run: <code class="literal">sc stop Neo4j-Server</code></p>
+<p>You can also start and stop Neo4j from the Windows Service Manager.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Some users have reported problems on Windows when using the ZoneAlarm firewall.
+If you are having problems getting large responses from the server, or if the web interface does not work, try disabling ZoneAlarm.
+Contact ZoneAlarm support to get information on how to resolve this.</p></td></tr></table></div>
+</section>
+</section>
+<section class="section" id="linux-install"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Linux</h3></div></div></div>
+
+<section class="section" id="linux-packages"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Linux Packages</h4></div></div></div>
+
+<p>For Debian packages, see the instructions at  <a class="ulink" href="http://debian.neo4j.org" target="_blank">http://debian.neo4j.org</a>.</p>
+</section>
+<section class="section" id="unix-console"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Unix Console Application</h4></div></div></div>
+
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+<p class="simpara">
+Download the latest release from <a class="ulink" href="http://www.neo4j.org/download" target="_blank">http://www.neo4j.org/download</a>.
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Select the appropriate tar.gz distribution for your platform.
+
+</li></ul></div>
+</li><li class="listitem">
+<p class="simpara">
+Extract the contents of the archive, using: <code class="literal">tar -xf &lt;filename&gt;</code>
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Refer to the top-level extracted directory as: <code class="literal">NEO4J_HOME</code>
+
+</li></ul></div>
+</li><li class="listitem">
+<p class="simpara">
+Change directory to: <code class="literal">$NEO4J_HOME</code>
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Run: <code class="literal">./bin/neo4j console</code>
+
+</li></ul></div>
+</li><li class="listitem">
+
+Stop the server by typing Ctrl-C in the console.
+
+</li></ol></div>
+</section>
+<section class="section" id="_linux_service"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Linux Service</h4></div></div></div>
+
+<p>Neo4j can participate in the normal system startup and shutdown process.
+The following procedure should work on most popular Linux distributions:</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>You will require adminstrative rights on the machine to perform these tasks.</p></td></tr></table></div>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+<code class="literal">cd $NEO4J_HOME</code>
+
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">sudo ./bin/neo4j-installer install</code>
+</p>
+<p class="simpara">If asked, enter your password to gain super-user privileges.</p>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">sudo service neo4j-service status</code>
+</p>
+<p class="simpara">This should indicate that the server is not running.</p>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">sudo service neo4j-service start</code>
+</p>
+<p class="simpara">This will start the server.</p>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">sudo service neo4j-service stop</code>
+</p>
+<p class="simpara">This will stop the server.</p>
+</li></ol></div>
+<p>During installation you will be given the option to select the user Neo4j will run as.
+You will be asked to supply a username (defaulting to <code class="literal">neo4j</code>) and if that user is not present on the system it will be created as a system account and the <span class="emphasis"><em>$NEO4J_HOME/data</em></span> directory will be <code class="literal">chown</code>'ed to that user.</p>
+<p>You are encouraged to create a dedicated user for running the service and for that reason it is suggested that you unpack the distribution package under <span class="emphasis"><em>/opt</em></span> or your site specific optional packages directory.</p>
+<p>After installation you may have to do some platform specific configuration and performance tuning.
+For that, refer to <a class="xref" href="linux-performance-guide.html" title="24.12. Linux Performance Guide">Section 24.12, “Linux Performance Guide”</a>.</p>
+<p>To remove the server from the set of startup services, the proper commands are:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+<code class="literal">cd $NEO4J_HOME</code>
+
+</li><li class="listitem">
+
+<code class="literal">sudo ./bin/neo4j-installer remove</code>
+
+</li></ol></div>
+<p>This will stop the server, if running, and remove it.</p>
+<p>Note that if you chose to create a new user account, on uninstall you will be prompted to remove it from the system.</p>
+<div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>This approach to running Neo4j as a server is deprecated.
+We strongly advise you to run Neo4j from a package where feasible.</p></td></tr></table></div>
+<p>You can alternatively build your own init.d script. See for instance the Linux Standard Base specification on <a class="ulink" href="http://refspecs.linuxfoundation.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/tocsysinit.html" target="_blank">system initialization</a>, or one of the many <a class="ulink" href="https://gist.github.com/chrisvest/7673244" target="_blank">samples</a> and <a class="ulink" href="http://www.linux.com/learn/tutorials/442412-managing-linux-daemons-with-init-scripts" target="_blank">tutorials</a>.</p>
+</section>
+</section>
+<section class="section" id="osx-install"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Mac OSX</h3></div></div></div>
+
+<section class="section" id="_osx_via_homebrew"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">OSX via Homebrew</h4></div></div></div>
+
+<p>Using Homebrew (see <a class="ulink" href="http://brew.sh/" target="_blank">http://brew.sh/</a>), to install the latest stable version of Neo4j Server, issue the following command:</p>
+<pre class="programlisting" data-lang="shell">brew install neo4j &amp;&amp; neo4j start</pre>
+<p>This will get a Neo4j instance running on <a class="ulink" href="http://localhost:7474" target="_blank">http://localhost:7474</a>.
+The installation files will reside in <code class="literal">ls /usr/local/Cellar/neo4j/community-{NEO4J_VERSION}/libexec/</code> — to tweak settings and symlink the database directory if desired.</p>
+<p>After the installation, Neo4j can run either as a service or from a terminal.</p>
+</section>
+<section class="section" id="_running_neo4j_from_the_terminal"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Running Neo4j from the Terminal</h4></div></div></div>
+
+<p>The server can be started in the background from the terminal with the command <code class="literal">neo4j start</code>, and then stopped again with <code class="literal">neo4j stop</code>.
+The server can also be started in the foreground with <code class="literal">neo4j console</code> — then it’s log output will be printed to the terminal.</p>
+<p>The <code class="literal">neo4j-shell</code> command can be used to interact with Neo4j from the command line using Cypher. It will automatically connect to any
+server that is running on localhost with the default port, otherwise it will show a help message. You can alternatively start the
+shell with an embedded Neo4j instance, by using the <code class="literal">-path path/to/data</code> argument — note that only a single instance of Neo4j
+can access the database files at a time.</p>
+</section>
+<section class="section" id="_osx_service"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">OSX Service</h4></div></div></div>
+
+<p>Neo4j can be installed as a Mac launchd job:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+<code class="literal">cd $NEO4J_HOME</code>
+
+</li><li class="listitem">
+
+<code class="literal">./bin/neo4j-installer install</code>
+
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">launchctl list | grep neo</code>
+</p>
+<p class="simpara">This should reveal the launchd "org.neo4j.server.7474" job for running the Neo4j Server.</p>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">launchctl list | grep neo4j</code>
+</p>
+<p class="simpara">This should indicate that the server is running.</p>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">launchctl stop org.neo4j.server</code>
+</p>
+<p class="simpara">This should stop the server.</p>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">launchctl start org.neo4j.server</code>
+</p>
+<p class="simpara">This should start the server again.</p>
+</li></ol></div>
+<p>To remove the launchctl service, issue the following command:</p>
+<p><code class="literal">./bin/neo4j-installer remove</code></p>
+</section>
+<section class="section" id="_a_note_on_java_on_os_x_mavericks"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">A note on Java on OS X Mavericks</h4></div></div></div>
+
+<p>Unlike previous versions, OS X Mavericks does not come with Java pre-installed. You might encounter that the first time you run Neo4j, where OS X will trigger a popup offering you to install Java SE 6.</p>
+<p>Java SE 6 is incompatible with Neo4j 2.0, so we strongly advise you to skip installing Java SE 6 if you have no other uses for it. Instead, for Neo4j 2.0 we recommend you install Java SE 7 from Oracle (<a class="ulink" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>) as that is what we support for production use.</p>
+</section>
+</section>
+<section class="section" id="_multiple_server_instances_on_one_machine"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Multiple Server instances on one machine</h3></div></div></div>
+
+<p>Neo4j can be set up to run as several instances on one machine, providing for instance several databases for development.</p>
+<p>For how to set this up, see <a class="xref" href="ha-setup-tutorial.html#ha-local-cluster" title="Alternative setup: Creating a local cluster for testing">the section called “Alternative setup: Creating a local cluster for testing”</a>.
+Just use the Neo4j edition of your choice, follow the guide and remember to not set the servers to run in HA mode.</p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

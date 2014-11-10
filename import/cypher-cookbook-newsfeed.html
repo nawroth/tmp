@@ -1,0 +1,228 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>5.11. Implementing newsfeeds in a graph -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-multirelational-social-network.html" title="5.10. Multirelational (social) graphs" /><link rel="next" href="cypher-cookbook-boostingrecommendations.html" title="5.12. Boosting recommendation results" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="5.11. Implementing newsfeeds in a graph" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-69563";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>5.11. Implementing newsfeeds in a graph</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-multirelational-social-network.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-boostingrecommendations.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-newsfeed"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">5.11. Implementing newsfeeds in a graph</h2></div></div></div>
+
+<div class="informalfigure">
+<a class="ulink" href="images/cypher-newsfeed-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-newsfeed-graph.svg" alt="cypher-newsfeed-graph.svg" /></span>
+</a>
+</div>
+<p id="cookbook-retrieve-the-ordered-timeline-of-status-updates-of-all-my-friends">Implementation of newsfeed or timeline feature is a frequent requirement for social applications.
+The following exmaples are inspired by <a class="ulink" href="https://web.archive.org/web/20121102191919/http://techfin.in/2012/10/newsfeed-feature-powered-by-neo4j-graph-database/" target="_blank">Newsfeed feature powered by Neo4j Graph Database</a>.
+The query asked here is:</p>
+<p>Starting at <code class="literal">me</code>, retrieve the time-ordered status feed of the status updates of me and and all friends that are connected via a <code class="literal">CONFIRMED FRIEND</code> relationship to me.</p>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (me { name: 'Joe' })-[rels:FRIEND*0..1]-(myfriend)
+WHERE ALL (r IN rels WHERE r.status = 'CONFIRMED')
+WITH myfriend
+MATCH (myfriend)-[:STATUS]-(latestupdate)-[:NEXT*0..1]-(statusupdates)
+RETURN myfriend.name AS name, statusupdates.date AS date, statusupdates.text AS text
+ORDER BY statusupdates.date DESC LIMIT 3</pre><p>
+</p>
+<p>To understand the strategy, let’s divide the query into five steps:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+First Get the list of all my friends (along with me) through <code class="literal">FRIEND</code> relationship (<code class="literal">MATCH (me {name: 'Joe'})-[rels:FRIEND*0..1]-(myfriend)</code>). Also,  the <code class="literal">WHERE</code> predicate can be added to check whether the friend request is pending or confirmed.
+
+</li><li class="listitem">
+
+Get the latest status update of my friends through Status relationship (<code class="literal">MATCH myfriend-[:STATUS]-latestupdate</code>).
+
+</li><li class="listitem">
+
+Get subsequent status updates (along with the latest one) of my friends through <code class="literal">NEXT</code> relationships (<code class="literal">MATCH (myfriend)-[:STATUS]-(latestupdate)-[:NEXT*0..1]-(statusupdates)</code>) which will give you the latest and one additional statusupdate; adjust <code class="literal">0..1</code> to whatever suits your case.
+
+</li><li class="listitem">
+
+Sort the status updates by posted date (<code class="literal">ORDER BY statusupdates.date DESC</code>).
+
+</li><li class="listitem">
+
+<code class="literal">LIMIT</code> the number of updates you need in every query (<code class="literal">LIMIT 3</code>).
+
+</li></ol></div>
+<div class="queryresult table" id="d5e2678"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>date</th><th>text</th></tr></thead><tfoot><tr><th colspan="3">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">6</code></p></td><td><p><code class="literal">"Joe status2"</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">4</code></p></td><td><p><code class="literal">"bobs status2"</code></p></td></tr><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">3</code></p></td><td><p><code class="literal">"Joe status1"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Bob"})
+create (_1 {`date`:1, `name`:"bob_s1", `text`:"bobs status1"})
+create (_2 {`date`:4, `name`:"bob_s2", `text`:"bobs status2"})
+create (_3 {`name`:"Alice"})
+create (_4 {`date`:2, `name`:"alice_s1", `text`:"Alices status1"})
+create (_5 {`date`:5, `name`:"alice_s2", `text`:"Alices status2"})
+create (_6 {`name`:"Joe"})
+create (_7 {`date`:3, `name`:"joe_s1", `text`:"Joe status1"})
+create (_8 {`date`:6, `name`:"joe_s2", `text`:"Joe status2"})
+create _0-[:`STATUS`]-&gt;_1
+create _0-[:`FRIEND` {`status`:"CONFIRMED"}]-&gt;_3
+create _1-[:`NEXT`]-&gt;_2
+create _3-[:`STATUS`]-&gt;_4
+create _3-[:`FRIEND` {`status`:"PENDING"}]-&gt;_6
+create _4-[:`NEXT`]-&gt;_5
+create _6-[:`STATUS`]-&gt;_7
+create _6-[:`FRIEND` {`status`:"CONFIRMED"}]-&gt;_0
+create _7-[:`NEXT`]-&gt;_8
+</span><span class="command"><strong>
+ MATCH (me {name: 'Joe'})-[rels:FRIEND*0..1]-(myfriend)
+ WHERE ALL(r in rels WHERE r.status = 'CONFIRMED')
+ WITH myfriend
+ MATCH (myfriend)-[:STATUS]-(latestupdate)-[:NEXT*0..1]-(statusupdates)
+ RETURN myfriend.name as name, statusupdates.date as date, statusupdates.text as text
+ ORDER BY statusupdates.date DESC LIMIT 3</strong></span></p>
+<p id="cookbook-insert-a-new-status-update-for-a-user">Here, the example shows how to add a new status update into the existing data for a user.</p>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (me)
+WHERE me.name='Bob'
+OPTIONAL MATCH (me)-[r:STATUS]-(secondlatestupdate)
+DELETE r
+CREATE (me)-[:STATUS]-&gt;(latest_update { text:'Status',date:123 })
+WITH latest_update, collect(secondlatestupdate) AS seconds
+FOREACH (x IN seconds | CREATE (latest_update)-[:NEXT]-&gt;(x))
+RETURN latest_update.text AS new_status</pre><p>
+</p>
+<p>Dividing the query into steps, this query resembles adding new item in middle of a doubly linked list:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+Get the latest update (if it exists) of the user through the <code class="literal">STATUS</code> relationship (<code class="literal">OPTIONAL MATCH (me)-[r:STATUS]-(secondlatestupdate)</code>).
+
+</li><li class="listitem">
+
+Delete the <code class="literal">STATUS</code> relationship between <code class="literal">user</code> and <code class="literal">secondlatestupdate</code> (if it exists), as this would become the second latest update now
+  and only the latest update would be added through a <code class="literal">STATUS</code> relationship;
+  all earlier updates would be connected to their subsequent updates through a <code class="literal">NEXT</code> relationship. (<code class="literal">DELETE r</code>).
+
+</li><li class="listitem">
+
+Now, create the new <code class="literal">statusupdate</code> node (with text and date as properties) and connect this with the user through a <code class="literal">STATUS</code> relationship
+  (<code class="literal">CREATE (me)-[:STATUS]-&gt;(latest_update { text:'Status',date:123 })</code>).
+
+</li><li class="listitem">
+
+Pipe over <code class="literal">statusupdate</code> or an empty collection to the next query part
+  (<code class="literal">WITH latest_update, collect(secondlatestupdate) AS seconds</code>).
+
+</li><li class="listitem">
+
+Now, create a <code class="literal">NEXT</code> relationship between the latest status update and the second latest status update (if it exists) (<code class="literal">FOREACH(x in seconds | CREATE (latest_update)-[:NEXT]-&gt;(x))</code>).
+
+</li></ol></div>
+<div class="queryresult table" id="d5e2760"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>new_status</th></tr></thead><tfoot><tr><th>1 row
+</th></tr><tr><th>Nodes created: 1
+</th></tr><tr><th>Relationships created: 2
+</th></tr><tr><th>Properties set: 2
+</th></tr><tr><th>Relationships deleted: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Status"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`name`:"Bob"})
+create (_1 {`date`:1, `name`:"bob_s1", `text`:"bobs status1"})
+create (_2 {`date`:4, `name`:"bob_s2", `text`:"bobs status2"})
+create _0-[:`STATUS`]-&gt;_1
+create _1-[:`NEXT`]-&gt;_2
+</span><span class="command"><strong>
+
+ MATCH (me)
+ WHERE me.name='Bob'
+ OPTIONAL MATCH (me)-[r:STATUS]-(secondlatestupdate)
+ DELETE r
+ CREATE (me)-[:STATUS]-&gt;(latest_update {text:'Status',date:123})
+ WITH latest_update, collect(secondlatestupdate) as seconds
+ FOREACH(x in seconds | CREATE (latest_update)-[:NEXT]-&gt;(x))
+ RETURN latest_update.text as new_status</strong></span></p>
+<div class="informalfigure">
+<a class="ulink" href="images/cypher-insertstatusupdate-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-insertstatusupdate-graph.svg" alt="cypher-insertstatusupdate-graph.svg" /></span>
+</a>
+</div>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
