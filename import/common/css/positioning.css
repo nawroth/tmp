@@ -448,6 +448,13 @@ div.note *,div.caution *,div.important *,div.tip *,div.warning * {
   body div.table[id^="config_"] tr > td:first-child {
     width: 5.33em;
   }
+
+  body pre {
+    display: block;
+    width: auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 @media screen and (max-width: 640px) {
