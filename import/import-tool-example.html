@@ -1,7 +1,7 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>29.1. Header format -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool.html" title="Chapter 29. Import Tool" /><link rel="next" href="_import_tool_example.html" title="29.2. Import Tool Example" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.1. Header format" /><script type="text/javascript">
+    <title>29.2. Import Tool Example -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-too-header-format.html" title="29.1. Header format" /><link rel="next" href="tools-webadmin.html" title="Chapter 30. Web Interface" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.2. Import Tool Example" /><script type="text/javascript">
       //The id for tree cookie
       var treeCookieId = "treeview-69563";
       var language = "en";
@@ -68,74 +68,49 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>29.1. Header format</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="_import_tool_example.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="_header_format"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.1. Header format</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="_header_format.html#_nodes">Nodes</a></span></li><li><span class="section"><a href="_header_format.html#_relationships">Relationships</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>29.2. Import Tool Example</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-too-header-format.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tools-webadmin.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-example"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.2. Import Tool Example</h2></div></div></div>
 
-<p>The header row of each data source specifies how the fields should be interpreted.
-The same delimiter is used for the header row as for the rest of the data.</p>
-<p>The header contains information for each field, with the format: <code class="literal">&lt;name&gt;:&lt;field_type&gt;</code>.
-The <code class="literal">&lt;name&gt;</code> is used as the property key for values, and ignored in other cases.
-The following <code class="literal">&lt;field_type&gt;</code> settings can be used for both nodes and relationships:</p>
-<div class="variablelist"><dl class="variablelist"><dt><span class="term">
-Property value
-</span></dt><dd>
-
-Use one of <code class="literal">int</code>, <code class="literal">long</code>, <code class="literal">float</code>, <code class="literal">double</code>, <code class="literal">boolean</code>, <code class="literal">byte</code>, <code class="literal">short</code>, <code class="literal">char</code>, <code class="literal">string</code> to designate the data type.
-  If no data type is given, this defaults to <code class="literal">string</code>.
-  To define an array type, append <code class="literal">[]</code> to the type.
-  Array values are by default delimited by a <code class="literal">;</code>, but a different delimiter can be specified.
-
-</dd><dt><span class="term">
-IGNORE
-</span></dt><dd>
-
-  Ignore this field completely.
-
-</dd></dl></div>
-<p>See below for the specifics of node and relationship data source headers.</p>
-<section class="section" id="_nodes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Nodes</h3></div></div></div>
-
-<p>The following types of fields can be used for node data sources:</p>
-<div class="variablelist"><dl class="variablelist"><dt><span class="term">
-ID
-</span></dt><dd>
-
-  Each node must have a unique id.
-  This id is used when connecting nodes through relationships.
-  Note that the id has to be unique across all nodes in the import, even nodes with different labels.
-
-</dd><dt><span class="term">
-LABEL
-</span></dt><dd>
-
-  Read one or more labels from this field.
-  For multiple labels, the values are separated by the array delimiter.
-
-</dd></dl></div>
-</section>
-<section class="section" id="_relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationships</h3></div></div></div>
-
-<p>For relationship data sources, there’s three mandatory fields:</p>
-<div class="variablelist"><dl class="variablelist"><dt><span class="term">
-TYPE
-</span></dt><dd>
-
-  The relationship type to use for the relationship.
-
-</dd><dt><span class="term">
-START_ID
-</span></dt><dd>
-
-  The id defined for the start node of the relationship.
-
-</dd><dt><span class="term">
-END_ID
-</span></dt><dd>
-
-  The id defined for the end node of the relationship.
-
-</dd></dl></div>
-</section>
+<p>Let’s look at an example.
+We’ll use a tiny data set with movies, actors and roles.</p>
+<p>First off, let’s look at the movies.
+Each movie has an id, which is used to refer to it in other data sources.
+Then it always has a title and a year.
+We also add labels to the nodes, in this case we use the labels <code class="literal">Movie</code> and <code class="literal">Sequel</code>.</p>
+<p><strong>movies.csv. </strong>
+</p><pre class="programlisting" data-lang="plain">:ID,title,year:int,s:LABEL
+tt0133093,"The Matrix",1999,Movie
+tt0234215,"The Matrix Reloaded",2003,Movie;Sequel
+tt0242653,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p>Next up are the actors.
+They have an id, a name and all have the <code class="literal">Actor</code> label.</p>
+<p><strong>actors.csv. </strong>
+</p><pre class="programlisting" data-lang="plain">:ID,name,:LABEL
+keanu,"Keanu Reeves",Actor
+laurence,"Laurence Fishburne",Actor
+carrieanne,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p>Finally we have the roles, which are represented by relationships in the database.
+Here we refer to the ids used in the other data sources, which happens in the <code class="literal">START_ID</code> and <code class="literal">END_ID</code> fields.
+At the end of each row, we have put the relationship type to use.</p>
+<p><strong>roles.csv. </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID,role,:END_ID,:TYPE
+keanu,"Neo",tt0133093,ACTS_IN
+keanu,"Neo",tt0234215,ACTS_IN
+keanu,"Neo",tt0242653,ACTS_IN
+laurence,"Morpheus",tt0133093,ACTS_IN
+laurence,"Morpheus",tt0234215,ACTS_IN
+laurence,"Morpheus",tt0242653,ACTS_IN
+carrieanne,"Trinity",tt0133093,ACTS_IN
+carrieanne,"Trinity",tt0234215,ACTS_IN
+carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
+</p>
+<p>With all data in place, we execute the following command:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies.csv --nodes actors.csv --relationships roles.csv</pre>
+<p>Now we’re ready to start up a database from the target directory.
+With the database running, we could add indexes.
+See <a class="link" href="cypherdoc-labels.html" title="4.5. Labels, Constraints and Indexes">"Labels</a> for how to do that.</p>
 </section>
 
  <footer>

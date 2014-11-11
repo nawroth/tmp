@@ -81,7 +81,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/137/properties</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/4/properties</code>
 
 </li><li class="listitem">
 
@@ -113,7 +113,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/16/properties</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/0/properties</code>
 
 </li><li class="listitem">
 
@@ -144,7 +144,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/19/properties/cost</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/3/properties/cost</code>
 
 </li><li class="listitem">
 
@@ -171,7 +171,7 @@ an error.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/17/properties/non-existent</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/1/properties/non-existent</code>
 
 </li><li class="listitem">
 
@@ -189,7 +189,7 @@ an error.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "message": "Relationship[17] does not have a property \"non-existent\"",
+  "message": "Relationship[1] does not have a property \"non-existent\"",
   "exception": "NoSuchPropertyException",
   "fullname": "org.neo4j.server.rest.web.NoSuchPropertyException",
   "stacktrace": [
@@ -197,7 +197,7 @@ an error.</p>
     "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:798)",
     "java.lang.reflect.Method.invoke(Method.java:606)",
     "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
-    "java.lang.Thread.run(Thread.java:744)"
+    "java.lang.Thread.run(Thread.java:745)"
   ]
 }</pre>
 </section>
@@ -239,7 +239,7 @@ exist results in an error.</p>
     "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteAllRelationshipProperties(RestfulGraphDatabase.java:777)",
     "java.lang.reflect.Method.invoke(Method.java:606)",
     "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
-    "java.lang.Thread.run(Thread.java:744)"
+    "java.lang.Thread.run(Thread.java:745)"
   ]
 }</pre>
 </section>
@@ -281,7 +281,7 @@ results in an error.</p>
     "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:798)",
     "java.lang.reflect.Method.invoke(Method.java:606)",
     "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
-    "java.lang.Thread.run(Thread.java:744)"
+    "java.lang.Thread.run(Thread.java:745)"
   ]
 }</pre>
 </section>

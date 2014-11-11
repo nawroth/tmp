@@ -18,7 +18,6 @@ org.neo4j.index.lucene
 org.neo4j.index.lucene.unsafe.batchinsert
 org.neo4j.jmx
 org.neo4j.management
-org.neo4j.register
 org.neo4j.server.helpers
 org.neo4j.server.plugins
 org.neo4j.server.rest.repr
