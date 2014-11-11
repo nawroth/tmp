@@ -87,7 +87,7 @@ However, it can be easily modeled in a property graph as a node that captures th
         <span class="emphasis"><em>Group2</em></span>), the following query can traverse this HyperEdge node and
         provide answers.</p>
 <p><strong>Query. </strong>
-</p><pre class="programlisting" data-lang="cypher">MATCH ({ name: 'User1' })-[:hasRoleInGroup]-&gt;(hyperEdge)-[:hasGroup]-&gt;({ name: 'Group2' }),
+</p><pre class="programlisting" data-lang="cypher">MATCH ({ name: 'User1' })-[:hasRoleInGroupdfslkjsdflkjsdflkjsdflkjsfdklsdflkjsdfkljsdfkjldfskljdfskljdfskljdfskjldfskjldfskjldfskljdfskjldfskjldfskdfskjfsdkljfdskjldfskjlfdskj]-&gt;(hyperEdge)-[:hasGroup]-&gt;({ name: 'Group2' }),
   (hyperEdge)-[:hasRole]-&gt;(role)
 RETURN role.name</pre><p>
 </p>
