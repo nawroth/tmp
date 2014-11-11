@@ -209,6 +209,7 @@ pre {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+  z-index: 0;
 }
 
 .table tfoot>tr>th,.table-condensed tfoot>tr>th {
