@@ -205,9 +205,8 @@ pre {
   background: #f9f9f9;
   word-wrap: normal;
   word-break: normal;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: auto;
-  touch-action: pan-x;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 0;
