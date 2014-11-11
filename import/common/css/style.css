@@ -207,6 +207,7 @@ pre {
   word-break: normal;
   overflow: scroll;
   overflow-x: auto;
+  touch-action: pan-x;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   z-index: 0;
