@@ -1,0 +1,726 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>34.3. Writing Neo4j Documentation -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="community-contribution-areas.html" title="34.2. Areas for contribution" /><link rel="next" href="community-translating.html" title="34.4. Translating the Neo4j Manual" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="34.3. Writing Neo4j Documentation" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-71803";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>34.3. Writing Neo4j Documentation</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="community-contribution-areas.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="community-contributing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="community-translating.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="community-docs"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">34.3. Writing Neo4j Documentation</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="community-docs.html#community-docs-overall-flow">Overall Flow</a></span></li><li><span class="section"><a href="community-docs.html#_file_structure_in_emphasis_docs_jar_emphasis">File Structure in <span class="emphasis"><em>docs.jar</em></span></a></span></li><li><span class="section"><a href="community-docs.html#_headings_and_document_structure">Headings and document structure</a></span></li><li><span class="section"><a href="community-docs.html#_writing">Writing</a></span></li><li><span class="section"><a href="community-docs.html#_gotchas">Gotchas</a></span></li><li><span class="section"><a href="community-docs.html#_links">Links</a></span></li><li><span class="section"><a href="community-docs.html#_text_formatting">Text Formatting</a></span></li><li><span class="section"><a href="community-docs.html#_admonitions">Admonitions</a></span></li><li><span class="section"><a href="community-docs.html#_images">Images</a></span></li><li><span class="section"><a href="community-docs.html#_attributes">Attributes</a></span></li><li><span class="section"><a href="community-docs.html#_comments">Comments</a></span></li><li><span class="section"><a href="community-docs.html#_code_snippets">Code Snippets</a></span></li><li><span class="section"><a href="community-docs.html#_a_sample_java_based_documentation_test">A sample Java based documentation test</a></span></li><li><span class="section"><a href="community-docs.html#examples-hello-world-sample-chapter">Hello world Sample Chapter</a></span></li><li><span class="section"><a href="community-docs.html#_integrated_live_console">Integrated Live Console</a></span></li><li><span class="section"><a href="community-docs.html#_toolchain">Toolchain</a></span></li></ul></div>
+
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Other than writing documentation, you can help out by providing comments — head over to the <a class="ulink" href="http://neo4j.com/docs/milestone/" target="_blank">online HTML version</a> to do that!</p></td></tr></table></div>
+<p>For how to build the manual see:
+<a class="ulink" href="https://github.com/neo4j/neo4j/blob/master/manual/README.asciidoc" target="_blank">readme</a></p>
+<p>The documents use the asciidoc format, see:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<a class="ulink" href="http://www.methods.co.nz/asciidoc/" target="_blank">Aciidoc Reference</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://powerman.name/doc/asciidoc" target="_blank">AsciiDoc cheatsheet</a>
+
+</li></ul></div>
+<p>The cheatsheet is really useful!</p>
+<section class="section" id="community-docs-overall-flow"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Overall Flow</h3></div></div></div>
+
+<p>Each (sub)project has its own documentation, which will produce a <span class="emphasis"><em>docs.jar</em></span> file.
+By default this file is assembled from the contents in <span class="emphasis"><em>src/docs/</em></span>.
+Asciidoc documents have the <code class="literal">.asciidoc</code> file extension.</p>
+<p>The documents can use code snippets which will extract code from the project.
+The corresponding code must be deployed to the <span class="emphasis"><em>sources.jar</em></span> or <span class="emphasis"><em>test-sources.jar</em></span> file.</p>
+<p>By setting up a unit test accordingly, documentation can be written directly in the JavaDoc comment.</p>
+<p>The above files are all consumed by the build of the manual (by adding them as dependencies).
+To get content included in the manual, it has to be explicitly included by a document in the manual as well.</p>
+<p>Note that different ways to add documentation works best for different cases:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+For detail level documentation, it works well to write the documentation as part of unit tests (in the JavaDoc comment).
+  In this case, you typically do not want to link to the source code in the documentation.
+
+</li><li class="listitem">
+
+For tutorial level documentation, the result will be best by writing a <code class="literal">.asciidoc</code> file containing the text.
+  Source snippets and output examples can then be included from there.
+  In this case you typically want to link to the source code, and users should be able to run it without any special setup.
+
+</li></ul></div>
+</section>
+<section class="section" id="_file_structure_in_emphasis_docs_jar_emphasis"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">File Structure in <span class="emphasis"><em>docs.jar</em></span></h3></div></div></div>
+
+<div class="informaltable">
+<table cellspacing="0" cellpadding="0"><thead><tr><th> Directory </th><th> Contents</th></tr></thead><tbody><tr><td><p><span class="emphasis"><em>dev/</em></span></p></td><td><p>content aimed at developers</p></td></tr><tr><td><p><span class="emphasis"><em>dev/images/</em></span></p></td><td><p>images used by the dev docs</p></td></tr><tr><td><p><span class="emphasis"><em>ops/</em></span></p></td><td><p>content aimed at operations</p></td></tr><tr><td><p><span class="emphasis"><em>ops/images/</em></span></p></td><td><p>images used by the ops docs</p></td></tr><tr><td><p><span class="emphasis"><em>man/</em></span></p></td><td><p>manpages</p></td></tr></tbody></table>
+</div>
+<p>Additional subdirectories are used as needed to structure the documents,
+like <span class="emphasis"><em>dev/tutorial/</em></span>, <span class="emphasis"><em>ops/tutorial/</em></span> etc.</p>
+</section>
+<section class="section" id="_headings_and_document_structure"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Headings and document structure</h3></div></div></div>
+
+<p>Each document starts over with headings from level zero (the document title).
+Each document should have an id.
+In some cases sections in the document need to have id’s as well, this depends on where they fit in the overall structure.
+To be able to link to content, it has to have an id.
+Missing id’s in mandatory places will fail the build.</p>
+<p>This is how a document should start:</p>
+<pre class="programlisting" data-lang="plain">[[unique-id-verbose-is-ok]]
+= The Document Title =</pre>
+<p>To push the headings down to the right level in the output, the <code class="literal">leveloffset</code>
+attribute is used when including the document inside of another document.</p>
+<p>Subsequent headings in a document should use the following syntax:</p>
+<pre class="programlisting" data-lang="plain">== Subheading ==
+
+... content here ...
+
+=== Subsubheading ===
+
+content here ...</pre>
+<p>Asciidoc comes with one more syntax for headings, but in this project it’s not used.</p>
+</section>
+<section class="section" id="_writing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Writing</h3></div></div></div>
+
+<p>Put one sentence on each line.
+This makes it easy to move content around, and also easy to spot (too) long sentences.</p>
+</section>
+<section class="section" id="_gotchas"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Gotchas</h3></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+A chapter can’t be empty. (the build will fail on the docbook xml validity check)
+
+</li><li class="listitem">
+
+Always leave a blank line at the end of documents
+  (or the title of the next document might end up in the last
+  paragraph of the document)
+
+</li><li class="listitem">
+
+As <code class="literal">{}</code> are used for Asciidoc attributes, everything inside will be treated as an attribute.
+  What you have to do is to escape the opening brace: <code class="literal">\{</code>.
+  If you don’t, the braces and the text inside them will be removed without any warning being issued!
+
+</li></ul></div>
+</section>
+<section class="section" id="_links"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Links</h3></div></div></div>
+
+<p>To link to other parts of the manual the id of the target is used.
+This is how such a reference looks:</p>
+<pre class="programlisting" data-lang="plain">&lt;&lt;community-docs-overall-flow&gt;&gt;</pre>
+<p>Which will render like: <a class="xref" href="community-docs.html#community-docs-overall-flow" title="Overall Flow">the section called “Overall Flow”</a></p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Just write "see &lt;&lt;target-id&gt;&gt;" and similar, that should suffice in most cases.</p></td></tr></table></div>
+<p>If you need to link to another document with your own link text, this is what to do:</p>
+<pre class="programlisting" data-lang="plain">&lt;&lt;target-id, link text that fits in the context&gt;&gt;</pre>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Having lots of linked text may work well in a web context but is a pain in print, and we aim for both!</p></td></tr></table></div>
+<p>External links are added like this:</p>
+<pre class="programlisting" data-lang="plain">http://neo4j.org/[Link text here]</pre>
+<p>Which renders like: <a class="ulink" href="http://neo4j.org/" target="_blank">Link text here</a></p>
+<p>For short links it may be better not to add a link text, just do:</p>
+<pre class="programlisting" data-lang="plain">http://neo4j.org/</pre>
+<p>Which renders like: <a class="ulink" href="http://neo4j.org/" target="_blank">http://neo4j.org/</a></p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>It’s ok to have a dot right after the URL, it won’t be part of the link.</p></td></tr></table></div>
+</section>
+<section class="section" id="_text_formatting"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Text Formatting</h3></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+_Italics_ is rendered as <span class="emphasis"><em>Italics</em></span> and used for emphasis.
+
+</li><li class="listitem">
+
+*Bold* is rendered as <span class="strong"><strong>Bold</strong></span> and used sparingly, for strong emphasis only.
+
+</li><li class="listitem">
+
++methodName()+ is rendered as <code class="literal">methodName()</code> and is used for literals as well
+  (note: the content between the <code class="literal">+</code> signs <span class="emphasis"><em>will</em></span> be parsed).
+
+</li><li class="listitem">
+
+`command` is rendered as <code class="literal">command</code> (typically used for command-line)
+  (note: the content between the <code class="literal">`</code> signs <span class="emphasis"><em>will not</em></span> be parsed).
+
+</li><li class="listitem">
+
+Mono++space++d is rendered as Mono<code class="literal">space</code>d and is used for monospaced letters.
+
+</li><li class="listitem">
+
+'my/path/' is rendered as <span class="emphasis"><em>my/path/</em></span> (used for file names and paths).
+
+</li><li class="listitem">
+
+``Double quoted'' (that is two grave accents to the left and two acute accents to the right) renders as “Double quoted”.
+
+</li><li class="listitem">
+
+`Single quoted' (that is a single grave accent to the left and a single acute accent to the right) renders as ‘Single quoted’.
+
+</li></ul></div>
+</section>
+<section class="section" id="_admonitions"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Admonitions</h3></div></div></div>
+
+<p>These are very useful and should be used where appropriate.
+Choose from the following (write all caps and no, we can’t easily add new ones):</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Note.</p></td></tr></table></div>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>Tip.</p></td></tr></table></div>
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>Important</p></td></tr></table></div>
+<div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>Caution</p></td></tr></table></div>
+<div class="admonitionblock Warning"><table><tr><td class="icon"><img alt="[Warning]" src="images/icons/admon/warning.svg" /></td><td class="content"><b>Warning</b><p>Warning</p></td></tr></table></div>
+<p>Here’s how it’s done:</p>
+<pre class="programlisting" data-lang="plain">NOTE: Note.</pre>
+<p>A multiline variation:</p>
+<pre class="programlisting" data-lang="plain">[TIP]
+Tiptext.
+Line 2.</pre>
+<p>Which is rendered as:</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>Tiptext.
+Line 2.</p></td></tr></table></div>
+</section>
+<section class="section" id="_images"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Images</h3></div></div></div>
+
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p><span class="emphasis"><em>All images in the entire manual share the same namespace.</em></span>
+  You know how to handle that.</p></td></tr></table></div>
+<section class="section" id="_images_files"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Images Files</h4></div></div></div>
+
+<p>To include an image file, make sure it resides in the <span class="emphasis"><em>images/</em></span> directory relative to the document you’re including it from. Then go:</p>
+<pre class="programlisting" data-lang="plain">image::neo4j-logo.png[]</pre>
+<p>Which is rendered as:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/neo4j-logo.png" target="_blank">
+<span class="inlinemediaobject"><img src="images/neo4j-logo.png" alt="neo4j-logo.png" /></span>
+</a>
+</div>
+</section>
+<section class="section" id="_static_graphviz_dot"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Static Graphviz/DOT</h4></div></div></div>
+
+<p>We use the Graphviz/DOT language to describe graphs.
+For documentation see <a class="ulink" href="http://graphviz.org/" target="_blank">http://graphviz.org/</a>.</p>
+<p>This is how to include a simple example graph:</p>
+<pre class="programlisting" data-lang="plain"> ["dot", "community-docs-graphdb-rels.svg"]
+ ----
+ "Start node" -&gt; "End node" [label="relationship"]
+ ----</pre>
+<p>Which is rendered as:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/community-docs-graphdb-rels.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/community-docs-graphdb-rels.svg" alt="community-docs-graphdb-rels.svg" /></span>
+</a>
+</div>
+<p>Here’s an example using some predefined variables available in the build:</p>
+<pre class="programlisting" data-lang="plain"> ["dot", "community-docs-graphdb-rels-overview.svg", "meta"]
+ ----
+ "A Relationship" [fillcolor="NODEHIGHLIGHT"]
+ "Start node" [fillcolor="NODE2HIGHLIGHT"]
+ "A Relationship" -&gt; "Start node" [label="has a"]
+ "A Relationship" -&gt; "End node" [label="has a"]
+ "A Relationship" -&gt; "Relationship type" [label="has a"]
+ "Name" [TEXTNODE]
+ "Relationship type" -&gt; "Name" [label="uniquely identified by" color="EDGEHIGHLIGHT" fontcolor="EDGEHIGHLIGHT"]
+ ----</pre>
+<p>Which is rendered as:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/community-docs-graphdb-rels-overview.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/community-docs-graphdb-rels-overview.svg" alt="community-docs-graphdb-rels-overview.svg" /></span>
+</a>
+</div>
+<p>The optional second argument given to the dot filter defines the style to use:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+when not defined: Default styling for nodespace examples.
+
+</li><li class="listitem">
+
+<code class="literal">neoviz</code>: Nodespace view generated by Neoviz.
+
+</li><li class="listitem">
+
+<code class="literal">meta</code>: Graphs that don’t resemble db contents, but rather concepts.
+
+</li></ul></div>
+<div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>Keywords of the DOT language have to be surrounded by double quotes when used for other purposes.
+  The keywords include <span class="emphasis"><em>node, edge, graph, digraph, subgraph,</em></span> and <span class="emphasis"><em>strict</em></span>.</p></td></tr></table></div>
+</section>
+</section>
+<section class="section" id="_attributes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Attributes</h3></div></div></div>
+
+<p>Common attributes you can use in documents:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+{neo4j-version} - rendered as "2.2-SNAPSHOT"
+
+</li><li class="listitem">
+
+{neo4j-git-tag} - rendered as "master"
+
+</li><li class="listitem">
+
+{lucene-version} - rendered as "3_6_2"
+
+</li></ul></div>
+<p>These can substitute part of URLs that point to for example APIdocs or source code.
+Note that neo4j-git-tag also handles the case of snapshot/master.</p>
+<p>Sample Asciidoc attributes which can be used:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+{docdir} - root directory of the documents
+
+</li><li class="listitem">
+
+{nbsp} - non-breaking space
+
+</li></ul></div>
+</section>
+<section class="section" id="_comments"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Comments</h3></div></div></div>
+
+<p>There’s a separate build including comments.
+The comments show up with a yellow background.
+This build doesn’t run by default, but after a normal build, you can use <code class="literal">make annotated</code> to build it.
+You can also use the resulting page to search for content, as the full manual is on a single page.</p>
+<p>Here’s how to write a comment:</p>
+<pre class="programlisting" data-lang="plain">// this is a comment</pre>
+<p>The comments are not visible in the normal build.
+Comment blocks won’t be included in the output of any build at all.
+Here’s a comment block:</p>
+<pre class="programlisting" data-lang="plain">////
+Note that includes in here will still be processed, but not make it into the output.
+That is, missing includes here will still break the build!
+////</pre>
+</section>
+<section class="section" id="_code_snippets"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Code Snippets</h3></div></div></div>
+
+<section class="section" id="_explicitly_defined_in_the_document"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Explicitly defined in the document</h4></div></div></div>
+
+<div class="admonitionblock Warning"><table><tr><td class="icon"><img alt="[Warning]" src="images/icons/admon/warning.svg" /></td><td class="content"><b>Warning</b><p>Use this kind of code snippets as little as possible.
+  They are well known to get out of sync with reality after a while.</p></td></tr></table></div>
+<p>This is how to do it:</p>
+<pre class="programlisting" data-lang="plain"> [source,cypher]
+ ----
+ start n=(2, 1) where (n.age &lt; 30 and n.name = "Tobias") or not(n.name = "Tobias")  return n
+ ----</pre>
+<p>Which is rendered as:</p>
+<pre class="programlisting" data-lang="cypher">start n=(2, 1) where (n.age &lt; 30 and n.name = "Tobias") or not(n.name = "Tobias")  return n</pre>
+<p>If there’s no suitable syntax highlighter, just omit the language: <code class="literal">[source]</code>.</p>
+<p>Currently the following syntax highlighters are enabled:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Bash
+
+</li><li class="listitem">
+
+Cypher
+
+</li><li class="listitem">
+
+Groovy
+
+</li><li class="listitem">
+
+Java
+
+</li><li class="listitem">
+
+JavaScript
+
+</li><li class="listitem">
+
+Python
+
+</li><li class="listitem">
+
+XML
+
+</li></ul></div>
+<p>For other highlighters we could add see <a class="ulink" href="http://alexgorbatchev.com/SyntaxHighlighter/manual/brushes/" target="_blank">http://alexgorbatchev.com/SyntaxHighlighter/manual/brushes/</a>.</p>
+</section>
+<section class="section" id="_fetched_from_source_code"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Fetched from source code</h4></div></div></div>
+
+<p>Code can be automatically fetched from source files.
+You need to define:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+component: the <code class="literal">artifactId</code> of the Maven coordinates,
+
+</li><li class="listitem">
+
+source: path to the file inside the jar it’s deployed to,
+
+</li><li class="listitem">
+
+classifier: <code class="literal">sources</code> or <code class="literal">test-sources</code> or any other classifier pointing to the artifact,
+
+</li><li class="listitem">
+
+tag: tag name to search the file for,
+
+</li><li class="listitem">
+
+the language of the code, if a corresponding syntax highlighter is available.
+
+</li></ul></div>
+<p>Note that the artifact has to be included as a Maven dependency of the Manual project so that the files can be found.</p>
+<p>Be aware of that the tag "abc" will match "abcd" as well.
+It’s a simple on/off switch, meaning that multiple occurrences will be assembled into a single code snippet in the output.
+This behavior can be user to hide away assertions from code examples sourced from tests.</p>
+<p>This is how to define a code snippet inclusion:</p>
+<pre class="programlisting" data-lang="plain"> [snippet,java]
+ ----
+ component=neo4j-examples
+ source=org/neo4j/examples/JmxDocTest.java
+ classifier=test-sources
+ tag=getStartTime
+ ----</pre>
+<p>This is how it renders:</p>
+<pre class="programlisting" data-lang="java">private static Date getStartTimeFromManagementBean(
+        GraphDatabaseService graphDbService )
+{
+    ObjectName objectName = JmxUtils.getObjectName( graphDbService, "Kernel" );
+    Date date = JmxUtils.getAttribute( objectName, "KernelStartTime" );
+    return date;
+}
+</pre>
+</section>
+<section class="section" id="_query_results"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Query Results</h4></div></div></div>
+
+<p>There’s a special filter for Cypher query results.
+This is how to tag a query result:</p>
+<pre class="programlisting" data-lang="plain"> .Result
+ [queryresult]
+ ----
+ +----------------------------------+
+ | friend_of_friend.name | count(*) |
+ +----------------------------------+
+ | Ian                   | 2        |
+ | Derrick               | 1        |
+ | Jill                  | 1        |
+ +----------------------------------+
+ 3 rows, 12 ms
+ ----</pre>
+<p>This is how it renders:</p>
+<div class="queryresult table" id="d5e28561"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>friend_of_friend.name</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">3 rows, 12 ms</th></tr></tfoot><tbody><tr><td><p><code class="literal">Ian</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">Derrick</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">Jill</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="_a_sample_java_based_documentation_test"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">A sample Java based documentation test</h3></div></div></div>
+
+<p>For Java, there are a couple of premade utilities that keep code and documentation together in
+Javadocs and code snippets that generate Asciidoc for the rest of the toolchain.</p>
+<p>To illustrate this, look at the following documentation that generates the Asciidoc file <code class="literal">hello-world-title.asciidoc</code> with a content of:</p>
+<pre class="programlisting" data-lang="plain">[[examples-hello-world-sample-chapter]]
+Hello world Sample Chapter
+==========================
+
+This is a sample documentation test, demonstrating different ways of
+bringing code and other artifacts into Asciidoc form. The title of the
+generated document is determined from the method name, replacing "+_+" with
+" ".
+
+Below you see a number of different ways to generate text from source,
+inserting it into the JavaDoc documentation (really being Asciidoc markup)
+via the snippet markers (see below) and programmatic adding with runtime data
+in the Java code.
+
+- The annotated graph as http://www.graphviz.org/[GraphViz]-generated visualization:
+
+.Hello World Graph
+["dot", "Hello-World-Graph-hello-world-Sample-Chapter.svg", "neoviz", ""]
+----
+  N0 [
+    label = "{Node\[0\]name = \'you\'\l}"
+  ]
+  N1 [
+    label = "{Node\[1\]name = \'I\'\l}"
+  ]
+  N1 -&gt; N0 [
+    color = "#2e3436"
+    fontcolor = "#2e3436"
+    label = "know\n"
+  ]
+----
+
+- A sample Cypher query:
+
+[source,cypher]
+----
+START n = node(1)
+RETURN n
+----
+
+- A sample text output snippet:
+
+[source]
+----
+Hello graphy world!
+----
+
+- a generated source link to the original GIThub source for this test:
+
+https://github.com/neo4j/neo4j/blob/{neo4j-git-tag}/community/embedded-examples/src/test/java/org/neo4j/examples/DocumentationDocTest.java[DocumentationDocTest.java]
+
+- The full source for this example as a source snippet, highlighted as Java code:
+
+[snippet,java]
+----
+component=neo4j-examples
+source=org/neo4j/examples/DocumentationDocTest.java
+classifier=test-sources
+tag=sampleDocumentation
+----
+
+This is the end of this chapter.</pre>
+<p>this file is included in this documentation via</p>
+<pre class="programlisting" data-lang="plain">  :leveloffset: 3
+  include::{importdir}/neo4j-examples-docs-jar/dev/examples/hello-world-sample-chapter.asciidoc[]</pre>
+<p>which renders the following chapter:</p>
+</section>
+<section class="section" id="examples-hello-world-sample-chapter"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Hello world Sample Chapter</h3></div></div></div>
+
+<p>This is a sample documentation test, demonstrating different ways of
+bringing code and other artifacts into Asciidoc form. The title of the
+generated document is determined from the method name, replacing "<code class="literal">_</code>" with
+" ".</p>
+<p>Below you see a number of different ways to generate text from source,
+inserting it into the JavaDoc documentation (really being Asciidoc markup)
+via the snippet markers (see below) and programmatic adding with runtime data
+in the Java code.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+The annotated graph as <a class="ulink" href="http://www.graphviz.org/" target="_blank">GraphViz</a>-generated visualization:
+
+</li></ul></div>
+<div class="figure" id="d5e28613"><p class="title"><strong>Figure 34.1. Hello World Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Hello-World-Graph-hello-world-Sample-Chapter.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Hello-World-Graph-hello-world-Sample-Chapter.svg" alt="Hello-World-Graph-hello-world-Sample-Chapter.svg" /></span>
+</a>
+</div></div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+A sample Cypher query:
+
+</li></ul></div>
+<pre class="programlisting" data-lang="cypher">START n = node(1)
+RETURN n</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+A sample text output snippet:
+
+</li></ul></div>
+<pre class="programlisting" data-lang="plain">Hello graphy world!</pre>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+a generated source link to the original GIThub source for this test:
+
+</li></ul></div>
+<p><a class="ulink" href="https://github.com/neo4j/neo4j/blob/master/community/embedded-examples/src/test/java/org/neo4j/examples/DocumentationDocTest.java" target="_blank">DocumentationDocTest.java</a></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+The full source for this example as a source snippet, highlighted as Java code:
+
+</li></ul></div>
+<pre class="programlisting" data-lang="java">// START SNIPPET: _sampleDocumentation
+package org.neo4j.examples;
+
+import org.junit.Test;
+
+import org.neo4j.kernel.impl.annotations.Documented;
+import org.neo4j.test.GraphDescription.Graph;
+
+import static org.neo4j.visualization.asciidoc.AsciidocHelper.createGraphVizWithNodeId;
+import static org.neo4j.visualization.asciidoc.AsciidocHelper.createOutputSnippet;
+
+public class DocumentationDocTest extends ImpermanentGraphJavaDocTestBase
+{
+    /**
+     * This is a sample documentation test, demonstrating different ways of
+     * bringing code and other artifacts into Asciidoc form. The title of the
+     * generated document is determined from the method name, replacing "+_+" with
+     * " ".
+     *
+     * Below you see a number of different ways to generate text from source,
+     * inserting it into the JavaDoc documentation (really being Asciidoc markup)
+     * via the snippet markers (see below) and programmatic adding with runtime data
+     * in the Java code.
+     *
+     * - The annotated graph as http://www.graphviz.org/[GraphViz]-generated visualization:
+     *
+     * @@graph
+     *
+     * - A sample Cypher query:
+     *
+     * @@cypher
+     *
+     * - A sample text output snippet:
+     *
+     * @@output
+     *
+     * - a generated source link to the original GIThub source for this test:
+     *
+     * @@github
+     *
+     * - The full source for this example as a source snippet, highlighted as Java code:
+     *
+     * @@sampleDocumentation
+     *
+     * This is the end of this chapter.
+     */
+    @Test
+    // signaling this to be a documentation test
+    @Documented
+    // the graph data setup as simple statements
+    @Graph( "I know you" )
+    // title is determined from the method name
+    public void hello_world_Sample_Chapter()
+    {
+        // initialize the graph with the annotation data
+        data.get();
+        gen.get().addTestSourceSnippets( this.getClass(), "sampleDocumentation" );
+        gen.get()
+                .addGithubTestSourceLink( "github", this.getClass(),
+                        "community/embedded-examples" );
+
+        gen.get().addSnippet( "output",
+                createOutputSnippet( "Hello graphy world!" ) );
+
+        gen.get().addSnippet(
+                "graph",
+                createGraphVizWithNodeId( "Hello World Graph", graphdb(),
+                        gen.get().getTitle() ) );
+        // A cypher snippet referring to the generated graph in the start clause
+        gen.get().addSnippet(
+                "cypher",
+                createCypherSnippet( "start n = node(" + data.get().get( "I" ).getId()
+                                     + ") return n" ) );
+    }
+}
+// END SNIPPET: _sampleDocumentation
+</pre>
+<p>This is the end of this chapter.</p>
+</section>
+<section class="section" id="_integrated_live_console"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Integrated Live Console</h3></div></div></div>
+
+<p>An interactive console can be added and will show up in the online HTML version.
+An optional title can be added, which will be used for the text of the button.</p>
+<p>This is how to do it, using Cypher to define the data, with an empty line to separate it from the query:</p>
+<pre class="programlisting" data-lang="plain"> .Interactive Example
+ [console]
+ ----
+ CREATE (n {name: 'Neo4j'})
+
+ MATCH (n)
+ return n
+ ----</pre>
+<p>And this is the result:</p>
+<p class="cypherconsole"><strong>Interactive Example. </strong><span class="database">CREATE (n {name: 'Neo4j'})
+</span><span class="command"><strong>MATCH (n)
+ return n</strong></span></p>
+</section>
+<section class="section" id="_toolchain"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Toolchain</h3></div></div></div>
+
+<p>Useful links when configuring the docbook toolchain:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<a class="ulink" href="http://www.docbook.org/tdg/en/html/docbook.html" target="_blank">http://www.docbook.org/tdg/en/html/docbook.html</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://www.sagehill.net/docbookxsl/index.html" target="_blank">http://www.sagehill.net/docbookxsl/index.html</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://docbook.sourceforge.net/release/xsl/1.76.1/doc/html/index.html" target="_blank">http://docbook.sourceforge.net/release/xsl/1.76.1/doc/html/index.html</a>
+
+</li><li class="listitem">
+
+<a class="ulink" href="http://docbook.sourceforge.net/release/xsl/1.76.1/doc/fo/index.html" target="_blank">http://docbook.sourceforge.net/release/xsl/1.76.1/doc/fo/index.html</a>
+
+</li></ul></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

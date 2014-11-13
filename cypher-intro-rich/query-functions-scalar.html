@@ -1,0 +1,446 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>14.2. Scalar functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-predicates.html" title="14.1. Predicates" /><link rel="next" href="query-functions-collection.html" title="14.3. Collection functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.2. Scalar functions" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-71803";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>14.2. Scalar functions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-predicates.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-functions-collection.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-scalar"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">14.2. Scalar functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-scalar.html#functions-length">LENGTH</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-type">TYPE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-id">ID</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-coalesce">COALESCE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-head">HEAD</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-last">LAST</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-timestamp">TIMESTAMP</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-startnode">STARTNODE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-endnode">ENDNODE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-toint">TOINT</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-tofloat">TOFLOAT</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-tostring">TOSTRING</a></span></li></ul></div>
+
+<p>Scalar functions return a single value.</p>
+<div class="figure" id="d5e12280"><p class="title"><strong>Figure 14.2. Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
+</a>
+</div></div>
+<section class="section" id="functions-length"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LENGTH</h3></div></div></div>
+
+<p>To return or filter on the length of a collection, use the <code class="literal">LENGTH()</code> function.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">LENGTH( collection )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>collection:</em></span> An expression that returns a collection
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH p=(a)--&gt;(b)--&gt;(c)
+WHERE a.name='Alice'
+RETURN length(p)</pre><p>
+</p>
+<p>The length of the path <code class="literal">p</code> is returned by the query.</p>
+<div class="queryresult table" id="d5e12307"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(p)</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match p=(a)--&gt;(b)--&gt;(c) where a.name='Alice' return length(p)</strong></span></p>
+</section>
+<section class="section" id="functions-type"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TYPE</h3></div></div></div>
+
+<p>Returns a string representation of the relationship type.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TYPE( relationship )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>relationship:</em></span> A relationship.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)-[r]-&gt;()
+WHERE n.name='Alice'
+RETURN type(r)</pre><p>
+</p>
+<p>The relationship type of <code class="literal">r</code> is returned by the query.</p>
+<div class="queryresult table" id="d5e12353"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (n)-[r]-&gt;() where n.name='Alice' return type(r)</strong></span></p>
+</section>
+<section class="section" id="functions-id"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ID</h3></div></div></div>
+
+<p>Returns the id of the relationship or node.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">ID( property-container )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>property-container:</em></span> A node or a relationship.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+RETURN id(a)</pre><p>
+</p>
+<p>This returns the node id for three nodes.</p>
+<div class="queryresult table" id="d5e12394"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id(a)</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">4</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) return id(a)</strong></span></p>
+</section>
+<section class="section" id="functions-coalesce"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">COALESCE</h3></div></div></div>
+
+<p>Returns the first non-<code class="literal">NULL</code> value in the list of expressions passed to it.
+In case all arguments are <code class="literal">NULL</code>, <code class="literal">NULL</code> will be returned.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">COALESCE( expression [, expression]* )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> The expression that might return NULL.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Alice'
+RETURN coalesce(a.hairColor, a.eyes)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12449"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>coalesce(a.hairColor, a.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"brown"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Alice' return coalesce(a.hairColor, a.eyes)</strong></span></p>
+</section>
+<section class="section" id="functions-head"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">HEAD</h3></div></div></div>
+
+<p><code class="literal">HEAD</code> returns the first element in a collection.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">HEAD( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> This expression should return a collection of some kind.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Eskil'
+RETURN a.array, head(a.array)</pre><p>
+</p>
+<p>The first node in the path is returned.</p>
+<div class="queryresult table" id="d5e12487"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>head(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"one"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Eskil' return a.array, head(a.array)</strong></span></p>
+</section>
+<section class="section" id="functions-last"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LAST</h3></div></div></div>
+
+<p><code class="literal">LAST</code> returns the last element in a collection.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">LAST( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> This expression should return a collection of some kind.
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Eskil'
+RETURN a.array, last(a.array)</pre><p>
+</p>
+<p>The last node in the path is returned.</p>
+<div class="queryresult table" id="d5e12530"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>last(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"three"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Eskil' return a.array, last(a.array)</strong></span></p>
+</section>
+<section class="section" id="functions-timestamp"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TIMESTAMP</h3></div></div></div>
+
+<p><code class="literal">TIMESTAMP</code> returns the difference, measured in milliseconds, between the current time and midnight, January 1, 1970 UTC. It will return the same value during the whole one query, even if the query is a long running one.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TIMESTAMP()</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN timestamp()</pre><p>
+</p>
+<p>The time in milliseconds is returned.</p>
+<div class="queryresult table" id="d5e12569"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>timestamp()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1415882414889</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return timestamp()</strong></span></p>
+</section>
+<section class="section" id="functions-startnode"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">STARTNODE</h3></div></div></div>
+
+<p><code class="literal">STARTNODE</code> returns the starting node of a relationship</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">STARTNODE( relationship )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>relationship:</em></span> An expression that returns a relationship
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (x:foo)-[r]-()
+RETURN startNode(r)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12606"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>startNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ MATCH (x:foo)-[r]-() return startNode(r)</strong></span></p>
+</section>
+<section class="section" id="functions-endnode"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ENDNODE</h3></div></div></div>
+
+<p><code class="literal">ENDNODE</code> returns the end node of a relationship</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">ENDNODE( relationship )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>relationship:</em></span> An expression that returns a relationship
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (x:foo)-[r]-()
+RETURN endNode(r)</pre><p>
+</p>
+<div class="queryresult table" id="d5e12647"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>endNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"Charlie",age:53,eyes:"green"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"Bob",age:25,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ MATCH (x:foo)-[r]-() return endNode(r)</strong></span></p>
+</section>
+<section class="section" id="functions-toint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TOINT</h3></div></div></div>
+
+<p><code class="literal">TOINT</code> converts the argument to an integer. A string is parsed as if it was an integer number. If the parsing fails, <code class="literal">NULL</code> will be returned. A floating point number will be cast into an integer.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TOINT( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> An expression that returns anything
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN toInt("42"), toInt("not a number")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12689"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toInt("42")</th><th>toInt("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">42</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return toInt("42"), toInt("not a number")</strong></span></p>
+</section>
+<section class="section" id="functions-tofloat"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TOFLOAT</h3></div></div></div>
+
+<p><code class="literal">TOFLOAT</code> converts the argument to a float. A string is parsed as if it was an floating point number. If the parsing fails, <code class="literal">NULL</code> will be returned. An integer will be cast to a floating point number.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TOFLOAT( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> An expression that returns anything
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN toFloat("11.5"), toFloat("not a number")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12732"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toFloat("11.5")</th><th>toFloat("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">11.5</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return toFloat("11.5"), toFloat("not a number")</strong></span></p>
+</section>
+<section class="section" id="functions-tostring"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TOSTRING</h3></div></div></div>
+
+<p><code class="literal">TOSTRING</code> converts the argument to a string. It converts integers and floating point numbers to strings, and if called with a string will leave it unchanged.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">TOSTRING( expression )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>expression:</em></span> An expression that returns anything
+
+</li></ul></div>
+<p><strong>Query. </strong>
+</p><pre class="programlisting" data-lang="cypher">RETURN toString(11.5), toString("already a string")</pre><p>
+</p>
+<div class="queryresult table" id="d5e12774"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toString(11.5)</th><th>toString("already a string")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"11.5"</code></p></td><td><p><code class="literal">"already a string"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ return toString(11.5), toString("already a string")</strong></span></p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

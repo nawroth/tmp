@@ -1,0 +1,379 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>22.7. Nodes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-property-values.html" title="22.6. Property values" /><link rel="next" href="rest-api-relationships.html" title="22.8. Relationships" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.7. Nodes" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-71803";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.7. Nodes</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-property-values.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-relationships.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-nodes"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.7. Nodes</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-nodes.html#rest-api-create-node">Create node</a></span></li><li><span class="section"><a href="rest-api-nodes.html#rest-api-create-node-with-properties">Create node with properties</a></span></li><li><span class="section"><a href="rest-api-nodes.html#rest-api-get-node">Get node</a></span></li><li><span class="section"><a href="rest-api-nodes.html#rest-api-get-non-existent-node">Get non-existent node</a></span></li><li><span class="section"><a href="rest-api-nodes.html#rest-api-delete-node">Delete node</a></span></li><li><span class="section"><a href="rest-api-nodes.html#rest-api-nodes-with-relationships-cannot-be-deleted">Nodes with relationships cannot be deleted</a></span></li></ul></div>
+
+<section class="section" id="rest-api-create-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node</h3></div></div></div>
+
+<div class="figure" id="d5e16694"><p class="title"><strong>Figure 22.13. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-create-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-create-node.svg" alt="Final-Graph-create-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">201:</code></strong></span> <code class="literal">Created</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/29</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "extensions" : { },
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/29/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/29/labels",
+  "traverse" : "http://localhost:7474/db/data/node/29/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/29",
+  "property" : "http://localhost:7474/db/data/node/29/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/29/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/29/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/29/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/29/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/29/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 29,
+    "labels" : [ ]
+  },
+  "data" : { }
+}</pre>
+</section>
+<section class="section" id="rest-api-create-node-with-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node with properties</h3></div></div></div>
+
+<div class="figure" id="d5e16736"><p class="title"><strong>Figure 22.14. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-create-node-with-properties.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-create-node-with-properties.svg" alt="Final-Graph-create-node-with-properties.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "foo" : "bar"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">201:</code></strong></span> <code class="literal">Created</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Length:</code></strong></span> <code class="literal">1223</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/25</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "extensions" : { },
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/25/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/25/labels",
+  "traverse" : "http://localhost:7474/db/data/node/25/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/25/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/25",
+  "property" : "http://localhost:7474/db/data/node/25/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/25/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/25/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/25/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/25/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/25/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/25/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/25/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 25,
+    "labels" : [ ]
+  },
+  "data" : {
+    "foo" : "bar"
+  }
+}</pre>
+</section>
+<section class="section" id="rest-api-get-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get node</h3></div></div></div>
+
+<p>Note that the response contains URI/templates for the available
+operations for getting properties and relationships.</p>
+<div class="figure" id="d5e16790"><p class="title"><strong>Figure 22.15. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Get-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Get-node.svg" alt="Final-Graph-Get-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/170</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "extensions" : { },
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/170/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/170/labels",
+  "traverse" : "http://localhost:7474/db/data/node/170/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/170/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/170",
+  "property" : "http://localhost:7474/db/data/node/170/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/170/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/170/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/170/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/170/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/170/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/170/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/170/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 170,
+    "labels" : [ ]
+  },
+  "data" : { }
+}</pre>
+</section>
+<section class="section" id="rest-api-get-non-existent-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get non-existent node</h3></div></div></div>
+
+<div class="figure" id="d5e16827"><p class="title"><strong>Figure 22.16. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Get-non-existent-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Get-non-existent-node.svg" alt="Final-Graph-Get-non-existent-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/17400000</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">404:</code></strong></span> <code class="literal">Not Found</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "message": "Cannot find node with id [17400000] in database.",
+  "exception": "NodeNotFoundException",
+  "fullname": "org.neo4j.server.rest.web.NodeNotFoundException",
+  "stacktrace": [
+    "org.neo4j.server.rest.web.DatabaseActions.node(DatabaseActions.java:175)",
+    "org.neo4j.server.rest.web.DatabaseActions.getNode(DatabaseActions.java:220)",
+    "org.neo4j.server.rest.web.RestfulGraphDatabase.getNode(RestfulGraphDatabase.java:264)",
+    "java.lang.reflect.Method.invoke(Method.java:606)",
+    "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
+    "java.lang.Thread.run(Thread.java:745)"
+  ]
+}</pre>
+</section>
+<section class="section" id="rest-api-delete-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete node</h3></div></div></div>
+
+<div class="figure" id="d5e16864"><p class="title"><strong>Figure 22.17. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Delete-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Delete-node.svg" alt="Final-Graph-Delete-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/26</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">204:</code></strong></span> <code class="literal">No Content</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="rest-api-nodes-with-relationships-cannot-be-deleted"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Nodes with relationships cannot be deleted</h3></div></div></div>
+
+<p>The relationships on a node has to be deleted before the node can be
+deleted.</p>
+<div class="figure" id="d5e16897"><p class="title"><strong>Figure 22.18. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" alt="Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/33</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">409:</code></strong></span> <code class="literal">Conflict</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "message": "The node with id 33 cannot be deleted. Check that the node is orphaned before deletion.",
+  "exception": "OperationFailureException",
+  "fullname": "org.neo4j.server.rest.web.OperationFailureException",
+  "stacktrace": [
+    "org.neo4j.server.rest.web.DatabaseActions.deleteNode(DatabaseActions.java:229)",
+    "org.neo4j.server.rest.web.RestfulGraphDatabase.deleteNode(RestfulGraphDatabase.java:278)",
+    "java.lang.reflect.Method.invoke(Method.java:606)",
+    "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
+    "java.lang.Thread.run(Thread.java:745)"
+  ]
+}</pre>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
