@@ -19,7 +19,7 @@
 jQuery( window ).load( function()
 {
   var location = window.location;
-  if ( location.hostname === 'neo4j.com' ) 
+  if ( true || location.hostname === 'neo4j.com' ) 
   {
     jQuery.getScript( location.protocol + '//neo4j.com/docs/meta/versions.js', function() {
       versionSwitcher( jQuery );    
