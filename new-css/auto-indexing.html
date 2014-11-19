@@ -1,0 +1,224 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>37.12. Automatic Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-lucene-extras.html" title="37.11. Extra features for Lucene indexes" /><link rel="next" href="batchinsert.html" title="Chapter 38. Batch Insertion" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="37.12. Automatic Indexing" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-71024";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>37.12. Automatic Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing-lucene-extras.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="batchinsert.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="auto-indexing"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">37.12. Automatic Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="auto-indexing.html#auto-indexing-config">Configuration</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-api">Search</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-config-api">Runtime Configuration</a></span></li><li><span class="section"><a href="auto-indexing.html#auto-indexing-update-removal">Updating the Automatic Index</a></span></li></ul></div>
+
+<p>Neo4j provides a single index for nodes and one for relationships in each database that automatically follow property values as they are added, deleted and changed on database primitives.
+This functionality is called <span class="emphasis"><em>auto indexing</em></span> and is controlled both from the database configuration Map and through its own API.</p>
+<section class="section" id="auto-indexing-config"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Configuration</h3></div></div></div>
+
+<p>By default Auto Indexing is off for both Nodes and Relationships.
+To configure this in the <span class="emphasis"><em>conf/neo4j.properties</em></span> file, use the configuration keys <code class="literal">node_auto_indexing</code> and
+<code class="literal">relationship_auto_indexing</code>. For embedded mode, use the configuration options
+<code class="literal">GraphDatabaseSettings.node_auto_indexing</code> and <code class="literal">GraphDatabaseSettings.relationship_auto_indexing</code>.
+In both cases, set the value to <code class="literal">true</code>.
+This will enable automatic indexing on startup.
+Just note that we’re not done yet, see below!</p>
+<p>To actually auto index something, you have to set which properties should get indexed.
+You do this by listing the property keys to index on.
+In the configuration file, use the <code class="literal">node_keys_indexable</code> and <code class="literal">relationship_keys_indexable</code> configuration keys.
+When using embedded mode, use the <code class="literal">GraphDatabaseSettings.node_keys_indexable</code> and <code class="literal">GraphDatabaseSettings.relationship_keys_indexable</code> configuration keys.
+In all cases, the value should be a comma separated list of property keys to index on.</p>
+<p>When coding in Java, it’s done like this:</p>
+<pre class="programlisting" data-lang="java">/*
+ * Creating the configuration, adding nodeProp1 and nodeProp2 as
+ * auto indexed properties for Nodes and relProp1 and relProp2 as
+ * auto indexed properties for Relationships. Only those will be
+ * indexed. We also have to enable auto indexing for both these
+ * primitives explicitly.
+ */
+GraphDatabaseService graphDb = new GraphDatabaseFactory().
+    newEmbeddedDatabaseBuilder( storeDirectory ).
+    setConfig( GraphDatabaseSettings.node_keys_indexable, "nodeProp1,nodeProp2" ).
+    setConfig( GraphDatabaseSettings.relationship_keys_indexable, "relProp1,relProp2" ).
+    setConfig( GraphDatabaseSettings.node_auto_indexing, "true" ).
+    setConfig( GraphDatabaseSettings.relationship_auto_indexing, "true" ).
+    newGraphDatabase();
+
+Node node1 = null, node2 = null;
+Relationship rel = null;
+try ( Transaction tx = graphDb.beginTx() )
+{
+    // Create the primitives
+    node1 = graphDb.createNode();
+    node2 = graphDb.createNode();
+    rel = node1.createRelationshipTo( node2,
+            DynamicRelationshipType.withName( "DYNAMIC" ) );
+
+    // Add indexable and non-indexable properties
+    node1.setProperty( "nodeProp1", "nodeProp1Value" );
+    node2.setProperty( "nodeProp2", "nodeProp2Value" );
+    node1.setProperty( "nonIndexed", "nodeProp2NonIndexedValue" );
+    rel.setProperty( "relProp1", "relProp1Value" );
+    rel.setProperty( "relPropNonIndexed", "relPropValueNonIndexed" );
+
+    // Make things persistent
+    tx.success();
+}
+</pre>
+</section>
+<section class="section" id="auto-indexing-api"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Search</h3></div></div></div>
+
+<p>The usefulness of the auto indexing functionality comes of course from the ability to actually query the index and retrieve results.
+To that end, you can acquire a <code class="literal">ReadableIndex</code> object from the <code class="literal">AutoIndexer</code> that exposes all the query and get methods of a full
+<a class="ulink" href="javadocs/org/neo4j/graphdb/index/Index.html" target="_blank"><code class="literal">Index</code></a> with exactly the same functionality.
+Continuing from the previous example, accessing the index is done like this:</p>
+<pre class="programlisting" data-lang="java">try ( Transaction tx = graphDb.beginTx() )
+{
+    // Get the Node auto index
+    ReadableIndex&lt;Node&gt; autoNodeIndex = graphDb.index()
+            .getNodeAutoIndexer()
+            .getAutoIndex();
+    // node1 and node2 both had auto indexed properties, get them
+    assertEquals( node1,
+            autoNodeIndex.get( "nodeProp1", "nodeProp1Value" ).getSingle() );
+    assertEquals( node2,
+            autoNodeIndex.get( "nodeProp2", "nodeProp2Value" ).getSingle() );
+    // node2 also had a property that should be ignored.
+    assertFalse( autoNodeIndex.get( "nonIndexed",
+            "nodeProp2NonIndexedValue" ).hasNext() );
+
+    // Get the relationship auto index
+    ReadableIndex&lt;Relationship&gt; autoRelIndex = graphDb.index()
+            .getRelationshipAutoIndexer()
+            .getAutoIndex();
+    // One property was set for auto indexing
+    assertEquals( rel,
+            autoRelIndex.get( "relProp1", "relProp1Value" ).getSingle() );
+    // The rest should be ignored
+    assertFalse( autoRelIndex.get( "relPropNonIndexed",
+            "relPropValueNonIndexed" ).hasNext() );
+}
+</pre>
+</section>
+<section class="section" id="auto-indexing-config-api"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Runtime Configuration</h3></div></div></div>
+
+<p>The same options that are available during database creation via the configuration can also be set during runtime via the <code class="literal">AutoIndexer</code> API.</p>
+<p>Gaining access to the <code class="literal">AutoIndexer</code> API and adding two <code class="literal">Node</code> and one <code class="literal">Relationship</code> properties to auto index is done like so:</p>
+<pre class="programlisting" data-lang="java">// Start without any configuration
+GraphDatabaseService graphDb = new GraphDatabaseFactory().
+        newEmbeddedDatabase( storeDirectory );
+
+// Get the Node AutoIndexer, set nodeProp1 and nodeProp2 as auto
+// indexed.
+AutoIndexer&lt;Node&gt; nodeAutoIndexer = graphDb.index()
+        .getNodeAutoIndexer();
+nodeAutoIndexer.startAutoIndexingProperty( "nodeProp1" );
+nodeAutoIndexer.startAutoIndexingProperty( "nodeProp2" );
+
+// Get the Relationship AutoIndexer
+AutoIndexer&lt;Relationship&gt; relAutoIndexer = graphDb.index()
+        .getRelationshipAutoIndexer();
+relAutoIndexer.startAutoIndexingProperty( "relProp1" );
+
+// None of the AutoIndexers are enabled so far. Do that now
+nodeAutoIndexer.setEnabled( true );
+relAutoIndexer.setEnabled( true );
+
+</pre>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Parameters to the AutoIndexers passed through the Configuration and settings made through the API are cumulative.
+So you can set some beforehand known settings, do runtime checks to augment the initial configuration and then enable the desired auto indexers -
+the final configuration is the same regardless of the method used to reach it.</p></td></tr></table></div>
+</section>
+<section class="section" id="auto-indexing-update-removal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Updating the Automatic Index</h3></div></div></div>
+
+<p>Updates to the auto indexed properties happen of course automatically as you update them. Removal of properties from the auto index similarly
+happens when you remove the actual property, but only while the property is auto indexed. In particular, if you had configured your database
+to auto index a property, but later removed it from the configuration, deleting that property will not remove it from the auto index.</p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
