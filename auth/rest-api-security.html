@@ -1,0 +1,552 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>21.3. Authentication and Authorization -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="status-codes.html" title="21.2. Neo4j Status Codes" /><link rel="next" href="rest-api-service-root.html" title="21.4. Service root" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.3. Authentication and Authorization" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-71248";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.3. Authentication and Authorization</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="status-codes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-service-root.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-security"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.3. Authentication and Authorization</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-security.html#rest-api-security-getting-started">Getting Started with Authentication and Authorization</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-authorization-tokens">Authorization Tokens</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-password">Password Management</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-status">Authorization Status</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-incorrect-username-or-password">Incorrect username or password</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-copy-config">Copying security configuration from one instance to another</a></span></li></ul></div>
+
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This is a new feature, your feedback is encouraged.</p></td></tr></table></div>
+<p>In order to prevent unauthorized access to Neo4j, the REST API supports authorization and authentication.
+When enabled, requests to the REST API must be authorized by an <span class="emphasis"><em>authorization token</em></span>.
+The token is acquired by authenticating, and can then be used to gain access to Neo4j.
+See <a class="xref" href="security-server.html#security-server-auth" title="Authorization">the section called “Authorization”</a> for how to enable authorization.</p>
+<p>In general, it is recommended that you give the authorization token, rather than your username and password, to your Neo4j Driver.
+This way the driver can access Neo4j, but is not allowed to change your password or invalidate the token.</p>
+<p>When Neo4j is first installed you can authenticate with the default user <code class="literal">neo4j</code> and the default password <code class="literal">neo4j</code>.
+However, the default password must be changed (see <a class="link" href="rest-api-security.html#rest-api-required-password-changes" title="Required password changes">changed</a>)  before an authorization token is granted.
+This can easily be done via the Neo4j Browser, or via direct HTTP calls.
+For automated deployments, you may also copy security configuration from another neo4j instance (see <a class="xref" href="rest-api-security.html#rest-api-security-copy-config" title="Copying security configuration from one instance to another">the section called “Copying security configuration from one instance to another”</a>).</p>
+<p>The authorization token is local to each Neo4j instance.
+If you wish to have multiple instances, such as a set of cluster members, accept the same authorization token see <a class="xref" href="rest-api-security.html#rest-api-setting-authorization-token" title="Setting authorization token">the section called “Setting authorization token”</a>.
+Or, alternatively, see <a class="xref" href="rest-api-security.html#rest-api-security-copy-config" title="Copying security configuration from one instance to another">the section called “Copying security configuration from one instance to another”</a>.</p>
+<p>To determine if security is enabled and to check if an authorization token is valid, see <a class="xref" href="rest-api-security.html#rest-api-get-current-authorization-status" title="Get current authorization status">the section called “Get current authorization status”</a>.</p>
+<section class="section" id="rest-api-security-getting-started"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Getting Started with Authentication and Authorization</h3></div></div></div>
+
+<p>First, make sure authorization is enabled (see <a class="xref" href="security-server.html#security-server-auth" title="Authorization">the section called “Authorization”</a>).</p>
+<section class="section" id="rest-api-changing-your-password-for-the-first-time"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Changing your password for the first time</h4></div></div></div>
+
+<p>When enabling authorization for the first time, you must change the password before an authorization token can be granted.
+You can choose any password you like, except the default <code class="literal">neo4j</code>.
+The response will include an authorization token.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/user/neo4j/password</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "password" : "neo4j",
+  "new_password" : "qwerty"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : false,
+  "authorization_token" : "0b32516e99e1a4be564fabc474ee0ae5",
+  "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
+}</pre>
+</section>
+<section class="section" id="rest-api-using-the-authorization-token"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Using the Authorization Token</h4></div></div></div>
+
+<p>Given that you have acquired an authorization token, you may use it to get access to the rest of the API.
+To include the token in requests to the server, it should be encoded as the <span class="emphasis"><em>password</em></span> part of the HTTP Basic Auth scheme.
+This means you should include a <code class="literal">Authorization</code> header, with a value of <code class="literal">Basic realm="Neo4j" &lt;token payload&gt;</code>
+where "token payload" is a base64 encoded string of the token prepended by a colon.</p>
+<p>In pseudo-code:</p>
+<pre class="programlisting" data-lang="javascript">authorization = 'Basic realm="Neo4j" ' + base64( ':' + token );</pre>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OjQ5N2U5N2M5NDViZTc1YjE0YjQ5YmJhYTllNTg2MjY1</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "management" : "http://localhost:7474/db/manage",
+  "data" : "http://localhost:7474/db/data"
+}</pre>
+</section>
+</section>
+<section class="section" id="rest-api-security-authorization-tokens"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Authorization Tokens</h3></div></div></div>
+
+<section class="section" id="rest-api-authenticate-to-obtain-an-authorization-token"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Authenticate to obtain an authorization token</h4></div></div></div>
+
+<p>You authenticate by sending a username and a password to Neo4j. The database will reply with an authorization
+token. The reply from this endpoint will also indicate if your password should be changed which will,
+for instance, be the case in a newly installed instance.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/authentication</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password" : "secret"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : false,
+  "authorization_token" : "c9112846b73c990bd264561db0a6fd97",
+  "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
+}</pre>
+</section>
+<section class="section" id="rest-api-invalidating-the-authorization-token"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Invalidating the authorization token</h4></div></div></div>
+
+<p>You can ask that the server generates a new authorization token. This will invalidate any existing token for the
+user.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/user/neo4j/authorization_token</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "password" : "secret"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : false,
+  "authorization_token" : "bc0be868a0ecbce58af05bda77ee87dd",
+  "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
+}</pre>
+</section>
+<section class="section" id="rest-api-setting-authorization-token"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Setting authorization token</h4></div></div></div>
+
+<p>In some cases you may want to explicitly set an authorization token for a user, for instance if you want to be
+able to use the same authorization token for multiple Neo4j instances in a cluster.</p>
+<p>This can be done by taking an authorization token generated by Neo4j and asking other Neo4j instance to use that
+token. This is similar to invalidating an existing token, except the new token to be used is passed in explicitly.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/user/neo4j/authorization_token</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "password" : "secret",
+  "new_authorization_token" : "EEB9E6883A24CEF7899CF35AD49D5944"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : false,
+  "authorization_token" : "EEB9E6883A24CEF7899CF35AD49D5944",
+  "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
+}</pre>
+</section>
+<section class="section" id="rest-api-attempting-to-get-authorization-status-while-unauthorized"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Attempting to get authorization status while unauthorized</h4></div></div></div>
+
+<p>Given that you have an invalid authorization token, or no token at all, asking for authorization status leads
+to an unauthorized HTTP reply.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/authentication</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OmhlbGxvd29ybGQ=</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">401:</code></strong></span> <code class="literal">Unauthorized</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">WWW-Authenticate:</code></strong></span> <code class="literal">None</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "errors" : [ {
+    "message" : "Invalid authorization token supplied.",
+    "code" : "Neo.ClientError.Security.AuthorizationFailed"
+  } ]
+}</pre>
+</section>
+</section>
+<section class="section" id="rest-api-security-password"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Password Management</h3></div></div></div>
+
+<section class="section" id="rest-api-required-password-changes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Required password changes</h4></div></div></div>
+
+<p>In some cases, like the very first time you access Neo4j with authorization enabled, you are required to choose
+a new password. The database will signal that a new password is required when you try to authenticate.</p>
+<p>See <a class="xref" href="rest-api-security.html#rest-api-changing-your-password" title="Changing your password">the section called “Changing your password”</a> for how to set a new password.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/authentication</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password" : "neo4j"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : true
+}</pre>
+</section>
+<section class="section" id="rest-api-changing-your-password"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Changing your password</h4></div></div></div>
+
+<p>Given that you know the current password, you can ask the server to change a users password. You can choose any
+password you like, as long as it is different from the current password.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/user/neo4j/password</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "password" : "secret",
+  "new_password" : "qwerty"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : false,
+  "authorization_token" : "7b298d4fc8f3905d3c7a3b5498aec57c",
+  "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
+}</pre>
+</section>
+</section>
+<section class="section" id="rest-api-security-status"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Authorization Status</h3></div></div></div>
+
+<section class="section" id="rest-api-get-current-authorization-status"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Get current authorization status</h4></div></div></div>
+
+<p>You can use this endpoint to determine if security is enabled, and to check if your authorization token is valid.</p>
+<p>Given that you have a valid authorization token, you can retrieve metadata about the current user from the authentication endpoint.
+If neo4j security is disabled, this endpoint will also return 200 OK, see <a class="xref" href="rest-api-security.html#rest-api-get-authorization-status-when-authorization-is-disabled" title="Get authorization status when authorization is disabled">the section called “Get authorization status when authorization is disabled”</a>.
+If security is enabled and your token is invalid, you will get an error reply, see <a class="xref" href="rest-api-security.html#rest-api-attempting-to-get-authorization-status-while-unauthorized" title="Attempting to get authorization status while unauthorized">the section called “Attempting to get authorization status while unauthorized”</a>.
+This way, you can use this endpoint to determine if you need to acquire an authorization token.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/authentication</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OjcyMGYwYjUyM2I4MGM0YWRkODk0ZDY4ZWNjNmRjN2Ux</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "neo4j",
+  "password_change" : "http://localhost:7474/user/neo4j/password",
+  "password_change_required" : true,
+  "authorization_token" : "720f0b523b80c4add894d68ecc6dc7e1",
+  "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
+}</pre>
+</section>
+<section class="section" id="rest-api-get-authorization-status-when-authorization-is-disabled"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Get authorization status when authorization is disabled</h4></div></div></div>
+
+<p>Given that authorization is disabled in the configuration, you can perform a GET to the authentication endpoint, and will
+get back an OK response. You will not receive a username or authorization token.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/authentication</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+</section>
+<section class="section" id="rest-api-incorrect-username-or-password"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Incorrect username or password</h3></div></div></div>
+
+<p>If you provide incorrect authentication credentials, the server replies with a an error.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/authentication</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "username" : "bob",
+  "password" : "incorrect"
+}</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">422:</code></strong></span> <code class="literal">Unprocessable Entity</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "errors" : [ {
+    "message" : "Invalid username and/or password.",
+    "code" : "Neo.ClientError.Security.AuthenticationFailed"
+  } ]
+}</pre>
+</section>
+<section class="section" id="rest-api-security-copy-config"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Copying security configuration from one instance to another</h3></div></div></div>
+
+<p>In many cases, such as automated deployments, you may want to start a Neo4j instance with pre-configured authentication and authorization.
+This is possible by copying the authentication database file from a pre-existing Neo4j instance to your new instance.</p>
+<p>By default, this file is located at <span class="emphasis"><em>data/dbms/auth.db</em></span>, and simply copying that file into a new neo4j instance will transfer your password and authorization token.</p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
