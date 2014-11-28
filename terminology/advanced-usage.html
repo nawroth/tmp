@@ -1,0 +1,111 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Advanced Usage -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="contributors.html" title="33.6. Contributors" /><link rel="next" href="server-extending.html" title="Chapter 34. Extending the Neo4j Server" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Advanced Usage" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-72590";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Advanced Usage</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="contributors.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-extending.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><div class="part" id="advanced-usage"><div xmlns="" class="titlepage"><div><div><h1 xmlns="http://www.w3.org/1999/xhtml" class="title">Advanced Usage</h1></div></div></div>
+
+<div class="partintro" id="d5e29250"><div xmlns=""></div>
+<p>This part contains information on advanced usage of Neo4j.
+Among the topics covered are embedding Neo4j in your own software and writing plugins for the Neo4j Server.</p>
+<p>You might want to keep the <a class="ulink" href="javadocs/" target="_blank">Neo4j JavaDocs</a> handy while reading!</p>
+<div class="toc"><p><strong>Table of Contents</strong></p><ul class="toc"><li><span class="chapter"><a href="server-extending.html">34. Extending the Neo4j Server</a></span><ul><li><span class="section"><a href="server-plugins.html">34.1. Server Plugins</a></span></li><li><span class="section"><a href="server-unmanaged-extensions.html">34.2. Unmanaged Extensions</a></span></li><li><span class="section"><a href="_testing_your_extension.html">34.3. Testing your extension</a></span></li><li><span class="section"><a href="plugins-extensions-desktop.html">34.4. Installing Plugins and Extensions in Neo4j Desktop</a></span></li></ul></li><li><span class="chapter"><a href="tutorials-java-embedded.html">35. Using Neo4j embedded in Java applications</a></span><ul><li><span class="section"><a href="tutorials-java-embedded-setup.html">35.1. Include Neo4j in your project</a></span></li><li><span class="section"><a href="tutorials-java-embedded-hello-world.html">35.2. Hello World</a></span></li><li><span class="section"><a href="tutorials-java-embedded-new-index.html">35.3. User database with indexes</a></span></li><li><span class="section"><a href="tutorials-java-embedded-index.html">35.4. User database with legacy index</a></span></li><li><span class="section"><a href="tutorials-java-embedded-resource-iteration.html">35.5. Managing resources when using long running transactions</a></span></li><li><span class="section"><a href="tutorials-java-unit-testing.html">35.6. Basic unit testing</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html">35.7. Traversal</a></span></li><li><span class="section"><a href="tutorials-java-embedded-entities.html">35.8. Domain entities</a></span></li><li><span class="section"><a href="tutorials-java-embedded-graph-algo.html">35.9. Graph Algorithm examples</a></span></li><li><span class="section"><a href="tutorials-java-embedded-jmx.html">35.10. Reading a management attribute</a></span></li><li><span class="section"><a href="tutorials-java-embedded-unique-nodes.html">35.11. How to create unique nodes</a></span></li><li><span class="section"><a href="tutorials-java-embedded-tx-terminate.html">35.12. Terminating a running transaction</a></span></li><li><span class="section"><a href="tutorials-cypher-java.html">35.13. Execute Cypher Queries from Java</a></span></li><li><span class="section"><a href="tutorials-cypher-parameters-java.html">35.14. Query Parameters</a></span></li></ul></li><li><span class="chapter"><a href="tutorial-traversal.html">36. The Traversal Framework</a></span><ul><li><span class="section"><a href="tutorial-traversal-concepts.html">36.1. Main concepts</a></span></li><li><span class="section"><a href="tutorial-traversal-java-api.html">36.2. Traversal Framework Java API</a></span></li></ul></li><li><span class="chapter"><a href="indexing.html">37. Legacy Indexing</a></span><ul><li><span class="section"><a href="indexing-introduction.html">37.1. Introduction</a></span></li><li><span class="section"><a href="indexing-create.html">37.2. Create</a></span></li><li><span class="section"><a href="indexing-delete.html">37.3. Delete</a></span></li><li><span class="section"><a href="indexing-add.html">37.4. Add</a></span></li><li><span class="section"><a href="indexing-remove.html">37.5. Remove</a></span></li><li><span class="section"><a href="indexing-update.html">37.6. Update</a></span></li><li><span class="section"><a href="indexing-search.html">37.7. Search</a></span></li><li><span class="section"><a href="indexing-relationships.html">37.8. Relationship indexes</a></span></li><li><span class="section"><a href="indexing-scores.html">37.9. Scores</a></span></li><li><span class="section"><a href="indexing-create-advanced.html">37.10. Configuration and fulltext indexes</a></span></li><li><span class="section"><a href="indexing-lucene-extras.html">37.11. Extra features for Lucene indexes</a></span></li><li><span class="section"><a href="auto-indexing.html">37.12. Automatic Indexing</a></span></li></ul></li><li><span class="chapter"><a href="batchinsert.html">38. Batch Insertion</a></span><ul><li><span class="section"><a href="batchinsert-examples.html">38.1. Batch Inserter Examples</a></span></li><li><span class="section"><a href="indexing-batchinsert.html">38.2. Index Batch Insertion</a></span></li></ul></li></ul></div></div>
+
+
+
+
+
+</div>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>3.7. Schema -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="graphdb-neo4j-traversal.html" title="3.6. Traversal" /><link rel="next" href="tutorials.html" title="Tutorials" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="3.7. Schema" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-72590";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>3.7. Schema</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="graphdb-neo4j-traversal.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="graphdb-neo4j.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="graphdb-neo4j-schema"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">3.7. Schema</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="graphdb-neo4j-schema.html#graphdb-neo4j-schema-indexes">Indexes</a></span></li><li><span class="section"><a href="graphdb-neo4j-schema.html#graphdb-neo4j-schema-constraints">Constraints</a></span></li></ul></div>
+
+<p>Neo4j is a schema-optional graph database. You can use Neo4j without any schema.  Optionally you can introduce it in
+order to gain performance or modeling benefits. This allows a way of working where the schema does not get in your way
+until you are at a stage where you want to reap the benefits of having one.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Schema commands can only be applied on the master machine in a Neo4j cluster (see <a class="xref" href="ha.html" title="Chapter 25. High Availability">Chapter 25, <em>High Availability</em></a>).
+If you apply them on a slave you will receive a <code class="literal">Neo.ClientError.Transaction.InvalidType</code> error code. (see <a class="xref" href="status-codes.html" title="21.2. Neo4j Status Codes">Section 21.2, “Neo4j Status Codes”</a>)</p></td></tr></table></div>
+<section class="section" id="graphdb-neo4j-schema-indexes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Indexes</h3></div></div></div>
+
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This feature was introduced in Neo4j 2.0, and is not the same as the legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 37. Legacy Indexing">Chapter 37, <em>Legacy Indexing</em></a>).</p></td></tr></table></div>
+<p>Performance is gained by creating indexes, which improve the speed of looking up nodes in the database.
+Once you’ve specified which properties to index, Neo4j will make sure your indexes are kept up to date as your graph evolves.
+Any operation that looks up nodes by the newly indexed properties will see a significant performance boost.</p>
+<p>Indexes in Neo4j are <span class="emphasis"><em>eventually available</em></span>. That means that when you first create an index, the operation returns immediately.
+The index is <span class="strong"><strong>populating</strong></span> in the background and so is not immediately available for querying.
+When the index has been fully populated it will eventually come <span class="strong"><strong>online</strong></span>. That means that it is now ready to be used in
+queries.</p>
+<p>If something should go wrong with the index, it can end up in a <span class="strong"><strong>failed</strong></span> state. When it is failed, it will not be used
+to speed up queries. To rebuild it, you can drop and recreate the index. Look at logs for clues about the failure.</p>
+<p>You can track the status of your index by asking for the index state through the API you are using.
+Note, however, that this is not yet possible through Cypher.</p>
+<p>How to use indexes in the different APIs:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Cypher: <a class="xref" href="query-schema-index.html" title="13.1. Indexes">Section 13.1, “Indexes”</a>
+
+</li><li class="listitem">
+
+REST API: <a class="xref" href="rest-api-schema-indexes.html" title="21.15. Indexing">Section 21.15, “Indexing”</a>
+
+</li><li class="listitem">
+
+Listing Indexes via Shell: <a class="xref" href="shell-commands.html#shell-listing-indexes-and-constraints" title="Listing Indexes and Constraints">the section called “Listing Indexes and Constraints”</a>
+
+</li><li class="listitem">
+
+Java Core API: <a class="xref" href="tutorials-java-embedded-new-index.html" title="35.3. User database with indexes">Section 35.3, “User database with indexes”</a>
+
+</li></ul></div>
+</section>
+<section class="section" id="graphdb-neo4j-schema-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Constraints</h3></div></div></div>
+
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This feature was introduced in Neo4j 2.0.</p></td></tr></table></div>
+<p>Neo4j can help you keep your data clean. It does so using constraints, that allow you to specify the rules for what
+your data should look like. Any changes that break these rules will be denied.</p>
+<p>In this version, unique constraints is the only available constraint type.</p>
+<p>How to use constraints in the different APIs:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Cypher: <a class="xref" href="query-constraints.html" title="13.2. Constraints">Section 13.2, “Constraints”</a>
+
+</li><li class="listitem">
+
+REST API: <a class="xref" href="rest-api-schema-constraints.html" title="21.16. Constraints">Section 21.16, “Constraints”</a>
+
+</li><li class="listitem">
+
+Listing Constraints via Shell: <a class="xref" href="shell-commands.html#shell-listing-indexes-and-constraints" title="Listing Indexes and Constraints">the section called “Listing Indexes and Constraints”</a>
+
+</li></ul></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

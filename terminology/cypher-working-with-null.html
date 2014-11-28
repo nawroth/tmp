@@ -1,0 +1,165 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>8.10. Working with NULL -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="syntax-collections.html" title="8.9. Collections" /><link rel="next" href="query-general.html" title="Chapter 9. General Clauses" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.10. Working with NULL" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-72590";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>8.10. Working with NULL</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="syntax-collections.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-syntax.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-general.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-working-with-null"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">8.10. Working with NULL</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-working-with-null.html#_introduction_to_null_in_cypher">Introduction to NULL in Cypher</a></span></li><li><span class="section"><a href="cypher-working-with-null.html#_logical_operations_with_null">Logical operations with NULL</a></span></li><li><span class="section"><a href="cypher-working-with-null.html#_the_in_operator_and_null">The IN operator and NULL</a></span></li><li><span class="section"><a href="cypher-working-with-null.html#_expressions_that_return_null">Expressions that return NULL</a></span></li></ul></div>
+
+<section class="section" id="_introduction_to_null_in_cypher"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Introduction to NULL in Cypher</h3></div></div></div>
+
+<p>In Cypher, <code class="literal">NULL</code> is used to represent missing or undefined values.
+Conceptually, <code class="literal">NULL</code> means “a missing unknown value” and it is treated somewhat differently from other values.
+For example getting a property from a node that does not have said property produces <code class="literal">NULL</code>.
+Most expressions that take <code class="literal">NULL</code> as input will produce <code class="literal">NULL</code>.
+This includes boolean expressions that are used as predicates in the <code class="literal">WHERE</code> clause.
+In this case, anything that is not <code class="literal">TRUE</code> is interpreted as being false.</p>
+<p><code class="literal">NULL</code> is not equal to <code class="literal">NULL</code>.
+Not knowing two values does not imply that they are the same value.
+So the expression <code class="literal">NULL</code> = <code class="literal">NULL</code> yields <code class="literal">NULL</code> and not <code class="literal">TRUE</code>.</p>
+</section>
+<section class="section" id="_logical_operations_with_null"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Logical operations with NULL</h3></div></div></div>
+
+<p>The logical operators (<code class="literal">AND</code>, <code class="literal">OR</code>, <code class="literal">XOR</code>, <code class="literal">IN</code>, <code class="literal">NOT</code>) treat <code class="literal">NULL</code> as the “unknown” value of three-valued logic.
+Here is the truth table for <code class="literal">AND</code>, <code class="literal">OR</code> and <code class="literal">XOR</code>.</p>
+<div class="informaltable">
+
+
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>a </th><th> b </th><th> a <code class="literal">AND</code> b </th><th> a <code class="literal">OR</code> b </th><th> a <code class="literal">XOR</code> b</th></tr></thead><tbody><tr><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">FALSE</code></p></td></tr><tr><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">TRUE</code></p></td></tr><tr><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">TRUE</code></p></td></tr><tr><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">FALSE</code></p></td></tr><tr><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">FALSE</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">NULL</code></p></td><td><p><code class="literal">TRUE</code></p></td><td><p><code class="literal">NULL</code></p></td></tr></tbody></table>
+</div>
+</section>
+<section class="section" id="_the_in_operator_and_null"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">The IN operator and NULL</h3></div></div></div>
+
+<p>The <code class="literal">IN</code> operator follows similar logic.
+If Cypher knows that something exists in a collection, the result will be <code class="literal">TRUE</code>.
+Any collection that contains a <code class="literal">NULL</code> and doesn’t have a matching element will return <code class="literal">NULL</code>.
+Otherwise, the result will be false.
+Here is a table with examples:</p>
+<div class="informaltable">
+
+
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Expression  </th><th> Result</th></tr></thead><tbody><tr><td><p>2 IN [1, 2, 3]</p></td><td><p><code class="literal">TRUE</code></p></td></tr><tr><td><p>2 IN [1, <code class="literal">NULL</code>, 3]</p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p>2 IN [1, 2, <code class="literal">NULL</code>]</p></td><td><p><code class="literal">TRUE</code></p></td></tr><tr><td><p>2 IN [1]</p></td><td><p><code class="literal">FALSE</code></p></td></tr><tr><td><p>2 IN []</p></td><td><p><code class="literal">FALSE</code></p></td></tr><tr><td><p><code class="literal">NULL</code> IN [1,2,3]</p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p><code class="literal">NULL</code> IN [1,<code class="literal">NULL</code>,3]</p></td><td><p><code class="literal">NULL</code></p></td></tr><tr><td><p><code class="literal">NULL</code> IN []</p></td><td><p><code class="literal">FALSE</code></p></td></tr></tbody></table>
+</div>
+<p>Using <code class="literal">ALL</code>, <code class="literal">ANY</code>, <code class="literal">NONE</code>, and <code class="literal">SINGLE</code> follows a similar rule.
+If the result can be calculated definitely, <code class="literal">TRUE</code> or <code class="literal">FALSE</code> is returned.
+Otherwise <code class="literal">NULL</code> is produced.</p>
+</section>
+<section class="section" id="_expressions_that_return_null"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Expressions that return NULL</h3></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Getting a missing element from a collection: <code class="literal">[][0]</code>, <code class="literal">head([])</code>
+
+</li><li class="listitem">
+
+Trying to access a property that does not exist on a node or relationship: <code class="literal">n.missingProperty</code>
+
+</li><li class="listitem">
+
+Comparisons when either side is <code class="literal">NULL</code>: <code class="literal"><code class="literal">1 &lt; NULL</code></code>
+
+</li><li class="listitem">
+
+Arithmetic expressions containing <code class="literal">NULL</code>: <code class="literal"><code class="literal">1 + NULL</code></code>
+
+</li><li class="listitem">
+
+Function calls where any arguments are <code class="literal">NULL</code>: <code class="literal">sin(NULL)</code>
+
+</li></ul></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

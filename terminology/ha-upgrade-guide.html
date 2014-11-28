@@ -1,0 +1,281 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>25.5. Upgrade of a Neo4j HA Cluster -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="arbiter-instances.html" title="25.4. Arbiter Instances" /><link rel="next" href="ha-setup-tutorial.html" title="25.6. High Availability setup tutorial" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.5. Upgrade of a Neo4j HA Cluster" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-72590";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.5. Upgrade of a Neo4j HA Cluster</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="arbiter-instances.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-setup-tutorial.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-upgrade-guide"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.5. Upgrade of a Neo4j HA Cluster</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-upgrade-guide.html#ha-standard-upgrade">Standard upgrade</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html#ha-rolling-upgrade">Rolling upgrade</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html#ha-downgrade">Downgrading</a></span></li></ul></div>
+
+<div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>Before attempting any of the upgrades described here, please
+<a class="link" href="operations-backup.html" title="Chapter 26. Backup">backup your database store!</a></p></td></tr></table></div>
+<p>To upgrade a Neo4j HA cluster to Neo4j 2.2-SNAPSHOT requires following
+a specific process that ensures the cluster remains consistent and all cluster
+instances are able to join and participate following their upgrade.</p>
+<p>Neo4j supports two approaches to HA cluster upgrades,
+the <a class="link" href="ha-upgrade-guide.html#ha-standard-upgrade" title="Standard upgrade">standard upgrade process</a> and the
+<a class="link" href="ha-upgrade-guide.html#ha-rolling-upgrade" title="Rolling upgrade">rolling upgrade process for zero downtime</a>.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>It is strongly recommended to follow the <a class="link" href="ha-upgrade-guide.html#ha-standard-upgrade" title="Standard upgrade">standard upgrade process</a> over the <a class="link" href="ha-upgrade-guide.html#ha-rolling-upgrade" title="Rolling upgrade">rolling upgrade process</a>, as
+it is much simpler and less likely to encounter issues.</p></td></tr></table></div>
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>After upgrade is complete, existing backups will not be suitable for updating
+via the <a class="link" href="operations-backup.html" title="Chapter 26. Backup">incremental online backup</a>. Please ensure that
+the first backup after upgrading uses an empty target directory, and thus
+performs a full backup.</p></td></tr></table></div>
+<section class="section" id="ha-standard-upgrade"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Standard upgrade</h3></div></div></div>
+
+<p>In order to perform a cluster upgrade to Neo4j 2.2-SNAPSHOT, you need to first
+upgrade the database store on a single instance, and then allow that store to
+propagate out to slaves.</p>
+<section class="section" id="_steps"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Steps</h4></div></div></div>
+
+<p>The following process is recommended:</p>
+<div class="itemizedlist"><p class="title"><strong>Backup</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Before anything else, <a class="link" href="operations-backup.html" title="Chapter 26. Backup">backup your database store!</a>
+
+</li></ul></div>
+<div class="itemizedlist"><p class="title"><strong>Shut down the cluster</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Shut down all instances. This is usually best done one instance after the
+  other, rather than all at once. It is also strongly recommended to shutdown
+  the master of the cluster last.
+
+</li></ul></div>
+<div class="orderedlist"><p class="title"><strong>Upgrade the database store on the previous master</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+
+Install Neo4j 2.2-SNAPSHOT on the previous master, keeping the database
+  store (typically <code class="literal">data/graph.db</code>) from the previous version.
+
+</li><li class="listitem">
+
+Disable HA in the configuration, by setting <code class="literal">org.neo4j.server.database.mode=SINGLE</code>.
+
+</li><li class="listitem">
+
+<a class="link" href="deployment-upgrading.html" title="23.4. Upgrading">Upgrade as described for a single instance of Neo4j</a> (this may involve configuring with <code class="literal">allow_store_upgrade=true</code>, as described in <a class="link" href="deployment-upgrading.html#explicit-upgrade" title="Explicit Store Upgrade">"Explicit Upgrades"</a>).
+
+</li><li class="listitem">
+
+Once upgraded, shut down Neo4j again.
+
+</li><li class="listitem">
+
+Re-enable HA in the configuration, by setting <code class="literal">org.neo4j.server.database.mode=HA</code> again.
+
+</li></ol></div>
+<div class="itemizedlist"><p class="title"><strong>Upgrade the slaves</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Install Neo4j 2.2-SNAPSHOT on all previous slaves <span class="strong"><strong>and remove their database store</strong></span> (typically <code class="literal">data/graph.db</code>). <span class="emphasis"><em>Slave should not be started with a previous store present.</em></span>
+
+</li></ul></div>
+<div class="orderedlist"><p class="title"><strong>Restart the cluster</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+
+Start the previous master instance.
+
+</li><li class="listitem">
+
+Start each slave, one after the other. Once joined, they will sync the store from the master instance.
+
+</li></ol></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>For larger databases, it is possible to manually copy the database store from
+the previous master <span class="emphasis"><em>after it has completed the upgrade</em></span> to the slaves before starting
+them. This will avoid the need for them to sync from the master at startup time.</p></td></tr></table></div>
+</section>
+</section>
+<section class="section" id="ha-rolling-upgrade"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Rolling upgrade</h3></div></div></div>
+
+<p>Upgrading a Neo4j cluster without disrupting its operation is referred to as a
+<span class="emphasis"><em>rolling upgrade</em></span>.</p>
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p><span class="strong"><strong>Neo4j 2.2-SNAPSHOT only supports rolling upgrades from Neo4j 2.0.x
+and previous Neo4j 2.1.x patch releases</strong></span>.</p></td></tr></table></div>
+<div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>It is not possible to downgrade a Neo4j cluster without downtime.</p></td></tr></table></div>
+<p>In order to perform a rolling upgrade to Neo4j 2.2-SNAPSHOT, you need to first
+upgrade the database store and then replace the database store of each cluster
+instance with the upgraded version, one at a time, with the cluster master done last.</p>
+<section class="section" id="_steps_2"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Steps</h4></div></div></div>
+
+<p>The following process is recommended:</p>
+<div class="itemizedlist"><p class="title"><strong>Backup</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Before anything else, <a class="link" href="operations-backup.html" title="Chapter 26. Backup">backup your database store!</a>
+
+</li></ul></div>
+<div class="itemizedlist"><p class="title"><strong>Upgrade a single database store</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<p class="simpara">
+Perform upgrade, using one slave instance to do so:
+</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+Shut down a single slave instance.
+
+</li><li class="listitem">
+
+Install Neo4j 2.2-SNAPSHOT on that instance, keeping the database store (typically <code class="literal">data/graph.db</code>) from the previous version.
+
+</li><li class="listitem">
+
+Disable HA in the configuration, by setting <code class="literal">org.neo4j.server.database.mode=SINGLE</code>.
+
+</li><li class="listitem">
+
+<a class="link" href="deployment-upgrading.html" title="23.4. Upgrading">Upgrade as described for a single instance of Neo4j</a>. This may involve configuring with <code class="literal">allow_store_upgrade=true</code>, as described in <a class="link" href="deployment-upgrading.html#explicit-upgrade" title="Explicit Store Upgrade">"Explicit Upgrades"</a>).
+
+</li><li class="listitem">
+
+Once upgraded, shut down Neo4j again.
+
+</li><li class="listitem">
+
+Copy the upgraded database store (typically <code class="literal">data/graph.db</code>) to a separate location.
+
+</li></ol></div>
+</li></ul></div>
+<div class="admonitionblock Warning"><table><tr><td class="icon"><img alt="[Warning]" src="images/icons/admon/warning.svg" /></td><td class="content"><b>Warning</b><p>You <span class="strong"><strong>must</strong></span> also ensure any external application will not attempt to access this
+instance whilst it performs the upgrade in <code class="literal">SINGLE</code> mode. You should either
+disable access externally (e.g. in the load balancer), or by reconfiguring the
+port Neo4j will listen on, such that it cannot be found
+(e.g. temporarily set <code class="literal">org.neo4j.server.webserver.port=7470</code>).</p></td></tr></table></div>
+<div class="orderedlist"><p class="title"><strong>Rejoin the slave to the cluster:</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+
+Re-enable HA in the configuration (setting <code class="literal">org.neo4j.server.database.mode=HA</code>). Also restore any webserver port changes.
+
+</li><li class="listitem">
+
+Start up, and allow to join the cluster.
+
+</li></ol></div>
+<div class="itemizedlist"><p class="title"><strong>Upgrade remaining slaves</strong></p><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<p class="simpara">
+Repeat for each remaining slave:
+</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+Shut down the slave.
+
+</li><li class="listitem">
+
+Replace the entire database store directory (typically <code class="literal">data/graph.db</code>) with the upgraded copy.
+
+</li><li class="listitem">
+
+Start up slave, allow to join the cluster and sync any new transactions.
+
+</li></ol></div>
+</li></ul></div>
+<div class="orderedlist"><p class="title"><strong>Upgrade the master</strong></p><ol class="orderedlist" type="1"><li class="listitem">
+
+Shut down the master
+
+</li><li class="listitem">
+
+Wait for failover to occur to one of the slaves.
+
+</li><li class="listitem">
+
+Replace the entire database store directory (typically <code class="literal">data/graph.db</code>) with the upgraded copy.
+
+</li><li class="listitem">
+
+Start up the old master, and allow to join the cluster. It will now be a slave.
+
+</li></ol></div>
+<p>Your entire cluster has now been completely upgraded to Neo4j 2.2-SNAPSHOT.</p>
+</section>
+</section>
+<section class="section" id="ha-downgrade"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Downgrading</h3></div></div></div>
+
+<p>Downgrade is only supported between Neo4j versions that <a class="link" href="deployment-upgrading.html" title="23.4. Upgrading">for automatic upgrades</a>. This typically means only within patch releases of the same Neo4j version.</p>
+<p>Downgrade follows the same process as for <a class="link" href="ha-upgrade-guide.html#ha-standard-upgrade" title="Standard upgrade">standard upgrade</a>.</p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

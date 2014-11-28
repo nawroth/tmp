@@ -1,0 +1,411 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Terminology -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-batchinsert.html" title="38.2. Index Batch Insertion" /><link rel="next" href="manpages.html" title="Appendix A. Manpages" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Terminology" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-72590";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Terminology</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing-batchinsert.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="manpages.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="glossary" id="terminology"><div xmlns="" class="titlepage"><div><div><h1 xmlns="http://www.w3.org/1999/xhtml" class="title">Terminology</h1></div></div></div><p>Cypher is a special-purpose programming language for describing queries and operations on a graph database, with accompanying natural language concepts.
+This section defines the usage of technical terminology about graph databases.</p><p>An asterisk (*) to the right of a term — in cases where there are multiple terms for the same or similar concept — indicates the term used for Neo4j and Cypher.</p><dl><dt><span class="glossterm">
+<span id="term-acyclic"></span>acyclic
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>for a graph or subgraph:</em></span> when there is no way to start at some node <code class="literal">n</code> and  follow a sequence of adjacent relationships that eventually loops back to <code class="literal">n</code> again.
+The opposite of <a class="link" href="terminology.html#term-cyclic">cyclic</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-adjacent"></span>adjacent
+</span></dt><dd class="glossdef"><p>
+nodes sharing an incident relationship or edges sharing an incident node.
+</p></dd><dt><span class="glossterm">
+<span id="term-aggregating-expression"></span>aggregating expression
+</span></dt><dd class="glossdef"><p>
+expression that summarizes a set of values, like computing their sum or their maximum.
+</p></dd><dt><span class="glossterm">
+<span id="term-arc"></span>arc
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>graph theory:</em></span> an ordered pair of nodes.
+Also known as a directed relationship.
+See <a class="link" href="terminology.html#term-relationship">relationship</a> and <a class="link" href="terminology.html#term-edge">edge</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-array"></span>array
+</span></dt><dd class="glossdef"><p>
+container that holds a number of elements.
+The element types can be the types supported by the underlying graph storage, and all elements must be of the same type.
+</p></dd><dt><span class="glossterm">
+<span id="term-attribute"></span>attribute
+</span></dt><dd class="glossdef"><p>
+Synonym for <a class="link" href="terminology.html#term-property">property</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-clause"></span>clause
+</span></dt><dd class="glossdef"><p>
+larger constituent components of queries and commands that start with identifying keywords.
+The following clauses exist in Cypher: <code class="literal">UNION</code>, <code class="literal">START</code>, <code class="literal">MATCH</code>, <code class="literal">OPTIONAL MATCH</code>, <code class="literal">FOREACH</code>, <code class="literal">CREATE</code>, <code class="literal">MERGE</code>, <code class="literal">CREATE UNIQUE</code>, <code class="literal">SET</code>, <code class="literal">REMOVE</code>, <code class="literal">DELETE</code>, <code class="literal">WITH</code>, <code class="literal">RETURN</code> and <code class="literal">LOAD CSV</code>.
+</p></dd><dt><span class="glossterm">
+<span id="term-co-incident"></span>co-incident
+</span></dt><dd class="glossdef"><p>
+alternative term for adjacent relationships, which share a common node.
+</p></dd><dt><span class="glossterm">
+<span id="term-collection"></span>collection
+</span></dt><dd class="glossdef"><p>
+container that holds a number of values.
+The values can have mixed types.
+</p></dd><dt><span class="glossterm">
+<span id="term-command"></span>command
+</span></dt><dd class="glossdef"><p>
+a statement that operates on the database without affecting the data graph or returning content from it.
+</p></dd><dt><span class="glossterm">
+<span id="term-commit"></span>commit
+</span></dt><dd class="glossdef"><p>
+successful completion of query execution that may result in a commit of the containing transaction, ensuring durability of any changes made and guaranteeing correctness of the result.
+</p></dd><dt><span class="glossterm">
+<span id="term-constraint"></span>constraint
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>part of a database schema:</em></span>
+defines a contract that the database will never break, such as uniqueness of a property on all nodes with a specific label on them.
+</p></dd><dt><span class="glossterm">
+<span id="term-cyclic"></span>cyclic
+</span></dt><dd class="glossdef"><p>
+The opposite of <a class="link" href="terminology.html#term-acyclic">acyclic</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-dag"></span>DAG
+</span></dt><dd class="glossdef"><p>
+this is a <span class="emphasis"><em>directed, acyclic</em></span> Graph:
+there are no <span class="emphasis"><em>cyclic paths</em></span> and all the <span class="emphasis"><em>relationships</em></span> are <span class="emphasis"><em>directed.</em></span>
+</p></dd><dt><span class="glossterm">
+<span id="term-data-graph"></span>data graph
+</span></dt><dd class="glossdef"><p>
+graph that is stored in the database.
+See also <a class="link" href="terminology.html#term-property-graph">property graph</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-data-record"></span>data record
+</span></dt><dd class="glossdef"><p>
+a unit of storage containing an arbitrary unordered collection of properties.
+</p></dd><dt><span class="glossterm">
+<span id="term-degree"></span>degree
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>of a node:</em></span> is the number of relationships leaving or entering (if directed) the node;
+loops are counted twice.
+</p></dd><dt><span class="glossterm">
+<span id="term-directed-relationship"></span>directed relationship
+</span></dt><dd class="glossdef"><p>
+a relationship which has a direction; that is the relationship has a source node and a destination node.
+The opposite of an <a class="link" href="terminology.html#term-undirected-relationship">undirected relationship</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-edge"></span>edge
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>graph theory:</em></span> an unordered pair of vertices that are adjacent in a graph.
+See <a class="link" href="terminology.html#term-relationship">relationship</a> and <a class="link" href="terminology.html#term-arc">arc</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-execution-plan"></span>execution plan
+</span></dt><dd class="glossdef"><p>
+statement that is parsed and compiled, ready to execute.
+An execution plan consists of the physical operations which need to be performed in order to achieve the intent of the statement.
+</p></dd><dt><span class="glossterm">
+<span id="term-execution-result"></span>execution result
+</span></dt><dd class="glossdef"><p>
+all statements return an execution result.
+For queries, it can contain an iterator of result rows.
+</p></dd><dt><span class="glossterm">
+<span id="term-expression"></span>expression
+</span></dt><dd class="glossdef"><p>
+produce values, and are used in <span class="emphasis"><em>projections,</em></span> as <span class="emphasis"><em>predicates</em></span> or when setting <span class="emphasis"><em>properties</em></span> on graph elements.
+</p></dd><dt><span class="glossterm">
+<span id="term-graph"></span>graph
+</span></dt><dd class="glossdef"><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+data graph,
+
+</li><li class="listitem">
+
+property graph,
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>graph theory:</em></span> set of vertices and edges.
+
+</li></ol></div></dd><dt><span class="glossterm">
+<span id="term-graph-database"></span>graph database
+</span></dt><dd class="glossdef"><p>
+a database that uses graph structures with nodes, relationships, and properties to represent and store data.
+</p></dd><dt><span class="glossterm">
+<span id="term-graph-element"></span>graph element
+</span></dt><dd class="glossdef"><p>
+node or relationship which is part of a graph.
+</p></dd><dt><span class="glossterm">
+<span id="term-identifier"></span>identifier
+</span></dt><dd class="glossdef"><p>
+identifiers are named bindings to values in a statement (scalar values or collections).
+For example, in <code class="literal">MATCH n RETURN n</code>, <code class="literal">n</code> is an identifier.
+</p></dd><dt><span class="glossterm">
+<span id="term-incident"></span>incident
+</span></dt><dd class="glossdef"><p>
+adjacent relationship attached to a node or a node attached to a relationship.
+</p></dd><dt><span class="glossterm">
+<span id="term-incoming-relationship"></span>incoming relationship
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>pertaining to a <a class="link" href="terminology.html#term-directed-relationship">directed relationship</a>:</em></span> from the point of view of a node <code class="literal">n</code>, this is any relationship <code class="literal">r</code> arriving at <code class="literal">n</code>, exemplified by <code class="literal">()-[:r]-&gt;(n)</code>.
+The opposite of <a class="link" href="terminology.html#term-outgoing-relationship">outgoing</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-index"></span>index
+</span></dt><dd class="glossdef"><p>
+data structure that improves performance of a database by redundantly storing the same information in a way that is faster to read.
+</p></dd><dt><span class="glossterm">
+<span id="term-intermediate-result"></span>intermediate result
+</span></dt><dd class="glossdef"><p>
+set of identifiers and values (record) passed from one clause to another during query execution, internal to the execution of a given query.
+</p></dd><dt><span class="glossterm">
+<span id="term-label"></span>label
+</span></dt><dd class="glossdef"><p>
+marks a node as a member of a named subset.
+Nodes may be assigned zero or more labels.
+Labels are written as <code class="literal">:label</code> in Cypher (the actual label prefixed by a colon).
+Note: <span class="emphasis"><em>graph theory:</em></span>
+This differs from mathematical graphs, where a label applies uniquely to a single vertex.
+</p></dd><dt><span class="glossterm">
+<span id="term-neighbor"></span>neighbor
+</span></dt><dd class="glossdef"><p>
+adjacent node or adjacent relationship.
+</p></dd><dt><span class="glossterm">
+<span id="term-node"></span>node*
+</span></dt><dd class="glossdef"><p>
+data record within a data graph which contains an arbitrary collection of properties.
+nodes may optionally have one or more labels and are optionally connected by relationships.
+Similar to <a class="link" href="terminology.html#term-vertex">vertex</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-null"></span>null
+</span></dt><dd class="glossdef"><p>
+<code class="literal">NULL</code> is a special marker used to indicate that a data item does not exist in the graph or that the value of an expression is unknown or nonsensical.
+</p></dd><dt><span class="glossterm">
+<span id="term-operator"></span>operator
+</span></dt><dd class="glossdef"><p>
+there are three categories of operators:
+</p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+<span class="emphasis"><em>Arithmetic,</em></span> such as <code class="literal">+</code>, <code class="literal">/</code>, <code class="literal">%</code> etc;
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>Logical,</em></span> such as <code class="literal">OR</code>, <code class="literal">AND</code>, <code class="literal">NOT</code> etc; and
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>Comparison,</em></span> such as <code class="literal">&lt;</code>, <code class="literal">&gt;</code>, <code class="literal">=</code> etc.
+
+</li></ol></div></dd><dt><span class="glossterm">
+<span id="term-outgoing-relationship"></span>outgoing relationship
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>pertaining to a <a class="link" href="terminology.html#term-directed-relationship">directed relationship</a>:</em></span>  from the point of view of a node <code class="literal">n</code>, this is any relationship <code class="literal">r</code> leaving <code class="literal">n</code>, exemplified by <code class="literal">(n)-[:r]-&gt;()</code>.
+The opposite of <a class="link" href="terminology.html#term-incoming-relationship">incoming relationship</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-parameter"></span>parameter
+</span></dt><dd class="glossdef"><p>
+named value provided when running a statement.
+Parameters allow Cypher to efficiently share execution plans without having to parse and recompile every statement when only a literal value changes.
+</p></dd><dt><span class="glossterm">
+<span id="term-path"></span>path
+</span></dt><dd class="glossdef"><p>
+collection of alternating nodes and relationships that corresponds to a walk in the graph.
+</p></dd><dt><span class="glossterm">
+<span id="term-pattern-graph"></span>pattern graph
+</span></dt><dd class="glossdef"><p>
+graph used to express the shape of the data being searched for in the data graph.
+</p></dd><dt><span class="glossterm">
+<span id="term-peer"></span>peer
+</span></dt><dd class="glossdef"><p>
+relationships with the same type or nodes sharing a common label
+</p></dd><dt><span class="glossterm">
+<span id="term-predicate"></span>predicate
+</span></dt><dd class="glossdef"><p>
+expression that returns <code class="literal">TRUE</code>, <code class="literal">FALSE</code> or <code class="literal">NULL</code>.
+When used in <code class="literal">WHERE</code>, <code class="literal">NULL</code> is treated as <code class="literal">FALSE</code>.
+</p></dd><dt><span class="glossterm">
+<span id="term-projection"></span>projection
+</span></dt><dd class="glossdef"><p>
+an operation taking a <a class="link" href="terminology.html#term-result-row">result row</a> as input to produce an output result row, which may be a subset of the identifiers provided in the input, a calculation based on single or multiple identifiers in the input, or both.
+The relevant clauses are <code class="literal">WITH</code> and <code class="literal">RETURN</code>.
+</p></dd><dt><span class="glossterm">
+<span id="term-property-graph"></span>property graph
+</span></dt><dd class="glossdef"><p>
+a graph having directed, typed relationships and where the nodes and relationships may have zero or more associated properties.
+</p></dd><dt><span class="glossterm">
+<span id="term-property"></span>property*
+</span></dt><dd class="glossdef"><p>
+named value stored in a node or relationship.
+Synonym for <a class="link" href="terminology.html#term-attribute">attribute</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-query"></span>query
+</span></dt><dd class="glossdef"><p>
+statement that reads or writes data from the database
+</p></dd><dt><span class="glossterm">
+<span id="term-regular-path"></span>regular path query
+</span></dt><dd class="glossdef"><p>
+a query whose path is expressed by a regular expression.
+</p></dd><dt><span class="glossterm">
+<span id="term-relationship-type"></span>relationship type
+</span></dt><dd class="glossdef"><p>
+name used to qualify a relationship
+For example in the pattern <code class="literal">(start)-[:TYPE]-&gt;(to)</code>, <code class="literal">TYPE</code> is the relationship type
+</p></dd><dt><span class="glossterm">
+<span id="term-relationship"></span>relationship*
+</span></dt><dd class="glossdef"><p>
+data record in a property graph which associates an ordered pair of nodes.
+Similar to <a class="link" href="terminology.html#term-edge">edge</a> and <a class="link" href="terminology.html#term-arc">arc</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-result-row"></span>result row
+</span></dt><dd class="glossdef"><p>
+each query returns an iterator of result rows.
+They represent the result of executing the query.
+Each result row is a set of key-value pairs (a record).
+</p></dd><dt><span class="glossterm">
+<span id="term-rollback"></span>rollback
+</span></dt><dd class="glossdef"><p>
+abort of the containing transaction, effectively undoing any changes defined inside the transaction.
+</p></dd><dt><span class="glossterm">
+<span id="term-schema"></span>schema
+</span></dt><dd class="glossdef"><p>
+persistent database state that describes available indexes and enabled constraints for the data graph.
+</p></dd><dt><span class="glossterm">
+<span id="term-schema-command"></span>schema command
+</span></dt><dd class="glossdef"><p>
+statement that updates the schema.
+</p></dd><dt><span class="glossterm">
+<span id="term-statement"></span>statement
+</span></dt><dd class="glossdef"><p>
+string containing a Cypher query or command.
+</p></dd><dt><span class="glossterm">
+<span id="term-transaction"></span>transaction
+</span></dt><dd class="glossdef"><p>
+A transaction comprises a unit of work performed against a database, and treated in a coherent and reliable way independent of other transactions.
+A transaction, by definition, must be atomic, consistent, isolated and durable.
+</p></dd><dt><span class="glossterm">
+<span id="term-transitive-closure"></span>transitive closure
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>of a graph:</em></span> is a graph which contains a relationship from node <code class="literal">x</code> to node <code class="literal">y</code> whenever there is a directed path from <code class="literal">x</code> to <code class="literal">y</code>;
+For example if there is a relationship from <code class="literal">a</code> to <code class="literal">b</code>, and another from <code class="literal">b</code> to <code class="literal">c</code>, then there is a relationship from <code class="literal">a</code> to <code class="literal">c</code>.
+</p></dd><dt><span class="glossterm">
+<span id="term-type"></span>type
+</span></dt><dd class="glossdef"><p>
+types classify values.
+Each value in Cypher has a concrete type.
+Supported types are:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+string,
+
+</li><li class="listitem">
+
+boolean,
+
+</li><li class="listitem">
+
+the number types (double, integer, long),
+
+</li><li class="listitem">
+
+the map types (plain maps, nodes, and relationships),
+
+</li><li class="listitem">
+
+and collections of any concrete type.
+
+</li></ul></div><p>The type hierarchy also supports the any, scalar, derived map, and collection types to classify values and collections of values with different concrete types.</p></dd><dt><span class="glossterm">
+<span id="term-undirected-relationship"></span>undirected relationship
+</span></dt><dd class="glossdef"><p>
+a relationship which doesn’t have a direction.
+The opposite of <a class="link" href="terminology.html#term-directed-relationship">directed relationship</a>.
+</p></dd><dt><span class="glossterm">
+<span id="term-vertex"></span>vertex
+</span></dt><dd class="glossdef"><p>
+<span class="emphasis"><em>graph theory:</em></span> the fundamental unit used to form a mathematical graph (plural: vertices).
+See <a class="link" href="terminology.html#term-node">node</a>.
+</p></dd></dl></section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
