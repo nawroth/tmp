@@ -405,7 +405,7 @@ div.query-outer-wrapper {
   left: 0;
 }
 
-#content h3,#content h4,#content h5,#content h6, #content div.table[id] > p.title {
+#content h3,#content h4,#content h5,#content h6, #content div.table[id] > p.title, dt > span.glossterm {
   cursor: pointer;
 }
 
@@ -415,6 +415,14 @@ div.query-outer-wrapper {
   font-family: FontAwesome;
   font-size: .75em;
   content: "\00a0\f0c1";
+}
+
+#terminology dl.dl-horizontal dt {
+  width: 190px;
+}
+
+#terminology dl.dl-horizontal dd {
+  margin-left: 210px;
 }
 
 a.ulink[href^="http"]:after {
