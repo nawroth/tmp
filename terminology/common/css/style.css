@@ -418,11 +418,11 @@ div.query-outer-wrapper {
 }
 
 #terminology dl.dl-horizontal dt {
-  width: 190px;
+  width: 200px;
 }
 
 #terminology dl.dl-horizontal dd {
-  margin-left: 210px;
+  margin-left: 220px;
 }
 
 a.ulink[href^="http"]:after {
