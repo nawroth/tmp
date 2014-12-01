@@ -417,14 +417,6 @@ div.query-outer-wrapper {
   content: "\00a0\f0c1";
 }
 
-#terminology dl.dl-horizontal dt {
-  width: 200px;
-}
-
-#terminology dl.dl-horizontal dd {
-  margin-left: 220px;
-}
-
 a.ulink[href^="http"]:after {
   display: inline-block;
   font-family: FontAwesome;
