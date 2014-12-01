@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Terminology -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-batchinsert.html" title="38.2. Index Batch Insertion" /><link rel="next" href="manpages.html" title="Appendix A. Manpages" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Terminology" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72623";
+      var treeCookieId = "treeview-72629";
       var language = "en";
       var w = new Object();
       //Localization
@@ -227,17 +227,18 @@ This differs from mathematical graphs, where a label applies uniquely to a singl
 </p></dd><dt><span class="glossterm">
 <span id="term-neighbor"></span>neighbor
 </span></dt><dd class="glossdef"><p>
-adjacent node or adjacent relationship.
+<span class="emphasis"><em>of node:</em></span> another node with a relationship to the node;
+<span class="emphasis"><em>of relationship:</em></span> another relationship connected to a common node.
 </p></dd><dt><span class="glossterm">
 <span id="term-node"></span>node*
 </span></dt><dd class="glossdef"><p>
 data record within a data graph that contains an arbitrary collection of properties.
-Nodes may have one or more labels and are optionally connected by relationships.
+Nodes may have zero, one or more labels and are optionally connected by relationships.
 Similar to <a class="link" href="terminology.html#term-vertex">vertex</a>.
 </p></dd><dt><span class="glossterm">
 <span id="term-null"></span>null
 </span></dt><dd class="glossdef"><p>
-<code class="literal">NULL</code> is a special marker used to indicate that a data item does not exist in the graph or that the value of an expression is unknown or nonsensical.
+<code class="literal">NULL</code> is a special marker used to indicate that a data item does not exist in the graph or that the value of an expression is unknown or inapplicable.
 </p></dd><dt><span class="glossterm">
 <span id="term-operator"></span>operator
 </span></dt><dd class="glossdef"><p>
