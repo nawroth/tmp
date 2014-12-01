@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.9. Relationships -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-nodes.html" title="21.8. Nodes" /><link rel="next" href="rest-api-relationship-types.html" title="21.10. Relationship types" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.9. Relationships" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -87,7 +87,7 @@ See the examples below for more information.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/121</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/9</code>
 
 </li><li class="listitem">
 
@@ -106,14 +106,14 @@ See the examples below for more information.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/194",
-  "self" : "http://localhost:7474/db/data/relationship/121",
-  "property" : "http://localhost:7474/db/data/relationship/121/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/121/properties",
+  "start" : "http://localhost:7474/db/data/node/19",
+  "property" : "http://localhost:7474/db/data/relationship/9/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/9",
+  "properties" : "http://localhost:7474/db/data/relationship/9/properties",
   "type" : "know",
-  "end" : "http://localhost:7474/db/data/node/193",
+  "end" : "http://localhost:7474/db/data/node/18",
   "metadata" : {
-    "id" : 121,
+    "id" : 9,
     "type" : "know"
   },
   "data" : { }
@@ -256,7 +256,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/114</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/2</code>
 
 </li><li class="listitem">
 
@@ -281,7 +281,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/117/properties</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/5/properties</code>
 
 </li><li class="listitem">
 
@@ -318,7 +318,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/122/properties</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/10/properties</code>
 
 </li><li class="listitem">
 
@@ -350,7 +350,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/118/properties/cost</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/6/properties/cost</code>
 
 </li><li class="listitem">
 
@@ -384,7 +384,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/116/properties/cost</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/4/properties/cost</code>
 
 </li><li class="listitem">
 
@@ -414,7 +414,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/81/relationships/all</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/110/relationships/all</code>
 
 </li><li class="listitem">
 
@@ -432,42 +432,42 @@ returned.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "start" : "http://localhost:7474/db/data/node/81",
+  "start" : "http://localhost:7474/db/data/node/110",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/56/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/56",
-  "properties" : "http://localhost:7474/db/data/relationship/56/properties",
+  "self" : "http://localhost:7474/db/data/relationship/72",
+  "property" : "http://localhost:7474/db/data/relationship/72/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/72/properties",
   "type" : "LIKES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/82",
+  "end" : "http://localhost:7474/db/data/node/111",
   "metadata" : {
-    "id" : 56,
+    "id" : 72,
     "type" : "LIKES"
   }
 }, {
-  "start" : "http://localhost:7474/db/data/node/83",
+  "start" : "http://localhost:7474/db/data/node/112",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/57/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/57",
-  "properties" : "http://localhost:7474/db/data/relationship/57/properties",
+  "self" : "http://localhost:7474/db/data/relationship/73",
+  "property" : "http://localhost:7474/db/data/relationship/73/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/73/properties",
   "type" : "LIKES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/81",
+  "end" : "http://localhost:7474/db/data/node/110",
   "metadata" : {
-    "id" : 57,
+    "id" : 73,
     "type" : "LIKES"
   }
 }, {
-  "start" : "http://localhost:7474/db/data/node/81",
+  "start" : "http://localhost:7474/db/data/node/110",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/58/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/58",
-  "properties" : "http://localhost:7474/db/data/relationship/58/properties",
+  "self" : "http://localhost:7474/db/data/relationship/74",
+  "property" : "http://localhost:7474/db/data/relationship/74/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/74/properties",
   "type" : "HATES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/84",
+  "end" : "http://localhost:7474/db/data/node/113",
   "metadata" : {
-    "id" : 58,
+    "id" : 74,
     "type" : "HATES"
   }
 } ]</pre>
@@ -482,7 +482,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/100/relationships/in</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/129/relationships/in</code>
 
 </li><li class="listitem">
 
@@ -500,16 +500,16 @@ returned.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "start" : "http://localhost:7474/db/data/node/102",
+  "start" : "http://localhost:7474/db/data/node/131",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/68/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/68",
-  "properties" : "http://localhost:7474/db/data/relationship/68/properties",
+  "self" : "http://localhost:7474/db/data/relationship/84",
+  "property" : "http://localhost:7474/db/data/relationship/84/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/84/properties",
   "type" : "LIKES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/100",
+  "end" : "http://localhost:7474/db/data/node/129",
   "metadata" : {
-    "id" : 68,
+    "id" : 84,
     "type" : "LIKES"
   }
 } ]</pre>
@@ -524,7 +524,7 @@ returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/125/relationships/out</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/154/relationships/out</code>
 
 </li><li class="listitem">
 
@@ -542,29 +542,29 @@ returned.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "start" : "http://localhost:7474/db/data/node/125",
+  "start" : "http://localhost:7474/db/data/node/154",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/82/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/82",
-  "properties" : "http://localhost:7474/db/data/relationship/82/properties",
+  "self" : "http://localhost:7474/db/data/relationship/98",
+  "property" : "http://localhost:7474/db/data/relationship/98/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/98/properties",
   "type" : "LIKES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/126",
+  "end" : "http://localhost:7474/db/data/node/155",
   "metadata" : {
-    "id" : 82,
+    "id" : 98,
     "type" : "LIKES"
   }
 }, {
-  "start" : "http://localhost:7474/db/data/node/125",
+  "start" : "http://localhost:7474/db/data/node/154",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/84/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/84",
-  "properties" : "http://localhost:7474/db/data/relationship/84/properties",
+  "self" : "http://localhost:7474/db/data/relationship/100",
+  "property" : "http://localhost:7474/db/data/relationship/100/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/100/properties",
   "type" : "HATES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/128",
+  "end" : "http://localhost:7474/db/data/node/157",
   "metadata" : {
-    "id" : 84,
+    "id" : 100,
     "type" : "HATES"
   }
 } ]</pre>
@@ -581,7 +581,7 @@ using <a class="ulink" href="http://curl.haxx.se/" target="_blank">cURL</a> from
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/56/relationships/all/LIKES&amp;HATES</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/85/relationships/all/LIKES&amp;HATES</code>
 
 </li><li class="listitem">
 
@@ -599,42 +599,42 @@ using <a class="ulink" href="http://curl.haxx.se/" target="_blank">cURL</a> from
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "start" : "http://localhost:7474/db/data/node/56",
+  "start" : "http://localhost:7474/db/data/node/85",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/41/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/41",
-  "properties" : "http://localhost:7474/db/data/relationship/41/properties",
+  "self" : "http://localhost:7474/db/data/relationship/57",
+  "property" : "http://localhost:7474/db/data/relationship/57/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/57/properties",
   "type" : "LIKES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/57",
+  "end" : "http://localhost:7474/db/data/node/86",
   "metadata" : {
-    "id" : 41,
+    "id" : 57,
     "type" : "LIKES"
   }
 }, {
-  "start" : "http://localhost:7474/db/data/node/58",
+  "start" : "http://localhost:7474/db/data/node/87",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/42/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/42",
-  "properties" : "http://localhost:7474/db/data/relationship/42/properties",
+  "self" : "http://localhost:7474/db/data/relationship/58",
+  "property" : "http://localhost:7474/db/data/relationship/58/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/58/properties",
   "type" : "LIKES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/56",
+  "end" : "http://localhost:7474/db/data/node/85",
   "metadata" : {
-    "id" : 42,
+    "id" : 58,
     "type" : "LIKES"
   }
 }, {
-  "start" : "http://localhost:7474/db/data/node/56",
+  "start" : "http://localhost:7474/db/data/node/85",
   "data" : { },
-  "property" : "http://localhost:7474/db/data/relationship/43/properties/{key}",
-  "self" : "http://localhost:7474/db/data/relationship/43",
-  "properties" : "http://localhost:7474/db/data/relationship/43/properties",
+  "self" : "http://localhost:7474/db/data/relationship/59",
+  "property" : "http://localhost:7474/db/data/relationship/59/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/relationship/59/properties",
   "type" : "HATES",
   "extensions" : { },
-  "end" : "http://localhost:7474/db/data/node/59",
+  "end" : "http://localhost:7474/db/data/node/88",
   "metadata" : {
-    "id" : 43,
+    "id" : 59,
     "type" : "HATES"
   }
 } ]</pre>
@@ -649,7 +649,7 @@ using <a class="ulink" href="http://curl.haxx.se/" target="_blank">cURL</a> from
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/114/relationships/all</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/143/relationships/all</code>
 
 </li><li class="listitem">
 

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.12. Relationship properties -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-properties.html" title="21.11. Node properties" /><link rel="next" href="rest-api-node-labels.html" title="21.13. Node labels" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.12. Relationship properties" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/21/properties</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/4/properties</code>
 
 </li><li class="listitem">
 
@@ -113,7 +113,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/112/properties</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/0/properties</code>
 
 </li><li class="listitem">
 
@@ -144,7 +144,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/115/properties/cost</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/3/properties/cost</code>
 
 </li><li class="listitem">
 
@@ -171,7 +171,7 @@ an error.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/113/properties/non-existent</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/relationship/1/properties/non-existent</code>
 
 </li><li class="listitem">
 
@@ -189,7 +189,7 @@ an error.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "message": "Relationship[113] does not have a property \"non-existent\"",
+  "message": "Relationship[1] does not have a property \"non-existent\"",
   "exception": "NoSuchPropertyException",
   "fullname": "org.neo4j.server.rest.web.NoSuchPropertyException",
   "stacktrace": [
@@ -201,9 +201,9 @@ an error.</p>
   ],
   "errors": [
     {
-      "message": "Relationship[113] does not have a property \"non-existent\"",
+      "message": "Relationship[1] does not have a property \"non-existent\"",
       "code": "Neo.DatabaseError.General.UnknownFailure",
-      "stacktrace": "org.neo4j.server.rest.web.NoSuchPropertyException: Relationship[113] does not have a property \"non-existent\"\n\tat org.neo4j.server.rest.web.DatabaseActions.removeRelationshipProperty(DatabaseActions.java:671)\n\tat org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:800)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:606)\n\tat com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)\n\tat com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)\n\tat com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)\n\tat org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)\n\tat com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)\n\tat com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)\n\tat com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)\n\tat com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)\n\tat com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1542)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1473)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)\n\tat com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)\n\tat com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:540)\n\tat com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:715)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:790)\n\tat org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:751)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:566)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:219)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1111)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:498)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:183)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1045)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\n\tat org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:98)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:461)\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:284)\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:244)\n\tat org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:534)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:607)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:536)\n\tat java.lang.Thread.run(Thread.java:745)\n"
+      "stacktrace": "org.neo4j.server.rest.web.NoSuchPropertyException: Relationship[1] does not have a property \"non-existent\"\n\tat org.neo4j.server.rest.web.DatabaseActions.removeRelationshipProperty(DatabaseActions.java:671)\n\tat org.neo4j.server.rest.web.RestfulGraphDatabase.deleteRelationshipProperty(RestfulGraphDatabase.java:800)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:606)\n\tat com.sun.jersey.spi.container.JavaMethodInvokerFactory$1.invoke(JavaMethodInvokerFactory.java:60)\n\tat com.sun.jersey.server.impl.model.method.dispatch.AbstractResourceMethodDispatchProvider$ResponseOutInvoker._dispatch(AbstractResourceMethodDispatchProvider.java:205)\n\tat com.sun.jersey.server.impl.model.method.dispatch.ResourceJavaMethodDispatcher.dispatch(ResourceJavaMethodDispatcher.java:75)\n\tat org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)\n\tat com.sun.jersey.server.impl.uri.rules.HttpMethodRule.accept(HttpMethodRule.java:302)\n\tat com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)\n\tat com.sun.jersey.server.impl.uri.rules.ResourceClassRule.accept(ResourceClassRule.java:108)\n\tat com.sun.jersey.server.impl.uri.rules.RightHandPathRule.accept(RightHandPathRule.java:147)\n\tat com.sun.jersey.server.impl.uri.rules.RootResourceClassesRule.accept(RootResourceClassesRule.java:84)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1542)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl._handleRequest(WebApplicationImpl.java:1473)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1419)\n\tat com.sun.jersey.server.impl.application.WebApplicationImpl.handleRequest(WebApplicationImpl.java:1409)\n\tat com.sun.jersey.spi.container.servlet.WebComponent.service(WebComponent.java:409)\n\tat com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:540)\n\tat com.sun.jersey.spi.container.servlet.ServletContainer.service(ServletContainer.java:715)\n\tat javax.servlet.http.HttpServlet.service(HttpServlet.java:790)\n\tat org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:751)\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:566)\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:219)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1111)\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:498)\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:183)\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1045)\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)\n\tat org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52)\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:98)\n\tat org.eclipse.jetty.server.Server.handle(Server.java:461)\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:284)\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:244)\n\tat org.eclipse.jetty.io.AbstractConnection$2.run(AbstractConnection.java:534)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:607)\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:536)\n\tat java.lang.Thread.run(Thread.java:745)\n"
     }
   ]
 }</pre>

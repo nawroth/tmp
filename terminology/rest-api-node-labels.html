@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.13. Node labels -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-relationship-properties.html" title="21.12. Relationship properties" /><link rel="next" href="rest-api-node-degree.html" title="21.14. Node degree" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.13. Node labels" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/37/labels</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/114/labels</code>
 
 </li><li class="listitem">
 
@@ -111,7 +111,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/48/labels</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/125/labels</code>
 
 </li><li class="listitem">
 
@@ -143,7 +143,7 @@ Adding an invalid label to a node will lead to a HTTP 400 response.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/55/labels</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/132/labels</code>
 
 </li><li class="listitem">
 
@@ -237,7 +237,7 @@ request body.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/38/labels</code>
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/115/labels</code>
 
 </li><li class="listitem">
 
@@ -267,7 +267,7 @@ request body.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/39/labels/Person</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/116/labels/Person</code>
 
 </li><li class="listitem">
 
@@ -292,7 +292,7 @@ request body.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/44/labels</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/121/labels</code>
 
 </li><li class="listitem">
 
@@ -339,47 +339,47 @@ request body.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/50/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/50/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/127/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/127/labels",
   "data" : {
     "name" : "Clint Eastwood"
   },
-  "traverse" : "http://localhost:7474/db/data/node/50/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/50/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/50/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/50",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/50/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/50/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/50/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/127/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/127/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/127",
+  "property" : "http://localhost:7474/db/data/node/127/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/127/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/127/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/127/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/50/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/50/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/50/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/50/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/127/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/127/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/127/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/127/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 50,
+    "id" : 127,
     "labels" : [ "Actor", "Director" ]
   }
 }, {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/51/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/51/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/128/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/128/labels",
   "data" : {
     "name" : "Donald Sutherland"
   },
-  "traverse" : "http://localhost:7474/db/data/node/51/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/51/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/51/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/51",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/51/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/51/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/51/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/128/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/128/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/128",
+  "property" : "http://localhost:7474/db/data/node/128/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/128/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/128/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/128/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/51/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/51/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/51/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/51/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/128/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/128/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/128/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/128/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 51,
+    "id" : 128,
     "labels" : [ "Actor" ]
   }
 } ]</pre>
@@ -417,25 +417,25 @@ index is available, all nodes with the given label will be filtered through to f
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/53/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/53/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/130/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/130/labels",
   "data" : {
     "name" : "Clint Eastwood"
   },
-  "traverse" : "http://localhost:7474/db/data/node/53/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/53/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/53/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/53",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/53/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/53/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/53/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/130/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/130/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/130",
+  "property" : "http://localhost:7474/db/data/node/130/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/130/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/130/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/130/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/53/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/53/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/53/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/53/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/130/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/130/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/130/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/130/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 53,
+    "id" : 130,
     "labels" : [ "Person" ]
   }
 } ]</pre>
@@ -467,7 +467,7 @@ index is available, all nodes with the given label will be filtered through to f
 <span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
 
 </li></ul></div>
-<pre class="programlisting" data-lang="javascript">[ "Actor", "Person", "Director" ]</pre>
+<pre class="programlisting" data-lang="javascript">[ "chef", "novice", "Actor", "Director", "coder", "expert", "Person" ]</pre>
 </section>
 </section>
 

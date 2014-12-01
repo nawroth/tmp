@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.21. Unique Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="21.20. Legacy indexing" /><link rel="next" href="rest-api-auto-indexes.html" title="21.22. Legacy Automatic Indexes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.21. Unique Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -122,33 +122,33 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/32</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/72</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/32/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/32/labels",
-  "traverse" : "http://localhost:7474/db/data/node/32/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/32/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/32",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/32/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/32/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/32/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/32/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/32/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/72/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/72/labels",
+  "traverse" : "http://localhost:7474/db/data/node/72/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/72/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/72",
+  "property" : "http://localhost:7474/db/data/node/72/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/72/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/72/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/72/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/72/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/72/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/72/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/72/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 32,
+    "id" : 72,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/32"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/72"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-node-existing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique node (existing)</h3></div></div></div>
@@ -190,33 +190,33 @@ already existing node.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Peter/22</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Peter/62</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/22/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/22/labels",
-  "traverse" : "http://localhost:7474/db/data/node/22/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/22/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/22",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/22/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/22/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/22/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/22/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/22/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/62/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/62/labels",
+  "traverse" : "http://localhost:7474/db/data/node/62/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/62/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/62",
+  "property" : "http://localhost:7474/db/data/node/62/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/62/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/62/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/62/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/62/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/62/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/62/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/62/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 22,
+    "id" : 62,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Peter"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/22"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/62"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-node-or-return-fail-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique node or return fail (create)</h3></div></div></div>
@@ -257,33 +257,33 @@ example, no existing indexed node is found and a new node is created.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/31</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/71</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/31/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/31/labels",
-  "traverse" : "http://localhost:7474/db/data/node/31/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/31/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/31",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/31/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/31/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/31/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/31/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/31/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/71/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/71/labels",
+  "traverse" : "http://localhost:7474/db/data/node/71/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/71/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/71",
+  "property" : "http://localhost:7474/db/data/node/71/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/71/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/71/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/71/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/71/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/71/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/71/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/71/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 31,
+    "id" : 71,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/31"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/71"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-node-or-return-fail-fail"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique node or return fail (fail)</h3></div></div></div>
@@ -326,28 +326,28 @@ is found and an error is returned.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/16/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/16/labels",
-  "traverse" : "http://localhost:7474/db/data/node/16/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/16/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/16",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/16/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/16/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/16/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/16/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/16/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/56/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/56/labels",
+  "traverse" : "http://localhost:7474/db/data/node/56/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/56/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/56",
+  "property" : "http://localhost:7474/db/data/node/56/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/56/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/56/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/56/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/56/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/56/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/56/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/56/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 16,
+    "id" : 56,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Peter"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/16"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/56"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-node-to-unique-index-not-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing node to unique index (not indexed)</h3></div></div></div>
@@ -371,7 +371,7 @@ index.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "value" : "some value",
-  "uri" : "http://localhost:7474/db/data/node/27",
+  "uri" : "http://localhost:7474/db/data/node/67",
   "key" : "some-key"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -385,30 +385,30 @@ index.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/27</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/67</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/27/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/27/labels",
-  "traverse" : "http://localhost:7474/db/data/node/27/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/27/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/27",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/27/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/27/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/27/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/27/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/27/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/67/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/67/labels",
+  "traverse" : "http://localhost:7474/db/data/node/67/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/67/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/67",
+  "property" : "http://localhost:7474/db/data/node/67/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/67/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/67/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/67/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/67/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/67/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/67/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/67/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 27,
+    "id" : 67,
     "labels" : [ ]
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/27"
+  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/67"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-node-to-unique-index-already-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing node to unique index (already indexed)</h3></div></div></div>
@@ -431,7 +431,7 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "value" : "some value",
-  "uri" : "http://localhost:7474/db/data/node/30",
+  "uri" : "http://localhost:7474/db/data/node/70",
   "key" : "some-key"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -446,27 +446,27 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/29/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/29/labels",
-  "traverse" : "http://localhost:7474/db/data/node/29/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/29/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/29",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/29/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/29/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/29/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/29/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/29/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/69/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/69/labels",
+  "traverse" : "http://localhost:7474/db/data/node/69/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/69/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/69",
+  "property" : "http://localhost:7474/db/data/node/69/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/69/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/69/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/69/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/69/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/69/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/69/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/69/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 29,
+    "id" : 69,
     "labels" : [ ]
   },
   "data" : {
     "some-key" : "some value"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/29"
+  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/69"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-relationship-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique relationship (create)</h3></div></div></div>
@@ -492,8 +492,8 @@ If not, a new relationship will be created.</p>
 <pre class="programlisting" data-lang="javascript">{
   "key" : "name",
   "value" : "Tobias",
-  "start" : "http://localhost:7474/db/data/node/16",
-  "end" : "http://localhost:7474/db/data/node/17",
+  "start" : "http://localhost:7474/db/data/node/29",
+  "end" : "http://localhost:7474/db/data/node/30",
   "type" : "knowledge"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -507,25 +507,25 @@ If not, a new relationship will be created.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/MyIndex/name/Tobias/7</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/MyIndex/name/Tobias/11</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/16",
-  "self" : "http://localhost:7474/db/data/relationship/7",
-  "property" : "http://localhost:7474/db/data/relationship/7/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/7/properties",
+  "start" : "http://localhost:7474/db/data/node/29",
+  "property" : "http://localhost:7474/db/data/relationship/11/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/11",
+  "properties" : "http://localhost:7474/db/data/relationship/11/properties",
   "type" : "knowledge",
-  "end" : "http://localhost:7474/db/data/node/17",
+  "end" : "http://localhost:7474/db/data/node/30",
   "metadata" : {
-    "id" : 7,
+    "id" : 11,
     "type" : "knowledge"
   },
   "data" : {
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/MyIndex/name/Tobias/7"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/MyIndex/name/Tobias/11"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-relationship-existing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique relationship (existing)</h3></div></div></div>
@@ -550,8 +550,8 @@ existing relationship returned.</p>
 <pre class="programlisting" data-lang="javascript">{
   "key" : "name",
   "value" : "Peter",
-  "start" : "http://localhost:7474/db/data/node/20",
-  "end" : "http://localhost:7474/db/data/node/21",
+  "start" : "http://localhost:7474/db/data/node/33",
+  "end" : "http://localhost:7474/db/data/node/34",
   "type" : "KNOWS"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -566,18 +566,18 @@ existing relationship returned.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/18",
-  "self" : "http://localhost:7474/db/data/relationship/8",
-  "property" : "http://localhost:7474/db/data/relationship/8/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/8/properties",
+  "start" : "http://localhost:7474/db/data/node/31",
+  "property" : "http://localhost:7474/db/data/relationship/12/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/12",
+  "properties" : "http://localhost:7474/db/data/relationship/12/properties",
   "type" : "KNOWS",
-  "end" : "http://localhost:7474/db/data/node/19",
+  "end" : "http://localhost:7474/db/data/node/32",
   "metadata" : {
-    "id" : 8,
+    "id" : 12,
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/8"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/12"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-relationship-or-return-fail-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique relationship or return fail (create)</h3></div></div></div>
@@ -602,8 +602,8 @@ example, no existing relationship is found and a new relationship is created.</p
 <pre class="programlisting" data-lang="javascript">{
   "key" : "name",
   "value" : "Tobias",
-  "start" : "http://localhost:7474/db/data/node/28",
-  "end" : "http://localhost:7474/db/data/node/29",
+  "start" : "http://localhost:7474/db/data/node/41",
+  "end" : "http://localhost:7474/db/data/node/42",
   "type" : "KNOWS"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -617,25 +617,25 @@ example, no existing relationship is found and a new relationship is created.</p
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/rels/name/Tobias/11</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/rels/name/Tobias/15</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/28",
-  "self" : "http://localhost:7474/db/data/relationship/11",
-  "property" : "http://localhost:7474/db/data/relationship/11/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/11/properties",
+  "start" : "http://localhost:7474/db/data/node/41",
+  "property" : "http://localhost:7474/db/data/relationship/15/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/15",
+  "properties" : "http://localhost:7474/db/data/relationship/15/properties",
   "type" : "KNOWS",
-  "end" : "http://localhost:7474/db/data/node/29",
+  "end" : "http://localhost:7474/db/data/node/42",
   "metadata" : {
-    "id" : 11,
+    "id" : 15,
     "type" : "KNOWS"
   },
   "data" : {
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Tobias/11"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Tobias/15"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-relationship-or-return-fail-fail"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique relationship or return fail (fail)</h3></div></div></div>
@@ -660,8 +660,8 @@ example, an existing relationship is found and an error is returned.</p>
 <pre class="programlisting" data-lang="javascript">{
   "key" : "name",
   "value" : "Peter",
-  "start" : "http://localhost:7474/db/data/node/8",
-  "end" : "http://localhost:7474/db/data/node/9",
+  "start" : "http://localhost:7474/db/data/node/21",
+  "end" : "http://localhost:7474/db/data/node/22",
   "type" : "KNOWS"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -676,18 +676,18 @@ example, an existing relationship is found and an error is returned.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/6",
-  "self" : "http://localhost:7474/db/data/relationship/3",
-  "property" : "http://localhost:7474/db/data/relationship/3/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/3/properties",
+  "start" : "http://localhost:7474/db/data/node/19",
+  "property" : "http://localhost:7474/db/data/relationship/7/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/7",
+  "properties" : "http://localhost:7474/db/data/relationship/7/properties",
   "type" : "KNOWS",
-  "end" : "http://localhost:7474/db/data/node/7",
+  "end" : "http://localhost:7474/db/data/node/20",
   "metadata" : {
-    "id" : 3,
+    "id" : 7,
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/3"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/7"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-relationship-to-a-unique-index-not-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing relationship to a unique index (not indexed)</h3></div></div></div>
@@ -713,7 +713,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 <pre class="programlisting" data-lang="javascript">{
   "key" : "name",
   "value" : "Peter",
-  "uri" : "http://localhost:7474/db/data/relationship/2"
+  "uri" : "http://localhost:7474/db/data/relationship/6"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -726,23 +726,23 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/rels/name/Peter/2</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/rels/name/Peter/6</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/4",
-  "self" : "http://localhost:7474/db/data/relationship/2",
-  "property" : "http://localhost:7474/db/data/relationship/2/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/2/properties",
+  "start" : "http://localhost:7474/db/data/node/17",
+  "property" : "http://localhost:7474/db/data/relationship/6/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/6",
+  "properties" : "http://localhost:7474/db/data/relationship/6/properties",
   "type" : "KNOWS",
-  "end" : "http://localhost:7474/db/data/node/5",
+  "end" : "http://localhost:7474/db/data/node/18",
   "metadata" : {
-    "id" : 2,
+    "id" : 6,
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/2"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/6"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-relationship-to-a-unique-index-already-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing relationship to a unique index (already indexed)</h3></div></div></div>
@@ -764,7 +764,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 <pre class="programlisting" data-lang="javascript">{
   "key" : "name",
   "value" : "Peter",
-  "uri" : "http://localhost:7474/db/data/relationship/5"
+  "uri" : "http://localhost:7474/db/data/relationship/9"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -778,18 +778,18 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "start" : "http://localhost:7474/db/data/node/10",
-  "self" : "http://localhost:7474/db/data/relationship/4",
-  "property" : "http://localhost:7474/db/data/relationship/4/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/relationship/4/properties",
+  "start" : "http://localhost:7474/db/data/node/23",
+  "property" : "http://localhost:7474/db/data/relationship/8/properties/{key}",
+  "self" : "http://localhost:7474/db/data/relationship/8",
+  "properties" : "http://localhost:7474/db/data/relationship/8/properties",
   "type" : "KNOWS",
-  "end" : "http://localhost:7474/db/data/node/11",
+  "end" : "http://localhost:7474/db/data/node/24",
   "metadata" : {
-    "id" : 4,
+    "id" : 8,
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/4"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/rels/name/Peter/8"
 }</pre>
 </section>
 </section>

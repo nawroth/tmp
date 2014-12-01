@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>37.10. Configuration and fulltext indexes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-scores.html" title="37.9. Scores" /><link rel="next" href="indexing-lucene-extras.html" title="37.11. Extra features for Lucene indexes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="37.10. Configuration and fulltext indexes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -93,7 +93,7 @@ assertContains( index.query( "name", "\"thoMas ANDerson\"" ), node );
   The <code class="literal">get</code> method will only match the full string value, not the tokens.</p></td></tr></table></div>
 <p>The configuration of the index is persisted once the index has been created.
 The <code class="literal">provider</code> configuration key is interpreted by Neo4j, but any other configuration is passed onto the backend index (e.g. Lucene) to interpret.</p>
-<div class="table" id="d5e30550"><p class="title"><strong>Lucene indexing configuration parameters</strong></p><div class="table-contents">
+<div class="table" id="d5e30554"><p class="title"><strong>Lucene indexing configuration parameters</strong></p><div class="table-contents">
 
 <table cellspacing="0" cellpadding="0"><thead><tr><th> Parameter                 </th><th> Possible values   </th><th> Effect</th></tr></thead><tbody><tr><td><p><code class="literal">type</code></p></td><td><p><code class="literal">exact</code>, <code class="literal">fulltext</code></p></td><td><p><code class="literal">exact</code> is the default and uses a Lucene <a class="ulink" href="http://lucene.apache.org/core/3_6_2/api/core/org/apache/lucene/analysis/KeywordAnalyzer.html" target="_blank">keyword analyzer</a>.
   <code class="literal">fulltext</code> uses a white-space tokenizer in its analyzer.</p></td></tr><tr><td><p><code class="literal">to_lower_case</code></p></td><td><p><code class="literal">true</code>, <code class="literal">false</code></p></td><td><p>This parameter goes together with <code class="literal">type</code>: <code class="literal">fulltext</code> and converts values to lower case during both additions and querying, making the index case insensitive. Defaults to <code class="literal">true</code>.</p></td></tr><tr><td><p><code class="literal">analyzer</code></p></td><td><p>the full class name of an <a class="ulink" href="http://lucene.apache.org/core/3_6_2/api/core/org/apache/lucene/analysis/Analyzer.html" target="_blank">Analyzer</a></p></td><td><p>Overrides the <code class="literal">type</code> so that a custom analyzer can be used.

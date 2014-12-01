@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.20. Legacy indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-batch-ops.html" title="21.19. Batch operations" /><link rel="next" href="rest-api-unique-indexes.html" title="21.21. Unique Indexing" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.20. Legacy indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -240,7 +240,7 @@ a new one.</p></td></tr></table></div>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "value" : "some value",
-  "uri" : "http://localhost:7474/db/data/node/18",
+  "uri" : "http://localhost:7474/db/data/node/58",
   "key" : "some-key"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -254,30 +254,30 @@ a new one.</p></td></tr></table></div>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/18</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/58</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/18/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/18/labels",
-  "traverse" : "http://localhost:7474/db/data/node/18/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/18/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/18/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/18",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/18/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/18/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/18/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/18/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/18/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/18/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/18/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/58/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/58/labels",
+  "traverse" : "http://localhost:7474/db/data/node/58/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/58/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/58",
+  "property" : "http://localhost:7474/db/data/node/58/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/58/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/58/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/58/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/58/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/58/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/58/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/58/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 18,
+    "id" : 58,
     "labels" : [ ]
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/18"
+  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/58"
 }</pre>
 </section>
 <section class="section" id="rest-api-remove-all-entries-with-a-given-node-from-an-index"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove all entries with a given node from an index</h3></div></div></div>
@@ -285,7 +285,7 @@ a new one.</p></td></tr></table></div>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/kvnode/23</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/kvnode/63</code>
 
 </li><li class="listitem">
 
@@ -305,7 +305,7 @@ a new one.</p></td></tr></table></div>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/kvnode/kvkey2/26</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/kvnode/kvkey2/66</code>
 
 </li><li class="listitem">
 
@@ -325,7 +325,7 @@ a new one.</p></td></tr></table></div>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/kvnode/kvkey1/value1/19</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/kvnode/kvkey1/value1/59</code>
 
 </li><li class="listitem">
 
@@ -364,24 +364,24 @@ a new one.</p></td></tr></table></div>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "indexed" : "http://localhost:7474/db/data/index/node/favorites/key/the%2520value/34",
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/34/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/34/labels",
+  "indexed" : "http://localhost:7474/db/data/index/node/favorites/key/the%2520value/74",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/74/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/74/labels",
   "data" : { },
-  "traverse" : "http://localhost:7474/db/data/node/34/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/34/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/34/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/34",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/34/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/34/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/34/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/74/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/74/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/74",
+  "property" : "http://localhost:7474/db/data/node/74/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/74/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/74/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/74/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/34/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/34/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/34/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/34/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/74/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/74/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/74/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/74/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 34,
+    "id" : 74,
     "labels" : [ ]
   }
 } ]</pre>
@@ -420,25 +420,25 @@ the float value that is the score reported by the query result.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/33/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/33/labels",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/73/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/73/labels",
   "data" : {
     "Name" : "Builder"
   },
-  "traverse" : "http://localhost:7474/db/data/node/33/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/33/relationships/all/{-list|&amp;|types}",
-  "property" : "http://localhost:7474/db/data/node/33/properties/{key}",
-  "self" : "http://localhost:7474/db/data/node/33",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/33/relationships/out/{-list|&amp;|types}",
-  "properties" : "http://localhost:7474/db/data/node/33/properties",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/33/relationships/in",
+  "traverse" : "http://localhost:7474/db/data/node/73/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/73/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/73",
+  "property" : "http://localhost:7474/db/data/node/73/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/73/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/73/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/73/relationships/in",
   "extensions" : { },
-  "create_relationship" : "http://localhost:7474/db/data/node/33/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/33/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/33/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/33/relationships/in/{-list|&amp;|types}",
+  "create_relationship" : "http://localhost:7474/db/data/node/73/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/73/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/73/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/73/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 33,
+    "id" : 73,
     "labels" : [ ]
   }
 } ]</pre>

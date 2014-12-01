@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.2. Merge -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create.html" title="11.1. Create" /><link rel="next" href="query-set.html" title="11.3. Set" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.2. Merge" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -204,7 +204,7 @@ RETURN keanu</pre><p>
 <div class="queryresult table" id="d5e9324"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keanu</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
-</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1417161533735}</code></p></td></tr></tbody></table></div></div>
+</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1417423095466}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -272,7 +272,7 @@ RETURN keanu</pre><p>
 <div class="queryresult table" id="d5e9405"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keanu</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
-</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1417161534902}</code></p></td></tr></tbody></table></div></div>
+</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1417423096426}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -305,7 +305,7 @@ ON MATCH SET person.found = TRUE , person.lastAccessed = timestamp()
 RETURN person</pre><p>
 </p>
 <div class="queryresult table" id="d5e9438"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>5 rows
-</th></tr><tr><th>Properties set: 10</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone",found:true,lastAccessed:1417161534609}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen",found:true,lastAccessed:1417161534609}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen",found:true,lastAccessed:1417161534609}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner",found:true,lastAccessed:1417161534609}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas",found:true,lastAccessed:1417161534609}</code></p></td></tr></tbody></table></div></div>
+</th></tr><tr><th>Properties set: 10</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone",found:true,lastAccessed:1417423096178}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen",found:true,lastAccessed:1417423096178}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen",found:true,lastAccessed:1417423096178}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner",found:true,lastAccessed:1417423096178}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas",found:true,lastAccessed:1417423096178}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})

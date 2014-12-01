@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.1. Transactional Cypher HTTP endpoint -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api.html" title="Chapter 21. REST API" /><link rel="next" href="status-codes.html" title="21.2. Neo4j Status Codes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.1. Transactional Cypher HTTP endpoint" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -186,7 +186,7 @@ your statements, as well as the location of your open transaction.</p>
     } ]
   } ],
   "transaction" : {
-    "expires" : "Fri, 28 Nov 2014 07:57:18 +0000"
+    "expires" : "Mon, 01 Dec 2014 08:36:56 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -233,7 +233,7 @@ statements, and keeps the transaction open by resetting the transaction timeout.
     } ]
   } ],
   "transaction" : {
-    "expires" : "Fri, 28 Nov 2014 07:57:18 +0000"
+    "expires" : "Mon, 01 Dec 2014 08:36:56 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -279,8 +279,8 @@ give back full Neo4j Rest API representations of the Neo4j Nodes, Relationships 
     "columns" : [ "n" ],
     "data" : [ {
       "rest" : [ {
-        "labels" : "http://localhost:7474/db/data/node/0/labels",
         "outgoing_relationships" : "http://localhost:7474/db/data/node/0/relationships/out",
+        "labels" : "http://localhost:7474/db/data/node/0/labels",
         "traverse" : "http://localhost:7474/db/data/node/0/traverse/{returnType}",
         "all_typed_relationships" : "http://localhost:7474/db/data/node/0/relationships/all/{-list|&amp;|types}",
         "self" : "http://localhost:7474/db/data/node/0",
@@ -301,7 +301,7 @@ give back full Neo4j Rest API representations of the Neo4j Nodes, Relationships 
     } ]
   } ],
   "transaction" : {
-    "expires" : "Fri, 28 Nov 2014 07:57:13 +0000"
+    "expires" : "Mon, 01 Dec 2014 08:36:52 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -344,7 +344,7 @@ expire as an RFC1123 formatted timestamp value in the “transaction” section 
   "commit" : "http://localhost:7474/db/data/transaction/2/commit",
   "results" : [ ],
   "transaction" : {
-    "expires" : "Fri, 28 Nov 2014 07:57:16 +0000"
+    "expires" : "Mon, 01 Dec 2014 08:36:55 +0000"
   },
   "errors" : [ ]
 }</pre>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Terminology -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing-batchinsert.html" title="38.2. Index Batch Insertion" /><link rel="next" href="manpages.html" title="Appendix A. Manpages" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Terminology" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -132,12 +132,12 @@ The opposite of <a class="link" href="terminology.html#term-acyclic">acyclic</a>
 </p></dd><dt><span class="glossterm">
 <span id="term-dag"></span>DAG
 </span></dt><dd class="glossdef"><p>
-this is a <span class="emphasis"><em>directed, acyclic</em></span> Graph:
+a <span class="emphasis"><em>directed, acyclic</em></span> graph:
 there are no <span class="emphasis"><em>cyclic paths</em></span> and all the <span class="emphasis"><em>relationships</em></span> are <span class="emphasis"><em>directed.</em></span>
 </p></dd><dt><span class="glossterm">
 <span id="term-data-graph"></span>data graph
 </span></dt><dd class="glossdef"><p>
-graph that is stored in the database.
+graph stored in the database.
 See also <a class="link" href="terminology.html#term-property-graph">property graph</a>.
 </p></dd><dt><span class="glossterm">
 <span id="term-data-record"></span>data record
@@ -151,7 +151,7 @@ loops are counted twice.
 </p></dd><dt><span class="glossterm">
 <span id="term-directed-relationship"></span>directed relationship
 </span></dt><dd class="glossdef"><p>
-a relationship which has a direction; that is the relationship has a source node and a destination node.
+a relationship that has a direction; that is the relationship has a source node and a destination node.
 The opposite of an <a class="link" href="terminology.html#term-undirected-relationship">undirected relationship</a>.
 </p></dd><dt><span class="glossterm">
 <span id="term-edge"></span>edge
@@ -162,7 +162,7 @@ See <a class="link" href="terminology.html#term-relationship">relationship</a> a
 <span id="term-execution-plan"></span>execution plan
 </span></dt><dd class="glossdef"><p>
 statement that is parsed and compiled, ready to execute.
-An execution plan consists of the physical operations which need to be performed in order to achieve the intent of the statement.
+An execution plan consists of the physical operations that need to be performed in order to achieve the intent of the statement.
 </p></dd><dt><span class="glossterm">
 <span id="term-execution-result"></span>execution result
 </span></dt><dd class="glossdef"><p>
@@ -193,7 +193,7 @@ a database that uses graph structures with nodes, relationships, and properties 
 </p></dd><dt><span class="glossterm">
 <span id="term-graph-element"></span>graph element
 </span></dt><dd class="glossdef"><p>
-node or relationship which is part of a graph.
+node or relationship that is part of a graph.
 </p></dd><dt><span class="glossterm">
 <span id="term-identifier"></span>identifier
 </span></dt><dd class="glossdef"><p>
@@ -231,8 +231,8 @@ adjacent node or adjacent relationship.
 </p></dd><dt><span class="glossterm">
 <span id="term-node"></span>node*
 </span></dt><dd class="glossdef"><p>
-data record within a data graph which contains an arbitrary collection of properties.
-nodes may optionally have one or more labels and are optionally connected by relationships.
+data record within a data graph that contains an arbitrary collection of properties.
+Nodes may have one or more labels and are optionally connected by relationships.
 Similar to <a class="link" href="terminology.html#term-vertex">vertex</a>.
 </p></dd><dt><span class="glossterm">
 <span id="term-null"></span>null
@@ -244,11 +244,11 @@ Similar to <a class="link" href="terminology.html#term-vertex">vertex</a>.
 there are three categories of operators:
 </p><div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
 
-<span class="emphasis"><em>Arithmetic,</em></span> such as <code class="literal">+</code>, <code class="literal">/</code>, <code class="literal">%</code> etc;
+<span class="emphasis"><em>Arithmetic,</em></span> such as <code class="literal">+</code>, <code class="literal">/</code>, <code class="literal">%</code> etc.;
 
 </li><li class="listitem">
 
-<span class="emphasis"><em>Logical,</em></span> such as <code class="literal">OR</code>, <code class="literal">AND</code>, <code class="literal">NOT</code> etc; and
+<span class="emphasis"><em>Logical,</em></span> such as <code class="literal">OR</code>, <code class="literal">AND</code>, <code class="literal">NOT</code> etc.; and
 
 </li><li class="listitem">
 
@@ -263,7 +263,7 @@ The opposite of <a class="link" href="terminology.html#term-incoming-relationshi
 <span id="term-parameter"></span>parameter
 </span></dt><dd class="glossdef"><p>
 named value provided when running a statement.
-Parameters allow Cypher to efficiently share execution plans without having to parse and recompile every statement when only a literal value changes.
+Parameters allow Cypher to efficiently re-use execution plans without having to parse and recompile every statement when only a literal value changes.
 </p></dd><dt><span class="glossterm">
 <span id="term-path"></span>path
 </span></dt><dd class="glossdef"><p>
@@ -306,12 +306,12 @@ a query whose path is expressed by a regular expression.
 </p></dd><dt><span class="glossterm">
 <span id="term-relationship-type"></span>relationship type
 </span></dt><dd class="glossdef"><p>
-name used to qualify a relationship
+name used to qualify a relationship.
 For example in the pattern <code class="literal">(start)-[:TYPE]-&gt;(to)</code>, <code class="literal">TYPE</code> is the relationship type
 </p></dd><dt><span class="glossterm">
 <span id="term-relationship"></span>relationship*
 </span></dt><dd class="glossdef"><p>
-data record in a property graph which associates an ordered pair of nodes.
+data record in a property graph that associates an ordered pair of nodes.
 Similar to <a class="link" href="terminology.html#term-edge">edge</a> and <a class="link" href="terminology.html#term-arc">arc</a>.
 </p></dd><dt><span class="glossterm">
 <span id="term-result-row"></span>result row
@@ -374,7 +374,7 @@ and collections of any concrete type.
 </li></ul></div><p>The type hierarchy also supports the any, scalar, derived map, and collection types to classify values and collections of values with different concrete types.</p></dd><dt><span class="glossterm">
 <span id="term-undirected-relationship"></span>undirected relationship
 </span></dt><dd class="glossdef"><p>
-a relationship which doesn’t have a direction.
+a relationship that doesn’t have a direction.
 The opposite of <a class="link" href="terminology.html#term-directed-relationship">directed relationship</a>.
 </p></dd><dt><span class="glossterm">
 <span id="term-vertex"></span>vertex

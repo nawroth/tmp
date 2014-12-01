@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.18. Graph Algorithms -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-traverse.html" title="21.17. Traversals" /><link rel="next" href="rest-api-batch-ops.html" title="21.19. Batch operations" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.18. Graph Algorithms" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-72590";
+      var treeCookieId = "treeview-72623";
       var language = "en";
       var w = new Object();
       //Localization
@@ -119,7 +119,7 @@ nodes, like in this example.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/154/paths</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/26/paths</code>
 
 </li><li class="listitem">
 
@@ -131,7 +131,7 @@ nodes, like in this example.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/149",
+  "to" : "http://localhost:7474/db/data/node/21",
   "max_depth" : 3,
   "relationships" : {
     "type" : "to",
@@ -151,18 +151,18 @@ nodes, like in this example.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "directions" : [ "-&gt;", "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/154",
-  "nodes" : [ "http://localhost:7474/db/data/node/154", "http://localhost:7474/db/data/node/153", "http://localhost:7474/db/data/node/149" ],
+  "start" : "http://localhost:7474/db/data/node/26",
+  "nodes" : [ "http://localhost:7474/db/data/node/26", "http://localhost:7474/db/data/node/22", "http://localhost:7474/db/data/node/21" ],
   "length" : 2,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/88", "http://localhost:7474/db/data/relationship/97" ],
-  "end" : "http://localhost:7474/db/data/node/149"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/28", "http://localhost:7474/db/data/relationship/34" ],
+  "end" : "http://localhost:7474/db/data/node/21"
 }, {
   "directions" : [ "-&gt;", "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/154",
-  "nodes" : [ "http://localhost:7474/db/data/node/154", "http://localhost:7474/db/data/node/150", "http://localhost:7474/db/data/node/149" ],
+  "start" : "http://localhost:7474/db/data/node/26",
+  "nodes" : [ "http://localhost:7474/db/data/node/26", "http://localhost:7474/db/data/node/25", "http://localhost:7474/db/data/node/21" ],
   "length" : 2,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/89", "http://localhost:7474/db/data/relationship/95" ],
-  "end" : "http://localhost:7474/db/data/node/149"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/27", "http://localhost:7474/db/data/relationship/36" ],
+  "end" : "http://localhost:7474/db/data/node/21"
 } ]</pre>
 </section>
 <section class="section" id="rest-api-find-one-of-the-shortest-paths"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Find one of the shortest paths</h3></div></div></div>
@@ -178,7 +178,7 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/147/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/19/path</code>
 
 </li><li class="listitem">
 
@@ -190,7 +190,7 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/142",
+  "to" : "http://localhost:7474/db/data/node/14",
   "max_depth" : 3,
   "relationships" : {
     "type" : "to",
@@ -210,11 +210,11 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "directions" : [ "-&gt;", "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/147",
-  "nodes" : [ "http://localhost:7474/db/data/node/147", "http://localhost:7474/db/data/node/146", "http://localhost:7474/db/data/node/142" ],
+  "start" : "http://localhost:7474/db/data/node/19",
+  "nodes" : [ "http://localhost:7474/db/data/node/19", "http://localhost:7474/db/data/node/18", "http://localhost:7474/db/data/node/14" ],
   "length" : 2,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/78", "http://localhost:7474/db/data/relationship/87" ],
-  "end" : "http://localhost:7474/db/data/node/142"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/17", "http://localhost:7474/db/data/relationship/26" ],
+  "end" : "http://localhost:7474/db/data/node/14"
 }</pre>
 </section>
 <section class="section" id="rest-api-execute-a-dijkstra-algorithm-and-get-a-single-path"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a Dijkstra algorithm and get a single path</h3></div></div></div>
@@ -230,7 +230,7 @@ ends with <code class="literal">/path</code> which means a single path is what w
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/160/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/32/path</code>
 
 </li><li class="listitem">
 
@@ -242,7 +242,7 @@ ends with <code class="literal">/path</code> which means a single path is what w
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/157",
+  "to" : "http://localhost:7474/db/data/node/29",
   "cost_property" : "cost",
   "relationships" : {
     "type" : "to",
@@ -263,11 +263,11 @@ ends with <code class="literal">/path</code> which means a single path is what w
 <pre class="programlisting" data-lang="javascript">{
   "directions" : [ "-&gt;", "-&gt;", "-&gt;" ],
   "weight" : 1.5,
-  "start" : "http://localhost:7474/db/data/node/160",
-  "nodes" : [ "http://localhost:7474/db/data/node/160", "http://localhost:7474/db/data/node/159", "http://localhost:7474/db/data/node/156", "http://localhost:7474/db/data/node/157" ],
+  "start" : "http://localhost:7474/db/data/node/32",
+  "nodes" : [ "http://localhost:7474/db/data/node/32", "http://localhost:7474/db/data/node/31", "http://localhost:7474/db/data/node/28", "http://localhost:7474/db/data/node/29" ],
   "length" : 3,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/99", "http://localhost:7474/db/data/relationship/101", "http://localhost:7474/db/data/relationship/102" ],
-  "end" : "http://localhost:7474/db/data/node/157"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/38", "http://localhost:7474/db/data/relationship/40", "http://localhost:7474/db/data/relationship/41" ],
+  "end" : "http://localhost:7474/db/data/node/29"
 }</pre>
 </section>
 <section class="section" id="rest-api-execute-a-dijkstra-algorithm-with-equal-weights-on-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a Dijkstra algorithm with equal weights on relationships</h3></div></div></div>
@@ -284,7 +284,7 @@ equal to the number of hops.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/166/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/38/path</code>
 
 </li><li class="listitem">
 
@@ -296,7 +296,7 @@ equal to the number of hops.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/163",
+  "to" : "http://localhost:7474/db/data/node/35",
   "cost_property" : "cost",
   "relationships" : {
     "type" : "to",
@@ -317,11 +317,11 @@ equal to the number of hops.</p>
 <pre class="programlisting" data-lang="javascript">{
   "directions" : [ "-&gt;", "-&gt;" ],
   "weight" : 2.0,
-  "start" : "http://localhost:7474/db/data/node/166",
-  "nodes" : [ "http://localhost:7474/db/data/node/166", "http://localhost:7474/db/data/node/164", "http://localhost:7474/db/data/node/163" ],
+  "start" : "http://localhost:7474/db/data/node/38",
+  "nodes" : [ "http://localhost:7474/db/data/node/38", "http://localhost:7474/db/data/node/33", "http://localhost:7474/db/data/node/35" ],
   "length" : 2,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/105", "http://localhost:7474/db/data/relationship/110" ],
-  "end" : "http://localhost:7474/db/data/node/163"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/46", "http://localhost:7474/db/data/relationship/50" ],
+  "end" : "http://localhost:7474/db/data/node/35"
 }</pre>
 </section>
 <section class="section" id="rest-api-execute-a-dijkstra-algorithm-and-get-multiple-paths"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a Dijkstra algorithm and get multiple paths</h3></div></div></div>
@@ -338,7 +338,7 @@ they exist.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/140/paths</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/12/paths</code>
 
 </li><li class="listitem">
 
@@ -350,7 +350,7 @@ they exist.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/137",
+  "to" : "http://localhost:7474/db/data/node/9",
   "cost_property" : "cost",
   "relationships" : {
     "type" : "to",
@@ -371,19 +371,19 @@ they exist.</p>
 <pre class="programlisting" data-lang="javascript">[ {
   "directions" : [ "-&gt;", "-&gt;", "-&gt;" ],
   "weight" : 1.5,
-  "start" : "http://localhost:7474/db/data/node/140",
-  "nodes" : [ "http://localhost:7474/db/data/node/140", "http://localhost:7474/db/data/node/139", "http://localhost:7474/db/data/node/136", "http://localhost:7474/db/data/node/137" ],
+  "start" : "http://localhost:7474/db/data/node/12",
+  "nodes" : [ "http://localhost:7474/db/data/node/12", "http://localhost:7474/db/data/node/11", "http://localhost:7474/db/data/node/8", "http://localhost:7474/db/data/node/9" ],
   "length" : 3,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/72", "http://localhost:7474/db/data/relationship/74", "http://localhost:7474/db/data/relationship/75" ],
-  "end" : "http://localhost:7474/db/data/node/137"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/11", "http://localhost:7474/db/data/relationship/13", "http://localhost:7474/db/data/relationship/14" ],
+  "end" : "http://localhost:7474/db/data/node/9"
 }, {
   "directions" : [ "-&gt;", "-&gt;" ],
   "weight" : 1.5,
-  "start" : "http://localhost:7474/db/data/node/140",
-  "nodes" : [ "http://localhost:7474/db/data/node/140", "http://localhost:7474/db/data/node/135", "http://localhost:7474/db/data/node/137" ],
+  "start" : "http://localhost:7474/db/data/node/12",
+  "nodes" : [ "http://localhost:7474/db/data/node/12", "http://localhost:7474/db/data/node/7", "http://localhost:7474/db/data/node/9" ],
   "length" : 2,
-  "relationships" : [ "http://localhost:7474/db/data/relationship/73", "http://localhost:7474/db/data/relationship/77" ],
-  "end" : "http://localhost:7474/db/data/node/137"
+  "relationships" : [ "http://localhost:7474/db/data/relationship/12", "http://localhost:7474/db/data/relationship/16" ],
+  "end" : "http://localhost:7474/db/data/node/9"
 } ]</pre>
 </section>
 </section>
