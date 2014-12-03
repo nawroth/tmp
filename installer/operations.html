@@ -1,0 +1,111 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Operations -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="deprecations.html" title="Chapter 22. Deprecations" /><link rel="next" href="deployment.html" title="Chapter 23. Installation &amp; Deployment" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Operations" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-70838";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Operations</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="deprecations.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="deployment.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><div class="part" id="operations"><div xmlns="" class="titlepage"><div><div><h1 xmlns="http://www.w3.org/1999/xhtml" class="title">Operations</h1></div></div></div>
+
+<div class="partintro" id="d5e20237"><div xmlns=""></div>
+<p>This part describes how to install and maintain a Neo4j installation.
+This includes topics such as backing up the database and monitoring the health of the database as well as diagnosing issues.</p>
+<div class="toc"><p><strong>Table of Contents</strong></p><ul class="toc"><li><span class="chapter"><a href="deployment.html">23. Installation &amp; Deployment</a></span><ul><li><span class="section"><a href="deployment-requirements.html">23.1. System Requirements</a></span></li><li><span class="section"><a href="server-installation.html">23.2. Server Installation</a></span></li><li><span class="section"><a href="server-installation-cloud.html">23.3. Server Installation in the Cloud</a></span></li><li><span class="section"><a href="deployment-upgrading.html">23.4. Upgrading</a></span></li><li><span class="section"><a href="server-debugging.html">23.5. Setup for remote debugging</a></span></li><li><span class="section"><a href="usage-data-collector.html">23.6. Usage Data Collector</a></span></li></ul></li><li><span class="chapter"><a href="configuration.html">24. Configuration &amp; Performance</a></span><ul><li><span class="section"><a href="configuration-introduction.html">24.1. Introduction</a></span></li><li><span class="section"><a href="server-configuration.html">24.2. Server Configuration</a></span></li><li><span class="section"><a href="server-performance.html">24.3. Server Performance Tuning</a></span></li><li><span class="section"><a href="performance-guide.html">24.4. Performance Guide</a></span></li><li><span class="section"><a href="configuration-settings.html">24.5. Configuration Settings</a></span></li><li><span class="section"><a href="configuration-caches.html">24.6. Caches in Neo4j</a></span></li><li><span class="section"><a href="configuration-logical-logs.html">24.7. Logical logs</a></span></li><li><span class="section"><a href="configuration-jvm.html">24.8. JVM Settings</a></span></li><li><span class="section"><a href="short-strings.html">24.9. Compressed storage of short strings</a></span></li><li><span class="section"><a href="short-arrays.html">24.10. Compressed storage of short arrays</a></span></li><li><span class="section"><a href="configuration-io-examples.html">24.11. Memory mapped IO settings</a></span></li><li><span class="section"><a href="linux-performance-guide.html">24.12. Linux Performance Guide</a></span></li></ul></li><li><span class="chapter"><a href="ha.html">25. High Availability</a></span><ul><li><span class="section"><a href="ha-architecture.html">25.1. Architecture</a></span></li><li><span class="section"><a href="ha-configuration.html">25.2. Setup and configuration</a></span></li><li><span class="section"><a href="ha-how.html">25.3. How Neo4j HA operates</a></span></li><li><span class="section"><a href="arbiter-instances.html">25.4. Arbiter Instances</a></span></li><li><span class="section"><a href="ha-upgrade-guide.html">25.5. Upgrade of a Neo4j HA Cluster</a></span></li><li><span class="section"><a href="ha-setup-tutorial.html">25.6. High Availability setup tutorial</a></span></li><li><span class="section"><a href="ha-rest-info.html">25.7. REST endpoint for HA status information</a></span></li><li><span class="section"><a href="ha-haproxy.html">25.8. Setting up HAProxy as a load balancer</a></span></li></ul></li><li><span class="chapter"><a href="operations-backup.html">26. Backup</a></span><ul><li><span class="section"><a href="backup-introduction.html">26.1. Introducing Backup</a></span></li><li><span class="section"><a href="backup-embedded-and-server.html">26.2. Server and Embedded</a></span></li><li><span class="section"><a href="backup-java.html">26.3. Online Backup from Java</a></span></li><li><span class="section"><a href="backup-restoring.html">26.4. Restoring Your Data</a></span></li></ul></li><li><span class="chapter"><a href="operations-security.html">27. Security</a></span><ul><li><span class="section"><a href="security-server.html">27.1. Securing access to the Neo4j Server</a></span></li></ul></li><li><span class="chapter"><a href="operations-monitoring.html">28. Monitoring</a></span><ul><li><span class="section"><a href="jmx-remote.html">28.1. Adjusting remote JMX access to the Neo4j Server</a></span></li><li><span class="section"><a href="jmx-connect-jconsole.html">28.2. How to connect to a Neo4j instance using JMX and JConsole</a></span></li><li><span class="section"><a href="jmx-connect-programmatic.html">28.3. How to connect to the JMX monitoring programmatically</a></span></li><li><span class="section"><a href="jmx-mxbeans.html">28.4. Reference of supported JMX MBeans</a></span></li></ul></li></ul></div></div>
+
+
+
+
+
+
+</div>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
