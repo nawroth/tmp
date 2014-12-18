@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Neo4j Cypher Refcard 2.1.6</title>
+    <title>Neo4j Cypher Refcard 2.2.0-M02</title>
     <meta name="viewport" content="width=device-width">
 <!-- style -->
 <link href="css/style.css" rel="stylesheet">
@@ -15,12 +15,12 @@
 <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 <!-- Syntax Highlighter -->
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.2.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
 <script src="js/colorize.js"></script>
 <style>
 .col {
@@ -118,7 +118,7 @@ footer div.mid {
     <header>
       <div class="mid">
         <img class="neo4j-logo" id="neo4j-logo" src="images/neo4j-refcard.png"><h1>
-           Neo4j Cypher Refcard 2.1.6
+           Neo4j Cypher Refcard 2.2.0-M02
         </h1>
       </div>
     </header>
@@ -154,8 +154,8 @@ Cypher manages indexes and constraints.
 </ul></div>
 <div class="paragraph"><p>You can try Cypher snippets live in the Neo4j Console at
 <a href="http://console.neo4j.org" target="_blank">console.neo4j.org</a>
-or read the full Cypher documentation at
-<a href="http://docs.neo4j.org" target="_blank">docs.neo4j.org</a>.
+or read the full Cypher documentation in the
+<a href="../" target="_blank">Neo4j Manual</a>.
 For live graph models using Cypher check out <a href="http://gist.neo4j.org" target="_blank">GraphGist</a>.</p></div>
 <div class="paragraph"><p>Note: <span class="monospaced">{value}</span> denotes either literals, for ad hoc Cypher queries; or parameters, which is the best practice for applications.
 Neo4j properties can be strings, numbers, booleans or arrays thereof.
@@ -190,7 +190,7 @@ WHERE n.name="Alice"</pre></div>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">MATCH (n)--&gt;(m)</pre></div>
+<pre class="programlisting brush: cypher">RETURN n,m</pre></div>
 <div class="paragraph"><p>Any pattern can be used in <span class="monospaced">MATCH</span>.</p></div></div></td>
 </tr>
 <tr>
@@ -200,7 +200,7 @@ WHERE n.name="Alice"</pre></div>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">MATCH p = (n)--&gt;(m)</pre></div>
+<pre class="programlisting brush: cypher">RETURN p</pre></div>
 <div class="paragraph"><p>Assign a path to <span class="monospaced">p</span>.</p></div></div></td>
 </tr>
 <tr>
@@ -225,7 +225,7 @@ width:100%;
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">WHERE n.property &lt;&gt; {value}</pre></div>
+<pre class="programlisting brush: cypher">AND n.property &lt;&gt; {value}</pre></div>
 <div class="paragraph"><p>Use a predicate to filter.
 Note that <span class="monospaced">WHERE</span> is always part of a  <span class="monospaced">MATCH</span>, <span class="monospaced">OPTIONAL MATCH</span>, <span class="monospaced">WITH</span> or <span class="monospaced">START</span> clause.
 Putting it after a different clause in a query will alter what it does.</p></div></div></td>
@@ -606,6 +606,42 @@ This constraint will create an accompanying index.</p></div></div></td>
 </tbody>
 </table>
 </div></div>
+<div class='col cardwrite c2-1 c4-4 c5-5 c6-2'><div class='blk'>
+<table class="tableblock frame-all grid-all"
+style="
+width:100%;
+">
+<col style="width:100%;">
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top" >Import</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" ><div><div class="listingblock">
+<pre class="programlisting brush: cypher">LOAD CSV FROM
+'http://neo4j.com/docs/2.2.0-M02/cypher-refcard/csv/artists.csv' AS line
+CREATE (:Artist {name: line[1], year: toInt(line[2])})</pre></div>
+<div class="paragraph"><p>Load data from a CSV file and create nodes.</p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><div><div class="listingblock">
+<pre class="programlisting brush: cypher">LOAD CSV WITH HEADERS FROM
+'http://neo4j.com/docs/2.2.0-M02/cypher-refcard/csv/artists-with-headers.csv' AS line
+CREATE (:Artist {name: line.Name, year: toInt(line.Year)})</pre></div>
+<div class="paragraph"><p>Load CSV data which has headers.</p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><div><div class="listingblock">
+<pre class="programlisting brush: cypher">LOAD CSV FROM 'http://neo4j.com/docs/2.2.0-M02/cypher-refcard/csv/artists-fieldterminator.csv'
+AS line FIELDTERMINATOR ';'
+CREATE (:Artist {name: line[1], year: toInt(line[2])})</pre></div>
+<div class="paragraph"><p>Use a different field terminator, not the default which is a comma (with no whitespace around it).</p></div></div></td>
+</tr>
+</tbody>
+</table>
+</div></div>
 <div class="col cardgeneral c3-2 c6-1"><div class="blk">
 <table class="tableblock frame-all grid-all"
 style="
@@ -763,7 +799,7 @@ See the performance tips.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">(n)-[:KNOWS]-&gt;(m {property: {value}})</pre></div>
+<pre class="programlisting brush: cypher">CREATE UNIQUE</pre></div>
 <div class="paragraph"><p>Match or set properties in <span class="monospaced">MATCH</span>, <span class="monospaced">CREATE</span>, <span class="monospaced">CREATE UNIQUE</span> or <span class="monospaced">MERGE</span> clauses.</p></div></div></td>
 </tr>
 <tr>
@@ -895,7 +931,7 @@ The example matches all names from a list of names.</p></div></div></td>
 </tbody>
 </table>
 </div></div>
-<div class='col cardgeneral c2-2 c3-2 c4-3 c5-2 c6-5'><div class='blk'>
+<div class='col cardgeneral c2-2 c3-3 c4-3 c5-2 c6-5'><div class='blk'>
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
@@ -1075,7 +1111,7 @@ width:100%;
 </tbody>
 </table>
 </div></div>
-<div class='col cardgeneral c2-2 c3-2 c4-1 c5-4 c6-4'><div class='blk'>
+<div class='col cardgeneral c2-2 c3-2 c4-2 c5-3 c6-4'><div class='blk'>
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
@@ -1145,12 +1181,14 @@ width:100%;
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">MATCH path=(n)--&gt;(m)
+WHERE id(n) = %A% AND id(m) = %B%
 RETURN extract(x IN nodes(path) | x.prop)</pre></div>
 <div class="paragraph"><p>Assign a path and process its nodes.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">MATCH path = (begin) -[*]-&gt; (end)
+WHERE id(begin) = %A% AND id(end) = %B%
 FOREACH
   (n IN rels(path) | SET n.marked = TRUE)</pre></div>
 <div class="paragraph"><p>Execute a mutating operation for each relationship of a path.</p></div></div></td>
@@ -1211,7 +1249,7 @@ collection. All return null for an empty collection.</p></div></div></td>
 </tbody>
 </table>
 </div></div>
-<div class='col cardgeneral c2-1 c3-3 c4-4 c5-3 c6-5'><div class='blk'>
+<div class='col cardgeneral c2-1 c3-2 c4-1 c5-1 c6-5'><div class='blk'>
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
@@ -1373,7 +1411,7 @@ For an entire population use <span class="monospaced">stdevp</span>.</p></div></
 </tbody>
 </table>
 </div></div>
-<div class='col cardgeneral c2-1 c3-1 c4-3 c5-3 c6-1'><div class='blk'>
+<div class='col cardgeneral c2-1 c3-3 c4-3 c5-4 c6-1'><div class='blk'>
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
@@ -1408,7 +1446,7 @@ Predicates are evaluated in order.</p></div></div></td>
 </tbody>
 </table>
 </div></div>
-<div class="col carddeprecation c2-2 c3-3 c4-4 c5-5 c6-6"><div class="blk">
+<div class="col carddeprecation c2-2 c3-3 c4-4 c5-3 c6-6"><div class="blk">
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
@@ -1498,17 +1536,18 @@ width:100%;
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">START n=node(*)</pre></div>
+<pre class="programlisting brush: cypher">MATCH n</pre></div>
 <div class="paragraph"><p>Start from all nodes.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">START n=node({ids})</pre></div>
+<pre class="programlisting brush: cypher">MATCH n WHERE id(n) IN {ids}</pre></div>
 <div class="paragraph"><p>Start from one or more nodes specified by id.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">START n=node({id1}), m=node({id2})</pre></div>
+<pre class="programlisting brush: cypher">MATCH n, m
+WHERE id(n) = {id1} AND id(m) = {id2}</pre></div>
 <div class="paragraph"><p>Multiple starting points.</p></div></div></td>
 </tr>
 <tr>
@@ -1520,7 +1559,7 @@ Use <span class="monospaced">node_auto_index</span> for the automatic index.</p>
 </tbody>
 </table>
 </div></div>
-<div class='col cardcol carddeprecation c2-1 c3-2 c4-2 c5-4 c6-6'><div class='blk'>
+<div class='col cardcol carddeprecation c2-1 c3-2 c4-4 c5-4 c6-6'><div class='blk'>
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
@@ -1542,7 +1581,7 @@ The pattern can not include any optional parts.</p></div></div></td>
 </tbody>
 </table>
 </div></div>
-<div class="col cardperformance c3-1 c5-1 c6-2"><div class="blk">
+<div class="col cardperformance c3-1 c5-1 c6-6"><div class="blk">
 <table class="tableblock frame-all grid-all"
 style="
 width:100%;
