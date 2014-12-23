@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4.7. Loading Data -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-intro-indexes-contraints.html" title="4.6. Indexes and Constraints" /><link rel="next" href="cypherdoc-cypher-vs.-sql.html" title="4.8. Cypher vs. SQL" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.7. Loading Data" /><script type="text/javascript">
+    <title>4.7. Loading Data -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-labels-constraints-and-indexes.html" title="4.6. Labels, Constraints and Indexes" /><link rel="next" href="cypherdoc-cypher-vs-sql.html" title="4.8. Cypher vs. SQL" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.7. Loading Data" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -69,7 +69,7 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>4.7. Loading Data</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-intro-indexes-contraints.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-cypher-vs.-sql.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-loading-data"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.7. Loading Data</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-loading-data.html#_parameters">Parameters</a></span></li><li><span class="section"><a href="cypherdoc-loading-data.html#_importing_csv">Importing CSV</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-labels-constraints-and-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-cypher-vs-sql.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-loading-data"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.7. Loading Data</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-loading-data.html#_parameters">Parameters</a></span></li><li><span class="section"><a href="cypherdoc-loading-data.html#_importing_csv">Importing CSV</a></span></li></ul></div>
 
 <p>As you’ve seen you can not only query data expressively but also create data with Cypher statements.</p>
 <p>Naturally in most cases you wouldn’t want to write or generate huge statements to generate your data but instead use an existing data source that you pass into your statement and which is used to drive the graph generation process.</p>
@@ -114,15 +114,15 @@ FOREACH (role IN movie.cast |
 <p>The <code class="literal">LOAD CSV</code> clause parses a local or remote file into a stream of rows which represent maps (with headers) or lists.
 Then you can use whatever Cypher operations you want to apply to either create nodes or relationships or to merge with existing graph structures.</p>
 <p>As CSV files usually represent either node- or relationship-lists, you run multiple passes to create nodes and relationships separately.</p>
-<p><strong>movies.csv. </strong>
+<p><strong>movies.csv </strong>
 </p><pre class="programlisting" data-lang="plain">id,title,country,year
 1,Wall Street,USA,1987
 2,The American President,USA,1995
 3,The Shawshank Redemption,USA,1994</pre><p>
 </p>
-<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://docs.neo4j.org/chunked/2.2-SNAPSHOT/csv/intro/movies.csv" AS line
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.2-SNAPSHOT/csv/intro/movies.csv" AS line
 CREATE (m:Movie { id:line.id,title:line.title, released:toInt(line.year)});</pre>
-<p><strong>persons.csv. </strong>
+<p><strong>persons.csv </strong>
 </p><pre class="programlisting" data-lang="plain">id,name
 1,Charlie Sheen
 2,Oliver Stone
@@ -130,10 +130,10 @@ CREATE (m:Movie { id:line.id,title:line.title, released:toInt(line.year)});</pre
 4,Martin Sheen
 5,Morgan Freeman</pre><p>
 </p>
-<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://docs.neo4j.org/chunked/2.2-SNAPSHOT/csv/intro/persons.csv" AS line
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.2-SNAPSHOT/csv/intro/persons.csv" AS line
 MERGE (a:Person { id:line.id })
 ON CREATE SET a.name=line.name;</pre>
-<p><strong>roles.csv. </strong>
+<p><strong>roles.csv </strong>
 </p><pre class="programlisting" data-lang="plain">personId,movieId,role
 1,1,Bud Fox
 4,1,Carl Fox
@@ -142,7 +142,7 @@ ON CREATE SET a.name=line.name;</pre>
 3,2,President Andrew Shepherd
 5,3,Ellis Boyd 'Red' Redding</pre><p>
 </p>
-<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://docs.neo4j.org/chunked/2.2-SNAPSHOT/csv/intro/roles.csv" AS line
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.2-SNAPSHOT/csv/intro/roles.csv" AS line
 MATCH (m:Movie { id:line.movieId })
 MATCH (a:Person { id:line.personId })
 CREATE (a)-[:ACTED_IN { roles: [line.role]}]-&gt;(m);</pre>
@@ -153,18 +153,21 @@ CREATE (a)-[:ACTED_IN { roles: [line.role]}]-&gt;(m);</pre>
 </div>
 <p>If your file contains denormalized data, you can either run the same file with multiple passes and simple operations as shown above or you might have to use MERGE to create entities uniquely.</p>
 <p>For our use-case we can import the data using a CSV structure like this:</p>
-<p><strong>movie_actor_roles.csv. </strong>
+<p><strong>movie_actor_roles.csv </strong>
 </p><pre class="programlisting" data-lang="plain">title;released;actor;born;characters
 Back to the Future;1985;Michael J. Fox;1961;Marty McFly
 Back to the Future;1985;Christopher Lloyd;1938;Dr. Emmet Brown</pre><p>
 </p>
-<pre class="programlisting" data-lang="plain">LOAD CSV WITH HEADERS FROM "movie_actor_roles.csv" AS line FIELDTERMINATOR ";"
-MERGE (m:Movie {title:line.title}) ON CREATE SET m.released = toInt(line.released)
-MERGE (a:Person {name:line.actor}) ON CREATE SET a.born = toInt(line.born)
-MERGE (a)-[:ACTED_IN {roles:split(line.characters,",") }]-&gt;(m)</pre>
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.2-SNAPSHOT/csv/intro/movie_actor_roles.csv" AS
+  line FIELDTERMINATOR ";"
+MERGE (m:Movie { title:line.title })
+ON CREATE SET m.released = toInt(line.released)
+MERGE (a:Person { name:line.actor })
+ON CREATE SET a.born = toInt(line.born)
+MERGE (a)-[:ACTED_IN { roles:split(line.characters,",")}]-&gt;(m)</pre>
 <div class="informalfigure">
-<a class="ulink" href="images/cypherdoc--4d5fb950.svg" target="_blank">
-<span class="inlinemediaobject"><img src="images/cypherdoc--4d5fb950.svg" alt="cypherdoc--4d5fb950.svg" /></span>
+<a class="ulink" href="images/cypherdoc--9a29426e.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypherdoc--9a29426e.svg" alt="cypherdoc--9a29426e.svg" /></span>
 </a>
 </div>
 <p>If you import a large amount of data (more than 10000 rows), it is recommended to prefix your <code class="literal">LOAD CSV</code> clause with a <code class="literal">PERIODIC COMMIT</code> hint.
@@ -177,7 +180,7 @@ This allows Neo4j to regularly commit the import transactions to avoid memory ch
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

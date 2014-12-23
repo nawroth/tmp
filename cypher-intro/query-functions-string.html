@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>14.5. String functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-mathematical.html" title="14.4. Mathematical functions" /><link rel="next" href="cypher-schema.html" title="Chapter 15. Schema" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.5. String functions" /><script type="text/javascript">
+    <title>14.5. String functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-mathematical.html" title="14.4. Mathematical functions" /><link rel="next" href="cypher-schema.html" title="Chapter 15. Schema" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.5. String functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -74,7 +74,7 @@
 <p>These functions all operate on string expressions only, and will return an error if used on any other values.
 Except <code class="literal">STR()</code>, which converts to strings.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-string" title="String operators">the section called “String operators”</a>.</p>
-<div class="figure" id="d5e13971"><p class="title"><strong>Figure 14.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e13937"><p class="title"><strong>Figure 14.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -89,11 +89,11 @@ Except <code class="literal">STR()</code>, which converts to strings.</p>
 <span class="emphasis"><em>expression:</em></span> An expression that returns anything
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN str(1)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13996"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e13962"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -124,11 +124,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>replace:</em></span> An expression that returns the string to replace the search string with
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN replace("hello", "l", "w")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14039"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14005"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -159,11 +159,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>length:</em></span> An expression that returns a positive number
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN substring("hello", 1, 3), substring("hello", 2)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14082"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14048"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -190,11 +190,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>n:</em></span> An expression that returns a positive number
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN left("hello", 3)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14127"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14093"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -221,11 +221,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>n:</em></span> An expression that returns a positive number
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN right("hello", 3)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14167"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14133"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -248,11 +248,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>original:</em></span> An expression that returns a string
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN ltrim("   hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14204"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14170"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -275,11 +275,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>original:</em></span> An expression that returns a string
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN rtrim("hello   ")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14241"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14207"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -302,11 +302,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>original:</em></span> An expression that returns a string
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN trim("   hello   ")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14278"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14244"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -329,11 +329,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>original:</em></span> An expression that returns a string
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN lower("HELLO")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14315"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14281"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -356,11 +356,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>original:</em></span> An expression that returns a string
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN upper("hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14352"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14318"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -387,11 +387,11 @@ create _4-[:`KNOWS`]-&gt;_0
 <span class="emphasis"><em>splitPattern:</em></span> The string to split to original string with
 
 </li></ul></div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN split("one,two", ",")</pre><p>
 </p>
-<div class="queryresult table" id="d5e14392"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+<div class="queryresult table" id="d5e14358"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
 create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
@@ -410,7 +410,7 @@ create _4-[:`KNOWS`]-&gt;_0
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>2.2. Comparing Database Models -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="what-is-a-graphdb.html" title="2.1. What is a Graph Database?" /><link rel="next" href="graphdb-neo4j.html" title="Chapter 3. The Neo4j Graph Database" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.2. Comparing Database Models" /><script type="text/javascript">
+    <title>2.2. Comparing Database Models -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="what-is-a-graphdb.html" title="2.1. What is a Graph Database?" /><link rel="next" href="graphdb-neo4j.html" title="Chapter 3. The Neo4j Graph Database" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.2. Comparing Database Models" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -78,12 +78,12 @@ Because a graph is a generic structure, let’s compare how a few models would l
 
 <p>Topple the stacks of records in a relational database while keeping all the relationships, and you’ll see a graph.
 Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>
-<div class="figure" id="d5e212"><p class="title"><strong>Figure 2.1. RDBMS</strong></p><div class="figure-contents">
+<div class="figure" id="d5e204"><p class="title"><strong>Figure 2.1. RDBMS</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-rdbms.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-rdbms.svg" alt="graphdb-compare-rdbms.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e220"><p class="title"><strong>Figure 2.2. Graph Database as RDBMS</strong></p><div class="figure-contents">
+<div class="figure" id="d5e212"><p class="title"><strong>Figure 2.2. Graph Database as RDBMS</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-rdbms-g.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-rdbms-g.svg" alt="graphdb-compare-rdbms-g.svg" /></span>
 </a>
@@ -94,14 +94,14 @@ Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly c
 <p>A Key-Value model is great for lookups of simple values or lists.
 When the values are themselves interconnected, you’ve got a graph.
 Neo4j lets you elaborate the simple data structures into more complex, interconnected data.</p>
-<div class="figure" id="d5e231"><p class="title"><strong>Figure 2.3. Key-Value Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e223"><p class="title"><strong>Figure 2.3. Key-Value Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-kvstore.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-kvstore.svg" alt="graphdb-compare-kvstore.svg" /></span>
 </a>
 </div></div>
 <p><code class="literal">K*</code> represents a key, <code class="literal">V*</code> a value.
 Note that some keys point to other keys as well as plain values.</p>
-<div class="figure" id="d5e242"><p class="title"><strong>Figure 2.4. Graph Database as Key-Value Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e234"><p class="title"><strong>Figure 2.4. Graph Database as Key-Value Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-kvstore-g.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-kvstore-g.svg" alt="graphdb-compare-kvstore-g.svg" /></span>
 </a>
@@ -118,13 +118,13 @@ Stored in a graph, the families could become hierarchical, and the relationships
 Which is of course a graph.
 Refer to other documents (or document elements) within that tree and you have a more expressive representation of the same data.
 When in Neo4j, those relationships are easily navigable.</p>
-<div class="figure" id="d5e256"><p class="title"><strong>Figure 2.5. Document Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e248"><p class="title"><strong>Figure 2.5. Document Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-docdb.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-docdb.svg" alt="graphdb-compare-docdb.svg" /></span>
 </a>
 </div></div>
 <p><code class="literal">D</code>=Document, <code class="literal">S</code>=Subdocument, <code class="literal">V</code>=Value, <code class="literal">D2/S2</code> = reference to subdocument in (other) document.</p>
-<div class="figure" id="d5e269"><p class="title"><strong>Figure 2.6. Graph Database as Document Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e261"><p class="title"><strong>Figure 2.6. Graph Database as Document Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-docdb-g.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-docdb-g.svg" alt="graphdb-compare-docdb-g.svg" /></span>
 </a>
@@ -136,7 +136,7 @@ When in Neo4j, those relationships are easily navigable.</p>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

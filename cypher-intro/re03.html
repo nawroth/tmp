@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>neo4j-shell -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="re02.html" title="neo4j-installer" /><link rel="next" href="re04.html" title="neo4j-backup" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="neo4j-shell" /><script type="text/javascript">
+    <title>neo4j-import -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="re02.html" title="neo4j-shell" /><link rel="next" href="re04.html" title="neo4j-backup" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="neo4j-import" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -68,107 +68,117 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>neo4j-shell</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="re02.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="manpages.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="re04.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><div xml:lang="en" class="refentry" id="d5e28797"><div xmlns="" class="titlepage"></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>neo4j-import</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="re02.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="manpages.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="re04.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><div xml:lang="en" class="refentry" id="d5e32570"><div xmlns="" class="titlepage"></div>
 
 
 <div class="refnamediv"><h2>Name</h2><p>
-    neo4j-shell
-     — a command-line tool for exploring and manipulating a graph database
+    neo4j-import
+     — Neo4j Import Tool
 </p></div>
-<div class="refsynopsisdiv" id="shell-manpage"><h2>Synopsis</h2>
-<p><span class="strong"><strong>neo4j-shell</strong></span> [<span class="emphasis"><em>REMOTE OPTIONS</em></span>]</p>
-<p><span class="strong"><strong>neo4j-shell</strong></span> [<span class="emphasis"><em>LOCAL OPTIONS</em></span>]</p>
+<div class="refsynopsisdiv" id="neo4j-import-manpage"><h2>Synopsis</h2>
+<p><span class="strong"><strong>neo4j-import</strong></span> [options]</p>
 </div>
-<div class="refsect1" id="shell-manpage-description"><h2>DESCRIPTION</h2>
+<div class="refsect1" id="neo4j-import-manpage-description"><h2>DESCRIPTION</h2>
 
-<p>Neo4j shell is a command-line shell for running Cypher queries.
-There’s also commands to get information about the database.
-In addition, you can browse the graph, much like how the Unix shell along with commands like <code class="literal">cd</code>, <code class="literal">ls</code> and <code class="literal">pwd</code> can be used to browse your local file system.
-The shell can connect directly to a graph database on the file system.
-To access local a local database used by other processes, use the readonly mode.</p>
+<p><span class="strong"><strong>neo4j-import</strong></span> is used to create a new Neo4j database from data in CSV files.
+See the chapter "Import Tool" in the Neo4j Manual for details on the CSV file format — a special kind of header is required.</p>
 </div>
-<div class="refsect1" id="shell-manpage-remote-options"><h2>REMOTE OPTIONS</h2>
+<div class="refsect1" id="neo4j-import-manpage-options"><h2>OPTIONS</h2>
 
 <div class="variablelist"><dl class="variablelist"><dt><span class="term">
-<span class="strong"><strong>-port</strong></span> <span class="emphasis"><em>PORT</em></span>
+<span class="strong"><strong>--into &lt;store-dir&gt;</strong></span>
 </span></dt><dd>
 
-  Port of host to connect to (default: 1337).
+Database directory to import into. Must not contain existing database.
 
 </dd><dt><span class="term">
-<span class="strong"><strong>-host</strong></span> <span class="emphasis"><em>HOST</em></span>
+<span class="strong"><strong>--nodes "&lt;file1&gt; &lt;file2&gt; …"</strong></span>
 </span></dt><dd>
 
-  Domain name or IP of host to connect to (default: localhost).
+Node CSV header and data. Multiple files will be logically seen as one big file from the perspective of the importer. The first line must contain the header. Multiple data sources like these can be specified in one import, where each data source has its own header. Note that file groups must be enclosed in quotation marks.
 
 </dd><dt><span class="term">
-<span class="strong"><strong>-name</strong></span> <span class="emphasis"><em>NAME</em></span>
+<span class="strong"><strong>--relationships "&lt;file1&gt; &lt;file2&gt; …"</strong></span>
 </span></dt><dd>
 
-  RMI name, i.e. rmi://&lt;host&gt;:&lt;port&gt;/&lt;name&gt; (default: shell).
+Relationship CSV header and data. Multiple files will be logically seen as one big file from the perspective of the importer. The first line must contain the header. Multiple data sources like these can be specified in one import, where each data source has its own header. Note that file groups must be enclosed in quotation marks.
 
 </dd><dt><span class="term">
-<span class="strong"><strong>-readonly</strong></span>
+<span class="strong"><strong>--delimiter &lt;delimiter-character&gt;</strong></span>
 </span></dt><dd>
 
-  Access the database in read-only mode.
+Delimiter character, or <span class="emphasis"><em>TAB</em></span>, between values in CSV data.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--array-delimiter &lt;array-delimiter-character&gt;</strong></span>
+</span></dt><dd>
+
+Delimiter character, or <span class="emphasis"><em>TAB</em></span>, between array elements within a value in CSV data.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--quote &lt;quotation-character&gt;</strong></span>
+</span></dt><dd>
+
+Character to treat as quotation character for values in CSV data. Quotes inside quotes escaped like <code class="literal">"""Go away"", he said."</code> and <code class="literal">"\"Go away\", he said."</code> are supported. If you have set "<code class="literal">'</code>" to be used as the quotation character, you could write the previous example like this instead: <code class="literal">'"Go away", he said.'</code>
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--id-type &lt;id-type&gt;</strong></span>
+</span></dt><dd>
+
+One out of [STRING, INTEGER, ACTUAL] and specifies how ids in node/relationship input files are treated.
+STRING: arbitrary strings for identifying nodes.
+INTEGER: arbitrary integer values for identifying nodes.
+ACTUAL: (advanced) actual node ids.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--processors &lt;max processor count&gt;</strong></span>
+</span></dt><dd>
+
+(advanced) Max number of processors used by the importer. Defaults to the number of available processors reported by the JVM. There is a certain amount of minimum threads needed so for that reason there is no lower bound for this value. For optimal performance this value shouldn’t be greater than the number of available processors.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--stacktrace</strong></span>
+</span></dt><dd>
+
+Enable printing of error stack traces.
 
 </dd></dl></div>
 </div>
-<div class="refsect1" id="shell-manpage-local-options"><h2>LOCAL OPTIONS</h2>
+<div class="refsect1" id="neo4j-import-manpage-usage-windows"><h2>Usage - Windows</h2>
 
-<div class="variablelist"><dl class="variablelist"><dt><span class="term">
-<span class="strong"><strong>-path</strong></span> <span class="emphasis"><em>PATH</em></span>
-</span></dt><dd>
-
-  The path to the database directory.
-  If there is no database at the location, a new one will e created.
-
-</dd><dt><span class="term">
-<span class="strong"><strong>-pid</strong></span> <span class="emphasis"><em>PID</em></span>
-</span></dt><dd>
-
-  Process ID to connect to.
-
-</dd><dt><span class="term">
-<span class="strong"><strong>-readonly</strong></span>
-</span></dt><dd>
-
-  Access the database in read-only mode.
-
-</dd><dt><span class="term">
-<span class="strong"><strong>-c</strong></span> <span class="emphasis"><em>COMMAND</em></span>
-</span></dt><dd>
-
-  Command line to execute. After executing it the shell exits.
-
-</dd><dt><span class="term">
-<span class="strong"><strong>-file</strong></span> <span class="emphasis"><em>FILE</em></span>
-</span></dt><dd>
-
-  File to read and execute. After executing it the shell exits.
-  If <span class="emphasis"><em>-</em></span> is supplied as filename data is read from stdin instead.
-
-</dd><dt><span class="term">
-<span class="strong"><strong>-config</strong></span> <span class="emphasis"><em>CONFIG</em></span>
-</span></dt><dd>
-
-  The path to the Neo4j configuration file to be used.
-
-</dd></dl></div>
+<p>The <span class="strong"><strong><code class="literal">Neo4jImport.bat</code></strong></span> script is used in the same way.</p>
 </div>
-<div class="refsect1" id="shell-manpage-examples"><h2>EXAMPLES</h2>
+<div class="refsect1" id="neo4j-import-manpage-examples"><h2>EXAMPLES</h2>
 
-<p>Examples for remote:</p>
-<pre class="literallayout">  neo4j-shell
-  neo4j-shell -port 1337
-  neo4j-shell -host 192.168.1.234 -port 1337 -name shell
-  neo4j-shell -host localhost -readonly</pre>
-<p>Examples for local:</p>
-<pre class="literallayout">  neo4j-shell -path /path/to/db
-  neo4j-shell -path /path/to/db -config /path/to/neo4j.properties
-  neo4j-shell -path /path/to/db -readonly</pre>
+<p>Below is a basic example, where we import movies, actors and roles from three files.</p>
+<p><strong>movies.csv </strong>
+</p><pre class="programlisting">:ID,title,year:int,:LABEL
+tt0133093,"The Matrix",1999,Movie
+tt0234215,"The Matrix Reloaded",2003,Movie;Sequel
+tt0242653,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p><strong>actors.csv </strong>
+</p><pre class="programlisting">:ID,name,:LABEL
+keanu,"Keanu Reeves",Actor
+laurence,"Laurence Fishburne",Actor
+carrieanne,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p><strong>roles.csv </strong>
+</p><pre class="programlisting">:START_ID,role,:END_ID,:TYPE
+keanu,"Neo",tt0133093,ACTS_IN
+keanu,"Neo",tt0234215,ACTS_IN
+keanu,"Neo",tt0242653,ACTS_IN
+laurence,"Morpheus",tt0133093,ACTS_IN
+laurence,"Morpheus",tt0234215,ACTS_IN
+laurence,"Morpheus",tt0242653,ACTS_IN
+carrieanne,"Trinity",tt0133093,ACTS_IN
+carrieanne,"Trinity",tt0234215,ACTS_IN
+carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
+</p>
+<p>The command will look like this:</p>
+<pre class="programlisting">neo4j-import --into path_to_target_directory --nodes movies.csv --nodes actors.csv --relationships roles.csv</pre>
+<p>See the Neo4j Manual for further examples.</p>
 </div>
 </div>
 
@@ -176,7 +186,7 @@ To access local a local database used by other processes, use the readonly mode.
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

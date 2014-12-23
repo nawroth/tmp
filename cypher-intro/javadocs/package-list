@@ -13,6 +13,7 @@ org.neo4j.graphmatching
 org.neo4j.graphmatching.filter
 org.neo4j.helpers
 org.neo4j.helpers.collection
+org.neo4j.helpers.logging
 org.neo4j.index.lucene
 org.neo4j.index.lucene.unsafe.batchinsert
 org.neo4j.jmx

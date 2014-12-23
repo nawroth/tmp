@@ -20,17 +20,17 @@ CodeMirror.colorize = (function() {
       if (!mode) continue;
       if (mode === "cypher") {
         theme = " cm-s-neo";
+      } else if (mode === "cypher-noexec") {
+        mode = "cypher";
+        theme = " cm-s-neo";
       } else if (mode === "java") {
         mode = "text/x-java";
       } else if (mode === "sql") {
         mode = "text/x-sql";
-      } else if (mode === "bash") {
-        mode = "text/x-sh";
+      } else if (mode  === "properties") {
+        mode = "text/x-properties";
       } else if (mode === "json") {
         mode = "application/json";
-      } else if (mode === "cypher-noexec") {
-        theme = " cm-s-neo";
-        mode = "cypher";
       }
 
       var text = [];

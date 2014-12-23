@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.5. Aggregation -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-start.html" title="12.4. Start" /><link rel="next" href="query-load-csv.html" title="12.6. Load CSV" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.5. Aggregation" /><script type="text/javascript">
+    <title>12.5. Aggregation -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-start.html" title="12.4. Start" /><link rel="next" href="query-load-csv.html" title="12.6. Load CSV" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.5. Aggregation" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -95,7 +95,7 @@ In this case, we are running the query against the following data:</p>
 <span class="inlinemediaobject"><img src="images/aggregation-introduction.preparation-graph.svg" alt="aggregation-introduction.preparation-graph.svg" /></span>
 </a>
 </div>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (me:Person)--&gt;(friend:Person)--&gt;(friend_of_friend:Person)
 WHERE me.name = 'A'
 RETURN count(DISTINCT friend_of_friend), count(friend_of_friend)</pre><p>
@@ -104,8 +104,8 @@ RETURN count(DISTINCT friend_of_friend), count(friend_of_friend)</pre><p>
 The first aggregate function, <code class="literal">count(DISTINCT friend_of_friend)</code>, will only see a <code class="literal">friend_of_friend</code> once — <code class="literal">DISTINCT</code> removes the duplicates.
 The latter aggregate function, <code class="literal">count(friend_of_friend)</code>, might very well see the same <code class="literal">friend_of_friend</code> multiple times.
 In this case, both <code class="literal">B</code> and <code class="literal">C</code> know <code class="literal">D</code> and thus <code class="literal">D</code> will get counted twice, when not using <code class="literal">DISTINCT</code>.</p>
-<div class="queryresult table" id="d5e9466"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct friend_of_friend)</th><th>count(friend_of_friend)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9427"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct friend_of_friend)</th><th>count(friend_of_friend)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -115,7 +115,7 @@ create _1-[:`KNOWS`]-&gt;_2
 </span><span class="command"><strong>
  MATCH (me:Person)--&gt;(friend:Person)--&gt;(friend_of_friend:Person) WHERE me.name = 'A'RETURN count(distinct friend_of_friend), count(friend_of_friend)</strong></span></p>
 <p>The following examples are assuming the example graph structure below.</p>
-<div class="figure" id="d5e9492"><p class="title"><strong>Figure 12.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e9453"><p class="title"><strong>Figure 12.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-aggregation-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-aggregation-graph.svg" alt="cypher-aggregation-graph.svg" /></span>
 </a>
@@ -128,13 +128,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-count-nodes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Count nodes</h4></div></div></div>
 
 <p>To count the number of nodes, for example the number of nodes connected to one node, you can use <code class="literal">count(*)</code>.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'A' })--&gt;(x)
 RETURN n, count(*)</pre><p>
 </p>
 <p>This returns the start node and the count of related nodes.</p>
-<div class="queryresult table" id="d5e9518"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"A",property:13}</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9479"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"A",property:13}</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -147,13 +147,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-group-count-relationship-types"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Group Count Relationship Types</h4></div></div></div>
 
 <p>To count the groups of relationship types, return the types and count them with <code class="literal">count(*)</code>.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'A' })-[r]-&gt;()
 RETURN type(r), count(*)</pre><p>
 </p>
 <p>The relationship types and their group count is returned by the query.</p>
-<div class="queryresult table" id="d5e9552"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9513"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th><th>count(*)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -166,13 +166,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-count-entities"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Count entities</h4></div></div></div>
 
 <p>Instead of counting the number of results with <code class="literal">count(*)</code>, it might be more expressive to include the name of the identifier you care about.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'A' })--&gt;(x)
 RETURN count(x)</pre><p>
 </p>
 <p>The example query returns the number of connected nodes from the start node.</p>
-<div class="queryresult table" id="d5e9586"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(x)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9547"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(x)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -185,13 +185,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-count-non-null-values"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Count non-null values</h4></div></div></div>
 
 <p>You can count the non-<code class="literal">null</code> values by using <code class="literal">count(&lt;identifier&gt;)</code>.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN count(n.property)</pre><p>
 </p>
 <p>The count of related nodes with the <code class="literal">property</code> property set is returned by the query.</p>
-<div class="queryresult table" id="d5e9617"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9578"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -207,13 +207,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-sum"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">sum</h4></div></div></div>
 
 <p>The <code class="literal">sum</code> aggregation function simply sums all the numeric values it encounters. <code class="literal">NULL</code>s are silently dropped.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN sum(n.property)</pre><p>
 </p>
 <p>This returns the sum of all the values in the property <code class="literal">property</code>.</p>
-<div class="queryresult table" id="d5e9650"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sum(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">90</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9611"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sum(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">90</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -226,13 +226,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-avg"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">avg</h4></div></div></div>
 
 <p><code class="literal">avg</code> calculates the average of a numeric column.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN avg(n.property)</pre><p>
 </p>
 <p>The average of all the values in the property <code class="literal">property</code> is returned by the example query.</p>
-<div class="queryresult table" id="d5e9680"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>avg(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">30.0</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9641"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>avg(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">30.0</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -247,13 +247,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <p><code class="literal">percentileDisc</code> calculates the percentile of a given value over a group, with a percentile from 0.0 to 1.0.
 It uses a rounding method, returning the nearest value to the percentile.
 For interpolated values, see <code class="literal">percentileCont</code>.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN percentileDisc(n.property, 0.5)</pre><p>
 </p>
 <p>The 50th percentile of the values in the property <code class="literal">property</code> is returned by the example query. In this case, 0.5 is the median, or 50th percentile.</p>
-<div class="queryresult table" id="d5e9711"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileDisc(n.property, 0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">33</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9672"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileDisc(n.property, 0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">33</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -268,13 +268,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <p><code class="literal">percentileCont</code> calculates the percentile of a given value over a group, with a percentile from 0.0 to 1.0.
 It uses a linear interpolation method, calculating a weighted average between two values, if the desired percentile lies between them.
 For nearest values using a rounding method, see <code class="literal">percentileDisc</code>.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN percentileCont(n.property, 0.4)</pre><p>
 </p>
 <p>The 40th percentile of the values in the property <code class="literal">property</code> is returned by the example query, calculated with a weighted average.</p>
-<div class="queryresult table" id="d5e9742"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileCont(n.property, 0.4)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">29.0</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9703"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>percentileCont(n.property, 0.4)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">29.0</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -289,14 +289,14 @@ create _1-[:`KNOWS`]-&gt;_2
 <p><code class="literal">stdev</code> calculates the standard deviation for a given value over a group.
 It uses a standard two-pass method, with <code class="literal">N - 1</code> as the denominator, and should be used when taking a sample of the population for an unbiased estimate.
 When the standard variation of the entire population is being calculated, <code class="literal">stdevp</code> should be used.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 WHERE n.name IN ['A', 'B', 'C']
 RETURN stdev(n.property)</pre><p>
 </p>
 <p>The standard deviation of the values in the property <code class="literal">property</code> is returned by the example query.</p>
-<div class="queryresult table" id="d5e9774"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdev(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">15.716233645501712</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9735"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdev(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">15.716233645501712</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -311,14 +311,14 @@ create _1-[:`KNOWS`]-&gt;_2
 <p><code class="literal">stdevp</code> calculates the standard deviation for a given value over a group.
 It uses a standard two-pass method, with <code class="literal">N</code> as the denominator, and should be used when calculating the standard deviation for an entire population.
 When the standard variation of only a sample of the population is being calculated, <code class="literal">stdev</code> should be used.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 WHERE n.name IN ['A', 'B', 'C']
 RETURN stdevp(n.property)</pre><p>
 </p>
 <p>The population standard deviation of the values in the property <code class="literal">property</code> is returned by the example query.</p>
-<div class="queryresult table" id="d5e9806"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdevp(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">12.832251036613439</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9767"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>stdevp(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">12.832251036613439</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -331,13 +331,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-max"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">max</h4></div></div></div>
 
 <p><code class="literal">max</code> find the largest value in a numeric column.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN max(n.property)</pre><p>
 </p>
 <p>The largest of all the values in the property <code class="literal">property</code> is returned.</p>
-<div class="queryresult table" id="d5e9836"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>max(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">44</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9797"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>max(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">44</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -350,13 +350,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-min"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">min</h4></div></div></div>
 
 <p><code class="literal">min</code> takes a numeric property as input, and returns the smallest value in that column.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN min(n.property)</pre><p>
 </p>
 <p>This returns the smallest of all the values in the property <code class="literal">property</code>.</p>
-<div class="queryresult table" id="d5e9866"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>min(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">13</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9827"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>min(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">13</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -370,13 +370,13 @@ create _1-[:`KNOWS`]-&gt;_2
 <section class="section" id="aggregation-collect"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">collect</h3></div></div></div>
 
 <p><code class="literal">collect</code> collects all the values into a list. It will ignore <code class="literal">NULL</code>s.</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Person)
 RETURN collect(n.property)</pre><p>
 </p>
 <p>Returns a single row, with all the values collected.</p>
-<div class="queryresult table" id="d5e9896"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[13,33,44]</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9857"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.property)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[13,33,44]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -390,13 +390,13 @@ create _1-[:`KNOWS`]-&gt;_2
 
 <p>All aggregation functions also take the <code class="literal">DISTINCT</code> modifier, which removes duplicates from the values.
 So, to count the number of unique eye colors from nodes related to <code class="literal">a</code>, this query can be used:</p>
-<p><strong>Query. </strong>
+<p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a:Person { name: 'A' })--&gt;(b)
 RETURN count(DISTINCT b.eyes)</pre><p>
 </p>
 <p>Returns the number of eye colors.</p>
-<div class="queryresult table" id="d5e9926"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct b.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
-<p class="cypherconsole"><strong>Try this query live. </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
+<div class="queryresult table" id="d5e9887"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>count(distinct b.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`eyes`:"brown", `name`:"D"})
 create (_1:`Person` {`name`:"A", `property`:13})
 create (_2:`Person` {`eyes`:"blue", `name`:"B", `property`:33})
 create (_3:`Person` {`eyes`:"blue", `name`:"C", `property`:44})
@@ -412,7 +412,7 @@ create _1-[:`KNOWS`]-&gt;_2
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

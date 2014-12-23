@@ -159,7 +159,7 @@ span.searchTab {
 }
 
 #header {
-  background: #30333a; /* #292b31 */
+  background: #0f5788;
   color: #ffffff;
 }
 
@@ -203,6 +203,18 @@ pre,code {
 pre {
   white-space: pre-wrap;
   background: #f9f9f9;
+  word-wrap: normal;
+  word-break: normal;
+  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 0;
+}
+
+code {
+  color: inherit;
+  background: #f2f2f2;
 }
 
 .table tfoot>tr>th,.table-condensed tfoot>tr>th {
@@ -393,11 +405,11 @@ div.query-outer-wrapper {
   left: 0;
 }
 
-#content h3,#content h4,#content h5,#content h6 {
+#content h3,#content h4,#content h5,#content h6, #content div.table[id] > p.title, dt > span.glossterm {
   cursor: pointer;
 }
 
-#content h3:hover::after,#content h4:hover::after,#content h5:hover::after,#content h6:hover::after
+#content h3:hover::after,#content h4:hover::after,#content h5:hover::after,#content h6:hover::after,#content div.table[id] > p.title:hover:after, dt > span.glossterm:hover:before
   {
   color: #428BCA;
   font-family: FontAwesome;
@@ -420,6 +432,10 @@ a.ulink[href^="http"]:after {
 
 a.ulink[href$=".svg"]:after,a.ulink[href$=".jpg"]:after,a.ulink[href$=".png"]:after {
   content: "" !important;
+}
+
+div.table[id^="config_"] tr > td:first-child {
+  width: 8em;
 }
 
 /* for IE */

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.11. Memory mapped IO settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="short-arrays.html" title="25.10. Compressed storage of short arrays" /><link rel="next" href="linux-performance-guide.html" title="25.12. Linux Performance Guide" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.11. Memory mapped IO settings" /><script type="text/javascript">
+    <title>25.11. Memory mapped IO settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="short-arrays.html" title="25.10. Compressed storage of short arrays" /><link rel="next" href="linux-performance-guide.html" title="25.12. Linux Performance Guide" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.11. Memory mapped IO settings" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -75,7 +75,7 @@
 
 <p>Each file in the Neo4j store is accessed through the Neo4j page cache, when reading from, or writing to, the store files.
 Since there is only one page cache, there is only one setting for specifying how much memory Neo4j is allowed to use for page caching.
-The shared page cache ensures that memory is split across the various store files in the most optimal manner <a href="#ftn.d5e22558" class="footnote"><sup class="footnote" id="d5e22558">[1]</sup></a>, depending on how the database is used and what data is popular.</p>
+The shared page cache ensures that memory is split across the various store files in the most optimal manner <a href="#ftn.d5e24214" class="footnote"><sup class="footnote" id="d5e24214">[1]</sup></a>, depending on how the database is used and what data is popular.</p>
 <p>The memory for the page cache is allocated outside the normal Java heap, so you need to take both the Java heap, and the page cache, into consideration in your capacity planning.
 Other processes running on the OS will impact the availability of such memory. Neo4j will require all of the heap memory of the JVM, plus the memory to be used for the page cache, to be available as physical memory.
 Other processes may thus not use more than what is available after the configured memory allocation is made for Neo4j.</p>
@@ -83,14 +83,14 @@ Other processes may thus not use more than what is available after the configure
 If memory belonging to the Neo4j process gets swapped out, it can lead to considerable performance degradation.</p></td></tr></table></div>
 <p>The amount of memory available to the page cache can be configured in two ways; both using the <code class="literal">mapped_memory_total_size</code> setting.
 You can either directly specify the number of bytes available to the page cache, e.g. <code class="literal">150M</code> og <code class="literal">4G</code>, or you can specify a percentage of the available memory, which is what the default setting of <code class="literal">50%</code> means.
-In either case, the amount of memory reserved for the page cache is capped at the amount of free memory as measured when the database starts, and then rounded down to a multiple of the <code class="literal">mapped_memory_page_size</code>.</p>
+In either case, the amount of memory reserved for the page cache is capped at the amount of free memory as measured when the database starts.</p>
 <p>For optimal performance, you will want to have as much of your data fit in the page cache as possible.
 You can sum up the size of all the <code class="literal">neostore.*</code> files in your store file directory, to figure out how big a page cache you need to fit all your data.
 Obviously the store files will grow as you add more nodes, relationships and properties.</p>
 </section>
 <section class="section" id="configuration-batchinsert"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Batch insert example</h3></div></div></div>
 
-<p>Read general information on batch insertion in <a class="xref" href="batchinsert.html" title="Chapter 38. Batch Insertion">Chapter 38, <em>Batch Insertion</em></a>.</p>
+<p>Read general information on batch insertion in <a class="xref" href="batchinsert.html" title="Chapter 39. Batch Insertion">Chapter 39, <em>Batch Insertion</em></a>.</p>
 <p>The configuration should suit the data set you are about to inject using BatchInsert.
 Lets say we have a random-like graph with 10M nodes and 100M relationships.
 Each node (and maybe some relationships) have different properties of string and Java primitive types.
@@ -103,13 +103,13 @@ A rough formula to calculate the memory needed can look like this:</p>
              + number_of_properties * 64</pre>
 <p>Note that the size of the individual property very much depends on what data it contains. The numbers given in the above formula are only a rough estimate.</p>
 </section>
-<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e22558" class="footnote"><p><a href="#d5e22558" class="simpara"><sup class="simpara">[1] </sup></a>This is an informal comparison to the store-specific memory mapping settings of previous versions of Neo4j. We are not claiming that our page replacement algorithms are optimal in the formal sense. Truly optimal page replacement algorithms require knowledge of events arbitrarily far into the future.</p></div></div></section>
+<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e24214" class="footnote"><p><a href="#d5e24214" class="simpara"><sup class="simpara">[1] </sup></a>This is an informal comparison to the store-specific memory mapping settings of previous versions of Neo4j. We are not claiming that our page replacement algorithms are optimal in the formal sense. Truly optimal page replacement algorithms require knowledge of events arbitrarily far into the future.</p></div></div></section>
 
  <footer>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

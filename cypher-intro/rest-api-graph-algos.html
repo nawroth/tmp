@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.16. Graph Algorithms -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-traverse.html" title="22.15. Traversals" /><link rel="next" href="rest-api-batch-ops.html" title="22.17. Batch operations" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.16. Graph Algorithms" /><script type="text/javascript">
+    <title>22.18. Graph Algorithms -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-traverse.html" title="22.17. Traversals" /><link rel="next" href="rest-api-batch-ops.html" title="22.19. Batch operations" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.18. Graph Algorithms" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.16. Graph Algorithms</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-traverse.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-batch-ops.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-graph-algos"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.16. Graph Algorithms</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-all-shortest-paths">Find all shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-one-of-the-shortest-paths">Find one of the shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-a-single-path">Execute a Dijkstra algorithm and get a single path</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-with-equal-weights-on-relationships">Execute a Dijkstra algorithm with equal weights on relationships</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-multiple-paths">Execute a Dijkstra algorithm and get multiple paths</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.18. Graph Algorithms</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-traverse.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-batch-ops.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-graph-algos"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.18. Graph Algorithms</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-all-shortest-paths">Find all shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-find-one-of-the-shortest-paths">Find one of the shortest paths</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-a-single-path">Execute a Dijkstra algorithm and get a single path</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-with-equal-weights-on-relationships">Execute a Dijkstra algorithm with equal weights on relationships</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html#rest-api-execute-a-dijkstra-algorithm-and-get-multiple-paths">Execute a Dijkstra algorithm and get multiple paths</a></span></li></ul></div>
 
 <p>Neo4j comes with a number of built-in graph algorithms.
 They are performed from a start node.
@@ -111,7 +111,7 @@ Default is <code class="literal">1</code>.
 
 <p>The <code class="literal">shortestPath</code> algorithm can find multiple paths between the same
 nodes, like in this example.</p>
-<div class="figure" id="d5e19003"><p class="title"><strong>Figure 22.62. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19700"><p class="title"><strong>Figure 22.66. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Find-all-shortest-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Find-all-shortest-paths.svg" alt="Final-Graph-Find-all-shortest-paths.svg" /></span>
 </a>
@@ -119,7 +119,7 @@ nodes, like in this example.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/155/paths</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/154/paths</code>
 
 </li><li class="listitem">
 
@@ -131,7 +131,7 @@ nodes, like in this example.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/150",
+  "to" : "http://localhost:7474/db/data/node/149",
   "max_depth" : 3,
   "relationships" : {
     "type" : "to",
@@ -151,18 +151,18 @@ nodes, like in this example.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
   "directions" : [ "-&gt;", "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/155",
-  "nodes" : [ "http://localhost:7474/db/data/node/155", "http://localhost:7474/db/data/node/154", "http://localhost:7474/db/data/node/150" ],
+  "start" : "http://localhost:7474/db/data/node/154",
+  "nodes" : [ "http://localhost:7474/db/data/node/154", "http://localhost:7474/db/data/node/153", "http://localhost:7474/db/data/node/149" ],
   "length" : 2,
   "relationships" : [ "http://localhost:7474/db/data/relationship/88", "http://localhost:7474/db/data/relationship/97" ],
-  "end" : "http://localhost:7474/db/data/node/150"
+  "end" : "http://localhost:7474/db/data/node/149"
 }, {
   "directions" : [ "-&gt;", "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/155",
-  "nodes" : [ "http://localhost:7474/db/data/node/155", "http://localhost:7474/db/data/node/151", "http://localhost:7474/db/data/node/150" ],
+  "start" : "http://localhost:7474/db/data/node/154",
+  "nodes" : [ "http://localhost:7474/db/data/node/154", "http://localhost:7474/db/data/node/150", "http://localhost:7474/db/data/node/149" ],
   "length" : 2,
   "relationships" : [ "http://localhost:7474/db/data/relationship/89", "http://localhost:7474/db/data/relationship/95" ],
-  "end" : "http://localhost:7474/db/data/node/150"
+  "end" : "http://localhost:7474/db/data/node/149"
 } ]</pre>
 </section>
 <section class="section" id="rest-api-find-one-of-the-shortest-paths"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Find one of the shortest paths</h3></div></div></div>
@@ -170,7 +170,7 @@ nodes, like in this example.</p>
 <p>If no path algorithm is specified, a <code class="literal">shortestPath</code> algorithm with a max
 depth of 1 will be chosen. In this example, the <code class="literal">max_depth</code> is set to <code class="literal">3</code>
 in order to find the shortest path between a maximum of 3 linked nodes.</p>
-<div class="figure" id="d5e19050"><p class="title"><strong>Figure 22.63. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19747"><p class="title"><strong>Figure 22.67. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Find-one-of-the-shortest-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Find-one-of-the-shortest-paths.svg" alt="Final-Graph-Find-one-of-the-shortest-paths.svg" /></span>
 </a>
@@ -178,7 +178,7 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/148/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/147/path</code>
 
 </li><li class="listitem">
 
@@ -190,7 +190,7 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/143",
+  "to" : "http://localhost:7474/db/data/node/142",
   "max_depth" : 3,
   "relationships" : {
     "type" : "to",
@@ -210,11 +210,11 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "directions" : [ "-&gt;", "-&gt;" ],
-  "start" : "http://localhost:7474/db/data/node/148",
-  "nodes" : [ "http://localhost:7474/db/data/node/148", "http://localhost:7474/db/data/node/147", "http://localhost:7474/db/data/node/143" ],
+  "start" : "http://localhost:7474/db/data/node/147",
+  "nodes" : [ "http://localhost:7474/db/data/node/147", "http://localhost:7474/db/data/node/146", "http://localhost:7474/db/data/node/142" ],
   "length" : 2,
   "relationships" : [ "http://localhost:7474/db/data/relationship/78", "http://localhost:7474/db/data/relationship/87" ],
-  "end" : "http://localhost:7474/db/data/node/143"
+  "end" : "http://localhost:7474/db/data/node/142"
 }</pre>
 </section>
 <section class="section" id="rest-api-execute-a-dijkstra-algorithm-and-get-a-single-path"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a Dijkstra algorithm and get a single path</h3></div></div></div>
@@ -222,7 +222,7 @@ in order to find the shortest path between a maximum of 3 linked nodes.</p>
 <p>This example is running a Dijkstra algorithm over a graph with different
 cost properties on different relationships. Note that the request URI
 ends with <code class="literal">/path</code> which means a single path is what we want here.</p>
-<div class="figure" id="d5e19095"><p class="title"><strong>Figure 22.64. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19792"><p class="title"><strong>Figure 22.68. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-a-single-path.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-a-single-path.svg" alt="Final-Graph-Execute-a-Dijkstra-algorithm-and-get-a-single-path.svg" /></span>
 </a>
@@ -230,7 +230,7 @@ ends with <code class="literal">/path</code> which means a single path is what w
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/161/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/160/path</code>
 
 </li><li class="listitem">
 
@@ -242,7 +242,7 @@ ends with <code class="literal">/path</code> which means a single path is what w
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/158",
+  "to" : "http://localhost:7474/db/data/node/157",
   "cost_property" : "cost",
   "relationships" : {
     "type" : "to",
@@ -263,11 +263,11 @@ ends with <code class="literal">/path</code> which means a single path is what w
 <pre class="programlisting" data-lang="javascript">{
   "directions" : [ "-&gt;", "-&gt;", "-&gt;" ],
   "weight" : 1.5,
-  "start" : "http://localhost:7474/db/data/node/161",
-  "nodes" : [ "http://localhost:7474/db/data/node/161", "http://localhost:7474/db/data/node/160", "http://localhost:7474/db/data/node/157", "http://localhost:7474/db/data/node/158" ],
+  "start" : "http://localhost:7474/db/data/node/160",
+  "nodes" : [ "http://localhost:7474/db/data/node/160", "http://localhost:7474/db/data/node/159", "http://localhost:7474/db/data/node/156", "http://localhost:7474/db/data/node/157" ],
   "length" : 3,
   "relationships" : [ "http://localhost:7474/db/data/relationship/99", "http://localhost:7474/db/data/relationship/101", "http://localhost:7474/db/data/relationship/102" ],
-  "end" : "http://localhost:7474/db/data/node/158"
+  "end" : "http://localhost:7474/db/data/node/157"
 }</pre>
 </section>
 <section class="section" id="rest-api-execute-a-dijkstra-algorithm-with-equal-weights-on-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a Dijkstra algorithm with equal weights on relationships</h3></div></div></div>
@@ -276,7 +276,7 @@ ends with <code class="literal">/path</code> which means a single path is what w
 weights on all relationships. This example is included to show the
 difference when the same graph structure is used, but the path weight is
 equal to the number of hops.</p>
-<div class="figure" id="d5e19139"><p class="title"><strong>Figure 22.65. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19836"><p class="title"><strong>Figure 22.69. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-a-Dijkstra-algorithm-with-equal-weights-on-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-a-Dijkstra-algorithm-with-equal-weights-on-relationships.svg" alt="Final-Graph-Execute-a-Dijkstra-algorithm-with-equal-weights-on-relationships.svg" /></span>
 </a>
@@ -284,7 +284,7 @@ equal to the number of hops.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/167/path</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/166/path</code>
 
 </li><li class="listitem">
 
@@ -296,7 +296,7 @@ equal to the number of hops.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/164",
+  "to" : "http://localhost:7474/db/data/node/163",
   "cost_property" : "cost",
   "relationships" : {
     "type" : "to",
@@ -317,11 +317,11 @@ equal to the number of hops.</p>
 <pre class="programlisting" data-lang="javascript">{
   "directions" : [ "-&gt;", "-&gt;" ],
   "weight" : 2.0,
-  "start" : "http://localhost:7474/db/data/node/167",
-  "nodes" : [ "http://localhost:7474/db/data/node/167", "http://localhost:7474/db/data/node/165", "http://localhost:7474/db/data/node/164" ],
+  "start" : "http://localhost:7474/db/data/node/166",
+  "nodes" : [ "http://localhost:7474/db/data/node/166", "http://localhost:7474/db/data/node/164", "http://localhost:7474/db/data/node/163" ],
   "length" : 2,
   "relationships" : [ "http://localhost:7474/db/data/relationship/105", "http://localhost:7474/db/data/relationship/110" ],
-  "end" : "http://localhost:7474/db/data/node/164"
+  "end" : "http://localhost:7474/db/data/node/163"
 }</pre>
 </section>
 <section class="section" id="rest-api-execute-a-dijkstra-algorithm-and-get-multiple-paths"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a Dijkstra algorithm and get multiple paths</h3></div></div></div>
@@ -330,7 +330,7 @@ equal to the number of hops.</p>
 cost properties on different relationships. Note that the request URI
 ends with <code class="literal">/paths</code> which means we want multiple paths returned, in case
 they exist.</p>
-<div class="figure" id="d5e19184"><p class="title"><strong>Figure 22.66. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19881"><p class="title"><strong>Figure 22.70. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-multiple-paths.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-a-Dijkstra-algorithm-and-get-multiple-paths.svg" alt="Final-Graph-Execute-a-Dijkstra-algorithm-and-get-multiple-paths.svg" /></span>
 </a>
@@ -338,7 +338,7 @@ they exist.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/141/paths</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/140/paths</code>
 
 </li><li class="listitem">
 
@@ -350,7 +350,7 @@ they exist.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "to" : "http://localhost:7474/db/data/node/138",
+  "to" : "http://localhost:7474/db/data/node/137",
   "cost_property" : "cost",
   "relationships" : {
     "type" : "to",
@@ -371,19 +371,19 @@ they exist.</p>
 <pre class="programlisting" data-lang="javascript">[ {
   "directions" : [ "-&gt;", "-&gt;", "-&gt;" ],
   "weight" : 1.5,
-  "start" : "http://localhost:7474/db/data/node/141",
-  "nodes" : [ "http://localhost:7474/db/data/node/141", "http://localhost:7474/db/data/node/140", "http://localhost:7474/db/data/node/137", "http://localhost:7474/db/data/node/138" ],
+  "start" : "http://localhost:7474/db/data/node/140",
+  "nodes" : [ "http://localhost:7474/db/data/node/140", "http://localhost:7474/db/data/node/139", "http://localhost:7474/db/data/node/136", "http://localhost:7474/db/data/node/137" ],
   "length" : 3,
   "relationships" : [ "http://localhost:7474/db/data/relationship/72", "http://localhost:7474/db/data/relationship/74", "http://localhost:7474/db/data/relationship/75" ],
-  "end" : "http://localhost:7474/db/data/node/138"
+  "end" : "http://localhost:7474/db/data/node/137"
 }, {
   "directions" : [ "-&gt;", "-&gt;" ],
   "weight" : 1.5,
-  "start" : "http://localhost:7474/db/data/node/141",
-  "nodes" : [ "http://localhost:7474/db/data/node/141", "http://localhost:7474/db/data/node/136", "http://localhost:7474/db/data/node/138" ],
+  "start" : "http://localhost:7474/db/data/node/140",
+  "nodes" : [ "http://localhost:7474/db/data/node/140", "http://localhost:7474/db/data/node/135", "http://localhost:7474/db/data/node/137" ],
   "length" : 2,
   "relationships" : [ "http://localhost:7474/db/data/relationship/73", "http://localhost:7474/db/data/relationship/77" ],
-  "end" : "http://localhost:7474/db/data/node/138"
+  "end" : "http://localhost:7474/db/data/node/137"
 } ]</pre>
 </section>
 </section>
@@ -392,7 +392,7 @@ they exist.</p>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

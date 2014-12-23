@@ -154,8 +154,8 @@ Cypher manages indexes and constraints.
 </ul></div>
 <div class="paragraph"><p>You can try Cypher snippets live in the Neo4j Console at
 <a href="http://console.neo4j.org" target="_blank">console.neo4j.org</a>
-or read the full Cypher documentation at
-<a href="http://docs.neo4j.org" target="_blank">docs.neo4j.org</a>.
+or read the full Cypher documentation in the
+<a href="../" target="_blank">Neo4j Manual</a>.
 For live graph models using Cypher check out <a href="http://gist.neo4j.org" target="_blank">GraphGist</a>.</p></div>
 <div class="paragraph"><p>Note: <span class="monospaced">{value}</span> denotes either literals, for ad hoc Cypher queries; or parameters, which is the best practice for applications.
 Neo4j properties can be strings, numbers, booleans or arrays thereof.
@@ -621,20 +621,20 @@ width:100%;
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">LOAD CSV FROM
-'http://docs.neo4j.org/refcard/2.2-SNAPSHOT/csv/artists.csv' AS line
+'http://neo4j.com/docs/2.2-SNAPSHOT/cypher-refcard/csv/artists.csv' AS line
 CREATE (:Artist {name: line[1], year: toInt(line[2])})</pre></div>
 <div class="paragraph"><p>Load data from a CSV file and create nodes.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">LOAD CSV WITH HEADERS FROM
-'http://docs.neo4j.org/refcard/2.2-SNAPSHOT/csv/artists-with-headers.csv' AS line
+'http://neo4j.com/docs/2.2-SNAPSHOT/cypher-refcard/csv/artists-with-headers.csv' AS line
 CREATE (:Artist {name: line.Name, year: toInt(line.Year)})</pre></div>
 <div class="paragraph"><p>Load CSV data which has headers.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">LOAD CSV FROM 'http://docs.neo4j.org/refcard/2.2-SNAPSHOT/csv/artists-fieldterminator.csv'
+<pre class="programlisting brush: cypher">LOAD CSV FROM 'http://neo4j.com/docs/2.2-SNAPSHOT/cypher-refcard/csv/artists-fieldterminator.csv'
 AS line FIELDTERMINATOR ';'
 CREATE (:Artist {name: line[1], year: toInt(line[2])})</pre></div>
 <div class="paragraph"><p>Use a different field terminator, not the default which is a comma (with no whitespace around it).</p></div></div></td>

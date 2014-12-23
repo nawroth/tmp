@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.19. Unique Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="22.18. Legacy indexing" /><link rel="next" href="rest-api-auto-indexes.html" title="22.20. Legacy Automatic Indexes" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.19. Unique Indexing" /><script type="text/javascript">
+    <title>22.21. Unique Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="22.20. Legacy indexing" /><link rel="next" href="rest-api-auto-indexes.html" title="22.22. Legacy Automatic Indexes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.21. Unique Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.19. Unique Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-auto-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-unique-indexes"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.19. Unique Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-create">Get or create unique node (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-existing">Get or create unique node (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-create">Create a unique node or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-fail">Create a unique node or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-not-indexed">Add an existing node to unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-already-indexed">Add an existing node to unique index (already indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-create">Get or create unique relationship (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-existing">Get or create unique relationship (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-create">Create a unique relationship or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-fail">Create a unique relationship or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-not-indexed">Add an existing relationship to a unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-already-indexed">Add an existing relationship to a unique index (already indexed)</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.21. Unique Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-auto-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-unique-indexes"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.21. Unique Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-create">Get or create unique node (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-existing">Get or create unique node (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-create">Create a unique node or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-fail">Create a unique node or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-not-indexed">Add an existing node to unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-already-indexed">Add an existing node to unique index (already indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-create">Get or create unique relationship (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-existing">Get or create unique relationship (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-create">Create a unique relationship or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-fail">Create a unique relationship or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-not-indexed">Add an existing relationship to a unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-already-indexed">Add an existing relationship to a unique index (already indexed)</a></span></li></ul></div>
 
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>As of Neo4j 2.0, unique constraints have been added.
 These make Neo4j enforce the uniqueness, guaranteeing that uniqueness is maintained.
@@ -122,33 +122,33 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/22</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/32</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/22/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/22/labels",
-  "traverse" : "http://localhost:7474/db/data/node/22/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/22",
-  "property" : "http://localhost:7474/db/data/node/22/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/22/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/22/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/22/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/22/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/22/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/32/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/32/labels",
+  "traverse" : "http://localhost:7474/db/data/node/32/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/32",
+  "property" : "http://localhost:7474/db/data/node/32/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/32/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/32/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/32/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/32/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/32/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 22,
+    "id" : 32,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/22"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/32"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-node-existing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique node (existing)</h3></div></div></div>
@@ -190,33 +190,33 @@ already existing node.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Peter/12</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Peter/22</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/12/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/12/labels",
-  "traverse" : "http://localhost:7474/db/data/node/12/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/12",
-  "property" : "http://localhost:7474/db/data/node/12/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/12/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/12/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/12/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/12/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/12/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/12/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/22/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/22/labels",
+  "traverse" : "http://localhost:7474/db/data/node/22/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/22",
+  "property" : "http://localhost:7474/db/data/node/22/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/22/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/22/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/22/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/22/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/22/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 12,
+    "id" : 22,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Peter"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/12"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/22"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-node-or-return-fail-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique node or return fail (create)</h3></div></div></div>
@@ -257,33 +257,33 @@ example, no existing indexed node is found and a new node is created.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/21</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/people/name/Tobias/31</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/21/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/21/labels",
-  "traverse" : "http://localhost:7474/db/data/node/21/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/21",
-  "property" : "http://localhost:7474/db/data/node/21/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/21/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/21/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/21/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/21/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/21/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/21/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/31/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/31/labels",
+  "traverse" : "http://localhost:7474/db/data/node/31/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/31",
+  "property" : "http://localhost:7474/db/data/node/31/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/31/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/31/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/31/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/31/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/31/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 21,
+    "id" : 31,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/21"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Tobias/31"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-node-or-return-fail-fail"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique node or return fail (fail)</h3></div></div></div>
@@ -326,28 +326,28 @@ is found and an error is returned.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/6/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/6/labels",
-  "traverse" : "http://localhost:7474/db/data/node/6/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/6",
-  "property" : "http://localhost:7474/db/data/node/6/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/6/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/6/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/6/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/6/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/6/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/6/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/16/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/16/labels",
+  "traverse" : "http://localhost:7474/db/data/node/16/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/16",
+  "property" : "http://localhost:7474/db/data/node/16/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/16/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/16/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/16/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/16/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/16/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 6,
+    "id" : 16,
     "labels" : [ ]
   },
   "data" : {
     "sequence" : 1,
     "name" : "Peter"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/6"
+  "indexed" : "http://localhost:7474/db/data/index/node/people/name/Peter/16"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-node-to-unique-index-not-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing node to unique index (not indexed)</h3></div></div></div>
@@ -371,7 +371,7 @@ index.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "value" : "some value",
-  "uri" : "http://localhost:7474/db/data/node/17",
+  "uri" : "http://localhost:7474/db/data/node/27",
   "key" : "some-key"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -385,30 +385,30 @@ index.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/17</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/27</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/17/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/17/labels",
-  "traverse" : "http://localhost:7474/db/data/node/17/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/17",
-  "property" : "http://localhost:7474/db/data/node/17/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/17/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/17/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/17/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/17/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/17/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/17/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/27/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/27/labels",
+  "traverse" : "http://localhost:7474/db/data/node/27/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/27",
+  "property" : "http://localhost:7474/db/data/node/27/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/27/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/27/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/27/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/27/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/27/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 17,
+    "id" : 27,
     "labels" : [ ]
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/17"
+  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/27"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-node-to-unique-index-already-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing node to unique index (already indexed)</h3></div></div></div>
@@ -431,7 +431,7 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "value" : "some value",
-  "uri" : "http://localhost:7474/db/data/node/20",
+  "uri" : "http://localhost:7474/db/data/node/30",
   "key" : "some-key"
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -446,27 +446,27 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/19/relationships/out",
-  "labels" : "http://localhost:7474/db/data/node/19/labels",
-  "traverse" : "http://localhost:7474/db/data/node/19/traverse/{returnType}",
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/19",
-  "property" : "http://localhost:7474/db/data/node/19/properties/{key}",
-  "properties" : "http://localhost:7474/db/data/node/19/properties",
-  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/out/{-list|&amp;|types}",
-  "incoming_relationships" : "http://localhost:7474/db/data/node/19/relationships/in",
-  "create_relationship" : "http://localhost:7474/db/data/node/19/relationships",
-  "paged_traverse" : "http://localhost:7474/db/data/node/19/paged/traverse/{returnType}{?pageSize,leaseTime}",
-  "all_relationships" : "http://localhost:7474/db/data/node/19/relationships/all",
-  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/19/relationships/in/{-list|&amp;|types}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/29/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/29/labels",
+  "traverse" : "http://localhost:7474/db/data/node/29/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/29",
+  "property" : "http://localhost:7474/db/data/node/29/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/29/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/29/relationships/in",
+  "create_relationship" : "http://localhost:7474/db/data/node/29/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/29/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/29/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/in/{-list|&amp;|types}",
   "metadata" : {
-    "id" : 19,
+    "id" : 29,
     "labels" : [ ]
   },
   "data" : {
     "some-key" : "some value"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/19"
+  "indexed" : "http://localhost:7474/db/data/index/node/favorites/some-key/some%20value/29"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-relationship-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique relationship (create)</h3></div></div></div>
@@ -798,7 +798,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

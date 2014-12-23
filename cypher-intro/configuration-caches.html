@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.6. Caches in Neo4j -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="kernel-configuration.html" title="25.5. Kernel configuration" /><link rel="next" href="configuration-logical-logs.html" title="25.7. Logical logs" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.6. Caches in Neo4j" /><script type="text/javascript">
+    <title>25.6. Caches in Neo4j -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-settings.html" title="25.5. Configuration Settings" /><link rel="next" href="configuration-logical-logs.html" title="25.7. Logical logs" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.6. Caches in Neo4j" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -69,7 +69,7 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.6. Caches in Neo4j</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="kernel-configuration.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-logical-logs.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-caches"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.6. Caches in Neo4j</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="configuration-caches.html#_file_buffer_cache">File buffer cache</a></span></li><li><span class="section"><a href="configuration-caches.html#_object_cache">Object cache</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration-settings.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-logical-logs.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-caches"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.6. Caches in Neo4j</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="configuration-caches.html#_file_buffer_cache">File buffer cache</a></span></li><li><span class="section"><a href="configuration-caches.html#_object_cache">Object cache</a></span></li></ul></div>
 
 <p>For how to provide custom configuration to Neo4j, see <a class="xref" href="configuration-introduction.html" title="25.1. Introduction">Section 25.1, “Introduction”</a>.</p>
 <p>Neo4j utilizes two different types of caches:
@@ -127,8 +127,7 @@ When the hit ratio of an uncached window gets higher than the miss ratio of a ca
 <div class="informaltable">
 <table cellspacing="0" cellpadding="0"><thead><tr><th> Parameter                 </th><th> Possible values   </th><th> Effect</th></tr></thead><tbody><tr><td><p><code class="literal">mapped_memory_total_size</code></p></td><td><p>The maximum amount of memory to use for the file buffer cache, either in bytes
   (or greater byte-like units, such as <code class="literal">100M</code> for 100 mega-bytes, or <code class="literal">4G</code> for 4 giga-bytes)
-  or a percentage of the available amount of memory.</p></td><td><p>The amount of memory to use for mapping the store files, either in bytes or as a percentage of available memory. This will be clipped at the amount of free memory observed when the database starts, and automatically be rounded down to the nearest whole page. For example, if <code class="literal">500MB</code> is configured, but only 450MB of memory is free when the database starts, then the database will map at most 450MB. If <code class="literal">50%</code> is configured, and the system has a capacity of 4GB, then at most 2GB of memory will be mapped, unless the database observes that less than 2GB of memory is free when it starts.</p></td></tr><tr><td><p><code class="literal">mapped_memory_page_size</code></p></td><td><p>The number of bytes per page. Preferably a power-of-two that is close to the native sector size or page size of the durable medium.</p></td><td><p>The size of the pages, in bytes, that the database will use for mapping the store files into memory.
-  Don’t change this without carefully measuring the performance implications.</p></td></tr><tr><td><p><code class="literal">string_block_size</code></p></td><td rowspan="2"><p>The number of bytes per block.</p></td><td><p>Specifies the block size for storing strings.
+  or a percentage of the available amount of memory.</p></td><td><p>The amount of memory to use for mapping the store files, either in bytes or as a percentage of available memory. This will be clipped at the amount of free memory observed when the database starts, and automatically be rounded down to the nearest whole page. For example, if <code class="literal">500MB</code> is configured, but only 450MB of memory is free when the database starts, then the database will map at most 450MB. If <code class="literal">50%</code> is configured, and the system has a capacity of 4GB, then at most 2GB of memory will be mapped, unless the database observes that less than 2GB of memory is free when it starts.</p></td></tr><tr><td><p><code class="literal">string_block_size</code></p></td><td rowspan="2"><p>The number of bytes per block.</p></td><td><p>Specifies the block size for storing strings.
   This parameter is only honored when the store is created, otherwise it is ignored.
   Note that each character in a string occupies two bytes, meaning that a block size of 120 (the default size) will hold a 60 character long string before overflowing into a second block.
   Also note that each block carries an overhead of 8 bytes.
@@ -188,19 +187,15 @@ The available cache types are:</p>
 <div class="informaltable">
 <table cellspacing="0" cellpadding="0"><thead><tr><th> <code class="literal">cache_type</code> </th><th> Description</th></tr></thead><tbody><tr><td><p><code class="literal">none</code></p></td><td><p>Do not use a high level cache. No objects will be cached.</p></td></tr><tr><td><p><code class="literal">soft</code></p></td><td><p>Provides optimal utilization of the available memory.
                  Suitable for high performance traversal.
-                 May run into GC issues under high load if the frequently accessed parts of the graph does not fit in the cache.</p>
-<p>                 This is the default cache type in Neo4j Community Edition.</p></td></tr><tr><td><p><code class="literal">weak</code></p></td><td><p>Provides short life span for cached objects.
+                 May run into GC issues under high load if the frequently accessed parts of the graph does not fit in the cache.
+                 This is the default cache type in Neo4j Community Edition.</p></td></tr><tr><td><p><code class="literal">weak</code></p></td><td><p>Provides short life span for cached objects.
                  Suitable for high throughput applications where a larger portion of the graph than what can fit into memory is frequently accessed.</p></td></tr><tr><td><p><code class="literal">strong</code></p></td><td><p>This cache will hold on to <span class="strong"><strong>all data</strong></span> that gets loaded to never release it again.
                  Provides good performance if your graph is small enough to fit in memory.</p></td></tr><tr><td><p><code class="literal">hpc</code></p></td><td><p>The High-Performance Cache. Provides means of assigning a specific amount of memory to dedicate to caching loaded nodes and relationships.
                  Small footprint and fast insert/lookup. Should be the best option for most scenarios. See below on how to configure it.
-&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-                 Note that this option is only available in Neo4j Enterprise Edition where it is the default implementation.
-=======
-                 This cache type is only available in the Neo4j Enterprise Edition, and is the default in that edition.
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/2.1-maint</p></td></tr></tbody></table>
+                 This cache type is only available in the Neo4j Enterprise Edition, and is the default in that edition.</p></td></tr></tbody></table>
 </div>
 </section>
-<section class="section" id="_high_performance_cache"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">High-Performance Cache</h4></div></div></div>
+<section class="section" id="high-performance-cache"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">High-Performance Cache</h4></div></div></div>
 
 <p>How much memory to allocate to the High Performance Cache can be fine tuned to suit your use case.
 There are two ways to configure memory usage for it.</p>
@@ -218,21 +213,40 @@ For other collectors, it will be half of the total heap size.</p>
 <p><span class="strong"><strong>Advanced configuration</strong></span></p>
 <p>The advanced configuration gives more fine-grained control of how much memory to allocate specific parts of the cache.
 There are two aspects to this configuration.</p>
-<p>One is the size of the array referencing the objects that are put in the cache.
-It is specified as a fraction of the heap, for example specifying <code class="literal">5</code> will let that array itself take up 5% out of the entire heap.
-Increasing this figure (up to a maximum of 10) will reduce the chance of hash collisions at the expense of more heap used for it.
-More collisions means more redundant loading of objects from the low level cache.</p>
-<div class="informaltable">
-<table cellspacing="0" cellpadding="0"><thead><tr><th> <code class="literal">configuration option</code>            </th><th> Description (what it controls)                                                                 </th><th> Example value</th></tr></thead><tbody><tr><td><p><code class="literal">node_cache_array_fraction</code></p></td><td><p>Fraction of the heap to dedicate to the array holding the nodes in the cache (max 10).</p></td><td><p><code class="literal">7</code></p></td></tr><tr><td><p><code class="literal">relationship_cache_array_fraction</code></p></td><td><p>Fraction of the heap to dedicate to the array holding the relationships in the cache (max 10).</p></td><td><p><code class="literal">5</code></p></td></tr></tbody></table>
-</div>
-<p>The other aspect is the maximum size of all the objects in the cache. It is specified as size in bytes, for example <code class="literal">500M</code> for 500 megabytes or <code class="literal">2G</code> for two gigabytes.
-Right before the maximum size is reached a <code class="literal">purge</code> is performed where (currently) random objects are evicted from the cache until the cache size gets below 90% of the maximum size.
-Optimal settings for the maximum size depends on the size of your graph.
-The configured maximum size should leave enough room for other objects to coexist in the same JVM, but at the same time large enough to keep loading from the low level cache at a minimum.
-Predicted load on the JVM as well as layout of domain level objects should also be take into consideration.</p>
-<div class="informaltable">
-<table cellspacing="0" cellpadding="0"><thead><tr><th> <code class="literal">configuration option</code>   </th><th> Description (what it controls)                                           </th><th> Example value</th></tr></thead><tbody><tr><td><p><code class="literal">node_cache_size</code></p></td><td><p>Maximum size of the heap memory to dedicate to the cached nodes.</p></td><td><p><code class="literal">2G</code></p></td></tr><tr><td><p><code class="literal">relationship_cache_size</code></p></td><td><p>Maximum size of the heap memory to dedicate to the cached relationships.</p></td><td><p><code class="literal">800M</code></p></td></tr></tbody></table>
-</div>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+The size of the array referencing the objects that are put in the cache.
+
+</li><li class="listitem">
+
+The maximum size of all the objects in the cache.
+
+</li></ul></div>
+<p>See below for further details.</p>
+<div class="table" id="config-org.neo4j.kernel.impl.cache.HighPerformanceCacheSettings"><p class="title"><strong>High Performance Cache configuration settings</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="configuration-caches.html#config_cache.memory_ratio" title="cache.memory_ratio">cache.memory_ratio</a></p></td><td><p>Set how much of the memory available for caching to use for caching.</p></td></tr><tr><td><p><a class="link" href="configuration-caches.html#config_node_cache_array_fraction" title="node_cache_array_fraction">node_cache_array_fraction</a></p></td><td><p>Fraction of the heap to dedicate to the array holding the nodes in the cache.</p></td></tr><tr><td><p><a class="link" href="configuration-caches.html#config_node_cache_size" title="node_cache_size">node_cache_size</a></p></td><td><p>Maximum size of the heap memory to dedicate to the cached nodes.</p></td></tr><tr><td><p><a class="link" href="configuration-caches.html#config_relationship_cache_array_fraction" title="relationship_cache_array_fraction">relationship_cache_array_fraction</a></p></td><td><p>Fraction of the heap to dedicate to the array holding the relationships in the cache.</p></td></tr><tr><td><p><a class="link" href="configuration-caches.html#config_relationship_cache_size" title="relationship_cache_size">relationship_cache_size</a></p></td><td><p>Maximum size of the heap memory to dedicate to the cached relationships.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_cache.memory_ratio"><p class="title"><strong>cache.memory_ratio</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Set how much of the memory available for caching to use for caching. It is recommended to not have this value exceed 70 percent.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">cache.memory_ratio</code></code> is a value between 0 and 100 which cannot be used in conjunction with other object cache size settings, and may not be set to more than 80% of the available heap space.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_node_cache_array_fraction"><p class="title"><strong>node_cache_array_fraction</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Fraction of the heap to dedicate to the array holding the nodes in the cache. Specifying <code class="literal">5</code> will let that array itself take up 5% out of the entire heap. Increasing this figure will reduce the chance of hash collisions at the expense of more heap used for it. More collisions means more redundant loading of objects from the low level cache.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">node_cache_array_fraction</code></code> is a float which is in the range <code class="literal">+&lt;&lt;config_1.0,1.0&gt;&gt;+</code> to <code class="literal">+&lt;&lt;config_10.0,10.0&gt;&gt;+</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1.0</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_node_cache_size"><p class="title"><strong>node_cache_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Maximum size of the heap memory to dedicate to the cached nodes. Right before the maximum size is reached a purge is performed. The purge will evict objects from the cache until the cache size gets below 90% of the maximum size. Optimal settings for the maximum size depends on the size of your graph. The configured maximum size should leave enough room for other objects to coexist in the same JVM. At the same time it should be large enough to keep loading from the low level cache at a minimum. Predicted load on the JVM as well as layout of domain level objects should also be taken into consideration.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">node_cache_size</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_relationship_cache_array_fraction"><p class="title"><strong>relationship_cache_array_fraction</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Fraction of the heap to dedicate to the array holding the relationships in the cache. See <code class="literal"><a class="link" href="configuration-caches.html#config_node_cache_array_fraction" title="node_cache_array_fraction">node_cache_array_fraction</a></code> for more information.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">relationship_cache_array_fraction</code></code> is a float which is in the range <code class="literal">+&lt;&lt;config_1.0,1.0&gt;&gt;+</code> to <code class="literal">+&lt;&lt;config_10.0,10.0&gt;&gt;+</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1.0</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_relationship_cache_size"><p class="title"><strong>relationship_cache_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Maximum size of the heap memory to dedicate to the cached relationships. See <code class="literal"><a class="link" href="configuration-caches.html#config_node_cache_size" title="node_cache_size">node_cache_size</a></code> for more information.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">relationship_cache_size</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr></tbody></table>
+</div></div>
 <p>You can read about references and relevant JVM settings for Sun HotSpot here:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
@@ -255,7 +269,7 @@ Predicted load on the JVM as well as layout of domain level objects should also 
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">

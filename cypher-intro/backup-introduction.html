@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>27.1. Introducing Backup -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="operations-backup.html" title="Chapter 27. Backup" /><link rel="next" href="backup-java.html" title="27.2. Online Backup from Java" /><link rel="copyright" href="ln-d5e41.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.1. Introducing Backup" /><script type="text/javascript">
+    <title>27.1. Introducing Backup -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="operations-backup.html" title="Chapter 27. Backup" /><link rel="next" href="backup-embedded-and-server.html" title="27.2. Server and Embedded" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.1. Introducing Backup" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-65659";
+      var treeCookieId = "treeview-75136";
       var language = "en";
       var w = new Object();
       //Localization
@@ -12,9 +12,9 @@
       txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
       txt_please_wait = "Please wait. Search in progress...";
       txt_results_for = "Results for: ";
-    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
   <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
-  <![endif]--><link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
 
 
 <!-- favicon -->
@@ -23,20 +23,21 @@
 
 <!-- fonts -->
 
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
 
 <!-- Syntax Highlighter -->
 
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.css" />
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/theme/neo.css" />
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/codemirror.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/addon/runmode/runmode.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/javascript/javascript.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/shell/shell.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/sql/sql.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/xml/xml.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/clike/clike.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/codemirror/4.3.0/mode/cypher/cypher.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.6.0/mode/properties/properties.min.js"></script>
 
 <script src="js/colorize.js"></script>
  
@@ -53,7 +54,6 @@
 
 <!-- Version -->
 <script type="text/javascript" src="js/version.js"></script>
-<script type="text/javascript" src="http://docs.neo4j.org/chunked/versions.js"></script>
 <script type="text/javascript" src="js/versionswitcher.js"></script>
 
 <!-- Discuss -->
@@ -69,7 +69,7 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>27.1. Introducing Backup</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="operations-backup.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-backup.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="backup-java.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="backup-introduction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.1. Introducing Backup</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="backup-introduction.html#_incremental_backups">Incremental Backups</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="operations-backup.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-backup.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="backup-embedded-and-server.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="backup-introduction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.1. Introducing Backup</h2></div></div></div>
 
 <p>Backups are performed over the network, from a running Neo4j server and into a
 local copy of the database store (the backup). The backup is run using the
@@ -84,48 +84,50 @@ also be configured to listen on all interfaces by setting
 <code class="literal">online_backup_server=0.0.0.0:6362</code>.</p></td></tr></table></div>
 <p>Performing a backup requires specifying the target host, an optional port, and
 the backup location. The backup tool will automatically select a full or incremental backup, based on whether an existing backup is present at that location.</p>
-<pre class="programlisting" data-lang="shell"># Performing a full backup: create a blank directory and run the backup tool
-mkdir /mnt/backup/neo4j-backup
-./bin/neo4j-backup -host 192.168.1.34 -to /mnt/backup/neo4j-backup
+<p>The relevant configuration settings are found below.</p>
+<div class="table" id="config-org.neo4j.backup.OnlineBackupSettings"><p class="title"><strong>Online backup configuration settings</strong></p><div class="table-contents">
 
-# Performing an incremental backup: just specify the location of your previous backup
-./bin/neo4j-backup -host 192.168.1.34 -to /mnt/backup/neo4j-backup
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="backup-introduction.html#config_online_backup_enabled" title="online_backup_enabled">online_backup_enabled</a></p></td><td><p>Enable support for running online backups.</p></td></tr><tr><td><p><a class="link" href="backup-introduction.html#config_online_backup_server" title="online_backup_server">online_backup_server</a></p></td><td><p>Listening server for online backups.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_online_backup_enabled"><p class="title"><strong>online_backup_enabled</strong></p><div class="table-contents">
 
-# Performing an incremental backup where the service is listening on a non-default port
-./bin/neo4j-backup -host 192.168.1.34 -port 9999 -to /mnt/backup/neo4j-backup</pre>
-<section class="section" id="_incremental_backups"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Incremental Backups</h3></div></div></div>
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable support for running online backups.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">online_backup_enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_online_backup_server"><p class="title"><strong>online_backup_server</strong></p><div class="table-contents">
 
-<p>An incremental backup is performed whenever an existing backup directory is specified. The backup tool will then copy any new transactions from the Neo4j server and apply them
-to the backup. The result will be an updated backup that is consistent with the current
-server state.</p>
-<p>However, the incremental backup may fail for a number of reasons:</p>
-<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Listening server for online backups.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">online_backup_server</code></code> is a hostname and port.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">0.0.0.0:6362-6372</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config-org.neo4j.consistency.ConsistencyCheckSettings"><p class="title"><strong>Consistency check configuration settings</strong></p><div class="table-contents">
 
-If the existing directory doesn’t contain a valid backup.
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="backup-introduction.html#config_consistency_check_execution_order" title="consistency_check_execution_order">consistency_check_execution_order</a></p></td><td><p>Execution order of store cross-checks to be used when running consistency check.</p></td></tr><tr><td><p><a class="link" href="backup-introduction.html#config_consistency_check_indexes" title="consistency_check_indexes">consistency_check_indexes</a></p></td><td><p>Perform checks on indexes.</p></td></tr><tr><td><p><a class="link" href="backup-introduction.html#config_consistency_check_label_scan_store" title="consistency_check_label_scan_store">consistency_check_label_scan_store</a></p></td><td><p>Perform checks on the label scan store.</p></td></tr><tr><td><p><a class="link" href="backup-introduction.html#config_consistency_check_property_owners" title="consistency_check_property_owners">consistency_check_property_owners</a></p></td><td><p>Perform optional additional checking on property ownership.</p></td></tr><tr><td><p><a class="link" href="backup-introduction.html#config_consistency_check_report_file" title="consistency_check_report_file">consistency_check_report_file</a></p></td><td><p>File name for inconsistencies log file.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_consistency_check_execution_order"><p class="title"><strong>consistency_check_execution_order</strong></p><div class="table-contents">
 
-</li><li class="listitem">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Execution order of store cross-checks to be used when running consistency check.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">consistency_check_execution_order</code></code> is one of <code class="literal">SINGLE_THREADED</code>, <code class="literal">MULTI_PASS</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">MULTI_PASS</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_consistency_check_indexes"><p class="title"><strong>consistency_check_indexes</strong></p><div class="table-contents">
 
-If the existing directory contains a backup of a different database store.
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Perform checks on indexes. Checking indexes is more expensive than checking the native stores, so it may be useful to turn off this check for very large databases.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">consistency_check_indexes</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_consistency_check_label_scan_store"><p class="title"><strong>consistency_check_label_scan_store</strong></p><div class="table-contents">
 
-</li><li class="listitem">
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Perform checks on the label scan store. Checking this store is more expensive than checking the native stores, so it may be useful to turn off this check for very large databases.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">consistency_check_label_scan_store</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_consistency_check_property_owners"><p class="title"><strong>consistency_check_property_owners</strong></p><div class="table-contents">
 
-If the existing directory contains a backup from a previous database version.
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Perform optional additional checking on property ownership. This can detect a theoretical inconsistency where a property could be owned by multiple entities. However, the check is very expensive in time and memory, so it is skipped by default.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">consistency_check_property_owners</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_consistency_check_report_file"><p class="title"><strong>consistency_check_report_file</strong></p><div class="table-contents">
 
-</li></ul></div>
-<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Note that when copying the outstanding transactions, the backup tool needs
-access to the historical logical logs. These logical logs are kept by Neo4j and
-automatically removed after a period of time, based on the
-<a class="link" href="configuration-logical-logs.html" title="25.7. Logical logs"><code class="literal">keep_logical_logs</code> configuration</a>. If the
-required logical logs have already been removed, the backup tool will do a full
-backup instead.</p></td></tr></table></div>
-</section>
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>File name for inconsistencies log file. If not specified, logs to a file in the store directory.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">consistency_check_report_file</code></code> is a path which is relative to <code class="literal"><a class="link" href="configuration-settings.html#config_store_dir" title="store_dir">store_dir</a></code>.</p></td></tr></tbody></table>
+</div></div>
 </section>
 
  <footer>
    <p>
    © Copyright
    <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
-   <a href="http://www.neotechnology.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
    </p>
  </footer>
   <script type="text/javascript">
