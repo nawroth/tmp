@@ -1,0 +1,354 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>28.1. Securing access to the Neo4j Server -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="operations-security.html" title="Chapter 28. Security" /><link rel="next" href="operations-monitoring.html" title="Chapter 29. Monitoring" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="28.1. Securing access to the Neo4j Server" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-75824";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>28.1. Securing access to the Neo4j Server</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="operations-security.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-security.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="operations-monitoring.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="security-server"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">28.1. Securing access to the Neo4j Server</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="security-server.html#_secure_the_port_and_remote_client_connection_accepts">Secure the port and remote client connection accepts</a></span></li><li><span class="section"><a href="security-server.html#security-server-auth">Authorization</a></span></li><li><span class="section"><a href="security-server.html#_arbitrary_code_execution">Arbitrary code execution</a></span></li><li><span class="section"><a href="security-server.html#_https_support">HTTPS support</a></span></li><li><span class="section"><a href="security-server.html#_server_authorization_rules">Server Authorization Rules</a></span></li><li><span class="section"><a href="security-server.html#_hosted_scripting">Hosted Scripting</a></span></li><li><span class="section"><a href="security-server.html#_security_in_depth">Security in Depth</a></span></li></ul></div>
+
+<section class="section" id="_secure_the_port_and_remote_client_connection_accepts"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Secure the port and remote client connection accepts</h3></div></div></div>
+
+<p>By default, the Neo4j Server is bundled with a Web server that binds to host <code class="literal">localhost</code> on port <code class="literal">7474</code>, answering only requests from the local machine.</p>
+<p>This is configured in the <span class="emphasis"><em>conf/neo4j-server.properties</em></span> file:</p>
+<pre class="programlisting" data-lang="properties"># http port (for all data, administrative, and UI access)
+org.neo4j.server.webserver.port=7474
+
+#let the webserver only listen on the specified IP. Default
+#is localhost (only accept local connections). Uncomment to allow
+#any connection.
+#org.neo4j.server.webserver.address=0.0.0.0</pre>
+<p>If you need to enable access from external hosts, configure the Web server in the <span class="emphasis"><em>conf/neo4j-server.properties</em></span> by setting the property <code class="literal">org.neo4j.server.webserver.address=0.0.0.0</code> to enable access from any host.</p>
+</section>
+<section class="section" id="security-server-auth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Authorization</h3></div></div></div>
+
+<p>Neo4j allows you to require clients to supply an authorization token to gain access the REST API.
+This will disallow anyone without a valid authorization token access to the database.</p>
+<p>The authorization data is stored under <span class="emphasis"><em>data/dbms/authorization</em></span>.
+This file can be copied over to other neo4j instances to ensure they share the same username/password and authorization token.</p>
+<p>Please refer to <a class="xref" href="rest-api-security.html" title="22.3. Authentication and Authorization">Section 22.3, “Authentication and Authorization”</a> for details on this API.</p>
+<pre class="programlisting" data-lang="properties"># Enable authorization
+dbms.security.authorization_enabled=true</pre>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Authorization is enabled by default.</p></td></tr></table></div>
+</section>
+<section class="section" id="_arbitrary_code_execution"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Arbitrary code execution</h3></div></div></div>
+
+<p>By default, the Neo4j Server comes with some places where arbitrary code code execution can happen. These are the <a class="xref" href="rest-api-traverse.html" title="22.17. Traversals">Section 22.17, “Traversals”</a> REST endpoints.
+To secure these, either disable them completely by removing offending plugins from the server classpath, or secure access to these URLs through proxies or Authorization Rules.
+Also, the Java Security Manager, see <a class="ulink" href="http://docs.oracle.com/javase/7/docs/technotes/guides/security/index.html" target="_blank">http://docs.oracle.com/javase/7/docs/technotes/guides/security/index.html</a> can be used to secure parts of the codebase.</p>
+</section>
+<section class="section" id="_https_support"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">HTTPS support</h3></div></div></div>
+
+<p>The Neo4j server includes built in support for SSL encrypted communication over HTTPS.
+The first time the server starts, it automatically generates a self-signed SSL certificate and a private key.
+Because the certificate is self signed, it is not safe to rely on for production use, instead, you should provide your own key and certificate for the server to use.</p>
+<p>To provide your own key and certificate, replace the generated key and certificate, or change the <span class="emphasis"><em>conf/neo4j-server.properties</em></span> file to set the location of your certificate and key:</p>
+<pre class="programlisting" data-lang="properties"># Certificate location (auto generated if the file does not exist)
+org.neo4j.server.webserver.https.cert.location=ssl/snakeoil.cert
+
+# Private key location (auto generated if the file does not exist)
+org.neo4j.server.webserver.https.key.location=ssl/snakeoil.key</pre>
+<p>Note that the key should be unencrypted.
+Make sure you set correct permissions on the private key, so that only the Neo4j server user can read/write it.</p>
+<p>Neo4j also supports chained SSL certificates.
+This requires to have all certificates in PEM format combined in one file and the private key needs to be in DER format.</p>
+<p>You can set what port the HTTPS connector should bind to in the same configuration file, as well as turn HTTPS off:</p>
+<pre class="programlisting" data-lang="properties"># Turn https-support on/off
+org.neo4j.server.webserver.https.enabled=true
+
+# https port (for all data, administrative, and UI access)
+org.neo4j.server.webserver.https.port=443</pre>
+</section>
+<section class="section" id="_server_authorization_rules"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Server Authorization Rules</h3></div></div></div>
+
+<p>Administrators may require more fine-grained security policies in addition to the basic authorization and/or IP-level restrictions on the Web server.
+Neo4j server supports administrators in allowing or disallowing access the specific aspects of the database based on credentials that users or applications provide.</p>
+<p>To facilitate domain-specific authorization policies in Neo4j Server, security rules can be implemented and registered with the server.
+This makes scenarios like user and role based security and authentication against external lookup services possible.
+See <code class="literal">org.neo4j.server.rest.security.SecurityRule</code> in the javadocs downloadable from <a class="ulink" href="http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22org.neo4j.app%22%20AND%20a%3A%22neo4j-server%22" target="_blank">Maven Central (org.neo4j.app:neo4j-server)</a>.</p>
+<section class="section" id="ops-enforcing-server-authorization-rules"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Enforcing Server Authorization Rules</h4></div></div></div>
+
+<p>In this example, a (dummy) failing security rule is registered to deny
+access to all URIs to the server by listing the rules class in
+<span class="emphasis"><em>neo4j-server.properties</em></span>:</p>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.rest.security_rules=my.rules.PermanentlyFailingSecurityRule</pre>
+<p>with the rule source code of:</p>
+<pre class="programlisting" data-lang="java">public class PermanentlyFailingSecurityRule implements SecurityRule
+{
+
+    public static final String REALM = "WallyWorld"; // as per RFC2617 :-)
+
+    @Override
+    public boolean isAuthorized( HttpServletRequest request )
+    {
+        return false; // always fails - a production implementation performs
+                      // deployment-specific authorization logic here
+    }
+
+    @Override
+    public String forUriPath()
+    {
+        return "/*";
+    }
+
+    @Override
+    public String wwwAuthenticateHeader()
+    {
+        return SecurityFilter.basicAuthenticationResponse(REALM);
+    }
+}
+</pre>
+<p>With this rule registered, any access to the server will be
+denied. In a production-quality implementation the rule
+will likely lookup credentials/claims in a 3rd-party
+directory service (e.g. LDAP) or in a local database of
+authorized users.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">401:</code></strong></span> <code class="literal">Unauthorized</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">WWW-Authenticate:</code></strong></span> <code class="literal">Basic realm="WallyWorld"</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="ops-using-wildcards-to-target-security-rules"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Using Wildcards to Target Security Rules</h4></div></div></div>
+
+<p>In this example, a security rule is registered to deny
+access to all URIs to the server by listing the rule(s) class(es) in
+<span class="emphasis"><em>neo4j-server.properties</em></span>.
+In this case, the rule is registered
+using a wildcard URI path (where <code class="literal">*</code> characters can be used to signify
+any part of the path). For example <code class="literal">/users*</code> means the rule
+will be bound to any resources under the <code class="literal">/users</code> root path. Similarly
+<code class="literal">/users*type*</code> will bind the rule to resources matching
+URIs like <code class="literal">/users/fred/type/premium</code>.</p>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.rest.security_rules=my.rules.PermanentlyFailingSecurityRuleWithWildcardPath</pre>
+<p>with the rule source code of:</p>
+<pre class="programlisting" data-lang="java">public String forUriPath()
+{
+    return "/protected/*";
+}
+</pre>
+<p>With this rule registered, any access to URIs under /protected/ will be
+denied by the server. Using wildcards allows flexible targeting of security rules to
+arbitrary parts of the server’s API, including any unmanaged extensions or managed
+plugins that have been registered.</p>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/protected/tree/starts/here/dummy/more/stuff</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">401:</code></strong></span> <code class="literal">Unauthorized</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">WWW-Authenticate:</code></strong></span> <code class="literal">Basic realm="WallyWorld"</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="ops-using-complex-wildcards-to-target-security-rules"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Using Complex Wildcards to Target Security Rules</h4></div></div></div>
+
+<p>In this example, a security rule is registered to deny
+access to all URIs matching a complex pattern.
+The config looks like this:</p>
+<pre class="programlisting" data-lang="properties">org.neo4j.server.rest.security_rules=my.rules.PermanentlyFailingSecurityRuleWithComplexWildcardPath</pre>
+<p>with the rule source code of:</p>
+<pre class="programlisting" data-lang="java">public class PermanentlyFailingSecurityRuleWithComplexWildcardPath implements SecurityRule
+{
+
+    public static final String REALM = "WallyWorld"; // as per RFC2617 :-)
+
+    @Override
+    public boolean isAuthorized( HttpServletRequest request )
+    {
+        return false;
+    }
+
+    @Override
+    public String forUriPath()
+    {
+        return "/protected/*/something/else/*/final/bit";
+    }
+
+    @Override
+    public String wwwAuthenticateHeader()
+    {
+        return SecurityFilter.basicAuthenticationResponse(REALM);
+    }
+}
+</pre>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/protected/wildcard_replacement/x/y/z/something/else/more_wildcard_replacement/a/b/c/final/bit/more/stuff</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">401:</code></strong></span> <code class="literal">Unauthorized</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">WWW-Authenticate:</code></strong></span> <code class="literal">Basic realm="WallyWorld"</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+</section>
+<section class="section" id="_hosted_scripting"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Hosted Scripting</h3></div></div></div>
+
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>The neo4j server exposes remote scripting functionality by default that allow full access to the underlying system.
+Exposing your server without implementing a security layer poses a substantial security vulnerability.</p></td></tr></table></div>
+</section>
+<section class="section" id="_security_in_depth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Security in Depth</h3></div></div></div>
+
+<p>Although the Neo4j server has a number of security features built-in (see the above chapters), for sensitive deployments it is often sensible to front against the outside world it with a proxy like Apache <code class="literal">mod_proxy</code> <a href="#ftn.d5e26522" class="footnote"><sup class="footnote" id="d5e26522">[2]</sup></a>.</p>
+<p>This provides a number of advantages:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<p class="simpara">
+Control access to the Neo4j server to specific IP addresses, URL patterns and IP ranges. This can be used to make for instance only the <span class="emphasis"><em>/db/data</em></span> namespace accessible to non-local clients, while the <span class="emphasis"><em>/db/admin</em></span> URLs only respond to a specific IP address.
+</p>
+<pre class="programlisting" data-lang="plain">&lt;Proxy *&gt;
+  Order Deny,Allow
+  Deny from all
+  Allow from 192.168.0
+&lt;/Proxy&gt;</pre>
+</li></ul></div>
+<p>While equivalent functionality can be implemented with Neo4j’s <code class="literal">SecurityRule</code> plugins (see above), for operations professionals configuring servers like Apache is often preferable to developing plugins. However it should be noted that where both approaches are used, they will work harmoniously providing the behavior is consistent across proxy server and <code class="literal">SecurityRule</code> plugins.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<p class="simpara">
+Run Neo4j Server as a non-root user on a Linux/Unix system on a port &lt; 1000 (e.g. port 80) using
+</p>
+<pre class="programlisting" data-lang="plain">ProxyPass /neo4jdb/data http://localhost:7474/db/data
+ProxyPassReverse /neo4jdb/data http://localhost:7474/db/data</pre>
+</li><li class="listitem">
+<p class="simpara">
+Simple load balancing in a clustered environment to load-balance read load using the Apache <code class="literal">mod_proxy_balancer</code> <a href="#ftn.d5e26542" class="footnote"><sup class="footnote" id="d5e26542">[3]</sup></a> plugin
+</p>
+<pre class="programlisting" data-lang="plain">&lt;Proxy balancer://mycluster&gt;
+BalancerMember http://192.168.1.50:80
+BalancerMember http://192.168.1.51:80
+&lt;/Proxy&gt;
+ProxyPass /test balancer://mycluster</pre>
+</li></ul></div>
+</section>
+<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e26522" class="footnote"><p><a href="#d5e26522" class="simpara"><sup class="simpara">[2] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a></p></div><div id="ftn.d5e26542" class="footnote"><p><a href="#d5e26542" class="simpara"><sup class="simpara">[3] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html</a></p></div></div></section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>25.5. Configuration Settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="performance-guide.html" title="25.4. Performance Guide" /><link rel="next" href="configuration-caches.html" title="25.6. Caches in Neo4j" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.5. Configuration Settings" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-75824";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.5. Configuration Settings</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="performance-guide.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-caches.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-settings"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.5. Configuration Settings</h2></div></div></div>
+
+<p>On this page you’ll find the main configuration settings you can use with Neo4j.
+They can be set in the <span class="emphasis"><em>conf/neo4j.properties</em></span> file when using the Neo4j Server (see <a class="xref" href="server-configuration.html" title="25.2. Server Configuration">Section 25.2, “Server Configuration”</a>).
+If you use the embedded database, you can pass them in as a map (see <a class="xref" href="tutorials-java-embedded-setup.html#tutorials-java-embedded-setup-config" title="Starting an embedded database with configuration settings">the section called “Starting an embedded database with configuration settings”</a>).</p>
+<p>For additional configuration settings, see:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<a class="xref" href="server-configuration.html" title="25.2. Server Configuration">Section 25.2, “Server Configuration”</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="shell-starting.html#config-org.neo4j.shell.ShellSettings" title="Settings for the remote shell extension">Settings for the remote shell extension</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="configuration-caches.html#config-org.neo4j.kernel.impl.cache.HighPerformanceCacheSettings" title="High Performance Cache configuration settings">High Performance Cache configuration settings</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="ha-configuration.html#config-org.neo4j.kernel.ha.HaSettings" title="High Availability configuration settings">High Availability configuration settings</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="ha-configuration.html#config-org.neo4j.cluster.ClusterSettings" title="Cluster configuration settings">Cluster configuration settings</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="backup-introduction.html#config-org.neo4j.backup.OnlineBackupSettings" title="Online backup configuration settings">Online backup configuration settings</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="backup-introduction.html#config-org.neo4j.consistency.ConsistencyCheckSettings" title="Consistency check configuration settings">Consistency check configuration settings</a>
+
+</li><li class="listitem">
+
+<a class="xref" href="usage-data-collector.html#config-org.neo4j.ext.udc.UdcSettings" title="Usage Data Collector configuration settings">Usage Data Collector configuration settings</a>
+
+</li></ul></div>
+<div class="table" id="config-org.neo4j.graphdb.factory.GraphDatabaseSettings"><p class="title"><strong>List of configuration settings</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="configuration-settings.html#config_allow_file_urls" title="allow_file_urls">allow_file_urls</a></p></td><td><p>Determines if Cypher will allow using file URLs when loading data using <code class="literal">LOAD CSV</code>.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_allow_store_upgrade" title="allow_store_upgrade">allow_store_upgrade</a></p></td><td><p>Whether to allow a store upgrade in case the current version of the database starts against an older store version.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_batched_writes" title="batched_writes">batched_writes</a></p></td><td><p>Whether or not transactions are appended to the log in batches.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_cache_type" title="cache_type">cache_type</a></p></td><td><p>The type of cache to use for nodes and relationships.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_cypher_parser_version" title="cypher_parser_version">cypher_parser_version</a></p></td><td><p>Set this to specify the default parser.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></p></td><td><p>The amount of memory to use for mapping the store files, either in bytes or as a percentage of available memory.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_dbms.querylog.enabled" title="dbms.querylog.enabled">dbms.querylog.enabled</a></p></td><td><p>Log executed queries that takes longer than the configured threshold.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_dbms.querylog.filename" title="dbms.querylog.filename">dbms.querylog.filename</a></p></td><td><p>The file where queries will be recorded.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_dbms.querylog.threshold" title="dbms.querylog.threshold">dbms.querylog.threshold</a></p></td><td><p>If the execution of query takes more time than this threshold, the query is logged - provided query logging is enabled.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_dense_node_threshold" title="dense_node_threshold">dense_node_threshold</a></p></td><td><p>Relationship count threshold for considering a node to be dense.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_dump_configuration" title="dump_configuration">dump_configuration</a></p></td><td><p>Print out the effective Neo4j configuration after startup.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_index_background_sampling_enabled" title="index_background_sampling_enabled">index_background_sampling_enabled</a></p></td><td><p>Enable or disable background index sampling.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_index_sampling_buffer_size" title="index_sampling_buffer_size">index_sampling_buffer_size</a></p></td><td><p>Size of buffer used by index sampling.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_index_sampling_update_percentage" title="index_sampling_update_percentage">index_sampling_update_percentage</a></p></td><td><p>Percentage of index updates of total index size required before sampling of a given index is triggered.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_keep_logical_logs" title="keep_logical_logs">keep_logical_logs</a></p></td><td><p>Make Neo4j keep the logical transaction logs for being able to backup the database.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_logging.history" title="logging.history">logging.history</a></p></td><td><p>Maximum number of history files for <span class="emphasis"><em>messages.log</em></span>.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_logical_log_rotation_threshold" title="logical_log_rotation_threshold">logical_log_rotation_threshold</a></p></td><td><p>Specifies at which file size the logical log will auto-rotate.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_lucene_searcher_cache_size" title="lucene_searcher_cache_size">lucene_searcher_cache_size</a></p></td><td><p>The maximum number of open Lucene index searchers.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_node_auto_indexing" title="node_auto_indexing">node_auto_indexing</a></p></td><td><p>Controls the auto indexing feature for nodes.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_node_keys_indexable" title="node_keys_indexable">node_keys_indexable</a></p></td><td><p>A list of property names (comma separated) that will be indexed by default.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_query.planner.version" title="query.planner.version">query.planner.version</a></p></td><td><p>Set this to specify the default planner.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_query_cache_size" title="query_cache_size">query_cache_size</a></p></td><td><p>The number of Cypher query execution plans that are cached.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_query_plan_ttl" title="query_plan_ttl">query_plan_ttl</a></p></td><td><p>The minimum lifetime of a query plan before a query is considered for replanning.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_read_only" title="read_only">read_only</a></p></td><td><p>Only allow read operations from this Neo4j instance.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_relationship_auto_indexing" title="relationship_auto_indexing">relationship_auto_indexing</a></p></td><td><p>Controls the auto indexing feature for relationships.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_relationship_grab_size" title="relationship_grab_size">relationship_grab_size</a></p></td><td><p>How many relationships to read at a time during iteration.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_relationship_keys_indexable" title="relationship_keys_indexable">relationship_keys_indexable</a></p></td><td><p>A list of property names (comma separated) that will be indexed by default.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_remote_logging_enabled" title="remote_logging_enabled">remote_logging_enabled</a></p></td><td><p>Whether to enable logging to a remote server or not.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_remote_logging_host" title="remote_logging_host">remote_logging_host</a></p></td><td><p>Host for remote logging using Logback SocketAppender.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_remote_logging_port" title="remote_logging_port">remote_logging_port</a></p></td><td><p>Port for remote logging using Logback SocketAppender.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_store_dir" title="store_dir">store_dir</a></p></td><td><p>The directory where the database files are located.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config-org.neo4j.graphdb.factory.GraphDatabaseSettings-deprecated"><p class="title"><strong>Deprecated settings</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="configuration-settings.html#config_log_mapped_memory_stats" title="log_mapped_memory_stats">log_mapped_memory_stats</a></p></td><td><p>Log memory mapping statistics regularly.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_log_mapped_memory_stats_filename" title="log_mapped_memory_stats_filename">log_mapped_memory_stats_filename</a></p></td><td><p>The file where memory mapping statistics will be recorded.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_log_mapped_memory_stats_interval" title="log_mapped_memory_stats_interval">log_mapped_memory_stats_interval</a></p></td><td><p>The number of records to be loaded between regular logging of memory mapping statistics.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.nodestore.db.mapped_memory" title="neostore.nodestore.db.mapped_memory">neostore.nodestore.db.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the node store.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.propertystore.db.arrays.mapped_memory" title="neostore.propertystore.db.arrays.mapped_memory">neostore.propertystore.db.arrays.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the array property store.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.propertystore.db.index.keys.mapped_memory" title="neostore.propertystore.db.index.keys.mapped_memory">neostore.propertystore.db.index.keys.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the store for property key strings.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.propertystore.db.index.mapped_memory" title="neostore.propertystore.db.index.mapped_memory">neostore.propertystore.db.index.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the store for property key indexes.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.propertystore.db.mapped_memory" title="neostore.propertystore.db.mapped_memory">neostore.propertystore.db.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the property value store.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.propertystore.db.strings.mapped_memory" title="neostore.propertystore.db.strings.mapped_memory">neostore.propertystore.db.strings.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the string property store.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_neostore.relationshipstore.db.mapped_memory" title="neostore.relationshipstore.db.mapped_memory">neostore.relationshipstore.db.mapped_memory</a></p></td><td><p>The size to allocate for memory mapping the relationship store.</p></td></tr><tr><td><p><a class="link" href="configuration-settings.html#config_use_memory_mapped_buffers" title="use_memory_mapped_buffers">use_memory_mapped_buffers</a></p></td><td><p>Use memory mapped buffers for accessing the native storage layer.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_allow_file_urls"><p class="title"><strong>allow_file_urls</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Determines if Cypher will allow using file URLs when loading data using <code class="literal">LOAD CSV</code>. Setting this value to <code class="literal">false</code> will cause Neo4j to fail <code class="literal">LOAD CSV</code> clauses that load data from the file system.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">allow_file_urls</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_allow_store_upgrade"><p class="title"><strong>allow_store_upgrade</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Whether to allow a store upgrade in case the current version of the database starts against an older store version. Setting this to <code class="literal">true</code> does not guarantee successful upgrade, it just allows an upgrade to be performed.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">allow_store_upgrade</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_batched_writes"><p class="title"><strong>batched_writes</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Whether or not transactions are appended to the log in batches.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">batched_writes</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_cache_type"><p class="title"><strong>cache_type</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The type of cache to use for nodes and relationships. Note that the Neo4j Enterprise Edition has the additional <code class="literal">hpc</code> cache type (High-Performance Cache). See the chapter on caches in the manual for more information.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">cache_type</code></code> is one of <code class="literal">soft</code>, <code class="literal">none</code>, <code class="literal">weak</code>, <code class="literal">strong</code>, <code class="literal">experimental-off</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">soft</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_cypher_parser_version"><p class="title"><strong>cypher_parser_version</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Set this to specify the default parser.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">cypher_parser_version</code></code> is one of <code class="literal">+&lt;&lt;config_1.9,1.9&gt;&gt;+</code>, <code class="literal">+&lt;&lt;config_2.0,2.0&gt;&gt;+</code>, <code class="literal">+&lt;&lt;config_2.1,2.1&gt;&gt;+</code>, <code class="literal">+&lt;&lt;config_2.2,2.2&gt;&gt;+</code>.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_dbms.pagecache.memory"><p class="title"><strong>dbms.pagecache.memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The amount of memory to use for mapping the store files, either in bytes or as a percentage of available memory. This will be clipped at the amount of free memory observed when the database starts, and automatically be rounded down to the nearest whole page. For example, if <code class="literal">500MB</code> is configured, but only 450MB of memory is free when the database starts, then the database will map at most 450MB. If <code class="literal">50%</code> is configured, and the system has a capacity of 4GB, then at most 2GB of memory will be mapped, unless the database observes that less than 2GB of memory is free when it starts.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">dbms.pagecache.memory</code></code> is a byte size, such as <code class="literal">4G</code> for 4 giga-bytes, or a percentage of the max direct memory or total RAM (whichever is smallest), for instance <code class="literal">50%</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">50%</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_dbms.querylog.enabled"><p class="title"><strong>dbms.querylog.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Log executed queries that takes longer than the configured threshold.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">dbms.querylog.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_dbms.querylog.filename"><p class="title"><strong>dbms.querylog.filename</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The file where queries will be recorded.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">dbms.querylog.filename</code></code> is a path which is relative to <code class="literal"><a class="link" href="configuration-settings.html#config_store_dir" title="store_dir">store_dir</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">queries.log</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_dbms.querylog.threshold"><p class="title"><strong>dbms.querylog.threshold</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>If the execution of query takes more time than this threshold, the query is logged - provided query logging is enabled. Defaults to 0 seconds, that is all queries are logged.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">dbms.querylog.threshold</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">0s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_dense_node_threshold"><p class="title"><strong>dense_node_threshold</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Relationship count threshold for considering a node to be dense.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">dense_node_threshold</code></code> is an integer which is minimum <code class="literal">1</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">50</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_dump_configuration"><p class="title"><strong>dump_configuration</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Print out the effective Neo4j configuration after startup.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">dump_configuration</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_index_background_sampling_enabled"><p class="title"><strong>index_background_sampling_enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable or disable background index sampling.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">index_background_sampling_enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_index_sampling_buffer_size"><p class="title"><strong>index_sampling_buffer_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Size of buffer used by index sampling.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">index_sampling_buffer_size</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>) which is minimum <code class="literal">1048576</code>, and is maximum <code class="literal">2147483647</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">64m</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_index_sampling_update_percentage"><p class="title"><strong>index_sampling_update_percentage</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Percentage of index updates of total index size required before sampling of a given index is triggered.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">index_sampling_update_percentage</code></code> is an integer which is minimum <code class="literal">0</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_keep_logical_logs"><p class="title"><strong>keep_logical_logs</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Make Neo4j keep the logical transaction logs for being able to backup the database. Can be used for specifying the threshold to prune logical logs after. For example "10 days" will prune logical logs that only contains transactions older than 10 days from the current time, or "100k txs" will keep the 100k latest transactions and prune any older transactions.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">keep_logical_logs</code></code> is a string which must be <code class="literal">true</code>/<code class="literal">false</code> or of format <span class="emphasis"><em>&lt;number&gt;&lt;optional unit&gt; &lt;type&gt;</em></span> for example <code class="literal">100M size</code> for limiting logical log space on disk to 100Mb, or <code class="literal">200k txs</code> for limiting the number of transactions to keep to 200 000.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">7 days</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_log_mapped_memory_stats"><p class="title"><strong>log_mapped_memory_stats</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Log memory mapping statistics regularly.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">log_mapped_memory_stats</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>This is no longer used.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_log_mapped_memory_stats_filename"><p class="title"><strong>log_mapped_memory_stats_filename</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The file where memory mapping statistics will be recorded.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">log_mapped_memory_stats_filename</code></code> is a path which is relative to <code class="literal"><a class="link" href="configuration-settings.html#config_store_dir" title="store_dir">store_dir</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">mapped_memory_stats.log</code></p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>This is no longer used.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_log_mapped_memory_stats_interval"><p class="title"><strong>log_mapped_memory_stats_interval</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The number of records to be loaded between regular logging of memory mapping statistics.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">log_mapped_memory_stats_interval</code></code> is an integer.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1000000</code></p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>This is no longer used.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_logging.history"><p class="title"><strong>logging.history</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Maximum number of history files for <span class="emphasis"><em>messages.log</em></span>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">logging.history</code></code> is an integer which is minimum <code class="literal">1</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">7</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_logical_log_rotation_threshold"><p class="title"><strong>logical_log_rotation_threshold</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Specifies at which file size the logical log will auto-rotate. <code class="literal">0</code> means that no rotation will automatically occur based on file size.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">logical_log_rotation_threshold</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">25M</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_lucene_searcher_cache_size"><p class="title"><strong>lucene_searcher_cache_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The maximum number of open Lucene index searchers.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">lucene_searcher_cache_size</code></code> is an integer which is minimum <code class="literal">1</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">2147483647</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.nodestore.db.mapped_memory"><p class="title"><strong>neostore.nodestore.db.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the node store.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.nodestore.db.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.propertystore.db.arrays.mapped_memory"><p class="title"><strong>neostore.propertystore.db.arrays.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the array property store.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.propertystore.db.arrays.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.propertystore.db.index.keys.mapped_memory"><p class="title"><strong>neostore.propertystore.db.index.keys.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the store for property key strings.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.propertystore.db.index.keys.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.propertystore.db.index.mapped_memory"><p class="title"><strong>neostore.propertystore.db.index.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the store for property key indexes.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.propertystore.db.index.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.propertystore.db.mapped_memory"><p class="title"><strong>neostore.propertystore.db.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the property value store.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.propertystore.db.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.propertystore.db.strings.mapped_memory"><p class="title"><strong>neostore.propertystore.db.strings.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the string property store.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.propertystore.db.strings.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_neostore.relationshipstore.db.mapped_memory"><p class="title"><strong>neostore.relationshipstore.db.mapped_memory</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The size to allocate for memory mapping the relationship store.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">neostore.relationshipstore.db.mapped_memory</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>Replaced by the <code class="literal"><a class="link" href="configuration-settings.html#config_dbms.pagecache.memory" title="dbms.pagecache.memory">dbms.pagecache.memory</a></code> setting.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_node_auto_indexing"><p class="title"><strong>node_auto_indexing</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Controls the auto indexing feature for nodes. Setting it to <code class="literal">false</code> shuts it down, while <code class="literal">true</code> enables it by default for properties listed in the <code class="literal"><a class="link" href="configuration-settings.html#config_node_keys_indexable" title="node_keys_indexable">node_keys_indexable</a></code> setting.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">node_auto_indexing</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_node_keys_indexable"><p class="title"><strong>node_keys_indexable</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>A list of property names (comma separated) that will be indexed by default. This applies to <span class="emphasis"><em>nodes</em></span> only.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">node_keys_indexable</code></code> is a string which must be a comma-separated list of keys to be indexed.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_query.planner.version"><p class="title"><strong>query.planner.version</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Set this to specify the default planner.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">query.planner.version</code></code> is one of <code class="literal">COST</code>, <code class="literal">RULE</code>.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_query_cache_size"><p class="title"><strong>query_cache_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The number of Cypher query execution plans that are cached.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">query_cache_size</code></code> is an integer which is minimum <code class="literal">0</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">100</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_query_plan_ttl"><p class="title"><strong>query_plan_ttl</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The minimum lifetime of a query plan before a query is considered for replanning.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">query_plan_ttl</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_read_only"><p class="title"><strong>read_only</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Only allow read operations from this Neo4j instance. This mode still requires write access to the directory for lock purposes.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">read_only</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_relationship_auto_indexing"><p class="title"><strong>relationship_auto_indexing</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Controls the auto indexing feature for relationships. Setting it to <code class="literal">false</code> shuts it down, while <code class="literal">true</code> enables it by default for properties listed in the <code class="literal"><a class="link" href="configuration-settings.html#config_relationship_keys_indexable" title="relationship_keys_indexable">relationship_keys_indexable</a></code> setting.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">relationship_auto_indexing</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_relationship_grab_size"><p class="title"><strong>relationship_grab_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>How many relationships to read at a time during iteration.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">relationship_grab_size</code></code> is an integer which is minimum <code class="literal">1</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">100</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_relationship_keys_indexable"><p class="title"><strong>relationship_keys_indexable</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>A list of property names (comma separated) that will be indexed by default. This applies to <span class="emphasis"><em>relationships</em></span> only.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">relationship_keys_indexable</code></code> is a string which must be a comma-separated list of keys to be indexed.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_logging_enabled"><p class="title"><strong>remote_logging_enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Whether to enable logging to a remote server or not.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_logging_enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_logging_host"><p class="title"><strong>remote_logging_host</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Host for remote logging using Logback SocketAppender.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_logging_host</code></code> is a string which must be a valid hostname.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">127.0.0.1</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_logging_port"><p class="title"><strong>remote_logging_port</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Port for remote logging using Logback SocketAppender.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_logging_port</code></code> is an integer which must be a valid port number (is in the range <code class="literal">1</code> to <code class="literal">65535</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">4560</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_store_dir"><p class="title"><strong>store_dir</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The directory where the database files are located.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">store_dir</code></code> is a path.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_use_memory_mapped_buffers"><p class="title"><strong>use_memory_mapped_buffers</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Use memory mapped buffers for accessing the native storage layer.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">use_memory_mapped_buffers</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p><span class="strong"><strong>Deprecated</strong></span></p></td><td><p>This setting has been obsoleted. Neo4j no longer relies on the memory-mapping capabilities of the operating system.</p></td></tr></tbody></table>
+</div></div>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

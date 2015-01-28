@@ -1,0 +1,362 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>30.3. Import Tool Examples -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool-usage.html" title="30.2. Command Line Usage" /><link rel="next" href="tools-webadmin.html" title="Chapter 31. Web Interface" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="30.3. Import Tool Examples" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-75824";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>30.3. Import Tool Examples</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool-usage.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tools-webadmin.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-examples"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">30.3. Import Tool Examples</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="import-tool-examples.html#import-tool-basic-example">Basic Import Tool Example</a></span></li><li><span class="section"><a href="import-tool-examples.html#_customizing_configuration_options">Customizing configuration options</a></span></li><li><span class="section"><a href="import-tool-examples.html#import-tool-separate-headers-example">Using Separate Header Files</a></span></li><li><span class="section"><a href="import-tool-examples.html#import-tool-multiple-input-files">Multiple input files</a></span></li><li><span class="section"><a href="import-tool-examples.html#import-tool-same-label-for-every-node">Using the same label for every node</a></span></li><li><span class="section"><a href="import-tool-examples.html#import-tool-same-relationship-type-for-every-relationship">Using the same relationship type for every relationship</a></span></li><li><span class="section"><a href="import-tool-examples.html#import-tool-working-with-sequential-ids">Working with sequential or auto incrementing identifiers</a></span></li></ul></div>
+
+<section class="section" id="import-tool-basic-example"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Basic Import Tool Example</h3></div></div></div>
+
+<p>Let’s look at an example.
+We’ll use a data set containing movies, actors and roles.</p>
+<p>First we’ll look at the movies.
+Each movie has an id, which is used to refer to it in other data sources, a title and a year
+Along with these properties we’ll also add the node labels <code class="literal">Movie</code> and <code class="literal">Sequel</code>.</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>While you’ll usually want to store your node identifier as a property on the node for looking it up later, it’s not mandatory.
+If you don’t want the identifier to be persisted then don’t specify a name in the <code class="literal">:ID</code> field.</p></td></tr></table></div>
+<p><strong>movies.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int,:LABEL
+tt0133093,"The Matrix",1999,Movie
+tt0234215,"The Matrix Reloaded",2003,Movie;Sequel
+tt0242653,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p>Next up are the actors.
+They have an id and a name and all have the <code class="literal">Actor</code> label.</p>
+<p><strong>actors.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID,name,:LABEL
+keanu,"Keanu Reeves",Actor
+laurence,"Laurence Fishburne",Actor
+carrieanne,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p>Finally we have the roles that an actor plays in a movie which will be represented by relationships in the database.
+In order to create a relationship between nodes we refer to the ids used in <code class="literal">actors.csv</code> and <code class="literal">movies.csv</code> in the <code class="literal">START_ID</code> and <code class="literal">END_ID</code> fields.
+We also need to provide a relationship type (in this case <code class="literal">ACTS_IN</code>) in the <code class="literal">:TYPE</code> field.</p>
+<p><strong>roles.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID,role,:END_ID,:TYPE
+keanu,"Neo",tt0133093,ACTS_IN
+keanu,"Neo",tt0234215,ACTS_IN
+keanu,"Neo",tt0242653,ACTS_IN
+laurence,"Morpheus",tt0133093,ACTS_IN
+laurence,"Morpheus",tt0234215,ACTS_IN
+laurence,"Morpheus",tt0242653,ACTS_IN
+carrieanne,"Trinity",tt0133093,ACTS_IN
+carrieanne,"Trinity",tt0234215,ACTS_IN
+carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
+</p>
+<p>With all data in place, we execute the following command:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies.csv --nodes actors.csv --relationships roles.csv</pre>
+<p>We’re now ready to start up a database from the target directory. (see <a class="xref" href="server-installation.html" title="24.2. Server Installation">Section 24.2, “Server Installation”</a>)</p>
+<p>Once we’ve got the database up and running we can add appropriate indexes. (see <a class="xref" href="cypherdoc-labels-constraints-and-indexes.html" title="4.7. Labels, Constraints and Indexes">Section 4.7, “Labels, Constraints and Indexes”</a>.)</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>It is possible to import only nodes using the import tool - just don’t specify a relationships file when calling <code class="literal">neo4j-import</code>.</p></td></tr></table></div>
+</section>
+<section class="section" id="_customizing_configuration_options"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Customizing configuration options</h3></div></div></div>
+
+<p>We can customize the configuration options that the import tool uses (see <a class="xref" href="import-tool-usage.html#import-tool-options" title="Options">the section called “Options”</a>) if our data doesn’t fit the default format.
+The following CSV files are delimited by <code class="literal">;</code>,  use <code class="literal">|</code> as their array delimiter and use <code class="literal">'</code> for quotes.</p>
+<p><strong>movies2.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID;title;year:int;:LABEL
+tt0133093;'The Matrix';1999;Movie
+tt0234215;'The Matrix Reloaded';2003;Movie|Sequel
+tt0242653;'The Matrix Revolutions';2003;Movie|Sequel</pre><p>
+</p>
+<p><strong>actors2.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID;name;:LABEL
+keanu;'Keanu Reeves';Actor
+laurence;'Laurence Fishburne';Actor
+carrieanne;'Carrie-Anne Moss';Actor</pre><p>
+</p>
+<p><strong>roles2.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID;role;:END_ID;:TYPE
+keanu;'Neo';tt0133093;ACTS_IN
+keanu;'Neo';tt0234215;ACTS_IN
+keanu;'Neo';tt0242653;ACTS_IN
+laurence;'Morpheus';tt0133093;ACTS_IN
+laurence;'Morpheus';tt0234215;ACTS_IN
+laurence;'Morpheus';tt0242653;ACTS_IN
+carrieanne;'Trinity';tt0133093;ACTS_IN
+carrieanne;'Trinity';tt0234215;ACTS_IN
+carrieanne;'Trinity';tt0242653;ACTS_IN</pre><p>
+</p>
+<p>We can then import these files with the following command line options:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies2.csv --nodes actors2.csv --relationships roles2.csv --delimiter ";" --array-delimiter "|" --quote "'"</pre>
+</section>
+<section class="section" id="import-tool-separate-headers-example"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using Separate Header Files</h3></div></div></div>
+
+<p>When dealing with very large CSV files it’s more convenient to have the header in a separate file.
+This makes it easier to edit the header as you avoid having to open a huge data file just to change it.</p>
+<p>We’ll use the same data as in the previous example but put the headers in separate files.</p>
+<p><strong>movies3-header.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int,:LABEL</pre><p>
+</p>
+<p><strong>movies3.csv </strong>
+</p><pre class="programlisting" data-lang="plain">tt0133093,"The Matrix",1999,Movie
+tt0234215,"The Matrix Reloaded",2003,Movie;Sequel
+tt0242653,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p><strong>actors3-header.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID,name,:LABEL</pre><p>
+</p>
+<p><strong>actors3.csv </strong>
+</p><pre class="programlisting" data-lang="plain">keanu,"Keanu Reeves",Actor
+laurence,"Laurence Fishburne",Actor
+carrieanne,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p><strong>roles3-header.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID,role,:END_ID,:TYPE</pre><p>
+</p>
+<p><strong>roles3.csv </strong>
+</p><pre class="programlisting" data-lang="plain">keanu,"Neo",tt0133093,ACTS_IN
+keanu,"Neo",tt0234215,ACTS_IN
+keanu,"Neo",tt0242653,ACTS_IN
+laurence,"Morpheus",tt0133093,ACTS_IN
+laurence,"Morpheus",tt0234215,ACTS_IN
+laurence,"Morpheus",tt0242653,ACTS_IN
+carrieanne,"Trinity",tt0133093,ACTS_IN
+carrieanne,"Trinity",tt0234215,ACTS_IN
+carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
+</p>
+<p>Note how the file groups are enclosed in quotation marks in the command:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies3-header.csv,movies3.csv --nodes actors3-header.csv,actors3.csv --relationships roles3-header.csv,roles3.csv</pre>
+</section>
+<section class="section" id="import-tool-multiple-input-files"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Multiple input files</h3></div></div></div>
+
+<p>As well as using a separate header file you can also provide multiple nodes or relationships files.
+This may be useful when processing the output from a Hadoop pipeline for example.</p>
+<p><strong>movies4-header.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int,:LABEL</pre><p>
+</p>
+<p><strong>movies4-part1.csv </strong>
+</p><pre class="programlisting" data-lang="plain">tt0133093,"The Matrix",1999,Movie
+tt0234215,"The Matrix Reloaded",2003,Movie;Sequel</pre><p>
+</p>
+<p><strong>movies4-part2.csv </strong>
+</p><pre class="programlisting" data-lang="plain">tt0242653,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p><strong>actors4-header.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID,name,:LABEL</pre><p>
+</p>
+<p><strong>actors4-part1.csv </strong>
+</p><pre class="programlisting" data-lang="plain">keanu,"Keanu Reeves",Actor
+laurence,"Laurence Fishburne",Actor</pre><p>
+</p>
+<p><strong>actors4-part2.csv </strong>
+</p><pre class="programlisting" data-lang="plain">carrieanne,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p><strong>roles4-header.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID,role,:END_ID,:TYPE</pre><p>
+</p>
+<p><strong>roles4-part1.csv </strong>
+</p><pre class="programlisting" data-lang="plain">keanu,"Neo",tt0133093,ACTS_IN
+keanu,"Neo",tt0234215,ACTS_IN
+keanu,"Neo",tt0242653,ACTS_IN
+laurence,"Morpheus",tt0133093,ACTS_IN
+laurence,"Morpheus",tt0234215,ACTS_IN</pre><p>
+</p>
+<p><strong>roles4-part2.csv </strong>
+</p><pre class="programlisting" data-lang="plain">laurence,"Morpheus",tt0242653,ACTS_IN
+carrieanne,"Trinity",tt0133093,ACTS_IN
+carrieanne,"Trinity",tt0234215,ACTS_IN
+carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
+</p>
+<p>The call to <code class="literal">neo4j-import</code> would look like this:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies4-header.csv,movies4-part1.csv,movies4-part2.csv --nodes actors4-header.csv,actors4-part1.csv,actors4-part2.csv --relationships roles4-header.csv,roles4-part1.csv,roles4-part2.csv</pre>
+</section>
+<section class="section" id="import-tool-same-label-for-every-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using the same label for every node</h3></div></div></div>
+
+<p>If you want to use the same node label(s) for every node in your nodes file you can do this by specifying the appropriate value as an option to <code class="literal">neo4j-import</code>.
+In this example we’ll put the label <code class="literal">Movie</code> on every node specified in <code class="literal">movies5.csv</code>:</p>
+<p><strong>movies5.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int
+tt0133093,"The Matrix",1999</pre><p>
+</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>There’s then no need to specify the <code class="literal">:LABEL</code> field in the node file if you pass it as a command line option.</p></td></tr></table></div>
+<p>And we’ll put the labels <code class="literal">Movie</code> and <code class="literal">Sequel</code> on the nodes specified in <code class="literal">sequels5.csv</code>.</p>
+<p><strong>sequels5.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int
+tt0234215,"The Matrix Reloaded",2003
+tt0242653,"The Matrix Revolutions",2003</pre><p>
+</p>
+<p><strong>actors5.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID,name
+keanu,"Keanu Reeves"
+laurence,"Laurence Fishburne"
+carrieanne,"Carrie-Anne Moss"</pre><p>
+</p>
+<p><strong>roles5.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID,role,:END_ID,:TYPE
+keanu,"Neo",tt0133093,ACTS_IN
+keanu,"Neo",tt0234215,ACTS_IN
+keanu,"Neo",tt0242653,ACTS_IN
+laurence,"Morpheus",tt0133093,ACTS_IN
+laurence,"Morpheus",tt0234215,ACTS_IN
+laurence,"Morpheus",tt0242653,ACTS_IN
+carrieanne,"Trinity",tt0133093,ACTS_IN
+carrieanne,"Trinity",tt0234215,ACTS_IN
+carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
+</p>
+<p>The call to <code class="literal">neo4j-import</code> would look like this:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes:Movie movies5.csv --nodes:Movie:Sequel sequels5.csv --nodes:Actor actors5.csv --relationships roles5.csv</pre>
+</section>
+<section class="section" id="import-tool-same-relationship-type-for-every-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using the same relationship type for every relationship</h3></div></div></div>
+
+<p>If you want to use the same relationship type for every relationship in your relationships file you can do this by
+specifying
+the
+appropriate value as an option to <code class="literal">neo4j-import</code>.
+In this example we’ll put the relationship type <code class="literal">ACTS_IN</code> on every relationship specified in <code class="literal">roles6.csv</code>:</p>
+<p><strong>movies6.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int,:LABEL
+tt0133093,"The Matrix",1999,Movie
+tt0234215,"The Matrix Reloaded",2003,Movie;Sequel
+tt0242653,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p><strong>actors6.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID,name,:LABEL
+keanu,"Keanu Reeves",Actor
+laurence,"Laurence Fishburne",Actor
+carrieanne,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p><strong>roles6.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID,role,:END_ID
+keanu,"Neo",tt0133093
+keanu,"Neo",tt0234215
+keanu,"Neo",tt0242653
+laurence,"Morpheus",tt0133093
+laurence,"Morpheus",tt0234215
+laurence,"Morpheus",tt0242653
+carrieanne,"Trinity",tt0133093
+carrieanne,"Trinity",tt0234215
+carrieanne,"Trinity",tt0242653</pre><p>
+</p>
+<p>The call to <code class="literal">neo4j-import</code> would look like this:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies6.csv --nodes actors6.csv --relationships:ACTS_IN roles6.csv</pre>
+</section>
+<section class="section" id="import-tool-working-with-sequential-ids"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Working with sequential or auto incrementing identifiers</h3></div></div></div>
+
+<p>The import tool makes the assumption that identifiers are unique across node files.
+This may not be the case for data sets which use sequential or auto incremented primary keys.
+For those data sets we can define an <code class="literal">id space</code> in which our identifier is unique.</p>
+<p>For example if movies and people both use sequential identifiers then we would define <code class="literal">Movie</code> and <code class="literal">Actor</code> id spaces.</p>
+<p><strong>movies7.csv </strong>
+</p><pre class="programlisting" data-lang="plain">movieId:ID(Movie),title,year:int,:LABEL
+1,"The Matrix",1999,Movie
+2,"The Matrix Reloaded",2003,Movie;Sequel
+3,"The Matrix Revolutions",2003,Movie;Sequel</pre><p>
+</p>
+<p><strong>actors7.csv </strong>
+</p><pre class="programlisting" data-lang="plain">personId:ID(Actor),name,:LABEL
+1,"Keanu Reeves",Actor
+2,"Laurence Fishburne",Actor
+3,"Carrie-Anne Moss",Actor</pre><p>
+</p>
+<p>We also need to reference the appropriate id space in our relationships file so it knows which nodes to connect
+together:</p>
+<p><strong>roles7.csv </strong>
+</p><pre class="programlisting" data-lang="plain">:START_ID(Actor),role,:END_ID(Movie)
+1,"Neo",1
+1,"Neo",2
+1,"Neo",3
+2,"Morpheus",1
+2,"Morpheus",2
+2,"Morpheus",3
+3,"Trinity",1
+3,"Trinity",2
+3,"Trinity",3</pre><p>
+</p>
+<p>The command line arguments would remain the same as before:</p>
+<pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies7.csv --nodes actors7.csv --relationships:ACTS_IN roles7.csv</pre>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

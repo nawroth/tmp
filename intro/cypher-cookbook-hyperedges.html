@@ -1,0 +1,274 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>7.2. Hyperedges -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="examples-acl-structures-in-graphs.html" title="7.1. ACL structures in graphs" /><link rel="next" href="cypher-cookbook-friend-finding.html" title="7.3. Basic friend finding based on social neighborhood" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.2. Hyperedges" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-75824";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>7.2. Hyperedges</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="examples-acl-structures-in-graphs.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples-advanced.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-friend-finding.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-hyperedges"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.2. Hyperedges</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-cookbook-hyperedges.html#cookbook-find-groups">Find Groups</a></span></li><li><span class="section"><a href="cypher-cookbook-hyperedges.html#cookbook-find-all-groups-and-roles-for-a-user">Find all groups and roles for a user</a></span></li><li><span class="section"><a href="cypher-cookbook-hyperedges.html#cookbook-find-common-groups-based-on-shared-roles">Find common groups based on shared roles</a></span></li></ul></div>
+
+<p>Imagine a user being part of different groups.
+A group can have different roles, and a user can be part of different groups.
+He also can have different roles in different groups apart from the membership.
+The association of a User, a Group and a Role can be referred to as a <span class="emphasis"><em>HyperEdge</em></span>.
+However, it can be easily modeled in a property graph as a node that captures this n-ary relationship, as depicted below in the <code class="literal">U1G2R1</code> node.</p>
+<div class="figure" id="d5e3401"><p class="title"><strong>Figure 7.1. Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/cypher-hyperedge-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-hyperedge-graph.svg" alt="cypher-hyperedge-graph.svg" /></span>
+</a>
+</div></div>
+<section class="section" id="cookbook-find-groups"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Find Groups</h3></div></div></div>
+
+<p>To find out in what roles a user is for a particular groups (here
+        <span class="emphasis"><em>Group2</em></span>), the following query can traverse this HyperEdge node and
+        provide answers.</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH ({ name: 'User1' })-[:hasRoleInGroup]-&gt;(hyperEdge)-[:hasGroup]-&gt;({ name: 'Group2' }),
+  (hyperEdge)-[:hasRole]-&gt;(role)
+RETURN role.name</pre><p>
+</p>
+<p>The role of <code class="literal">User1</code> is returned:</p>
+<div class="queryresult table" id="d5e3419"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>role.name</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Role1"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"U1G2R1"})
+create (_1 {`name`:"Role2"})
+create (_2 {`name`:"Group1"})
+create (_3 {`name`:"Group2"})
+create (_4 {`name`:"Role1"})
+create (_5 {`name`:"Role"})
+create (_6 {`name`:"User1"})
+create (_7 {`name`:"U1G1R2"})
+create (_8 {`name`:"Group"})
+create _0-[:`hasRole`]-&gt;_4
+create _0-[:`hasGroup`]-&gt;_3
+create _1-[:`isA`]-&gt;_5
+create _2-[:`canHave`]-&gt;_1
+create _2-[:`canHave`]-&gt;_4
+create _2-[:`isA`]-&gt;_8
+create _3-[:`canHave`]-&gt;_4
+create _3-[:`canHave`]-&gt;_1
+create _3-[:`isA`]-&gt;_8
+create _4-[:`isA`]-&gt;_5
+create _6-[:`in`]-&gt;_3
+create _6-[:`in`]-&gt;_2
+create _6-[:`hasRoleInGroup`]-&gt;_7
+create _6-[:`hasRoleInGroup`]-&gt;_0
+create _7-[:`hasRole`]-&gt;_1
+create _7-[:`hasGroup`]-&gt;_2
+</span><span class="command"><strong>
+ match ({name: 'User1'})-[:hasRoleInGroup]-&gt;(hyperEdge)-[:hasGroup]-&gt;({name: 'Group2'}), (hyperEdge)-[:hasRole]-&gt;(role) return role.name</strong></span></p>
+</section>
+<section class="section" id="cookbook-find-all-groups-and-roles-for-a-user"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Find all groups and roles for a user</h3></div></div></div>
+
+<p>Here, find all groups and the roles a user has, sorted by the name of the role.</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH ({ name: 'User1' })-[:hasRoleInGroup]-&gt;(hyperEdge)-[:hasGroup]-&gt;(group),
+  (hyperEdge)-[:hasRole]-&gt;(role)
+RETURN role.name, group.name
+ORDER BY role.name ASC</pre><p>
+</p>
+<p>The groups and roles of <code class="literal">User1</code> are returned:</p>
+<div class="queryresult table" id="d5e3448"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>role.name</th><th>group.name</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Role1"</code></p></td><td><p><code class="literal">"Group2"</code></p></td></tr><tr><td><p><code class="literal">"Role2"</code></p></td><td><p><code class="literal">"Group1"</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"U1G2R1"})
+create (_1 {`name`:"Role2"})
+create (_2 {`name`:"Group1"})
+create (_3 {`name`:"Group2"})
+create (_4 {`name`:"Role1"})
+create (_5 {`name`:"Role"})
+create (_6 {`name`:"User1"})
+create (_7 {`name`:"U1G1R2"})
+create (_8 {`name`:"Group"})
+create _0-[:`hasRole`]-&gt;_4
+create _0-[:`hasGroup`]-&gt;_3
+create _1-[:`isA`]-&gt;_5
+create _2-[:`canHave`]-&gt;_1
+create _2-[:`canHave`]-&gt;_4
+create _2-[:`isA`]-&gt;_8
+create _3-[:`canHave`]-&gt;_4
+create _3-[:`canHave`]-&gt;_1
+create _3-[:`isA`]-&gt;_8
+create _4-[:`isA`]-&gt;_5
+create _6-[:`in`]-&gt;_3
+create _6-[:`in`]-&gt;_2
+create _6-[:`hasRoleInGroup`]-&gt;_7
+create _6-[:`hasRoleInGroup`]-&gt;_0
+create _7-[:`hasRole`]-&gt;_1
+create _7-[:`hasGroup`]-&gt;_2
+</span><span class="command"><strong>
+ match ({name: 'User1'})-[:hasRoleInGroup]-&gt;(hyperEdge)-[:hasGroup]-&gt;(group), (hyperEdge)-[:hasRole]-&gt;(role) return role.name, group.name order by role.name asc</strong></span></p>
+</section>
+<section class="section" id="cookbook-find-common-groups-based-on-shared-roles"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Find common groups based on shared roles</h3></div></div></div>
+
+<p>Assume a more complicated graph:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+Two user nodes <code class="literal">User1</code>, <code class="literal">User2</code>.
+
+</li><li class="listitem">
+
+<code class="literal">User1</code> is in <code class="literal">Group1</code>, <code class="literal">Group2</code>, <code class="literal">Group3</code>.
+
+</li><li class="listitem">
+
+<code class="literal">User1</code> has <code class="literal">Role1</code>, <code class="literal">Role2</code> in <code class="literal">Group1</code>; <code class="literal">Role2</code>, <code class="literal">Role3</code> in <code class="literal">Group2</code>; <code class="literal">Role3</code>, <code class="literal">Role4</code> in <code class="literal">Group3</code> (hyper edges).
+
+</li><li class="listitem">
+
+<code class="literal">User2</code> is in <code class="literal">Group1</code>, <code class="literal">Group2</code>, <code class="literal">Group3</code>.
+
+</li><li class="listitem">
+
+<code class="literal">User2</code> has <code class="literal">Role2</code>, <code class="literal">Role5</code> in <code class="literal">Group1</code>; <code class="literal">Role3</code>, <code class="literal">Role4</code> in <code class="literal">Group2</code>; <code class="literal">Role5</code>, <code class="literal">Role6</code> in <code class="literal">Group3</code> (hyper edges).
+
+</li></ol></div>
+<p>The graph for this looks like the following (nodes like <code class="literal">U1G2R23</code> representing the HyperEdges):</p>
+<div class="figure" id="d5e3526"><p class="title"><strong>Figure 7.2. Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/cypher-hyperedgecommongroups-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-hyperedgecommongroups-graph.svg" alt="cypher-hyperedgecommongroups-graph.svg" /></span>
+</a>
+</div></div>
+<p>To return <code class="literal">Group1</code> and <code class="literal">Group2</code> as <code class="literal">User1</code> and <code class="literal">User2</code> share at least one common role in these two groups, the query looks like this:</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (u1)-[:hasRoleInGroup]-&gt;(hyperEdge1)-[:hasGroup]-&gt;(group),(hyperEdge1)-[:hasRole]-&gt;(role),
+  (u2)-[:hasRoleInGroup]-&gt;(hyperEdge2)-[:hasGroup]-&gt;(group),(hyperEdge2)-[:hasRole]-&gt;(role)
+WHERE u1.name = 'User1' AND u2.name = 'User2'
+RETURN group.name, count(role)
+ORDER BY group.name ASC</pre><p>
+</p>
+<p>The groups where <code class="literal">User1</code> and <code class="literal">User2</code> share at least one common role:</p>
+<div class="queryresult table" id="d5e3546"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>group.name</th><th>count(role)</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Group1"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Group2"</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"U2G2R34"})
+create (_1 {`name`:"U1G3R34"})
+create (_2 {`name`:"User2"})
+create (_3 {`name`:"User1"})
+create (_4 {`name`:"Role6"})
+create (_5 {`name`:"U1G2R23"})
+create (_6 {`name`:"Role4"})
+create (_7 {`name`:"Role5"})
+create (_8 {`name`:"U2G1R25"})
+create (_9 {`name`:"Group1"})
+create (_10 {`name`:"Role2"})
+create (_11 {`name`:"Group2"})
+create (_12 {`name`:"Role3"})
+create (_13 {`name`:"Group3"})
+create (_14 {`name`:"U1G1R12"})
+create (_15 {`name`:"Role1"})
+create (_16 {`name`:"U2G3R56"})
+create _0-[:`hasGroup`]-&gt;_11
+create _0-[:`hasRole`]-&gt;_12
+create _0-[:`hasRole`]-&gt;_6
+create _1-[:`hasGroup`]-&gt;_13
+create _1-[:`hasRole`]-&gt;_6
+create _1-[:`hasRole`]-&gt;_12
+create _2-[:`hasRoleInGroup`]-&gt;_16
+create _2-[:`hasRoleInGroup`]-&gt;_0
+create _2-[:`hasRoleInGroup`]-&gt;_8
+create _3-[:`hasRoleInGroup`]-&gt;_1
+create _3-[:`hasRoleInGroup`]-&gt;_5
+create _3-[:`hasRoleInGroup`]-&gt;_14
+create _5-[:`hasGroup`]-&gt;_11
+create _5-[:`hasRole`]-&gt;_12
+create _5-[:`hasRole`]-&gt;_10
+create _8-[:`hasGroup`]-&gt;_9
+create _8-[:`hasRole`]-&gt;_7
+create _8-[:`hasRole`]-&gt;_10
+create _14-[:`hasGroup`]-&gt;_9
+create _14-[:`hasRole`]-&gt;_10
+create _14-[:`hasRole`]-&gt;_15
+create _16-[:`hasGroup`]-&gt;_13
+create _16-[:`hasRole`]-&gt;_7
+create _16-[:`hasRole`]-&gt;_4
+</span><span class="command"><strong>
+ match (u1)-[:hasRoleInGroup]-&gt;(hyperEdge1)-[:hasGroup]-&gt;(group), (hyperEdge1)-[:hasRole]-&gt;(role), (u2)-[:hasRoleInGroup]-&gt;(hyperEdge2)-[:hasGroup]-&gt;(group), (hyperEdge2)-[:hasRole]-&gt;(role) where u1.name = 'User1' and u2.name = 'User2' return group.name, count(role) order by group.name ASC</strong></span></p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
