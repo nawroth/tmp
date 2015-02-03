@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.8. Importing CSV files with Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create-unique.html" title="13.7. Create Unique" /><link rel="next" href="query-periodic-commit.html" title="13.9. Using Periodic Commit" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.8. Importing CSV files with Cypher" /><script type="text/javascript">
+    <title>12.8. Importing CSV files with Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create-unique.html" title="12.7. Create Unique" /><link rel="next" href="query-periodic-commit.html" title="12.9. Using Periodic Commit" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.8. Importing CSV files with Cypher" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>13.8. Importing CSV files with Cypher</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-create-unique.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-periodic-commit.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-importing-csv-files-with-cypher"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.8. Importing CSV files with Cypher</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.8. Importing CSV files with Cypher</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-create-unique.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-periodic-commit.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-importing-csv-files-with-cypher"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.8. Importing CSV files with Cypher</h2></div></div></div>
 
 <p>This tutorial will show you how to import data from CSV files using <code class="literal">LOAD CSV</code>.</p>
 <p>In this example, we’re given three CSV files: a list of persons, a list of movies, and a list of which role was played by some of these persons in each movie.</p>
@@ -95,7 +95,7 @@ This time, we’re also creating a relationship to the country in which the movi
 If you are storing your data in a SQL database, this is the one-to-many relationship type.</p>
 <p>We’re using <code class="literal">MERGE</code> to create nodes that represent countries.
 Using <code class="literal">MERGE</code> avoids creating duplicate country nodes in the case where multiple movies have been made in the same country.</p>
-<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>When using <code class="literal">MERGE</code> or <code class="literal">MATCH</code> with <code class="literal">LOAD CSV</code> we need to make sure we have an index (see <a class="xref" href="query-schema-index.html" title="15.1. Indexes">Section 15.1, “Indexes”</a>) or a unique constraint (see <a class="xref" href="query-constraints.html" title="15.2. Constraints">Section 15.2, “Constraints”</a>) on the property we’re merging.
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>When using <code class="literal">MERGE</code> or <code class="literal">MATCH</code> with <code class="literal">LOAD CSV</code> we need to make sure we have an index (see <a class="xref" href="query-schema-index.html" title="14.1. Indexes">Section 14.1, “Indexes”</a>) or a unique constraint (see <a class="xref" href="query-constraints.html" title="14.2. Constraints">Section 14.2, “Constraints”</a>) on the property we’re merging.
 This will ensure the query executes in a performant way.</p></td></tr></table></div>
 <p>Before running our query to connect movies and countries we’ll create an index for the name property on the Country label to ensure the query runs as fast as it can:</p>
 <pre class="programlisting" data-lang="cypher">CREATE INDEX ON :Country(name)</pre>
@@ -121,7 +121,7 @@ Creating a unique constraint also creates a unique index (which is faster than a
 <pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (person:Person) ASSERT person.id IS UNIQUE</pre>
 <pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE</pre>
 <p>Now importing the relationships is a matter of finding the nodes and then creating relationships between them.</p>
-<p>For this query we’ll use <code class="literal">USING PERIODIC COMMIT</code> (see <a class="xref" href="query-periodic-commit.html" title="13.9. Using Periodic Commit">Section 13.9, “Using Periodic Commit”</a>) which is helpful for queries that operate on large CSV files.
+<p>For this query we’ll use <code class="literal">USING PERIODIC COMMIT</code> (see <a class="xref" href="query-periodic-commit.html" title="12.9. Using Periodic Commit">Section 12.9, “Using Periodic Commit”</a>) which is helpful for queries that operate on large CSV files.
 This hint tells Neo4j that the query might build up inordinate amounts of transaction state, and so needs to be periodically committed.</p>
 <pre class="programlisting" data-lang="cypher">USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.2-SNAPSHOT/csv/import/roles.csv" AS csvLine

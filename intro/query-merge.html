@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.2. Merge -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create.html" title="13.1. Create" /><link rel="next" href="query-set.html" title="13.3. Set" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.2. Merge" /><script type="text/javascript">
+    <title>12.2. Merge -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create.html" title="12.1. Create" /><link rel="next" href="query-set.html" title="12.3. Set" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.2. Merge" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>13.2. Merge</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-create.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-set.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-merge"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.2. Merge</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-merge.html#_introduction_4">Introduction</a></span></li><li><span class="section"><a href="query-merge.html#_merge_nodes">Merge nodes</a></span></li><li><span class="section"><a href="query-merge.html#_use_on_create_and_on_match">Use ON CREATE and ON MATCH</a></span></li><li><span class="section"><a href="query-merge.html#_merge_relationships">Merge relationships</a></span></li><li><span class="section"><a href="query-merge.html#_using_unique_constraints_with_merge">Using unique constraints with MERGE</a></span></li><li><span class="section"><a href="query-merge.html#merge-using-map-parameters-with-merge">Using map parameters with MERGE</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.2. Merge</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-create.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-set.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-merge"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.2. Merge</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-merge.html#_introduction_4">Introduction</a></span></li><li><span class="section"><a href="query-merge.html#_merge_nodes">Merge nodes</a></span></li><li><span class="section"><a href="query-merge.html#_use_on_create_and_on_match">Use ON CREATE and ON MATCH</a></span></li><li><span class="section"><a href="query-merge.html#_merge_relationships">Merge relationships</a></span></li><li><span class="section"><a href="query-merge.html#_using_unique_constraints_with_merge">Using unique constraints with MERGE</a></span></li><li><span class="section"><a href="query-merge.html#merge-using-map-parameters-with-merge">Using map parameters with MERGE</a></span></li></ul></div>
 
 <section class="section" id="_introduction_4"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Introduction</h3></div></div></div>
 
@@ -87,7 +87,7 @@ If there are multiple matches, they will all be passed on to later stages of the
 <p>The last part of <code class="literal">MERGE</code> is the <code class="literal">ON CREATE</code> and <code class="literal">ON MATCH</code>.
 These allow a query to express additional changes to the properties of a node or relationship, depending on if the element was <code class="literal">MATCH</code>ed in the database or if it was <code class="literal">CREATE</code>d.</p>
 <p>The following graph is used for the examples below:</p>
-<div class="figure" id="d5e10574"><p class="title"><strong>Figure 13.1. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e10523"><p class="title"><strong>Figure 12.1. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-merge-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-merge-graph.svg" alt="cypher-merge-graph.svg" /></span>
 </a>
@@ -103,7 +103,7 @@ These allow a query to express additional changes to the properties of a node or
 RETURN robert, labels(robert)</pre><p>
 </p>
 <p>Because there are no nodes labeled <code class="literal">Critic</code> in the database, a new node is created.</p>
-<div class="queryresult table" id="d5e10593"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>robert</th><th>labels(robert)</th></tr></thead><tfoot><tr><th colspan="2">1 row
+<div class="queryresult table" id="d5e10542"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>robert</th><th>labels(robert)</th></tr></thead><tfoot><tr><th colspan="2">1 row
 </th></tr><tr><th colspan="2">Nodes created: 1
 </th></tr><tr><th colspan="2">Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{}</code></p></td><td><p><code class="literal">["Critic"]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
@@ -135,7 +135,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN charlie</pre><p>
 </p>
 <p>A new node with the name Charlie Sheen will be created since not all properties matched the existing Charlie Sheen node.</p>
-<div class="queryresult table" id="d5e10630"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>charlie</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10579"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>charlie</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Charlie Sheen",age:10}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
@@ -167,7 +167,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN michael</pre><p>
 </p>
 <p>Michael Douglas will be matched and returned.</p>
-<div class="queryresult table" id="d5e10662"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>michael</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10611"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>michael</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -201,10 +201,10 @@ ON CREATE SET keanu.created = timestamp()
 RETURN keanu</pre><p>
 </p>
 <p>Creates the Keanu node, and sets a timestamp on creation time.</p>
-<div class="queryresult table" id="d5e10692"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keanu</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10641"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keanu</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
-</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1422452389607}</code></p></td></tr></tbody></table></div></div>
+</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1422866098290}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -235,7 +235,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 ON MATCH SET person.found = TRUE RETURN person</pre><p>
 </p>
 <p>Finds all the <code class="literal">Person</code> nodes, sets a property on them, and returns them.</p>
-<div class="queryresult table" id="d5e10727"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>5 rows
+<div class="queryresult table" id="d5e10676"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>5 rows
 </th></tr><tr><th>Properties set: 5</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone",found:true}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen",found:true}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen",found:true}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner",found:true}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas",found:true}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
@@ -269,10 +269,10 @@ ON MATCH SET keanu.lastSeen = timestamp()
 RETURN keanu</pre><p>
 </p>
 <p>The query creates the Keanu node, and sets a timestamp on creation time. If Keanu already existed, a different property would have been set.</p>
-<div class="queryresult table" id="d5e10773"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keanu</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10722"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keanu</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
-</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1422452390750}</code></p></td></tr></tbody></table></div></div>
+</th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",created:1422866099531}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -304,8 +304,8 @@ create _6-[:`ACTED_IN`]-&gt;_4
 ON MATCH SET person.found = TRUE , person.lastAccessed = timestamp()
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e10806"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>5 rows
-</th></tr><tr><th>Properties set: 10</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone",found:true,lastAccessed:1422452390418}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen",found:true,lastAccessed:1422452390418}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen",found:true,lastAccessed:1422452390418}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner",found:true,lastAccessed:1422452390418}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas",found:true,lastAccessed:1422452390418}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10755"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>5 rows
+</th></tr><tr><th>Properties set: 10</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone",found:true,lastAccessed:1422866099203}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen",found:true,lastAccessed:1422866099203}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen",found:true,lastAccessed:1422866099203}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner",found:true,lastAccessed:1422866099203}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas",found:true,lastAccessed:1422866099203}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -340,7 +340,7 @@ MERGE (charlie)-[r:ACTED_IN]-&gt;(wallStreet)
 RETURN r</pre><p>
 </p>
 <p>Charlie Sheen had already been marked as acting on Wall Street, so the existing relationship is found and returned. Note that in order to match or create a relationship when using <code class="literal">MERGE</code>, at least one bound node must be specified, which is done via the <code class="literal">MATCH</code> clause in the above example.</p>
-<div class="queryresult table" id="d5e10857"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10806"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -372,7 +372,7 @@ MERGE (oliver)-[:DIRECTED]-&gt;(movie:Movie)&lt;-[:ACTED_IN]-(reiner)
 RETURN movie</pre><p>
 </p>
 <p>In our example graph, Oliver Stone and Rob Reiner have never worked together. When we try to <code class="literal">MERGE</code> a movie between them, Cypher will not use any of the existing movies already connected to either person. Instead, a new movie node is created.</p>
-<div class="queryresult table" id="d5e10887"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10836"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{}</code></p></td></tr></tbody></table></div></div>
@@ -407,7 +407,7 @@ MERGE (charlie)-[r:KNOWS]-(oliver)
 RETURN r</pre><p>
 </p>
 <p>Assume that Charlie Sheen and Oliver Stone do not know each other then this <code class="literal">MERGE</code> query will create a <code class="literal">:KNOWS</code> relationship between them. The direction of the created relationship is arbitrary.</p>
-<div class="queryresult table" id="d5e10924"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10873"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[8]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
@@ -449,7 +449,7 @@ CREATE CONSTRAINT ON (n:Person) ASSERT n.role IS UNIQUE;</pre>
 RETURN laurence</pre><p>
 </p>
 <p>The query creates the laurence node. If laurence already existed, merge would just return the existing node.</p>
-<div class="queryresult table" id="d5e10966"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>laurence</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10915"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>laurence</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 1
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Laurence Fishburne"}</code></p></td></tr></tbody></table></div></div>
@@ -481,7 +481,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN oliver</pre><p>
 </p>
 <p>The oliver node already exists, so merge just returns it.</p>
-<div class="queryresult table" id="d5e11000"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>oliver</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10949"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>oliver</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create constraint on (n:`Person`) assert n.`name` is unique
 create constraint on (n:`Person`) assert n.`role` is unique
 create (_0:`Person` {`name`:"Oliver Stone"})
@@ -535,7 +535,7 @@ with both existing and missing unique nodes. The conflicting constraints are on:
 
 <p><code class="literal">MERGE</code> does not support map parameters like for example <code class="literal">CREATE</code> does.
 To use map parameters with <code class="literal">MERGE</code>, it is necessary to explicitly use the expected properties, like in the following example.
-For more information on parameters, see <a class="xref" href="cypher-parameters.html" title="9.5. Parameters">Section 9.5, “Parameters”</a>.</p>
+For more information on parameters, see <a class="xref" href="cypher-parameters.html" title="8.5. Parameters">Section 8.5, “Parameters”</a>.</p>
 <p><strong>Parameters </strong>
 </p><pre class="programlisting" data-lang="javascript">{
   "param" : {
@@ -548,7 +548,7 @@ For more information on parameters, see <a class="xref" href="cypher-parameters.
 </p><pre class="programlisting" data-lang="cypher">MERGE (oliver:Person { name: { param }.name, role: { param }.role })
 RETURN oliver</pre><p>
 </p>
-<div class="queryresult table" id="d5e11063"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>oliver</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11012"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>oliver</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[7]{name:"Keanu Reeves",role:"Neo"}</code></p></td></tr></tbody></table></div></div>

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>38.1. Introduction -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing.html" title="Chapter 38. Legacy Indexing" /><link rel="next" href="indexing-create.html" title="38.2. Create" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="38.1. Introduction" /><script type="text/javascript">
+    <title>37.1. Introduction -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="indexing.html" title="Chapter 37. Legacy Indexing" /><link rel="next" href="indexing-create.html" title="37.2. Create" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="37.1. Introduction" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>38.1. Introduction</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="indexing-create.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="indexing-introduction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">38.1. Introduction</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>37.1. Introduction</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="indexing.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="indexing.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="indexing-create.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="indexing-introduction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">37.1. Introduction</h2></div></div></div>
 
 <p>Legacy Indexing operations are part of the <a class="ulink" href="javadocs/org/neo4j/graphdb/index/package-summary.html" target="_blank">Neo4j index API</a>.</p>
 <p>Each index is tied to a unique, user-specified name (for example "first_name" or "books") and can index either <a class="ulink" href="javadocs/org/neo4j/graphdb/Node.html" target="_blank">nodes</a> or <a class="ulink" href="javadocs/org/neo4j/graphdb/Relationship.html" target="_blank">relationships</a>.</p>
@@ -78,7 +78,7 @@ It can also be downloaded separately from <a class="ulink" href="http://repo1.ma
 For Maven users, the <code class="literal">neo4j-lucene-index</code> component has the coordinates <code class="literal">org.neo4j:neo4j-lucene-index</code> and should be used with the same version of <code class="literal">org.neo4j:neo4j-kernel</code>.
 Different versions of the index and kernel components are not compatible in the general case.
 Both components are included transitively by the <code class="literal">org.neo4j:neo4j:pom</code> artifact which makes it simple to keep the versions in sync.</p>
-<p>For initial import of data using indexes, see <a class="xref" href="indexing-batchinsert.html" title="39.2. Index Batch Insertion">Section 39.2, “Index Batch Insertion”</a>.</p>
+<p>For initial import of data using indexes, see <a class="xref" href="indexing-batchinsert.html" title="38.2. Index Batch Insertion">Section 38.2, “Index Batch Insertion”</a>.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>All modifying index operations must be performed inside a transaction, as with any modifying operation in Neo4j.</p></td></tr></table></div>
 </section>
 

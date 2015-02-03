@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.21. Unique Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="22.20. Legacy indexing" /><link rel="next" href="rest-api-auto-indexes.html" title="22.22. Legacy Automatic Indexes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.21. Unique Indexing" /><script type="text/javascript">
+    <title>21.21. Unique Indexing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="21.20. Legacy indexing" /><link rel="next" href="rest-api-auto-indexes.html" title="21.22. Legacy Automatic Indexes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.21. Unique Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,12 +68,12 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.21. Unique Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-auto-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-unique-indexes"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.21. Unique Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-create">Get or create unique node (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-existing">Get or create unique node (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-create">Create a unique node or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-fail">Create a unique node or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-not-indexed">Add an existing node to unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-already-indexed">Add an existing node to unique index (already indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-create">Get or create unique relationship (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-existing">Get or create unique relationship (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-create">Create a unique relationship or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-fail">Create a unique relationship or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-not-indexed">Add an existing relationship to a unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-already-indexed">Add an existing relationship to a unique index (already indexed)</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.21. Unique Indexing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-auto-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-unique-indexes"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.21. Unique Indexing</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-create">Get or create unique node (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-node-existing">Get or create unique node (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-create">Create a unique node or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-node-or-return-fail-fail">Create a unique node or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-not-indexed">Add an existing node to unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-node-to-unique-index-already-indexed">Add an existing node to unique index (already indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-create">Get or create unique relationship (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-get-or-create-unique-relationship-existing">Get or create unique relationship (existing)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-create">Create a unique relationship or return fail (create)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-create-a-unique-relationship-or-return-fail-fail">Create a unique relationship or return fail (fail)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-not-indexed">Add an existing relationship to a unique index (not indexed)</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html#rest-api-add-an-existing-relationship-to-a-unique-index-already-indexed">Add an existing relationship to a unique index (already indexed)</a></span></li></ul></div>
 
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>As of Neo4j 2.0, unique constraints have been added.
 These make Neo4j enforce the uniqueness, guaranteeing that uniqueness is maintained.
-See <a class="xref" href="graphdb-neo4j-schema.html#graphdb-neo4j-schema-constraints" title="Constraints">the section called “Constraints”</a> for details about this.
+See <a class="xref" href="graphdb-neo4j.html#graphdb-neo4j-schema-constraints" title="Constraints">the section called “Constraints”</a> for details about this.
 For most cases, the unique constraints should be used rather than the features described below.</p></td></tr></table></div>
 <p>For uniqueness enforcements, there are two modes:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -85,7 +85,7 @@ URL Parameter <code class="literal">uniqueness=get_or_create</code>: Create a ne
 URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a new node/relationship if no existing one can be found in the index. If an existing node/relationship is found, return a conflict error.
 
 </li></ul></div>
-<p>For more information, see <a class="xref" href="transactions-unique-nodes.html" title="19.6. Creating unique nodes">Section 19.6, “Creating unique nodes”</a>.</p>
+<p>For more information, see <a class="xref" href="transactions-unique-nodes.html" title="18.6. Creating unique nodes">Section 18.6, “Creating unique nodes”</a>.</p>
 <section class="section" id="rest-api-get-or-create-unique-node-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique node (create)</h3></div></div></div>
 
 <p>The node is created if it doesn’t exist in the unique index already.</p>
@@ -131,8 +131,8 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
   "labels" : "http://localhost:7474/db/data/node/32/labels",
   "traverse" : "http://localhost:7474/db/data/node/32/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/32",
   "property" : "http://localhost:7474/db/data/node/32/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/32",
   "properties" : "http://localhost:7474/db/data/node/32/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/32/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/32/relationships/in",
@@ -199,8 +199,8 @@ already existing node.</p>
   "labels" : "http://localhost:7474/db/data/node/22/labels",
   "traverse" : "http://localhost:7474/db/data/node/22/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/22",
   "property" : "http://localhost:7474/db/data/node/22/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/22",
   "properties" : "http://localhost:7474/db/data/node/22/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/22/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/22/relationships/in",
@@ -266,8 +266,8 @@ example, no existing indexed node is found and a new node is created.</p>
   "labels" : "http://localhost:7474/db/data/node/31/labels",
   "traverse" : "http://localhost:7474/db/data/node/31/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/31",
   "property" : "http://localhost:7474/db/data/node/31/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/31",
   "properties" : "http://localhost:7474/db/data/node/31/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/31/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/31/relationships/in",
@@ -330,8 +330,8 @@ is found and an error is returned.</p>
   "labels" : "http://localhost:7474/db/data/node/16/labels",
   "traverse" : "http://localhost:7474/db/data/node/16/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/16",
   "property" : "http://localhost:7474/db/data/node/16/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/16",
   "properties" : "http://localhost:7474/db/data/node/16/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/16/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/16/relationships/in",
@@ -394,8 +394,8 @@ index.</p>
   "labels" : "http://localhost:7474/db/data/node/27/labels",
   "traverse" : "http://localhost:7474/db/data/node/27/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/27",
   "property" : "http://localhost:7474/db/data/node/27/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/27",
   "properties" : "http://localhost:7474/db/data/node/27/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/27/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/27/relationships/in",
@@ -450,8 +450,8 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
   "labels" : "http://localhost:7474/db/data/node/29/labels",
   "traverse" : "http://localhost:7474/db/data/node/29/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/29",
   "property" : "http://localhost:7474/db/data/node/29/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/29",
   "properties" : "http://localhost:7474/db/data/node/29/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/29/relationships/in",

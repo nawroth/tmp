@@ -29,8 +29,8 @@
 <g id="edge1" class="edge"><title>N2&#45;&gt;N3</title>
 <path fill="none" stroke="#2e3436" stroke-width="2" stroke-dasharray="5,2" d="M56.332,-98.4602C62.4296,-87.392 70.4244,-73.6545 78.5,-62 81.3823,-57.8404 84.5937,-53.5716 87.8388,-49.4549"/>
 <polygon fill="#2e3436" stroke="#2e3436" stroke-width="2" points="92.583,-43.5628 90.5082,-51.5212 90.6206,-46.7972 88.2688,-49.7181 87.8794,-49.4046 87.4899,-49.091 89.8417,-46.1701 85.2505,-47.2879 92.583,-43.5628 92.583,-43.5628"/>
-<text text-anchor="middle" x="109" y="-73.6" font-family="FreeSans" font-size="8.00" fill="#2e3436">ACTED_IN</text>
-<text text-anchor="start" x="78.5" y="-64.6" font-family="FreeSans" font-size="8.00" fill="#2e3436">roles = [&#39;Forrest&#39;]</text>
+<text text-anchor="middle" x="109" y="-73.6" font-family="FreeSans" font-size="8.00" fill="#1c2021">ACTED_IN</text>
+<text text-anchor="start" x="78.5" y="-64.6" font-family="FreeSans" font-size="8.00" fill="#1c2021">roles = [&#39;Forrest&#39;]</text>
 </g>
 <!-- N4 -->
 <g id="node3" class="node"><title>N4</title>
@@ -42,9 +42,9 @@
 </g>
 <!-- N4&#45;&gt;N3 -->
 <g id="edge2" class="edge"><title>N4&#45;&gt;N3</title>
-<path fill="none" stroke="#4e9a06" stroke-width="2" d="M164.668,-98.4602C158.57,-87.392 150.576,-73.6545 142.5,-62 139.618,-57.8404 136.406,-53.5716 133.161,-49.4549"/>
-<polygon fill="#4e9a06" stroke="#4e9a06" stroke-width="2" points="128.417,-43.5628 135.749,-47.2879 131.158,-46.1701 133.51,-49.091 133.121,-49.4046 132.731,-49.7181 130.379,-46.7972 130.492,-51.5212 128.417,-43.5628 128.417,-43.5628"/>
-<text text-anchor="middle" x="174" y="-69.1" font-family="FreeSans" font-size="8.00" fill="#4e9a06">DIRECTED</text>
+<path fill="none" stroke="#2e3436" stroke-width="2" d="M164.668,-98.4602C158.57,-87.392 150.576,-73.6545 142.5,-62 139.618,-57.8404 136.406,-53.5716 133.161,-49.4549"/>
+<polygon fill="#2e3436" stroke="#2e3436" stroke-width="2" points="128.417,-43.5628 135.749,-47.2879 131.158,-46.1701 133.51,-49.091 133.121,-49.4046 132.731,-49.7181 130.379,-46.7972 130.492,-51.5212 128.417,-43.5628 128.417,-43.5628"/>
+<text text-anchor="middle" x="174" y="-69.1" font-family="FreeSans" font-size="8.00" fill="#1c2021">DIRECTED</text>
 </g>
 </g>
 </svg>

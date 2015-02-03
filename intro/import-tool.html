@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Chapter 30. Import Tool -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tools.html" title="Tools" /><link rel="next" href="import-tool-header-format.html" title="30.1. CSV file Header format" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Chapter 30. Import Tool" /><script type="text/javascript">
+    <title>Chapter 29. Import Tool -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tools.html" title="Tools" /><link rel="next" href="import-tool-header-format.html" title="29.1. CSV file Header format" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Chapter 29. Import Tool" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Chapter 30. Import Tool</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tools.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tools.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-header-format.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="chapter" id="import-tool"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title">Chapter 30. Import Tool</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><ul class="toc"><li><span class="section"><a href="import-tool-header-format.html">30.1. CSV file Header format</a></span></li><li><span class="section"><a href="import-tool-usage.html">30.2. Command Line Usage</a></span></li><li><span class="section"><a href="import-tool-examples.html">30.3. Import Tool Examples</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Chapter 29. Import Tool</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tools.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tools.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-header-format.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="chapter" id="import-tool"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title">Chapter 29. Import Tool</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><ul class="toc"><li><span class="section"><a href="import-tool-header-format.html">29.1. CSV file Header format</a></span></li><li><span class="section"><a href="import-tool-usage.html">29.2. Command Line Usage</a></span></li><li><span class="section"><a href="import-tool-examples.html">29.3. Import Tool Examples</a></span></li></ul></div>
 
 <p>The import tool is used to create a new Neo4j database from data in CSV files.</p>
 <p>This chapter explains how to use the tool, format the input data and concludes with an example bringing everything together.</p>
@@ -104,16 +104,16 @@ UTF-8 encoding is used.
 
 </li></ul></div>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>Indexes are not created during the import.
-Instead you’ll need to add indexes afterwards (see <a class="xref" href="graphdb-neo4j-schema.html#graphdb-neo4j-schema-indexes" title="Indexes">the section called “Indexes”</a>).</p></td></tr></table></div>
+Instead you’ll need to add indexes afterwards (see <a class="xref" href="graphdb-neo4j.html#graphdb-neo4j-schema-indexes" title="Indexes">the section called “Indexes”</a>).</p></td></tr></table></div>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b>
 <p>Data cannot be imported into an existing database using this tool.</p>
 <div class="itemizedlist"><ul style="list-style-type: disc; " class="itemizedlist"><li class="listitem">
 
-If you want to load small to medium sized CSV files see <a class="xref" href="query-load-csv.html" title="12.6. Load CSV">Section 12.6, “Load CSV”</a>.
+If you want to load small to medium sized CSV files see <a class="xref" href="query-load-csv.html" title="11.6. Load CSV">Section 11.6, “Load CSV”</a>.
 
 </li><li class="listitem">
 
-If you want to bulk import into an existing database see <a class="xref" href="batchinsert.html" title="Chapter 39. Batch Insertion">Chapter 39, <em>Batch Insertion</em></a>.
+If you want to bulk import into an existing database see <a class="xref" href="batchinsert.html" title="Chapter 38. Batch Insertion">Chapter 38, <em>Batch Insertion</em></a>.
 
 </li></ul></div>
 </td></tr></table></div>

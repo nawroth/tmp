@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.9. Using Periodic Commit -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-importing-csv-files-with-cypher.html" title="13.8. Importing CSV files with Cypher" /><link rel="next" href="query-function.html" title="Chapter 14. Functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.9. Using Periodic Commit" /><script type="text/javascript">
+    <title>12.9. Using Periodic Commit -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-importing-csv-files-with-cypher.html" title="12.8. Importing CSV files with Cypher" /><link rel="next" href="query-function.html" title="Chapter 13. Functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.9. Using Periodic Commit" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,17 +68,17 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>13.9. Using Periodic Commit</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-importing-csv-files-with-cypher.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-function.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-periodic-commit"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.9. Using Periodic Commit</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.9. Using Periodic Commit</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-importing-csv-files-with-cypher.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-function.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-periodic-commit"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.9. Using Periodic Commit</h2></div></div></div>
 
-<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>See <a class="xref" href="cypherdoc-importing-csv-files-with-cypher.html" title="13.8. Importing CSV files with Cypher">Section 13.8, “Importing CSV files with Cypher”</a> on how to import data from CSV files.</p></td></tr></table></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>See <a class="xref" href="cypherdoc-importing-csv-files-with-cypher.html" title="12.8. Importing CSV files with Cypher">Section 12.8, “Importing CSV files with Cypher”</a> on how to import data from CSV files.</p></td></tr></table></div>
 <p>Updating very large amounts of data (e.g. when importing) with a single Cypher query may fail due to memory constraints. This will manifest
 itself as an <code class="literal">OutOfMemoryError</code>.</p>
 <p>For this situation <span class="strong"><strong>only</strong></span>, Cypher provides the global <code class="literal">USING PERIODIC COMMIT</code> query hint for updating queries.</p>
 <p>Periodic Commit will process the rows until the number of rows reaches a limit.
 Then the current transaction will be committed and replaced with a newly opened transaction.
 If no limit is set, a default value will be used.</p>
-<p>See <a class="xref" href="query-load-csv.html#load-csv-importing-large-amounts-of-data" title="Importing large amounts of data">the section called “Importing large amounts of data”</a> in <a class="xref" href="query-load-csv.html" title="12.6. Load CSV">Section 12.6, “Load CSV”</a> for examples of <code class="literal">USING PERIODIC COMMIT</code> with and without setting the number of rows per commit.</p>
+<p>See <a class="xref" href="query-load-csv.html#load-csv-importing-large-amounts-of-data" title="Importing large amounts of data">the section called “Importing large amounts of data”</a> in <a class="xref" href="query-load-csv.html" title="11.6. Load CSV">Section 11.6, “Load CSV”</a> for examples of <code class="literal">USING PERIODIC COMMIT</code> with and without setting the number of rows per commit.</p>
 <div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>Using periodic commit will prevent running out of memory when updating large amounts of data.
 However it will also break transactional isolation thus it should only be used where needed.</p></td></tr></table></div>
 </section>

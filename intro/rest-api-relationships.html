@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.9. Relationships -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-nodes.html" title="22.8. Nodes" /><link rel="next" href="rest-api-relationship-types.html" title="22.10. Relationship types" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.9. Relationships" /><script type="text/javascript">
+    <title>21.9. Relationships -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-nodes.html" title="21.8. Nodes" /><link rel="next" href="rest-api-relationship-types.html" title="21.10. Relationship types" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.9. Relationships" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.9. Relationships</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-nodes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-relationship-types.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-relationships"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.9. Relationships</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-relationship-by-id">Get Relationship by ID</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-create-relationship">Create relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-create-a-relationship-with-properties">Create a relationship with properties</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-delete-relationship">Delete relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-all-properties-on-a-relationship">Get all properties on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-set-all-properties-on-a-relationship">Set all properties on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-single-property-on-a-relationship">Get single property on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-set-single-property-on-a-relationship">Set single property on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-all-relationships">Get all relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-incoming-relationships">Get incoming relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-outgoing-relationships">Get outgoing relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-typed-relationships">Get typed relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-relationships-on-a-node-without-relationships">Get relationships on a node without relationships</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.9. Relationships</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-nodes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-relationship-types.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-relationships"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.9. Relationships</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-relationship-by-id">Get Relationship by ID</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-create-relationship">Create relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-create-a-relationship-with-properties">Create a relationship with properties</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-delete-relationship">Delete relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-all-properties-on-a-relationship">Get all properties on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-set-all-properties-on-a-relationship">Set all properties on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-single-property-on-a-relationship">Get single property on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-set-single-property-on-a-relationship">Set single property on a relationship</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-all-relationships">Get all relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-incoming-relationships">Get incoming relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-outgoing-relationships">Get outgoing relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-typed-relationships">Get typed relationships</a></span></li><li><span class="section"><a href="rest-api-relationships.html#rest-api-get-relationships-on-a-node-without-relationships">Get relationships on a node without relationships</a></span></li></ul></div>
 
 <p>Relationships are a first class citizen in the Neo4j REST API. They can be accessed either
 stand-alone or through the nodes they are attached to.</p>
@@ -79,7 +79,7 @@ stand-alone or through the nodes they are attached to.</p>
 See the examples below for more information.</p>
 <section class="section" id="rest-api-get-relationship-by-id"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get Relationship by ID</h3></div></div></div>
 
-<div class="figure" id="d5e17457"><p class="title"><strong>Figure 22.19. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17406"><p class="title"><strong>Figure 21.19. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-get-Relationship-by-ID.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-get-Relationship-by-ID.svg" alt="Final-Graph-get-Relationship-by-ID.svg" /></span>
 </a>
@@ -123,7 +123,7 @@ See the examples below for more information.</p>
 
 <p>Upon successful creation of a relationship, the new relationship is
 returned.</p>
-<div class="figure" id="d5e17495"><p class="title"><strong>Figure 22.20. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17444"><p class="title"><strong>Figure 21.20. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-relationship.svg" alt="Final-Graph-Create-relationship.svg" /></span>
 </a>
@@ -179,12 +179,12 @@ returned.</p>
 
 <p>Upon successful creation of a relationship, the new relationship is
 returned.</p>
-<div class="figure" id="d5e17544"><p class="title"><strong>Figure 22.21. Starting Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17493"><p class="title"><strong>Figure 21.21. Starting Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Starting-Graph-Add-relationship-with-properties-before.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Starting-Graph-Add-relationship-with-properties-before.svg" alt="Starting-Graph-Add-relationship-with-properties-before.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e17552"><p class="title"><strong>Figure 22.22. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17501"><p class="title"><strong>Figure 21.22. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Create-a-relationship-with-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Create-a-relationship-with-properties.svg" alt="Final-Graph-Create-a-relationship-with-properties.svg" /></span>
 </a>
@@ -243,12 +243,12 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-delete-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete relationship</h3></div></div></div>
 
-<div class="figure" id="d5e17600"><p class="title"><strong>Figure 22.23. Starting Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17549"><p class="title"><strong>Figure 21.23. Starting Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Starting-Graph-Delete-relationship1.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Starting-Graph-Delete-relationship1.svg" alt="Starting-Graph-Delete-relationship1.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e17608"><p class="title"><strong>Figure 22.24. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17557"><p class="title"><strong>Figure 21.24. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Delete-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Delete-relationship.svg" alt="Final-Graph-Delete-relationship.svg" /></span>
 </a>
@@ -273,7 +273,7 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-get-all-properties-on-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all properties on a relationship</h3></div></div></div>
 
-<div class="figure" id="d5e17640"><p class="title"><strong>Figure 22.25. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17589"><p class="title"><strong>Figure 21.25. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-get-all-properties-on-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-get-all-properties-on-a-relationship.svg" alt="Final-Graph-get-all-properties-on-a-relationship.svg" /></span>
 </a>
@@ -305,12 +305,12 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-set-all-properties-on-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set all properties on a relationship</h3></div></div></div>
 
-<div class="figure" id="d5e17677"><p class="title"><strong>Figure 22.26. Starting Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17626"><p class="title"><strong>Figure 21.26. Starting Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Starting-Graph-Set-relationship-property1.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Starting-Graph-Set-relationship-property1.svg" alt="Starting-Graph-Set-relationship-property1.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e17685"><p class="title"><strong>Figure 22.27. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17634"><p class="title"><strong>Figure 21.27. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-set-all-properties-on-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-set-all-properties-on-a-relationship.svg" alt="Final-Graph-set-all-properties-on-a-relationship.svg" /></span>
 </a>
@@ -342,7 +342,7 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-get-single-property-on-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get single property on a relationship</h3></div></div></div>
 
-<div class="figure" id="d5e17723"><p class="title"><strong>Figure 22.28. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17672"><p class="title"><strong>Figure 21.28. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-get-single-property-on-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-get-single-property-on-a-relationship.svg" alt="Final-Graph-get-single-property-on-a-relationship.svg" /></span>
 </a>
@@ -371,12 +371,12 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-set-single-property-on-a-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set single property on a relationship</h3></div></div></div>
 
-<div class="figure" id="d5e17760"><p class="title"><strong>Figure 22.29. Starting Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17709"><p class="title"><strong>Figure 21.29. Starting Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Starting-Graph-Set-relationship-property1.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Starting-Graph-Set-relationship-property1.svg" alt="Starting-Graph-Set-relationship-property1.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e17768"><p class="title"><strong>Figure 22.30. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17717"><p class="title"><strong>Figure 21.30. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-set-single-property-on-a-relationship.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-set-single-property-on-a-relationship.svg" alt="Final-Graph-set-single-property-on-a-relationship.svg" /></span>
 </a>
@@ -406,7 +406,7 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-get-all-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all relationships</h3></div></div></div>
 
-<div class="figure" id="d5e17806"><p class="title"><strong>Figure 22.31. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17755"><p class="title"><strong>Figure 21.31. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-all-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-all-relationships.svg" alt="Final-Graph-Get-all-relationships.svg" /></span>
 </a>
@@ -474,7 +474,7 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-get-incoming-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get incoming relationships</h3></div></div></div>
 
-<div class="figure" id="d5e17843"><p class="title"><strong>Figure 22.32. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17792"><p class="title"><strong>Figure 21.32. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-incoming-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-incoming-relationships.svg" alt="Final-Graph-Get-incoming-relationships.svg" /></span>
 </a>
@@ -516,7 +516,7 @@ returned.</p>
 </section>
 <section class="section" id="rest-api-get-outgoing-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get outgoing relationships</h3></div></div></div>
 
-<div class="figure" id="d5e17880"><p class="title"><strong>Figure 22.33. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17829"><p class="title"><strong>Figure 21.33. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-outgoing-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-outgoing-relationships.svg" alt="Final-Graph-Get-outgoing-relationships.svg" /></span>
 </a>
@@ -573,7 +573,7 @@ returned.</p>
 
 <p>Note that the "<code class="literal">&amp;</code>" needs to be encoded like "<code class="literal">%26</code>" for example when
 using <a class="ulink" href="http://curl.haxx.se/" target="_blank">cURL</a> from the terminal.</p>
-<div class="figure" id="d5e17921"><p class="title"><strong>Figure 22.34. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17870"><p class="title"><strong>Figure 21.34. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-typed-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-typed-relationships.svg" alt="Final-Graph-Get-typed-relationships.svg" /></span>
 </a>
@@ -641,7 +641,7 @@ using <a class="ulink" href="http://curl.haxx.se/" target="_blank">cURL</a> from
 </section>
 <section class="section" id="rest-api-get-relationships-on-a-node-without-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get relationships on a node without relationships</h3></div></div></div>
 
-<div class="figure" id="d5e17958"><p class="title"><strong>Figure 22.35. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17907"><p class="title"><strong>Figure 21.35. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-relationships-on-a-node-without-relationships.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-relationships-on-a-node-without-relationships.svg" alt="Final-Graph-Get-relationships-on-a-node-without-relationships.svg" /></span>
 </a>

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10.2. Expressions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-values.html" title="10.1. Values" /><link rel="next" href="cypher-identifiers.html" title="10.3. Identifiers" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.2. Expressions" /><script type="text/javascript">
+    <title>9.2. Expressions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-values.html" title="9.1. Values" /><link rel="next" href="cypher-identifiers.html" title="9.3. Identifiers" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.2. Expressions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>10.2. Expressions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-values.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-syntax.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-identifiers.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-expressions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">10.2. Expressions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-expressions.html#_expressions_in_general">Expressions in general</a></span></li><li><span class="section"><a href="cypher-expressions.html#_note_on_string_literals">Note on string literals</a></span></li><li><span class="section"><a href="cypher-expressions.html#query-syntax-case">Case Expressions</a></span></li><li><span class="section"><a href="cypher-expressions.html#syntax-simple-case">Simple CASE</a></span></li><li><span class="section"><a href="cypher-expressions.html#syntax-generic-case">Generic CASE</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>9.2. Expressions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-values.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-syntax.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-identifiers.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-expressions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">9.2. Expressions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-expressions.html#_expressions_in_general">Expressions in general</a></span></li><li><span class="section"><a href="cypher-expressions.html#_note_on_string_literals">Note on string literals</a></span></li><li><span class="section"><a href="cypher-expressions.html#query-syntax-case">Case Expressions</a></span></li><li><span class="section"><a href="cypher-expressions.html#syntax-simple-case">Simple CASE</a></span></li><li><span class="section"><a href="cypher-expressions.html#syntax-generic-case">Generic CASE</a></span></li></ul></div>
 
 <section class="section" id="_expressions_in_general"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Expressions in general</h3></div></div></div>
 
@@ -189,7 +189,7 @@ WHEN 'brown'
 THEN 2
 ELSE 3 END AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e5742"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e5691"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -240,7 +240,7 @@ WHEN n.age &lt; 40
 THEN 2
 ELSE 3 END AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e5803"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e5752"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})

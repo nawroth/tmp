@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>7.10. Boosting recommendation results -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-newsfeed.html" title="7.9. Implementing newsfeeds in a graph" /><link rel="next" href="cypher-cookbook-clustering-coefficient.html" title="7.11. Calculating the clustering coefficient of a network" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.10. Boosting recommendation results" /><script type="text/javascript">
+    <title>6.10. Boosting recommendation results -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-newsfeed.html" title="6.9. Implementing newsfeeds in a graph" /><link rel="next" href="cypher-cookbook-clustering-coefficient.html" title="6.11. Calculating the clustering coefficient of a network" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="6.10. Boosting recommendation results" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,10 +68,10 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>7.10. Boosting recommendation results</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-newsfeed.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples-advanced.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-clustering-coefficient.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-boostingrecommendations"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.10. Boosting recommendation results</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>6.10. Boosting recommendation results</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-newsfeed.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples-advanced.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-clustering-coefficient.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-boostingrecommendations"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">6.10. Boosting recommendation results</h2></div></div></div>
 
-<div class="figure" id="d5e4127"><p class="title"><strong>Figure 7.9. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e4076"><p class="title"><strong>Figure 6.9. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-boostingrecommendationresults-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-boostingrecommendationresults-graph.svg" alt="cypher-boostingrecommendationresults-graph.svg" /></span>
 </a>
@@ -88,7 +88,7 @@ RETURN origin.name AS origin, candidate.name AS candidate, SUM(ROUND(r2.weight
 ORDER BY boost DESC LIMIT 10</pre><p>
 </p>
 <p>This returns the recommended friends for the origin nodes and their recommendation score.</p>
-<div class="queryresult table" id="d5e4143"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>origin</th><th>candidate</th><th>boost</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Clark Kent"</code></p></td><td><p><code class="literal">"Perry White"</code></p></td><td><p><code class="literal">22.0</code></p></td></tr><tr><td><p><code class="literal">"Clark Kent"</code></p></td><td><p><code class="literal">"Anderson Cooper"</code></p></td><td><p><code class="literal">4.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e4092"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>origin</th><th>candidate</th><th>boost</th></tr></thead><tfoot><tr><th colspan="3">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Clark Kent"</code></p></td><td><p><code class="literal">"Perry White"</code></p></td><td><p><code class="literal">22.0</code></p></td></tr><tr><td><p><code class="literal">"Clark Kent"</code></p></td><td><p><code class="literal">"Anderson Cooper"</code></p></td><td><p><code class="literal">4.0</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
 </span><span class="command"><strong>MATCH (origin)-[r1:KNOWS|WORKS_AT]-(c)-[r2:KNOWS|WORKS_AT]-(candidate)
  WHERE origin.name = "Clark Kent"

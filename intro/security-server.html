@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>28.1. Securing access to the Neo4j Server -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="operations-security.html" title="Chapter 28. Security" /><link rel="next" href="operations-monitoring.html" title="Chapter 29. Monitoring" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="28.1. Securing access to the Neo4j Server" /><script type="text/javascript">
+    <title>27.1. Securing access to the Neo4j Server -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="operations-security.html" title="Chapter 27. Security" /><link rel="next" href="operations-monitoring.html" title="Chapter 28. Monitoring" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.1. Securing access to the Neo4j Server" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>28.1. Securing access to the Neo4j Server</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="operations-security.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-security.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="operations-monitoring.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="security-server"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">28.1. Securing access to the Neo4j Server</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="security-server.html#_secure_the_port_and_remote_client_connection_accepts">Secure the port and remote client connection accepts</a></span></li><li><span class="section"><a href="security-server.html#security-server-auth">Authorization</a></span></li><li><span class="section"><a href="security-server.html#_arbitrary_code_execution">Arbitrary code execution</a></span></li><li><span class="section"><a href="security-server.html#_https_support">HTTPS support</a></span></li><li><span class="section"><a href="security-server.html#_server_authorization_rules">Server Authorization Rules</a></span></li><li><span class="section"><a href="security-server.html#_hosted_scripting">Hosted Scripting</a></span></li><li><span class="section"><a href="security-server.html#_security_in_depth">Security in Depth</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>27.1. Securing access to the Neo4j Server</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="operations-security.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-security.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="operations-monitoring.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="security-server"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.1. Securing access to the Neo4j Server</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="security-server.html#_secure_the_port_and_remote_client_connection_accepts">Secure the port and remote client connection accepts</a></span></li><li><span class="section"><a href="security-server.html#security-server-auth">Authorization</a></span></li><li><span class="section"><a href="security-server.html#_arbitrary_code_execution">Arbitrary code execution</a></span></li><li><span class="section"><a href="security-server.html#_https_support">HTTPS support</a></span></li><li><span class="section"><a href="security-server.html#_server_authorization_rules">Server Authorization Rules</a></span></li><li><span class="section"><a href="security-server.html#_hosted_scripting">Hosted Scripting</a></span></li><li><span class="section"><a href="security-server.html#_security_in_depth">Security in Depth</a></span></li></ul></div>
 
 <section class="section" id="_secure_the_port_and_remote_client_connection_accepts"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Secure the port and remote client connection accepts</h3></div></div></div>
 
@@ -90,14 +90,14 @@ org.neo4j.server.webserver.port=7474
 This will disallow anyone without a valid authorization token access to the database.</p>
 <p>The authorization data is stored under <span class="emphasis"><em>data/dbms/authorization</em></span>.
 This file can be copied over to other neo4j instances to ensure they share the same username/password and authorization token.</p>
-<p>Please refer to <a class="xref" href="rest-api-security.html" title="22.3. Authentication and Authorization">Section 22.3, “Authentication and Authorization”</a> for details on this API.</p>
+<p>Please refer to <a class="xref" href="rest-api-security.html" title="21.3. Authentication and Authorization">Section 21.3, “Authentication and Authorization”</a> for details on this API.</p>
 <pre class="programlisting" data-lang="properties"># Enable authorization
 dbms.security.authorization_enabled=true</pre>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Authorization is enabled by default.</p></td></tr></table></div>
 </section>
 <section class="section" id="_arbitrary_code_execution"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Arbitrary code execution</h3></div></div></div>
 
-<p>By default, the Neo4j Server comes with some places where arbitrary code code execution can happen. These are the <a class="xref" href="rest-api-traverse.html" title="22.17. Traversals">Section 22.17, “Traversals”</a> REST endpoints.
+<p>By default, the Neo4j Server comes with some places where arbitrary code code execution can happen. These are the <a class="xref" href="rest-api-traverse.html" title="21.17. Traversals">Section 21.17, “Traversals”</a> REST endpoints.
 To secure these, either disable them completely by removing offending plugins from the server classpath, or secure access to these URLs through proxies or Authorization Rules.
 Also, the Java Security Manager, see <a class="ulink" href="http://docs.oracle.com/javase/7/docs/technotes/guides/security/index.html" target="_blank">http://docs.oracle.com/javase/7/docs/technotes/guides/security/index.html</a> can be used to secure parts of the codebase.</p>
 </section>
@@ -294,7 +294,7 @@ Exposing your server without implementing a security layer poses a substantial s
 </section>
 <section class="section" id="_security_in_depth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Security in Depth</h3></div></div></div>
 
-<p>Although the Neo4j server has a number of security features built-in (see the above chapters), for sensitive deployments it is often sensible to front against the outside world it with a proxy like Apache <code class="literal">mod_proxy</code> <a href="#ftn.d5e26522" class="footnote"><sup class="footnote" id="d5e26522">[2]</sup></a>.</p>
+<p>Although the Neo4j server has a number of security features built-in (see the above chapters), for sensitive deployments it is often sensible to front against the outside world it with a proxy like Apache <code class="literal">mod_proxy</code> <a href="#ftn.d5e26471" class="footnote"><sup class="footnote" id="d5e26471">[2]</sup></a>.</p>
 <p>This provides a number of advantages:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 <p class="simpara">
@@ -315,7 +315,7 @@ Run Neo4j Server as a non-root user on a Linux/Unix system on a port &lt; 1000 (
 ProxyPassReverse /neo4jdb/data http://localhost:7474/db/data</pre>
 </li><li class="listitem">
 <p class="simpara">
-Simple load balancing in a clustered environment to load-balance read load using the Apache <code class="literal">mod_proxy_balancer</code> <a href="#ftn.d5e26542" class="footnote"><sup class="footnote" id="d5e26542">[3]</sup></a> plugin
+Simple load balancing in a clustered environment to load-balance read load using the Apache <code class="literal">mod_proxy_balancer</code> <a href="#ftn.d5e26491" class="footnote"><sup class="footnote" id="d5e26491">[3]</sup></a> plugin
 </p>
 <pre class="programlisting" data-lang="plain">&lt;Proxy balancer://mycluster&gt;
 BalancerMember http://192.168.1.50:80
@@ -324,7 +324,7 @@ BalancerMember http://192.168.1.51:80
 ProxyPass /test balancer://mycluster</pre>
 </li></ul></div>
 </section>
-<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e26522" class="footnote"><p><a href="#d5e26522" class="simpara"><sup class="simpara">[2] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a></p></div><div id="ftn.d5e26542" class="footnote"><p><a href="#d5e26542" class="simpara"><sup class="simpara">[3] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html</a></p></div></div></section>
+<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e26471" class="footnote"><p><a href="#d5e26471" class="simpara"><sup class="simpara">[2] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy.html</a></p></div><div id="ftn.d5e26491" class="footnote"><p><a href="#d5e26491" class="simpara"><sup class="simpara">[3] </sup></a><a class="ulink" href="http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html" target="_blank">http://httpd.apache.org/docs/2.2/mod/mod_proxy_balancer.html</a></p></div></div></section>
 
  <footer>
    <p>

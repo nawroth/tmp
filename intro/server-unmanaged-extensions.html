@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>35.2. Unmanaged Extensions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-plugins.html" title="35.1. Server Plugins" /><link rel="next" href="server-unmanaged-extensions-testing.html" title="35.3. Testing your extension" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="35.2. Unmanaged Extensions" /><script type="text/javascript">
+    <title>34.2. Unmanaged Extensions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-plugins.html" title="34.1. Server Plugins" /><link rel="next" href="server-unmanaged-extensions-testing.html" title="34.3. Testing your extension" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="34.2. Unmanaged Extensions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,14 +68,14 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>35.2. Unmanaged Extensions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-plugins.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="server-extending.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-unmanaged-extensions-testing.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-unmanaged-extensions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">35.2. Unmanaged Extensions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-unmanaged-extensions.html#intro-unmanaged-extensions">Introduction to unmanaged extensions</a></span></li><li><span class="section"><a href="server-unmanaged-extensions.html#server-unmanaged-extensions-streaming">Streaming JSON responses</a></span></li><li><span class="section"><a href="server-unmanaged-extensions.html#server-unmanaged-extensions-execution-engine">Using Cypher in an unmanaged extension</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>34.2. Unmanaged Extensions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-plugins.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="server-extending.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-unmanaged-extensions-testing.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-unmanaged-extensions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">34.2. Unmanaged Extensions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-unmanaged-extensions.html#intro-unmanaged-extensions">Introduction to unmanaged extensions</a></span></li><li><span class="section"><a href="server-unmanaged-extensions.html#server-unmanaged-extensions-streaming">Streaming JSON responses</a></span></li><li><span class="section"><a href="server-unmanaged-extensions.html#server-unmanaged-extensions-execution-engine">Using Cypher in an unmanaged extension</a></span></li></ul></div>
 
 <p>Sometimes you’ll want finer grained control over your application’s interactions with Neo4j than cypher provides.
 For these situations you can use the unmanaged extension API.</p>
 <div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p>This is a sharp tool, allowing users to deploy arbitrary <a class="ulink" href="http://en.wikipedia.org/wiki/JAX-RS" target="_blank">JAX-RS</a> classes to the server so be careful when using this.
 In particular it’s easy to consume lots of heap space on the server and degrade performance.
-If in doubt please ask for help via one of the community channels (see <a class="xref" href="community-support.html" title="Chapter 33. Community Support">Chapter 33, <em>Community Support</em></a>).</p></td></tr></table></div>
+If in doubt please ask for help via one of the community channels (see <a class="xref" href="community-support.html" title="Chapter 32. Community Support">Chapter 32, <em>Community Support</em></a>).</p></td></tr></table></div>
 <section class="section" id="intro-unmanaged-extensions"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Introduction to unmanaged extensions</h3></div></div></div>
 
 <p>The first step when writing an unmanaged extension is to create a project which includes dependencies to the JAX-RS and Neo4j core jars.
@@ -134,7 +134,7 @@ org.neo4j.server.thirdparty_jaxrs_classes=org.neo4j.examples.server.unmanaged=/e
 <p>When writing unmanaged extensions we have greater control over the amount of memory that our Neo4j queries use.
 If we keep too much state around it can lead to more frequent full Garbage Collection and subsequent unresponsiveness by the Neo4j server.</p>
 <p>A common way that state can creep in is the creation of JSON objects to represent the result of a query which we then send back to our application.
-Neo4j’s Transactional Cypher HTTP endpoint (see <a class="xref" href="rest-api-transactional.html" title="22.1. Transactional Cypher HTTP endpoint">Section 22.1, “Transactional Cypher HTTP endpoint”</a>) streams responses back to the client and we should follow in its footsteps.</p>
+Neo4j’s Transactional Cypher HTTP endpoint (see <a class="xref" href="rest-api-transactional.html" title="21.1. Transactional Cypher HTTP endpoint">Section 21.1, “Transactional Cypher HTTP endpoint”</a>) streams responses back to the client and we should follow in its footsteps.</p>
 <p>For example, the following unmanaged extension streams an array of a person’s colleagues:</p>
 <p><strong>Unmanaged extension streaming example </strong>
 </p><pre class="programlisting" data-lang="java">@Path("/colleagues")

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.6. Caches in Neo4j -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-settings.html" title="25.5. Configuration Settings" /><link rel="next" href="configuration-logical-logs.html" title="25.7. Logical logs" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.6. Caches in Neo4j" /><script type="text/javascript">
+    <title>24.6. Caches in Neo4j -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-settings.html" title="24.5. Configuration Settings" /><link rel="next" href="configuration-logical-logs.html" title="24.7. Logical logs" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.6. Caches in Neo4j" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,10 +68,10 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.6. Caches in Neo4j</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration-settings.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-logical-logs.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-caches"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.6. Caches in Neo4j</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="configuration-caches.html#_file_buffer_cache">File buffer cache</a></span></li><li><span class="section"><a href="configuration-caches.html#_object_cache">Object cache</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>24.6. Caches in Neo4j</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration-settings.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-logical-logs.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-caches"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">24.6. Caches in Neo4j</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="configuration-caches.html#_file_buffer_cache">File buffer cache</a></span></li><li><span class="section"><a href="configuration-caches.html#_object_cache">Object cache</a></span></li></ul></div>
 
-<p>For how to provide custom configuration to Neo4j, see <a class="xref" href="configuration-introduction.html" title="25.1. Introduction">Section 25.1, “Introduction”</a>.</p>
+<p>For how to provide custom configuration to Neo4j, see <a class="xref" href="configuration-introduction.html" title="24.1. Introduction">Section 24.1, “Introduction”</a>.</p>
 <p>Neo4j utilizes two different types of caches:
 A file buffer cache and an object cache.
 The file buffer cache caches the storage file data in the same format as it is stored on the durable storage media.
@@ -115,7 +115,7 @@ Each Neo4j storage file contains uniform fixed size records of a particular type
 <p>For strings and arrays, where data can be of variable length, data is stored in one or more 120B chunks, with 8B record overhead.
 The sizes of these blocks can actually be configured when the store is created using the <code class="literal">string_block_size</code> and <code class="literal">array_block_size</code> parameters.
 The size of each record type can also be used to calculate the storage requirements of a Neo4j graph or the appropriate cache size for each file buffer cache.
-Note that some strings and arrays can be stored without using the string store or the array store respectively, see <a class="xref" href="short-strings.html" title="25.9. Compressed storage of short strings">Section 25.9, “Compressed storage of short strings”</a> and <a class="xref" href="short-arrays.html" title="25.10. Compressed storage of short arrays">Section 25.10, “Compressed storage of short arrays”</a>.</p>
+Note that some strings and arrays can be stored without using the string store or the array store respectively, see <a class="xref" href="short-strings.html" title="24.9. Compressed storage of short strings">Section 24.9, “Compressed storage of short strings”</a> and <a class="xref" href="short-arrays.html" title="24.10. Compressed storage of short arrays">Section 24.10, “Compressed storage of short arrays”</a>.</p>
 <p>Neo4j uses multiple file buffer caches, one for each different storage file.
 Each file buffer cache divides its storage file into a number of equally sized windows.
 Each cache window contains an even number of storage records.

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.2. Server Configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-introduction.html" title="25.1. Introduction" /><link rel="next" href="server-performance.html" title="25.3. Server Performance Tuning" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.2. Server Configuration" /><script type="text/javascript">
+    <title>24.2. Server Configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-introduction.html" title="24.1. Introduction" /><link rel="next" href="server-performance.html" title="24.3. Server Performance Tuning" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.2. Server Configuration" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.2. Server Configuration</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration-introduction.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-performance.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-configuration"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.2. Server Configuration</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-configuration.html#_important_server_configuration_parameters">Important server configuration parameters</a></span></li><li><span class="section"><a href="server-configuration.html#_neo4j_database_performance_configuration">Neo4j Database performance configuration</a></span></li><li><span class="section"><a href="server-configuration.html#_server_logging_configuration">Server logging configuration</a></span></li><li><span class="section"><a href="server-configuration.html#_http_logging_configuration">HTTP logging configuration</a></span></li><li><span class="section"><a href="server-configuration.html#_using_x_forwarded_proto_and_x_forwarded_host_to_parameterize_the_base_uri_for_rest_responses">Using X-Forwarded-Proto and X-Forwarded-Host to parameterize the base URI for REST responses</a></span></li><li><span class="section"><a href="server-configuration.html#_other_configuration_options">Other configuration options</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>24.2. Server Configuration</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="configuration-introduction.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-performance.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-configuration"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">24.2. Server Configuration</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-configuration.html#_important_server_configuration_parameters">Important server configuration parameters</a></span></li><li><span class="section"><a href="server-configuration.html#_neo4j_database_performance_configuration">Neo4j Database performance configuration</a></span></li><li><span class="section"><a href="server-configuration.html#_server_logging_configuration">Server logging configuration</a></span></li><li><span class="section"><a href="server-configuration.html#_http_logging_configuration">HTTP logging configuration</a></span></li><li><span class="section"><a href="server-configuration.html#_using_x_forwarded_proto_and_x_forwarded_host_to_parameterize_the_base_uri_for_rest_responses">Using X-Forwarded-Proto and X-Forwarded-Host to parameterize the base URI for REST responses</a></span></li><li><span class="section"><a href="server-configuration.html#_other_configuration_options">Other configuration options</a></span></li></ul></div>
 
 <div class="sidebar"><div xmlns="" class="titlepage"><div><div><p xmlns="http://www.w3.org/1999/xhtml" class="title"><strong>Quick info</strong></p></div></div></div>
 
@@ -104,7 +104,7 @@ administrators might choose to make changes (especially to the port settings).</
 <p>Specify the client accept pattern for the webserver (default is <code class="literal">127.0.0.1</code>, localhost only):</p>
 <pre class="programlisting" data-lang="properties">#allow any client to connect
 org.neo4j.server.webserver.address=0.0.0.0</pre>
-<p>For securing the Neo4j Server, see also <a class="xref" href="operations-security.html" title="Chapter 28. Security">Chapter 28, <em>Security</em></a></p>
+<p>For securing the Neo4j Server, see also <a class="xref" href="operations-security.html" title="Chapter 27. Security">Chapter 27, <em>Security</em></a></p>
 <p>Set the location of the round-robin database directory which gathers metrics on the running server instance:</p>
 <pre class="programlisting" data-lang="properties">org.neo4j.server.webadmin.rrdb.location=data/graph.db/../rrd</pre>
 <p>Set the URI path for the REST data API through which the database is accessed. This should be a relative path.</p>
@@ -133,7 +133,7 @@ database engine will attempt tune itself based on the prevailing conditions.</p>
 
 <p>The fine-tuning of the low-level Neo4j graph database engine is specified in a separate
 properties file, <span class="emphasis"><em>conf/neo4j.properties</em></span>.</p>
-<p>The graph database engine has a range of performance tuning options which are enumerated in <a class="xref" href="server-performance.html" title="25.3. Server Performance Tuning">Section 25.3, “Server Performance Tuning”</a>.
+<p>The graph database engine has a range of performance tuning options which are enumerated in <a class="xref" href="server-performance.html" title="24.3. Server Performance Tuning">Section 24.3, “Server Performance Tuning”</a>.
 Note that other factors than Neo4j tuning should be considered when performance tuning a server, including general server load, memory and file contention, and even garbage collection penalties on the JVM, though such considerations are beyond the scope of this configuration document.</p>
 </section>
 <section class="section" id="_server_logging_configuration"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Server logging configuration</h3></div></div></div>

@@ -21,7 +21,7 @@
 <g id="edge1" class="edge"><title>N2&#45;&gt;N2</title>
 <path fill="none" stroke="#2e3436" stroke-width="2" d="M91.3327,-29.8731C107.192,-29.9564 120,-27.332 120,-22 120,-17.5428 111.05,-14.9776 98.8491,-14.3046"/>
 <polygon fill="#2e3436" stroke="#2e3436" stroke-width="2" points="91.3327,-14.1269 98.9104,-10.9302 95.0935,-13.7157 98.8424,-13.8044 98.8306,-14.3042 98.8188,-14.8041 95.0699,-14.7154 98.7508,-17.6783 91.3327,-14.1269 91.3327,-14.1269"/>
-<text text-anchor="middle" x="135.5" y="-20.1" font-family="FreeSans" font-size="8.00" fill="#2e3436">KNOWS</text>
+<text text-anchor="middle" x="135.5" y="-20.1" font-family="FreeSans" font-size="8.00" fill="#1c2021">KNOWS</text>
 </g>
 </g>
 </svg>

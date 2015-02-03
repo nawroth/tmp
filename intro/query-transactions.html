@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9.3. Transactions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-updating.html" title="9.2. Updating the graph" /><link rel="next" href="cypherdoc-uniqueness.html" title="9.4. Uniqueness" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.3. Transactions" /><script type="text/javascript">
+    <title>8.3. Transactions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-updating.html" title="8.2. Updating the graph" /><link rel="next" href="cypherdoc-uniqueness.html" title="8.4. Uniqueness" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.3. Transactions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>9.3. Transactions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-updating.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-intro.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-uniqueness.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-transactions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">9.3. Transactions</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>8.3. Transactions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-updating.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-intro.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-uniqueness.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-transactions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">8.3. Transactions</h2></div></div></div>
 
 <p>Any query that updates the graph will run in a transaction.
 An updating query will always either fully succeed, or not succeed at all.</p>
@@ -99,7 +99,7 @@ and commit all of them in one go.
 </li></ol></div>
 <p>Note that a query will hold the changes in memory until the whole query has finished executing.
 A large query will consequently need a JVM with lots of heap space.</p>
-<p>For using transactions over the REST API, see <a class="xref" href="rest-api-transactional.html" title="22.1. Transactional Cypher HTTP endpoint">Section 22.1, “Transactional Cypher HTTP endpoint”</a>.</p>
+<p>For using transactions over the REST API, see <a class="xref" href="rest-api-transactional.html" title="21.1. Transactional Cypher HTTP endpoint">Section 21.1, “Transactional Cypher HTTP endpoint”</a>.</p>
 <p>When using Neo4j embedded, remember all iterators returned from an execution result should be exhausted fully to ensure that resources bound to them will be properly closed.
 Resources include transactions started by the query, so failing to do so may, for example, lead to deadlocks or other weird behavior.</p>
 </section>

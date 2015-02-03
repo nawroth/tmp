@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>14.2. Scalar functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-predicates.html" title="14.1. Predicates" /><link rel="next" href="query-functions-collection.html" title="14.3. Collection functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.2. Scalar functions" /><script type="text/javascript">
+    <title>13.2. Scalar functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-predicates.html" title="13.1. Predicates" /><link rel="next" href="query-functions-collection.html" title="13.3. Collection functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.2. Scalar functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,11 +68,11 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>14.2. Scalar functions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-predicates.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-functions-collection.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-scalar"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">14.2. Scalar functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-scalar.html#functions-length">LENGTH</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-type">TYPE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-id">ID</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-coalesce">COALESCE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-head">HEAD</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-last">LAST</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-timestamp">TIMESTAMP</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-startnode">STARTNODE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-endnode">ENDNODE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-toint">TOINT</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-tofloat">TOFLOAT</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-tostring">TOSTRING</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>13.2. Scalar functions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-predicates.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-functions-collection.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-scalar"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.2. Scalar functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-scalar.html#functions-length">LENGTH</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-type">TYPE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-id">ID</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-coalesce">COALESCE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-head">HEAD</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-last">LAST</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-timestamp">TIMESTAMP</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-startnode">STARTNODE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-endnode">ENDNODE</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-toint">TOINT</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-tofloat">TOFLOAT</a></span></li><li><span class="section"><a href="query-functions-scalar.html#functions-tostring">TOSTRING</a></span></li></ul></div>
 
 <p>Scalar functions return a single value.</p>
-<div class="figure" id="d5e12225"><p class="title"><strong>Figure 14.2. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e12174"><p class="title"><strong>Figure 13.2. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -93,7 +93,7 @@ WHERE a.name='Alice'
 RETURN length(p)</pre><p>
 </p>
 <p>The length of the path <code class="literal">p</code> is returned by the query.</p>
-<div class="queryresult table" id="d5e12252"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(p)</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12201"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(p)</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -123,7 +123,7 @@ WHERE n.name='Alice'
 RETURN type(r)</pre><p>
 </p>
 <p>The relationship type of <code class="literal">r</code> is returned by the query.</p>
-<div class="queryresult table" id="d5e12298"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12247"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -152,7 +152,7 @@ create _4-[:`KNOWS`]-&gt;_0
 RETURN id(a)</pre><p>
 </p>
 <p>This returns the node id for three nodes.</p>
-<div class="queryresult table" id="d5e12339"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id(a)</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">4</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12288"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id(a)</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">4</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -182,7 +182,7 @@ In case all arguments are <code class="literal">NULL</code>, <code class="litera
 WHERE a.name='Alice'
 RETURN coalesce(a.hairColor, a.eyes)</pre><p>
 </p>
-<div class="queryresult table" id="d5e12394"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>coalesce(a.hairColor, a.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"brown"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12343"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>coalesce(a.hairColor, a.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"brown"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -212,7 +212,7 @@ WHERE a.name='Eskil'
 RETURN a.array, head(a.array)</pre><p>
 </p>
 <p>The first node in the path is returned.</p>
-<div class="queryresult table" id="d5e12432"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>head(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"one"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12381"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>head(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"one"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -242,7 +242,7 @@ WHERE a.name='Eskil'
 RETURN a.array, last(a.array)</pre><p>
 </p>
 <p>The last node in the path is returned.</p>
-<div class="queryresult table" id="d5e12475"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>last(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"three"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12424"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>last(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"three"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -265,7 +265,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN timestamp()</pre><p>
 </p>
 <p>The time in milliseconds is returned.</p>
-<div class="queryresult table" id="d5e12514"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>timestamp()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1422452381045</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12463"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>timestamp()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1422866089514</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -293,7 +293,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">MATCH (x:foo)-[r]-()
 RETURN startNode(r)</pre><p>
 </p>
-<div class="queryresult table" id="d5e12551"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>startNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12500"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>startNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -321,7 +321,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">MATCH (x:foo)-[r]-()
 RETURN endNode(r)</pre><p>
 </p>
-<div class="queryresult table" id="d5e12592"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>endNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"Charlie",age:53,eyes:"green"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"Bob",age:25,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12541"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>endNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"Charlie",age:53,eyes:"green"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"Bob",age:25,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -348,7 +348,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN toInt("42"), toInt("not a number")</pre><p>
 </p>
-<div class="queryresult table" id="d5e12634"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toInt("42")</th><th>toInt("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">42</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12583"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toInt("42")</th><th>toInt("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">42</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -375,7 +375,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN toFloat("11.5"), toFloat("not a number")</pre><p>
 </p>
-<div class="queryresult table" id="d5e12677"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toFloat("11.5")</th><th>toFloat("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">11.5</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12626"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toFloat("11.5")</th><th>toFloat("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">11.5</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -402,7 +402,7 @@ create _4-[:`KNOWS`]-&gt;_0
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN toString(11.5), toString("already a string")</pre><p>
 </p>
-<div class="queryresult table" id="d5e12719"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toString(11.5)</th><th>toString("already a string")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"11.5"</code></p></td><td><p><code class="literal">"already a string"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12668"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toString(11.5)</th><th>toString("already a string")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"11.5"</code></p></td><td><p><code class="literal">"already a string"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})

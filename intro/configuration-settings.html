@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>25.5. Configuration Settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="performance-guide.html" title="25.4. Performance Guide" /><link rel="next" href="configuration-caches.html" title="25.6. Caches in Neo4j" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.5. Configuration Settings" /><script type="text/javascript">
+    <title>24.5. Configuration Settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="performance-guide.html" title="24.4. Performance Guide" /><link rel="next" href="configuration-caches.html" title="24.6. Caches in Neo4j" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.5. Configuration Settings" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,16 +68,16 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.5. Configuration Settings</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="performance-guide.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-caches.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-settings"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.5. Configuration Settings</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>24.5. Configuration Settings</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="performance-guide.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="configuration.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="configuration-caches.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="configuration-settings"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">24.5. Configuration Settings</h2></div></div></div>
 
 <p>On this page you’ll find the main configuration settings you can use with Neo4j.
-They can be set in the <span class="emphasis"><em>conf/neo4j.properties</em></span> file when using the Neo4j Server (see <a class="xref" href="server-configuration.html" title="25.2. Server Configuration">Section 25.2, “Server Configuration”</a>).
+They can be set in the <span class="emphasis"><em>conf/neo4j.properties</em></span> file when using the Neo4j Server (see <a class="xref" href="server-configuration.html" title="24.2. Server Configuration">Section 24.2, “Server Configuration”</a>).
 If you use the embedded database, you can pass them in as a map (see <a class="xref" href="tutorials-java-embedded-setup.html#tutorials-java-embedded-setup-config" title="Starting an embedded database with configuration settings">the section called “Starting an embedded database with configuration settings”</a>).</p>
 <p>For additional configuration settings, see:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<a class="xref" href="server-configuration.html" title="25.2. Server Configuration">Section 25.2, “Server Configuration”</a>
+<a class="xref" href="server-configuration.html" title="24.2. Server Configuration">Section 24.2, “Server Configuration”</a>
 
 </li><li class="listitem">
 
@@ -194,7 +194,7 @@ If you use the embedded database, you can pass them in as a map (see <a class="x
 </div></div>
 <div class="table" id="config_logical_log_rotation_threshold"><p class="title"><strong>logical_log_rotation_threshold</strong></p><div class="table-contents">
 
-<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Specifies at which file size the logical log will auto-rotate. <code class="literal">0</code> means that no rotation will automatically occur based on file size.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">logical_log_rotation_threshold</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">25M</code></p></td></tr></tbody></table>
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Specifies at which file size the logical log will auto-rotate. <code class="literal">0</code> means that no rotation will automatically occur based on file size.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">logical_log_rotation_threshold</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">250M</code></p></td></tr></tbody></table>
 </div></div>
 <div class="table" id="config_lucene_searcher_cache_size"><p class="title"><strong>lucene_searcher_cache_size</strong></p><div class="table-contents">
 

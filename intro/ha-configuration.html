@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>26.2. Setup and configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha-architecture.html" title="26.1. Architecture" /><link rel="next" href="ha-how.html" title="26.3. How Neo4j HA operates" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.2. Setup and configuration" /><script type="text/javascript">
+    <title>25.2. Setup and configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha-architecture.html" title="25.1. Architecture" /><link rel="next" href="ha-how.html" title="25.3. How Neo4j HA operates" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.2. Setup and configuration" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,14 +68,14 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.2. Setup and configuration</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha-architecture.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-how.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-configuration"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.2. Setup and configuration</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-configuration.html#_specifying_cluster_members">Specifying cluster members</a></span></li><li><span class="section"><a href="ha-configuration.html#_server_configuration">Server configuration</a></span></li><li><span class="section"><a href="ha-configuration.html#_database_configuration">Database configuration</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>25.2. Setup and configuration</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha-architecture.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-how.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-configuration"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">25.2. Setup and configuration</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-configuration.html#_specifying_cluster_members">Specifying cluster members</a></span></li><li><span class="section"><a href="ha-configuration.html#_server_configuration">Server configuration</a></span></li><li><span class="section"><a href="ha-configuration.html#_database_configuration">Database configuration</a></span></li></ul></div>
 
 <p>Neo4j HA can be set up to accommodate differing requirements for load, fault tolerance and available hardware.</p>
 <p>In HA mode, Neo4j instances form a cluster.
 The instances monitor each others' availability to take account of instances joining and leaving the cluster.
 They elect one instance to be the master, and designate the other instances to be slaves.</p>
-<p>For installation instructions of a High Availability cluster see <a class="xref" href="ha-setup-tutorial.html" title="26.6. High Availability setup tutorial">Section 26.6, “High Availability setup tutorial”</a>.</p>
+<p>For installation instructions of a High Availability cluster see <a class="xref" href="ha-setup-tutorial.html" title="25.6. High Availability setup tutorial">Section 25.6, “High Availability setup tutorial”</a>.</p>
 <section class="section" id="_specifying_cluster_members"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Specifying cluster members</h3></div></div></div>
 
 <p>Specify the instances that should form the cluster by supplying <code class="literal">ha.initial_hosts</code>, a comma-separated list of URLs.
@@ -87,7 +87,7 @@ This means that you can extend the cluster without changing the configuration of
 <section class="section" id="_server_configuration"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Server configuration</h3></div></div></div>
 
 <p>If you are running Neo4j server, specify <code class="literal">org.neo4j.server.database.mode=HA</code> in <span class="emphasis"><em>conf/neo4j-server.properties</em></span>.</p>
-<div class="table" id="d5e24513"><p class="title"><strong>HA server configuration parameters</strong></p><div class="table-contents">
+<div class="table" id="d5e24462"><p class="title"><strong>HA server configuration parameters</strong></p><div class="table-contents">
 
 <table cellspacing="0" cellpadding="0"><thead><tr><th> Parameter Name                 </th><th> Description                                      </th><th> Example value </th><th> Required?</th></tr></thead><tbody><tr><td><p><code class="literal">org.neo4j.server.database.mode</code></p></td><td><p>Whether to run as a single server or in HA mode.</p></td><td><p><code class="literal">single or HA</code></p></td><td><p>yes</p></td></tr></tbody></table>
 </div></div>

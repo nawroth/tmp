@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>8.1. How to use the REST API from Java -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="languages.html" title="Chapter 8. Languages" /><link rel="next" href="cypher-query-lang.html" title="Cypher Query Language" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.1. How to use the REST API from Java" /><script type="text/javascript">
+    <title>7.1. How to use the REST API from Java -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="languages.html" title="Chapter 7. Languages" /><link rel="next" href="cypher-query-lang.html" title="Cypher Query Language" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.1. How to use the REST API from Java" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>8.1. How to use the REST API from Java</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="languages.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="languages.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-query-lang.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-java-rest-client-example"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">8.1. How to use the REST API from Java</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-java-rest-client-example.html#_creating_a_graph_through_the_rest_api_from_java">Creating a graph through the REST API from Java</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_start_the_server">Start the server</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_sending_cypher">Sending Cypher</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_fine_grained_rest_api_calls">Fine-grained REST API calls</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_phew_is_that_it">Phew, is that it?</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_what_8217_s_next">What’s next?</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_appendix_the_code">Appendix: the code</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>7.1. How to use the REST API from Java</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="languages.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="languages.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-query-lang.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-java-rest-client-example"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">7.1. How to use the REST API from Java</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="server-java-rest-client-example.html#_creating_a_graph_through_the_rest_api_from_java">Creating a graph through the REST API from Java</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_start_the_server">Start the server</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_sending_cypher">Sending Cypher</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_fine_grained_rest_api_calls">Fine-grained REST API calls</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_phew_is_that_it">Phew, is that it?</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_what_8217_s_next">What’s next?</a></span></li><li><span class="section"><a href="server-java-rest-client-example.html#_appendix_the_code">Appendix: the code</a></span></li></ul></div>
 
 <section class="section" id="_creating_a_graph_through_the_rest_api_from_java"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Creating a graph through the REST API from Java</h3></div></div></div>
 
@@ -81,7 +81,7 @@ which are easily <a class="ulink" href="https://jersey.java.net/nonav/documentat
 </section>
 <section class="section" id="_start_the_server"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Start the server</h3></div></div></div>
 
-<p>Before we can perform any actions on the server, we need to start it as per <a class="xref" href="server-installation.html" title="24.2. Server Installation">Section 24.2, “Server Installation”</a>.</p>
+<p>Before we can perform any actions on the server, we need to start it as per <a class="xref" href="server-installation.html" title="23.2. Server Installation">Section 23.2, “Server Installation”</a>.</p>
 <pre class="programlisting" data-lang="java">WebResource resource = Client.create()
         .resource( SERVER_ROOT_URI );
 ClientResponse response = resource.get( ClientResponse.class );
@@ -118,11 +118,11 @@ System.out.println( String.format(
 
 response.close();
 </pre>
-<p>For more details, see <a class="xref" href="rest-api-transactional.html" title="22.1. Transactional Cypher HTTP endpoint">Section 22.1, “Transactional Cypher HTTP endpoint”</a>.</p>
+<p>For more details, see <a class="xref" href="rest-api-transactional.html" title="21.1. Transactional Cypher HTTP endpoint">Section 21.1, “Transactional Cypher HTTP endpoint”</a>.</p>
 </section>
 <section class="section" id="_fine_grained_rest_api_calls"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Fine-grained REST API calls</h3></div></div></div>
 
-<p>For exploratory and special purposes, there is a fine grained REST API, see <a class="xref" href="rest-api.html" title="Chapter 22. REST API">Chapter 22, <em>REST API</em></a>.
+<p>For exploratory and special purposes, there is a fine grained REST API, see <a class="xref" href="rest-api.html" title="Chapter 21. REST API">Chapter 21, <em>REST API</em></a>.
 The following sections highlight some of the basic operations.</p>
 <section class="section" id="_creating_a_node"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Creating a node</h4></div></div></div>
 

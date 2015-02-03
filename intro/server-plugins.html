@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>35.1. Server Plugins -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-extending.html" title="Chapter 35. Extending the Neo4j Server" /><link rel="next" href="server-unmanaged-extensions.html" title="35.2. Unmanaged Extensions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="35.1. Server Plugins" /><script type="text/javascript">
+    <title>34.1. Server Plugins -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-extending.html" title="Chapter 34. Extending the Neo4j Server" /><link rel="next" href="server-unmanaged-extensions.html" title="34.2. Unmanaged Extensions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="34.1. Server Plugins" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>35.1. Server Plugins</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-extending.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="server-extending.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-unmanaged-extensions.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-plugins"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">35.1. Server Plugins</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>34.1. Server Plugins</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="server-extending.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="server-extending.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="server-unmanaged-extensions.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="server-plugins"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">34.1. Server Plugins</h2></div></div></div>
 
 <div class="sidebar"><div xmlns="" class="titlepage"><div><div><p xmlns="http://www.w3.org/1999/xhtml" class="title"><strong>Quick info</strong></p></div></div></div>
 
@@ -90,7 +90,7 @@ The neo4j server will then advertise the plugin functionality within representat
 <p>Plugins provide an easy way to extend the Neo4j REST API with new functionality, without the need to
 invent your own API.
 Think of plugins as server-side scripts that can add functions for retrieving and manipulating nodes, relationships, paths, properties or indices.</p>
-<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>If you want to have full control over your API, and are willing to put in the effort, and understand the risks, then Neo4j server also provides hooks for <a class="link" href="server-unmanaged-extensions.html" title="35.2. Unmanaged Extensions">unmanaged extensions</a> based on JAX-RS.</p></td></tr></table></div>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>If you want to have full control over your API, and are willing to put in the effort, and understand the risks, then Neo4j server also provides hooks for <a class="link" href="server-unmanaged-extensions.html" title="34.2. Unmanaged Extensions">unmanaged extensions</a> based on JAX-RS.</p></td></tr></table></div>
 <p>The needed classes reside in the <a class="ulink" href="http://search.maven.org/#search|gav|1|g%3A%22org.neo4j%22%20AND%20a%3A%22server-api%22" target="_blank">org.neo4j:server-api</a> jar file.
 See the linked page for downloads and instructions on how to include it using dependency management.
 For Maven projects, add the Server API dependencies in your <code class="literal">pom.xml</code> like this:</p>

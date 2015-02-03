@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>10.6. Patterns -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-comments.html" title="10.5. Comments" /><link rel="next" href="syntax-collections.html" title="10.7. Collections" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.6. Patterns" /><script type="text/javascript">
+    <title>9.6. Patterns -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-comments.html" title="9.5. Comments" /><link rel="next" href="syntax-collections.html" title="9.7. Collections" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.6. Patterns" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>10.6. Patterns</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-comments.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-syntax.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="syntax-collections.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="introduction-pattern"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">10.6. Patterns</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="introduction-pattern.html#_patterns_for_nodes">Patterns for nodes</a></span></li><li><span class="section"><a href="introduction-pattern.html#_patterns_for_related_nodes">Patterns for related nodes</a></span></li><li><span class="section"><a href="introduction-pattern.html#_labels_2">Labels</a></span></li><li><span class="section"><a href="introduction-pattern.html#_specifying_properties">Specifying properties</a></span></li><li><span class="section"><a href="introduction-pattern.html#_describing_relationships">Describing relationships</a></span></li><li><span class="section"><a href="introduction-pattern.html#_assigning_to_path_identifiers">Assigning to path identifiers</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>9.6. Patterns</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-comments.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-syntax.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="syntax-collections.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="introduction-pattern"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">9.6. Patterns</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="introduction-pattern.html#_patterns_for_nodes">Patterns for nodes</a></span></li><li><span class="section"><a href="introduction-pattern.html#_patterns_for_related_nodes">Patterns for related nodes</a></span></li><li><span class="section"><a href="introduction-pattern.html#_labels_2">Labels</a></span></li><li><span class="section"><a href="introduction-pattern.html#_specifying_properties">Specifying properties</a></span></li><li><span class="section"><a href="introduction-pattern.html#_describing_relationships">Describing relationships</a></span></li><li><span class="section"><a href="introduction-pattern.html#_assigning_to_path_identifiers">Assigning to path identifiers</a></span></li></ul></div>
 
 <p>Patterns and pattern-matching are at the very heart of Cypher, so being effective with Cypher requires a good understanding of patterns.</p>
 <p>Using patterns, you describe the shape of the data you’re looking for. For example, in the <code class="literal">MATCH</code> clause you describe the shape with a pattern, and Cypher will figure out how to get that data for you.</p>
@@ -78,19 +78,19 @@
 is described in more details in:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<a class="xref" href="query-match.html" title="12.1. Match">Section 12.1, “Match”</a>
+<a class="xref" href="query-match.html" title="11.1. Match">Section 11.1, “Match”</a>
 
 </li><li class="listitem">
 
-<a class="xref" href="query-optional-match.html" title="12.2. Optional Match">Section 12.2, “Optional Match”</a>
+<a class="xref" href="query-optional-match.html" title="11.2. Optional Match">Section 11.2, “Optional Match”</a>
 
 </li><li class="listitem">
 
-<a class="xref" href="query-create.html" title="13.1. Create">Section 13.1, “Create”</a>
+<a class="xref" href="query-create.html" title="12.1. Create">Section 12.1, “Create”</a>
 
 </li><li class="listitem">
 
-<a class="xref" href="query-merge.html" title="13.2. Merge">Section 13.2, “Merge”</a>
+<a class="xref" href="query-merge.html" title="12.2. Merge">Section 12.2, “Merge”</a>
 
 </li><li class="listitem">
 
@@ -189,7 +189,7 @@ It describes a graph of either 4 nodes and 3 relationships, 5 nodes and 4 relati
 WHERE me.name = "Filipa"
 RETURN remote_friend.name</pre><p>
 </p>
-<div class="queryresult table" id="d5e6103"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>remote_friend.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Dilshad"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6052"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>remote_friend.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Dilshad"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Dilshad"})
 create (_1 {`name`:"Emil"})
 create (_2 {`name`:"Filipa"})

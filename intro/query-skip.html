@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>11.4. Skip -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-limit.html" title="11.3. Limit" /><link rel="next" href="query-with.html" title="11.5. With" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.4. Skip" /><script type="text/javascript">
+    <title>10.4. Skip -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-limit.html" title="10.3. Limit" /><link rel="next" href="query-with.html" title="10.5. With" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.4. Skip" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,13 +68,13 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>11.4. Skip</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-limit.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-general.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-with.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-skip"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.4. Skip</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-skip.html#skip-skip-first-three">Skip first three</a></span></li><li><span class="section"><a href="query-skip.html#skip-return-middle-two">Return middle two</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>10.4. Skip</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-limit.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-general.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-with.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-skip"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">10.4. Skip</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-skip.html#skip-skip-first-three">Skip first three</a></span></li><li><span class="section"><a href="query-skip.html#skip-return-middle-two">Return middle two</a></span></li></ul></div>
 
 <p><code class="literal">SKIP</code> enables the return of only subsets of the total result.
 By using <code class="literal">SKIP</code>, the result set will get trimmed from the top.
 Please note that no guarantees are made on the order of the result unless the query specifies the <code class="literal">ORDER BY</code> clause.</p>
-<div class="figure" id="d5e7342"><p class="title"><strong>Figure 11.4. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7291"><p class="title"><strong>Figure 10.4. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-skip-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-skip-graph.svg" alt="cypher-skip-graph.svg" /></span>
 </a>
@@ -89,7 +89,7 @@ ORDER BY n.name
 SKIP 3</pre><p>
 </p>
 <p>The first three nodes are skipped, and only the last two are returned in the result.</p>
-<div class="queryresult table" id="d5e7358"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"D"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"E"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7307"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"D"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"E"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"D"})
 create (_1 {`name`:"E"})
 create (_2 {`name`:"A"})
@@ -113,7 +113,7 @@ SKIP 1
 LIMIT 2</pre><p>
 </p>
 <p>Two nodes from the middle are returned.</p>
-<div class="queryresult table" id="d5e7390"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"B"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"C"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7339"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"B"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"C"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"D"})
 create (_1 {`name`:"E"})
 create (_2 {`name`:"A"})

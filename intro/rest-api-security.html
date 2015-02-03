@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.3. Authentication and Authorization -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="status-codes.html" title="22.2. Neo4j Status Codes" /><link rel="next" href="rest-api-service-root.html" title="22.4. Service root" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.3. Authentication and Authorization" /><script type="text/javascript">
+    <title>21.3. Authentication and Authorization -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="status-codes.html" title="21.2. Neo4j Status Codes" /><link rel="next" href="rest-api-service-root.html" title="21.4. Service root" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.3. Authentication and Authorization" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.3. Authentication and Authorization</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="status-codes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-service-root.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-security"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.3. Authentication and Authorization</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-security.html#rest-api-security-getting-started">Getting Started with Authentication and Authorization</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-authorization-tokens">Authorization Tokens</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-password">Password Management</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-status">Authorization Status</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-incorrect-username-or-password">Incorrect username or password</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-copy-config">Copying security configuration from one instance to another</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.3. Authentication and Authorization</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="status-codes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-service-root.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-security"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.3. Authentication and Authorization</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-security.html#rest-api-security-getting-started">Getting Started with Authentication and Authorization</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-authorization-tokens">Authorization Tokens</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-password">Password Management</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-status">Authorization Status</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-incorrect-username-or-password">Incorrect username or password</a></span></li><li><span class="section"><a href="rest-api-security.html#rest-api-security-copy-config">Copying security configuration from one instance to another</a></span></li></ul></div>
 
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This is a new feature, your feedback is encouraged.</p></td></tr></table></div>
 <p>In order to prevent unauthorized access to Neo4j, the REST API supports authorization and authentication.
@@ -125,7 +125,7 @@ The response will include an authorization token.</p>
   "username" : "neo4j",
   "password_change" : "http://localhost:7474/user/neo4j/password",
   "password_change_required" : false,
-  "authorization_token" : "a32457033504250b8f2bdabc6c44757f",
+  "authorization_token" : "423978b66e228701a093775d260a7408",
   "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
 }</pre>
 </section>
@@ -148,7 +148,7 @@ where "token payload" is a base64 encoded string of the token prepended by a col
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OjQ4MzNhYzhiNWU0ZjI3OGUwNWE3MWM1YzM0ZjI0NDJj</code>
+<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OjgyNDcyMmM1MDI2YTcyMTk1ZDNlMGFiOTRjODE3NjQ0</code>
 
 </li></ul></div>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -206,7 +206,7 @@ for instance, be the case in a newly installed instance.</p>
   "username" : "neo4j",
   "password_change" : "http://localhost:7474/user/neo4j/password",
   "password_change_required" : false,
-  "authorization_token" : "04d7e3391c80d74412e0bd73c9fe1216",
+  "authorization_token" : "88c1bfdfcdeb94d0c3be768920160050",
   "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
 }</pre>
 </section>
@@ -245,7 +245,7 @@ user.</p>
   "username" : "neo4j",
   "password_change" : "http://localhost:7474/user/neo4j/password",
   "password_change_required" : false,
-  "authorization_token" : "6199b4c8dbb201d106abbc1a59b9169e",
+  "authorization_token" : "8adfb68579299a18e1e499d7dad9e7d4",
   "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
 }</pre>
 </section>
@@ -408,7 +408,7 @@ password you like, as long as it is different from the current password.</p>
   "username" : "neo4j",
   "password_change" : "http://localhost:7474/user/neo4j/password",
   "password_change_required" : false,
-  "authorization_token" : "b7c1df4b32db84db86859044c80bdcfe",
+  "authorization_token" : "60702b84e798094462cf123ad27db82f",
   "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
 }</pre>
 </section>
@@ -433,7 +433,7 @@ This way, you can use this endpoint to determine if you need to acquire an autho
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OjQ3NzdlN2QyMDg1MGVmMDg1ZjJjYzJmMWVmZGZiMzky</code>
+<span class="strong"><strong><code class="literal">Authorization:</code></strong></span> <code class="literal">Basic realm="Neo4j" OmMzZTY4NjJlYmU4MGEwMmU4NWJlMjJhODlmMDJkMjZj</code>
 
 </li></ul></div>
 <p><span class="emphasis"><em>Example response</em></span></p>
@@ -450,7 +450,7 @@ This way, you can use this endpoint to determine if you need to acquire an autho
   "username" : "neo4j",
   "password_change" : "http://localhost:7474/user/neo4j/password",
   "password_change_required" : false,
-  "authorization_token" : "4777e7d20850ef085f2cc2f1efdfb392",
+  "authorization_token" : "c3e6862ebe80a02e85be22a89f02d26c",
   "authorization_token_change" : "http://localhost:7474/user/neo4j/authorization_token"
 }</pre>
 </section>

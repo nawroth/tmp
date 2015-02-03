@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>9.6. Compatibility -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-parameters.html" title="9.5. Parameters" /><link rel="next" href="query-performance.html" title="9.7. Query Performance" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.6. Compatibility" /><script type="text/javascript">
+    <title>8.6. Compatibility -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-parameters.html" title="8.5. Parameters" /><link rel="next" href="query-performance.html" title="8.7. Query Performance" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.6. Compatibility" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>9.6. Compatibility</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-parameters.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-intro.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-performance.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-compatibility"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">9.6. Compatibility</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>8.6. Compatibility</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-parameters.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-intro.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-performance.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-compatibility"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">8.6. Compatibility</h2></div></div></div>
 
 <p>Cypher is still changing rather rapidly.
 Parts of the changes are internal — we add new pattern matchers, aggregators and other optimizations, which hopefully makes your queries run faster.</p>
@@ -91,8 +91,8 @@ START n=node(42)
 RETURN n</pre>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The use of the <code class="literal">START</code> clause to find nodes by ID was deprecated from Cypher 2.0 onwards and is now entirely disabled in Cypher 2.2 and up.
 You should instead make use of the <code class="literal">MATCH</code> clause for starting points.
-See <a class="xref" href="query-match.html" title="12.1. Match">Section 12.1, “Match”</a> for more information on the correct syntax for this.
-The <code class="literal">START</code> clause should only be used when accessing legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 38. Legacy Indexing">Chapter 38, <em>Legacy Indexing</em></a>).</p></td></tr></table></div>
+See <a class="xref" href="query-match.html" title="11.1. Match">Section 11.1, “Match”</a> for more information on the correct syntax for this.
+The <code class="literal">START</code> clause should only be used when accessing legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 37. Legacy Indexing">Chapter 37, <em>Legacy Indexing</em></a>).</p></td></tr></table></div>
 </section>
 
  <footer>

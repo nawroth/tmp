@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>12.4. Start -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-where.html" title="12.3. Where" /><link rel="next" href="query-aggregation.html" title="12.5. Aggregation" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.4. Start" /><script type="text/javascript">
+    <title>11.4. Start -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-where.html" title="11.3. Where" /><link rel="next" href="query-aggregation.html" title="11.5. Aggregation" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.4. Start" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,17 +68,17 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.4. Start</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-where.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-read.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-aggregation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-start"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.4. Start</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-start.html#_get_node_or_relationship_from_index">Get node or relationship from index</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>11.4. Start</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-where.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-read.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-aggregation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-start"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.4. Start</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-start.html#_get_node_or_relationship_from_index">Get node or relationship from index</a></span></li></ul></div>
 
-<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>The <code class="literal">START</code> clause should only be used when accessing legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 38. Legacy Indexing">Chapter 38, <em>Legacy Indexing</em></a>).
-In all other cases, use <code class="literal">MATCH</code> instead (see <a class="xref" href="query-match.html" title="12.1. Match">Section 12.1, “Match”</a>).</p></td></tr></table></div>
+<div class="admonitionblock Important"><table><tr><td class="icon"><img alt="[Important]" src="images/icons/admon/important.svg" /></td><td class="content"><b>Important</b><p>The <code class="literal">START</code> clause should only be used when accessing legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 37. Legacy Indexing">Chapter 37, <em>Legacy Indexing</em></a>).
+In all other cases, use <code class="literal">MATCH</code> instead (see <a class="xref" href="query-match.html" title="11.1. Match">Section 11.1, “Match”</a>).</p></td></tr></table></div>
 <p>In Cypher, every query describes a pattern, and in that pattern one can have multiple starting points.
 A starting point is a relationship or a node where a pattern is anchored.
 Using <code class="literal">START</code> you can only introduce starting points by legacy index lookups.
 Note that trying to use a legacy index that doesn’t exist will generate an error.</p>
 <p>This is the graph the examples are using:</p>
-<div class="figure" id="d5e9370"><p class="title"><strong>Figure 12.4. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e9319"><p class="title"><strong>Figure 11.4. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-start-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-start-graph.svg" alt="cypher-start-graph.svg" /></span>
 </a>
@@ -93,7 +93,7 @@ Note that trying to use a legacy index that doesn’t exist will generate an err
 RETURN n</pre><p>
 </p>
 <p>The query returns the node indexed with the name "<code class="literal">A</code>".</p>
-<div class="queryresult table" id="d5e9391"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9340"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="start-relationship-by-index-lookup"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationship by index lookup</h4></div></div></div>
 
@@ -103,7 +103,7 @@ RETURN n</pre><p>
 RETURN r</pre><p>
 </p>
 <p>The relationship indexed with the <code class="literal">name</code> property set to "<code class="literal">Andrés</code>" is returned by the query.</p>
-<div class="queryresult table" id="d5e9417"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[0]{name:"Andrés"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9366"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[0]{name:"Andrés"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="start-node-by-index-query"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Node by index query</h4></div></div></div>
 
@@ -113,7 +113,7 @@ RETURN r</pre><p>
 RETURN n</pre><p>
 </p>
 <p>The node indexed with name "A" is returned by the query.</p>
-<div class="queryresult table" id="d5e9441"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9390"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 </section>

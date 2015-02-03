@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>4.9. Cypher vs. SQL -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-loading-data.html" title="4.8. Loading Data" /><link rel="next" href="cypher-intro-applications.html" title="Chapter 5. Use Cypher in an application" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="4.9. Cypher vs. SQL" /><script type="text/javascript">
+    <title>3.9. Cypher vs. SQL -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-loading-data.html" title="3.8. Loading Data" /><link rel="next" href="cypher-intro-applications.html" title="Chapter 4. Use Cypher in an application" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="3.9. Cypher vs. SQL" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>4.9. Cypher vs. SQL</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-loading-data.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-intro-applications.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-cypher-vs-sql"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">4.9. Cypher vs. SQL</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_data_model">Data Model</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_sample_data">Sample Data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_simple_read_of_data">Simple read of data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_join">Join</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_aggregation">Aggregation</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>3.9. Cypher vs. SQL</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-loading-data.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-intro-applications.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-cypher-vs-sql"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">3.9. Cypher vs. SQL</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_data_model">Data Model</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_sample_data">Sample Data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_simple_read_of_data">Simple read of data</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_join">Join</a></span></li><li><span class="section"><a href="cypherdoc-cypher-vs-sql.html#_aggregation">Aggregation</a></span></li></ul></div>
 
 <p>If you have used <code class="literal">SQL</code> and want to learn Cypher, this chapter is for you!
 We won’t dig very deep into either of the languages, but focus on bridging the gap.</p>
@@ -225,7 +225,7 @@ WHERE movie.released &gt; 1998;</pre>
 WHERE movie.released &gt; 1998
 RETURN movie.title;</pre>
 <div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The Matrix"</code></p></td></tr><tr><td><p><code class="literal">"Monster"</code></p></td></tr></tbody></table></div>
-<p>Note however that the semantics of <code class="literal">WHERE</code> in Cypher is somewhat different, see <a class="xref" href="query-where.html" title="12.3. Where">Section 12.3, “Where”</a> for more information.</p>
+<p>Note however that the semantics of <code class="literal">WHERE</code> in Cypher is somewhat different, see <a class="xref" href="query-where.html" title="11.3. Where">Section 11.3, “Where”</a> for more information.</p>
 </section>
 <section class="section" id="_join"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Join</h3></div></div></div>
 

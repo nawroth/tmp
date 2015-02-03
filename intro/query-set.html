@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>13.3. Set -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-merge.html" title="13.2. Merge" /><link rel="next" href="query-delete.html" title="13.4. Delete" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.3. Set" /><script type="text/javascript">
+    <title>12.3. Set -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-merge.html" title="12.2. Merge" /><link rel="next" href="query-delete.html" title="12.4. Delete" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.3. Set" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>13.3. Set</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-merge.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-delete.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-set"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.3. Set</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-set.html#set-set-a-property">Set a property</a></span></li><li><span class="section"><a href="query-set.html#set-remove-a-property">Remove a property</a></span></li><li><span class="section"><a href="query-set.html#set-copying-properties-between-nodes-and-relationships">Copying properties between nodes and relationships</a></span></li><li><span class="section"><a href="query-set.html#set-adding-properties-from-maps">Adding properties from maps</a></span></li><li><span class="section"><a href="query-set.html#set-set-a-property-using-a-parameter">Set a property using a parameter</a></span></li><li><span class="section"><a href="query-set.html#set-set-all-properties-using-a-parameter">Set all properties using a parameter</a></span></li><li><span class="section"><a href="query-set.html#set-set-multiple-properties-using-one-set-clause">Set multiple properties using one SET clause</a></span></li><li><span class="section"><a href="query-set.html#set-set-a-label-on-a-node">Set a label on a node</a></span></li><li><span class="section"><a href="query-set.html#set-set-multiple-labels-on-a-node">Set multiple labels on a node</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.3. Set</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-merge.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-delete.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-set"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.3. Set</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-set.html#set-set-a-property">Set a property</a></span></li><li><span class="section"><a href="query-set.html#set-remove-a-property">Remove a property</a></span></li><li><span class="section"><a href="query-set.html#set-copying-properties-between-nodes-and-relationships">Copying properties between nodes and relationships</a></span></li><li><span class="section"><a href="query-set.html#set-adding-properties-from-maps">Adding properties from maps</a></span></li><li><span class="section"><a href="query-set.html#set-set-a-property-using-a-parameter">Set a property using a parameter</a></span></li><li><span class="section"><a href="query-set.html#set-set-all-properties-using-a-parameter">Set all properties using a parameter</a></span></li><li><span class="section"><a href="query-set.html#set-set-multiple-properties-using-one-set-clause">Set multiple properties using one SET clause</a></span></li><li><span class="section"><a href="query-set.html#set-set-a-label-on-a-node">Set a label on a node</a></span></li><li><span class="section"><a href="query-set.html#set-set-multiple-labels-on-a-node">Set multiple labels on a node</a></span></li></ul></div>
 
 <p>Updating labels on nodes and properties on nodes and relationships is done with the <code class="literal">SET</code> clause.
 <code class="literal">SET</code> can also be used with maps from parameters to set properties.</p>
@@ -90,7 +90,7 @@ SET n.surname = 'Taylor'
 RETURN n</pre><p>
 </p>
 <p>The newly changed node is returned by the query.</p>
-<div class="queryresult table" id="d5e11108"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11057"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",age:36,hungry:true,surname:"Taylor"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})
@@ -104,14 +104,14 @@ create _3-[:`KNOWS`]-&gt;_2
 </section>
 <section class="section" id="set-remove-a-property"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove a property</h3></div></div></div>
 
-<p>Normally you remove a property by using <code class="literal"><a class="link" href="query-remove.html" title="13.5. Remove">REMOVE</a></code>, but it’s sometimes handy to do
+<p>Normally you remove a property by using <code class="literal"><a class="link" href="query-remove.html" title="12.5. Remove">REMOVE</a></code>, but it’s sometimes handy to do
 it using the <code class="literal">SET</code> command. One example is if the property comes from a parameter.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'Andres' })
 SET n.name = NULL RETURN n</pre><p>
 </p>
 <p>The node is returned by the query, and the name property is now missing.</p>
-<div class="queryresult table" id="d5e11141"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11090"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{age:36,hungry:true}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})
@@ -133,7 +133,7 @@ SET at = pn
 RETURN at, pn</pre><p>
 </p>
 <p>The Andres node has had all it’s properties replaced by the properties in the Peter node.</p>
-<div class="queryresult table" id="d5e11172"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>at</th><th>pn</th></tr></thead><tfoot><tr><th colspan="2">1 row
+<div class="queryresult table" id="d5e11121"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>at</th><th>pn</th></tr></thead><tfoot><tr><th colspan="2">1 row
 </th></tr><tr><th colspan="2">Properties set: 3</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Peter",age:34}</code></p></td><td><p><code class="literal">Node[2]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})
@@ -153,7 +153,7 @@ to only add properties, and not remove any of the existing properties on the gra
 </p><pre class="programlisting" data-lang="cypher">MATCH (peter { name: 'Peter' })
 SET peter += { hungry: TRUE , position: 'Entrepreneur' }</pre><p>
 </p>
-<div class="queryresult table" id="d5e11208"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11157"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})
 create (_2 {`age`:34, `name`:"Peter"})
@@ -178,7 +178,7 @@ SET n.surname = { surname }
 RETURN n</pre><p>
 </p>
 <p>The Andres node has got an surname added.</p>
-<div class="queryresult table" id="d5e11237"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11186"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",age:36,hungry:true,surname:"Taylor"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-all-properties-using-a-parameter"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set all properties using a parameter</h3></div></div></div>
@@ -198,7 +198,7 @@ SET n = { props }
 RETURN n</pre><p>
 </p>
 <p>The Andres node has had all it’s properties replaced by the properties in the <code class="literal">props</code> parameter.</p>
-<div class="queryresult table" id="d5e11267"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11216"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-multiple-properties-using-one-set-clause"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set multiple properties using one SET clause</h3></div></div></div>
@@ -208,7 +208,7 @@ RETURN n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'Andres' })
 SET n.position = 'Developer', n.surname = 'Taylor'</pre><p>
 </p>
-<div class="queryresult table" id="d5e11291"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11240"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})
 create (_2 {`age`:34, `name`:"Peter"})
@@ -228,7 +228,7 @@ SET n :German
 RETURN n</pre><p>
 </p>
 <p>The newly labeled node is returned by the query.</p>
-<div class="queryresult table" id="d5e11317"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11266"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})
@@ -249,7 +249,7 @@ SET n :Swedish:Bossman
 RETURN n</pre><p>
 </p>
 <p>The newly labeled node is returned by the query.</p>
-<div class="queryresult table" id="d5e11349"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11298"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Emil"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1 {`name`:"Stefan"})

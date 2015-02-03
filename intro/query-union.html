@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>11.7. Union -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-unwind.html" title="11.6. Unwind" /><link rel="next" href="query-using.html" title="11.8. Using" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.7. Union" /><script type="text/javascript">
+    <title>10.7. Union -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-unwind.html" title="10.6. Unwind" /><link rel="next" href="query-using.html" title="10.8. Using" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.7. Union" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,15 +68,15 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>11.7. Union</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-unwind.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-general.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-using.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-union"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.7. Union</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-union.html#union-combine-two-queries">Combine two queries</a></span></li><li><span class="section"><a href="query-union.html#union-combine-two-queries-and-remove-duplicates">Combine two queries and remove duplicates</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>10.7. Union</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-unwind.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-general.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-using.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-union"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">10.7. Union</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-union.html#union-combine-two-queries">Combine two queries</a></span></li><li><span class="section"><a href="query-union.html#union-combine-two-queries-and-remove-duplicates">Combine two queries and remove duplicates</a></span></li></ul></div>
 
 <p>Combining results from multiple queries is done through the <code class="literal">UNION</code> operator.</p>
 <p>Combines the results of two or more queries into a single result set that includes all the rows that belong to all queries in the union.</p>
 <p>The number and the names of the columns must be identical in all queries combined by using <code class="literal">UNION</code>.</p>
 <p>To keep all the result rows, use <code class="literal">UNION</code> <code class="literal">ALL</code>.
 Using just <code class="literal">UNION</code> will combine and remove duplicates from the result set.</p>
-<div class="figure" id="d5e7656"><p class="title"><strong>Figure 11.6. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7605"><p class="title"><strong>Figure 10.6. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-union-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-union-graph.svg" alt="cypher-union-graph.svg" /></span>
 </a>
@@ -91,7 +91,7 @@ UNION ALL MATCH (n:Movie)
 RETURN n.title AS name</pre><p>
 </p>
 <p>The combined result is returned, including duplicates.</p>
-<div class="queryresult table" id="d5e7673"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7622"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Actor` {`name`:"Anthony Hopkins"})
 create (_1:`Actor` {`name`:"Helen Mirren"})
 create (_2:`Actor` {`name`:"Hitchcock"})
@@ -115,7 +115,7 @@ MATCH (n:Movie)
 RETURN n.title AS name</pre><p>
 </p>
 <p>The combined result is returned, without duplicates.</p>
-<div class="queryresult table" id="d5e7715"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7664"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Actor` {`name`:"Anthony Hopkins"})
 create (_1:`Actor` {`name`:"Helen Mirren"})
 create (_2:`Actor` {`name`:"Hitchcock"})

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.1. Transactional Cypher HTTP endpoint -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api.html" title="Chapter 22. REST API" /><link rel="next" href="status-codes.html" title="22.2. Neo4j Status Codes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.1. Transactional Cypher HTTP endpoint" /><script type="text/javascript">
+    <title>21.1. Transactional Cypher HTTP endpoint -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api.html" title="Chapter 21. REST API" /><link rel="next" href="status-codes.html" title="21.2. Neo4j Status Codes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.1. Transactional Cypher HTTP endpoint" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.1. Transactional Cypher HTTP endpoint</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="status-codes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-transactional"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.1. Transactional Cypher HTTP endpoint</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-transactional.html#rest-api-begin-and-commit-a-transaction-in-one-request">Begin and commit a transaction in one request</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-begin-a-transaction">Begin a transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-execute-statements-in-an-open-transaction">Execute statements in an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-execute-statements-in-an-open-transaction-in-rest-format-for-the-return">Execute statements in an open transaction in REST format for the return</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-reset-transaction-timeout-of-an-open-transaction">Reset transaction timeout of an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-commit-an-open-transaction">Commit an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-rollback-an-open-transaction">Rollback an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-return-results-in-graph-format">Return results in graph format</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-handling-errors">Handling errors</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.1. Transactional Cypher HTTP endpoint</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="status-codes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-transactional"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.1. Transactional Cypher HTTP endpoint</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-transactional.html#rest-api-begin-and-commit-a-transaction-in-one-request">Begin and commit a transaction in one request</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-begin-a-transaction">Begin a transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-execute-statements-in-an-open-transaction">Execute statements in an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-execute-statements-in-an-open-transaction-in-rest-format-for-the-return">Execute statements in an open transaction in REST format for the return</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-reset-transaction-timeout-of-an-open-transaction">Reset transaction timeout of an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-commit-an-open-transaction">Commit an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-rollback-an-open-transaction">Rollback an open transaction</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-return-results-in-graph-format">Return results in graph format</a></span></li><li><span class="section"><a href="rest-api-transactional.html#rest-api-handling-errors">Handling errors</a></span></li></ul></div>
 
 <p>The default way to interact with Neo4j is by using this endpoint.</p>
 <p>The Neo4j transactional HTTP endpoint allows you to execute a series of Cypher statements within the scope of a transaction.
@@ -79,7 +79,7 @@ Each HTTP request can include a list of statements, and for convenience you can 
 If there are no requests for a given transaction within the timeout period, the server will roll it back.
 You can configure the timeout in the server configuration, by setting <span class="emphasis"><em>org.neo4j.server.transaction.timeout</em></span> to the number of seconds before timeout.
 The default timeout is 60 seconds.</p>
-<p>The key difference between the transactional HTTP endpoint for Cypher and the Cypher endpoint (see <a class="xref" href="rest-api-cypher.html" title="22.6. Legacy Cypher HTTP endpoint">Section 22.6, “Legacy Cypher HTTP endpoint”</a>) is the ability to use the same transaction across multiple HTTP requests.
+<p>The key difference between the transactional HTTP endpoint for Cypher and the Cypher endpoint (see <a class="xref" href="rest-api-cypher.html" title="21.6. Legacy Cypher HTTP endpoint">Section 21.6, “Legacy Cypher HTTP endpoint”</a>) is the ability to use the same transaction across multiple HTTP requests.
 The Cypher endpoint always attempts to commit a transaction at the end of each HTTP request.
 There has also been improvements to the serialization format.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b>
@@ -94,18 +94,18 @@ Open transactions are not shared among members of an HA cluster.
 
 </li><li class="listitem">
 
-Cypher queries with <code class="literal">USING PERIODIC COMMIT</code>  (see <a class="xref" href="query-periodic-commit.html" title="13.9. Using Periodic Commit">Section 13.9, “Using Periodic Commit”</a>) may only be executed when creating a new transaction and immediately committing it with a single HTTP request (see <a class="xref" href="rest-api-transactional.html#rest-api-begin-and-commit-a-transaction-in-one-request" title="Begin and commit a transaction in one request">the section called “Begin and commit a transaction in one request”</a> for how to do that).
+Cypher queries with <code class="literal">USING PERIODIC COMMIT</code>  (see <a class="xref" href="query-periodic-commit.html" title="12.9. Using Periodic Commit">Section 12.9, “Using Periodic Commit”</a>) may only be executed when creating a new transaction and immediately committing it with a single HTTP request (see <a class="xref" href="rest-api-transactional.html#rest-api-begin-and-commit-a-transaction-in-one-request" title="Begin and commit a transaction in one request">the section called “Begin and commit a transaction in one request”</a> for how to do that).
 
 </li><li class="listitem">
 
-The serialization format for Cypher results is mostly the same as the <a class="link" href="rest-api-cypher.html" title="22.6. Legacy Cypher HTTP endpoint">Cypher endpoint</a>.
+The serialization format for Cypher results is mostly the same as the <a class="link" href="rest-api-cypher.html" title="21.6. Legacy Cypher HTTP endpoint">Cypher endpoint</a>.
 However, the format for raw entities is slightly less verbose and does not include hypermedia links.
 
 </li></ul></div>
 </td></tr></table></div>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>In order to speed up queries in repeated scenarios, try not to use literals but replace them with parameters wherever possible.
 This will let the server cache query plans.
-See <a class="xref" href="cypher-parameters.html" title="9.5. Parameters">Section 9.5, “Parameters”</a> for more information.</p></td></tr></table></div>
+See <a class="xref" href="cypher-parameters.html" title="8.5. Parameters">Section 8.5, “Parameters”</a> for more information.</p></td></tr></table></div>
 <section class="section" id="rest-api-begin-and-commit-a-transaction-in-one-request"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Begin and commit a transaction in one request</h3></div></div></div>
 
 <p>If there is no need to keep a transaction open across multiple HTTP requests, you can begin a transaction,
@@ -203,7 +203,7 @@ your statements, as well as the location of your open transaction.</p>
     } ]
   } ],
   "transaction" : {
-    "expires" : "Wed, 28 Jan 2015 13:38:17 +0000"
+    "expires" : "Mon, 02 Feb 2015 08:33:24 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -250,7 +250,7 @@ statements, and keeps the transaction open by resetting the transaction timeout.
     } ]
   } ],
   "transaction" : {
-    "expires" : "Wed, 28 Jan 2015 13:38:17 +0000"
+    "expires" : "Mon, 02 Feb 2015 08:33:24 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -298,8 +298,8 @@ give back full Neo4j Rest API representations of the Neo4j Nodes, Relationships 
       "rest" : [ {
         "outgoing_relationships" : "http://localhost:7474/db/data/node/0/relationships/out",
         "labels" : "http://localhost:7474/db/data/node/0/labels",
-        "traverse" : "http://localhost:7474/db/data/node/0/traverse/{returnType}",
         "all_typed_relationships" : "http://localhost:7474/db/data/node/0/relationships/all/{-list|&amp;|types}",
+        "traverse" : "http://localhost:7474/db/data/node/0/traverse/{returnType}",
         "self" : "http://localhost:7474/db/data/node/0",
         "property" : "http://localhost:7474/db/data/node/0/properties/{key}",
         "properties" : "http://localhost:7474/db/data/node/0/properties",
@@ -318,7 +318,7 @@ give back full Neo4j Rest API representations of the Neo4j Nodes, Relationships 
     } ]
   } ],
   "transaction" : {
-    "expires" : "Wed, 28 Jan 2015 13:38:13 +0000"
+    "expires" : "Mon, 02 Feb 2015 08:33:20 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -361,7 +361,7 @@ expire as an RFC1123 formatted timestamp value in the “transaction” section 
   "commit" : "http://localhost:7474/db/data/transaction/2/commit",
   "results" : [ ],
   "transaction" : {
-    "expires" : "Wed, 28 Jan 2015 13:38:16 +0000"
+    "expires" : "Mon, 02 Feb 2015 08:33:23 +0000"
   },
   "errors" : [ ]
 }</pre>
@@ -546,7 +546,7 @@ of whether statements were successfully executed. At the end of the response pay
 of errors that occurred while executing statements. If this list is empty, the request completed successfully.</p>
 <p>If any errors occur while executing statements, the server will roll back the transaction.</p>
 <p>In this example, we send the server an invalid statement to demonstrate error handling.</p>
-<p>For more information on the status codes, see <a class="xref" href="status-codes.html" title="22.2. Neo4j Status Codes">Section 22.2, “Neo4j Status Codes”</a>.</p>
+<p>For more information on the status codes, see <a class="xref" href="status-codes.html" title="21.2. Neo4j Status Codes">Section 21.2, “Neo4j Status Codes”</a>.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 

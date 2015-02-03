@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.13. Node labels -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-relationship-properties.html" title="22.12. Relationship properties" /><link rel="next" href="rest-api-node-degree.html" title="22.14. Node degree" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.13. Node labels" /><script type="text/javascript">
+    <title>21.13. Node labels -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-relationship-properties.html" title="21.12. Relationship properties" /><link rel="next" href="rest-api-node-degree.html" title="21.14. Node degree" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.13. Node labels" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,12 +68,12 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.13. Node labels</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-relationship-properties.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-node-degree.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-node-labels"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.13. Node labels</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-a-label-to-a-node">Adding a label to a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-multiple-labels-to-a-node">Adding multiple labels to a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-a-label-with-an-invalid-name">Adding a label with an invalid name</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-replacing-labels-on-a-node">Replacing labels on a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-removing-a-label-from-a-node">Removing a label from a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-listing-labels-for-a-node">Listing labels for a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-get-all-nodes-with-a-label">Get all nodes with a label</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-get-nodes-by-label-and-property">Get nodes by label and property</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-list-all-labels">List all labels</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.13. Node labels</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-relationship-properties.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-node-degree.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-node-labels"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.13. Node labels</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-a-label-to-a-node">Adding a label to a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-multiple-labels-to-a-node">Adding multiple labels to a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-a-label-with-an-invalid-name">Adding a label with an invalid name</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-replacing-labels-on-a-node">Replacing labels on a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-removing-a-label-from-a-node">Removing a label from a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-listing-labels-for-a-node">Listing labels for a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-get-all-nodes-with-a-label">Get all nodes with a label</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-get-nodes-by-label-and-property">Get nodes by label and property</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-list-all-labels">List all labels</a></span></li></ul></div>
 
 <section class="section" id="rest-api-adding-a-label-to-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding a label to a node</h3></div></div></div>
 
-<div class="figure" id="d5e18556"><p class="title"><strong>Figure 22.50. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18505"><p class="title"><strong>Figure 21.50. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Adding-a-label-to-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Adding-a-label-to-a-node.svg" alt="Final-Graph-Adding-a-label-to-a-node.svg" /></span>
 </a>
@@ -103,7 +103,7 @@
 </section>
 <section class="section" id="rest-api-adding-multiple-labels-to-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding multiple labels to a node</h3></div></div></div>
 
-<div class="figure" id="d5e18594"><p class="title"><strong>Figure 22.51. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18543"><p class="title"><strong>Figure 21.51. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Adding-multiple-labels-to-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Adding-multiple-labels-to-a-node.svg" alt="Final-Graph-Adding-multiple-labels-to-a-node.svg" /></span>
 </a>
@@ -135,7 +135,7 @@
 
 <p>Labels with empty names are not allowed, however, all other valid strings are accepted as label names.
 Adding an invalid label to a node will lead to a HTTP 400 response.</p>
-<div class="figure" id="d5e18633"><p class="title"><strong>Figure 22.52. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18582"><p class="title"><strong>Figure 21.52. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Adding-a-label-with-an-invalid-name.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Adding-a-label-with-an-invalid-name.svg" alt="Final-Graph-Adding-a-label-with-an-invalid-name.svg" /></span>
 </a>
@@ -229,7 +229,7 @@ Adding an invalid label to a node will lead to a HTTP 400 response.</p>
 
 <p>This removes any labels currently on a node, and replaces them with the labels passed in as the
 request body.</p>
-<div class="figure" id="d5e18677"><p class="title"><strong>Figure 22.53. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18626"><p class="title"><strong>Figure 21.53. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Replacing-labels-on-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Replacing-labels-on-a-node.svg" alt="Final-Graph-Replacing-labels-on-a-node.svg" /></span>
 </a>
@@ -259,7 +259,7 @@ request body.</p>
 </section>
 <section class="section" id="rest-api-removing-a-label-from-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Removing a label from a node</h3></div></div></div>
 
-<div class="figure" id="d5e18715"><p class="title"><strong>Figure 22.54. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18664"><p class="title"><strong>Figure 21.54. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Removing-a-label-from-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Removing-a-label-from-a-node.svg" alt="Final-Graph-Removing-a-label-from-a-node.svg" /></span>
 </a>
@@ -284,7 +284,7 @@ request body.</p>
 </section>
 <section class="section" id="rest-api-listing-labels-for-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Listing labels for a node</h3></div></div></div>
 
-<div class="figure" id="d5e18747"><p class="title"><strong>Figure 22.55. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18696"><p class="title"><strong>Figure 21.55. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Listing-labels-for-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Listing-labels-for-a-node.svg" alt="Final-Graph-Listing-labels-for-a-node.svg" /></span>
 </a>
@@ -313,7 +313,7 @@ request body.</p>
 </section>
 <section class="section" id="rest-api-get-all-nodes-with-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all nodes with a label</h3></div></div></div>
 
-<div class="figure" id="d5e18784"><p class="title"><strong>Figure 22.56. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18733"><p class="title"><strong>Figure 21.56. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-all-nodes-with-a-label.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-all-nodes-with-a-label.svg" alt="Final-Graph-Get-all-nodes-with-a-label.svg" /></span>
 </a>
@@ -346,8 +346,8 @@ request body.</p>
   },
   "traverse" : "http://localhost:7474/db/data/node/50/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/50/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/50",
   "property" : "http://localhost:7474/db/data/node/50/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/50",
   "properties" : "http://localhost:7474/db/data/node/50/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/50/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/50/relationships/in",
@@ -368,8 +368,8 @@ request body.</p>
   },
   "traverse" : "http://localhost:7474/db/data/node/51/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/51/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/51",
   "property" : "http://localhost:7474/db/data/node/51/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/51",
   "properties" : "http://localhost:7474/db/data/node/51/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/51/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/51/relationships/in",
@@ -391,7 +391,7 @@ Notice that the property value is JSON-encoded and then URL-encoded.</p>
 <p>If there is an index available on the label/property combination you send, that index will be used. If no
 index is available, all nodes with the given label will be filtered through to find matching nodes.</p>
 <p>Currently, it is not possible to search using multiple properties.</p>
-<div class="figure" id="d5e18824"><p class="title"><strong>Figure 22.57. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18773"><p class="title"><strong>Figure 21.57. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-nodes-by-label-and-property.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-nodes-by-label-and-property.svg" alt="Final-Graph-Get-nodes-by-label-and-property.svg" /></span>
 </a>
@@ -424,8 +424,8 @@ index is available, all nodes with the given label will be filtered through to f
   },
   "traverse" : "http://localhost:7474/db/data/node/53/traverse/{returnType}",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/53/relationships/all/{-list|&amp;|types}",
-  "self" : "http://localhost:7474/db/data/node/53",
   "property" : "http://localhost:7474/db/data/node/53/properties/{key}",
+  "self" : "http://localhost:7474/db/data/node/53",
   "properties" : "http://localhost:7474/db/data/node/53/properties",
   "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/53/relationships/out/{-list|&amp;|types}",
   "incoming_relationships" : "http://localhost:7474/db/data/node/53/relationships/in",
@@ -442,7 +442,7 @@ index is available, all nodes with the given label will be filtered through to f
 </section>
 <section class="section" id="rest-api-list-all-labels"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">List all labels</h3></div></div></div>
 
-<div class="figure" id="d5e18861"><p class="title"><strong>Figure 22.58. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18810"><p class="title"><strong>Figure 21.58. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-List-all-labels.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-List-all-labels.svg" alt="Final-Graph-List-all-labels.svg" /></span>
 </a>
@@ -467,7 +467,7 @@ index is available, all nodes with the given label will be filtered through to f
 <span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
 
 </li></ul></div>
-<pre class="programlisting" data-lang="javascript">[ "Person", "Director", "Actor" ]</pre>
+<pre class="programlisting" data-lang="javascript">[ "Director", "Person", "Actor" ]</pre>
 </section>
 </section>
 

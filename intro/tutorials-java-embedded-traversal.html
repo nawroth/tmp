@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>36.7. Traversal -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-unit-testing.html" title="36.6. Basic unit testing" /><link rel="next" href="tutorials-java-embedded-entities.html" title="36.8. Domain entities" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="36.7. Traversal" /><script type="text/javascript">
+    <title>35.8. Traversal -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-unit-testing.html" title="35.7. Basic unit testing" /><link rel="next" href="tutorials-java-embedded-entities.html" title="35.9. Domain entities" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="35.8. Traversal" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,15 +68,15 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>36.7. Traversal</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials-java-unit-testing.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-java-embedded.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-java-embedded-entities.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorials-java-embedded-traversal"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">36.7. Traversal</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_the_matrix">The Matrix</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#examples-uniqueness-of-paths-in-traversals">Uniqueness of Paths in traversals</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#tutorials-java-embedded-social">Social network</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>35.8. Traversal</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials-java-unit-testing.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-java-embedded.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-java-embedded-entities.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorials-java-embedded-traversal"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">35.8. Traversal</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_the_matrix">The Matrix</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#examples-uniqueness-of-paths-in-traversals">Uniqueness of Paths in traversals</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#tutorials-java-embedded-social">Social network</a></span></li></ul></div>
 
-<p>For reading about traversals, see <a class="xref" href="tutorial-traversal.html" title="Chapter 37. The Traversal Framework">Chapter 37, <em>The Traversal Framework</em></a>.</p>
-<p>For more examples of traversals, see <a class="xref" href="data-modeling-examples.html" title="Chapter 6. Basic Data Modeling Examples">Chapter 6, <em>Basic Data Modeling Examples</em></a>.</p>
+<p>For reading about traversals, see <a class="xref" href="tutorial-traversal.html" title="Chapter 36. The Traversal Framework">Chapter 36, <em>The Traversal Framework</em></a>.</p>
+<p>For more examples of traversals, see <a class="xref" href="data-modeling-examples.html" title="Chapter 5. Basic Data Modeling Examples">Chapter 5, <em>Basic Data Modeling Examples</em></a>.</p>
 <section class="section" id="_the_matrix"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">The Matrix</h3></div></div></div>
 
 <p>This is the first graph we want to traverse into:</p>
-<div class="figure" id="d5e31022"><p class="title"><strong>Figure 36.2. Matrix node space view</strong></p><div class="figure-contents">
+<div class="figure" id="d5e31083"><p class="title"><strong>Figure 35.2. Matrix node space view</strong></p><div class="figure-contents">
 <a class="ulink" href="images/examples-matrix.png" target="_blank">
 <span class="inlinemediaobject"><img src="images/examples-matrix.png" alt="examples-matrix.png" /></span>
 </a>
@@ -249,7 +249,7 @@ This is how it’s done:</p>
 <p>This example is demonstrating the use of node uniqueness.
 Below an imaginary domain graph with Principals
 that own pets that are descendant to other pets.</p>
-<div class="figure" id="d5e31090"><p class="title"><strong>Figure 36.3. Descendants Example Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e31151"><p class="title"><strong>Figure 35.3. Descendants Example Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Descendants-Example-Graph-Uniqueness-of-Paths-in-traversals.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Descendants-Example-Graph-Uniqueness-of-Paths-in-traversals.svg" alt="Descendants-Example-Graph-Uniqueness-of-Paths-in-traversals.svg" /></span>
 </a>
@@ -301,7 +301,7 @@ This example shows a very simple social model that connects friends and keeps tr
 <a class="ulink" href="https://github.com/neo4j/neo4j/tree/master/community/embedded-examples/src/main/java/org/neo4j/examples/socnet" target="_blank">socnet</a></p></td></tr></table></div>
 <section class="section" id="_simple_social_model"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Simple social model</h4></div></div></div>
 
-<div class="figure" id="d5e31132"><p class="title"><strong>Figure 36.4. Social network data model</strong></p><div class="figure-contents">
+<div class="figure" id="d5e31193"><p class="title"><strong>Figure 35.4. Social network data model</strong></p><div class="figure-contents">
 <a class="ulink" href="images/socnet-model.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/socnet-model.svg" alt="socnet-model.svg" /></span>
 </a>

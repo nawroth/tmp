@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>19.1. Interaction cycle -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="transactions.html" title="Chapter 19. Transaction Management" /><link rel="next" href="transactions-isolation.html" title="19.2. Isolation levels" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="19.1. Interaction cycle" /><script type="text/javascript">
+    <title>18.1. Interaction cycle -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="transactions.html" title="Chapter 18. Transaction Management" /><link rel="next" href="transactions-isolation.html" title="18.2. Isolation levels" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="18.1. Interaction cycle" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>19.1. Interaction cycle</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="transactions.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="transactions.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="transactions-isolation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="transactions-interaction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">19.1. Interaction cycle</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>18.1. Interaction cycle</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="transactions.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="transactions.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="transactions-isolation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="transactions-interaction"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">18.1. Interaction cycle</h2></div></div></div>
 
 <p>All database operations that access the graph, indexes, or the schema must be performed in a transaction.
 Transactions are thread confined and can be nested as “flat nested transactions”.
@@ -101,7 +101,7 @@ Finishing the transaction will perform commit or rollback depending on the succe
 <div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p><span class="emphasis"><em>All modifications performed in a transaction are kept in memory.</em></span>
 This means that very large updates have to be split into several top level transactions to avoid running out of memory.
 It must be a top level transaction since splitting up the work in many nested transactions will just add all the work to the top level transaction.</p></td></tr></table></div>
-<p>In an environment that makes use of <span class="emphasis"><em><a id="d5e15276" class="indexterm"></a>thread pooling</em></span> other errors may occur when failing to finish a transaction properly.
+<p>In an environment that makes use of <span class="emphasis"><em><a id="d5e15225" class="indexterm"></a>thread pooling</em></span> other errors may occur when failing to finish a transaction properly.
 Consider a leaked transaction that did not get finished properly.
 It will be tied to a thread and when that thread gets scheduled to perform work starting a new (what looks to be a) top level transaction it will actually be a nested transaction.
 If the leaked transaction state is “marked for rollback” (which will happen if a deadlock was detected) no more work can be performed on that transaction.

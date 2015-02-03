@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>22.14. Node degree -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-labels.html" title="22.13. Node labels" /><link rel="next" href="rest-api-schema-indexes.html" title="22.15. Indexing" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="22.14. Node degree" /><script type="text/javascript">
+    <title>21.14. Node degree -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-labels.html" title="21.13. Node labels" /><link rel="next" href="rest-api-schema-indexes.html" title="21.15. Indexing" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.14. Node degree" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>22.14. Node degree</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-node-labels.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-schema-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-node-degree"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">22.14. Node degree</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-node-degree.html#rest-api-get-the-degree-of-a-node">Get the degree of a node</a></span></li><li><span class="section"><a href="rest-api-node-degree.html#rest-api-get-the-degree-of-a-node-by-direction">Get the degree of a node by direction</a></span></li><li><span class="section"><a href="rest-api-node-degree.html#rest-api-get-the-degree-of-a-node-by-direction-and-types">Get the degree of a node by direction and types</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>21.14. Node degree</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-node-labels.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-schema-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-node-degree"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.14. Node degree</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-node-degree.html#rest-api-get-the-degree-of-a-node">Get the degree of a node</a></span></li><li><span class="section"><a href="rest-api-node-degree.html#rest-api-get-the-degree-of-a-node-by-direction">Get the degree of a node by direction</a></span></li><li><span class="section"><a href="rest-api-node-degree.html#rest-api-get-the-degree-of-a-node-by-direction-and-types">Get the degree of a node by direction and types</a></span></li></ul></div>
 
 <p>The node degree is the number of relationships associated with a node.
 Neo4j stores the degree for each node, making this a useful mechanism to quickly get the number of relationships a node has.
@@ -77,7 +77,7 @@ You can also optionally filter degree by direction and/or relationship type.</p>
 <section class="section" id="rest-api-get-the-degree-of-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get the degree of a node</h3></div></div></div>
 
 <p>Return the total number of relationships associated with a node.</p>
-<div class="figure" id="d5e18902"><p class="title"><strong>Figure 22.59. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18851"><p class="title"><strong>Figure 21.59. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-the-degree-of-a-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-the-degree-of-a-node.svg" alt="Final-Graph-Get-the-degree-of-a-node.svg" /></span>
 </a>
@@ -108,7 +108,7 @@ You can also optionally filter degree by direction and/or relationship type.</p>
 
 <p>Return the number of relationships of a particular direction for a node.
 Specify <code class="literal">all</code>, <code class="literal">in</code> or <code class="literal">out</code>.</p>
-<div class="figure" id="d5e18943"><p class="title"><strong>Figure 22.60. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18892"><p class="title"><strong>Figure 21.60. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-the-degree-of-a-node-by-direction.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-the-degree-of-a-node-by-direction.svg" alt="Final-Graph-Get-the-degree-of-a-node-by-direction.svg" /></span>
 </a>
@@ -139,7 +139,7 @@ Specify <code class="literal">all</code>, <code class="literal">in</code> or <co
 
 <p>If you are only interested in the degree of a particular relationship type, or a set of relationship types, you specify relationship types after the direction.
 You can combine multiple relationship types by using the <code class="literal">&amp;</code> character.</p>
-<div class="figure" id="d5e18982"><p class="title"><strong>Figure 22.61. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e18931"><p class="title"><strong>Figure 21.61. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-the-degree-of-a-node-by-direction-and-types.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-the-degree-of-a-node-by-direction-and-types.svg" alt="Final-Graph-Get-the-degree-of-a-node-by-direction-and-types.svg" /></span>
 </a>

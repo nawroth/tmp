@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>27.2. Server and Embedded -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="backup-introduction.html" title="27.1. Introducing Backup" /><link rel="next" href="backup-java.html" title="27.3. Online Backup from Java" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="27.2. Server and Embedded" /><script type="text/javascript">
+    <title>26.2. Server and Embedded -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="backup-introduction.html" title="26.1. Introducing Backup" /><link rel="next" href="backup-java.html" title="26.3. Online Backup from Java" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.2. Server and Embedded" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75824";
+      var treeCookieId = "treeview-75973";
       var language = "en";
       var w = new Object();
       //Localization
@@ -68,8 +68,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>27.2. Server and Embedded</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="backup-introduction.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-backup.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="backup-java.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="backup-embedded-and-server"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">27.2. Server and Embedded</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="backup-embedded-and-server.html#_incremental_backups">Incremental Backups</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.2. Server and Embedded</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="backup-introduction.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-backup.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="backup-java.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="backup-embedded-and-server"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.2. Server and Embedded</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="backup-embedded-and-server.html#_incremental_backups">Incremental Backups</a></span></li></ul></div>
 
 <pre class="programlisting" data-lang="shell"># Performing a full backup: create a blank directory and run the backup tool
 mkdir /mnt/backup/neo4j-backup
@@ -102,7 +102,7 @@ If the existing directory contains a backup from a previous database version.
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Note that when copying the outstanding transactions, the backup tool needs
 access to the historical logical logs. These logical logs are kept by Neo4j and
 automatically removed after a period of time, based on the
-<a class="link" href="configuration-logical-logs.html" title="25.7. Logical logs"><code class="literal">keep_logical_logs</code> configuration</a>. If the
+<a class="link" href="configuration-logical-logs.html" title="24.7. Logical logs"><code class="literal">keep_logical_logs</code> configuration</a>. If the
 required logical logs have already been removed, the backup tool will do a full
 backup instead.</p></td></tr></table></div>
 </section>
