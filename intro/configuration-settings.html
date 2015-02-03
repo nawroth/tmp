@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>24.5. Configuration Settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="performance-guide.html" title="24.4. Performance Guide" /><link rel="next" href="configuration-caches.html" title="24.6. Caches in Neo4j" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.5. Configuration Settings" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -194,7 +194,7 @@ If you use the embedded database, you can pass them in as a map (see <a class="x
 </div></div>
 <div class="table" id="config_logical_log_rotation_threshold"><p class="title"><strong>logical_log_rotation_threshold</strong></p><div class="table-contents">
 
-<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Specifies at which file size the logical log will auto-rotate. <code class="literal">0</code> means that no rotation will automatically occur based on file size.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">logical_log_rotation_threshold</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">250M</code></p></td></tr></tbody></table>
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Specifies at which file size the logical log will auto-rotate. <code class="literal">0</code> means that no rotation will automatically occur based on file size.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">logical_log_rotation_threshold</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>) which is minimum <code class="literal">1048576</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">250M</code></p></td></tr></tbody></table>
 </div></div>
 <div class="table" id="config_lucene_searcher_cache_size"><p class="title"><strong>lucene_searcher_cache_size</strong></p><div class="table-contents">
 

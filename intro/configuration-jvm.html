@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>24.8. JVM Settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="configuration-logical-logs.html" title="24.7. Logical logs" /><link rel="next" href="short-strings.html" title="24.9. Compressed storage of short strings" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.8. JVM Settings" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -104,7 +104,7 @@ Otherwise there is a risk of getting out-of-memory exceptions.
 The soft reference and strong reference caches are well suited for applications were the overal throughput is important.</p>
 <p>The weak reference cache basically needs enough heap to handle the peak load of the application — peak load multiplied by the average memory required per request.
 It is well suited for low latency requirements were GC interuptions are not acceptable.</p>
-<div class="table" id="d5e24035"><p class="title"><strong>Guidelines for heap size</strong></p><div class="table-contents">
+<div class="table" id="d5e24040"><p class="title"><strong>Guidelines for heap size</strong></p><div class="table-contents">
 
 
 

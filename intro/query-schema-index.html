@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>14.1. Indexes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-schema.html" title="Chapter 14. Schema" /><link rel="next" href="query-constraints.html" title="14.2. Constraints" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.1. Indexes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@ These indexes are automatically managed and kept up to date by the database when
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE INDEX ON :Person(name)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14419"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14423"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`Person`(`name`)
 create (_0:`Person` {`name`:"Andres"})
 create (_1:`Person` {`name`:"Mark"})
@@ -95,7 +95,7 @@ create _0-[:`KNOWS`]-&gt;_1
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">DROP INDEX ON :Person(name)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14442"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Indexes removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14446"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Indexes removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`Person`(`name`)
 create (_0:`Person` {`name`:"Andres"})
 create (_1:`Person` {`name`:"Mark"})
@@ -110,7 +110,7 @@ create _0-[:`KNOWS`]-&gt;_1
 </p><pre class="programlisting" data-lang="cypher">MATCH (person:Person { name: 'Andres' })
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14468"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14472"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`Person`(`name`)
 create (_0:`Person` {`name`:"Andres"})
 create (_1:`Person` {`name`:"Mark"})
@@ -126,7 +126,7 @@ create _0-[:`KNOWS`]-&gt;_1
 WHERE person.name = 'Andres'
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14496"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14500"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`Person`(`name`)
 create (_0:`Person` {`name`:"Andres"})
 create (_1:`Person` {`name`:"Mark"})
@@ -142,7 +142,7 @@ create _0-[:`KNOWS`]-&gt;_1
 WHERE person.name IN ['Andres', 'Mark']
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14526"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Mark"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14530"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Mark"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`Person`(`name`)
 create (_0:`Person` {`name`:"Andres"})
 create (_1:`Person` {`name`:"Mark"})

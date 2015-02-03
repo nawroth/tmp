@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>10.6. Unwind -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-with.html" title="10.5. With" /><link rel="next" href="query-union.html" title="10.7. Union" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.6. Unwind" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -84,7 +84,7 @@ Another is to create data from parameter collections that are provided to the qu
 RETURN x</pre><p>
 </p>
 <p>Each value of the original collection is returned as an individual row.</p>
-<div class="queryresult table" id="d5e7495"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7497"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
 </span><span class="command"><strong>UNWIND [1,2,3] as x RETURN x</strong></span></p>
 </section>
@@ -97,7 +97,7 @@ WITH DISTINCT x
 RETURN collect(x) AS SET</pre><p>
 </p>
 <p>Each value of the original collection is unwound and passed through <code class="literal">DISTINCT</code> to create a unique set.</p>
-<div class="queryresult table" id="d5e7533"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>set</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[1,2]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7535"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>set</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[1,2]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
 </span><span class="command"><strong>WITH [1,1,2,2] as coll UNWIND coll as x WITH DISTINCT x RETURN collect(x) as set</strong></span></p>
 </section>
@@ -123,7 +123,7 @@ RETURN e.id AS x
 ORDER BY x</pre><p>
 </p>
 <p>Each value of the original collection is unwound and passed through <code class="literal">MERGE</code> to find or create the nodes and relationships.</p>
-<div class="queryresult table" id="d5e7567"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e7569"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Nodes created: 3
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Properties set: 3

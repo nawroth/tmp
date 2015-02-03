@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>24.11. Memory mapped IO settings -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="short-arrays.html" title="24.10. Compressed storage of short arrays" /><link rel="next" href="linux-performance-guide.html" title="24.12. Linux Performance Guide" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.11. Memory mapped IO settings" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -75,7 +75,7 @@
 
 <p>Each file in the Neo4j store is accessed through the Neo4j page cache, when reading from, or writing to, the store files.
 Since there is only one page cache, there is only one setting for specifying how much memory Neo4j is allowed to use for page caching.
-The shared page cache ensures that memory is split across the various store files in the most optimal manner <a href="#ftn.d5e24312" class="footnote"><sup class="footnote" id="d5e24312">[1]</sup></a>, depending on how the database is used and what data is popular.</p>
+The shared page cache ensures that memory is split across the various store files in the most optimal manner <a href="#ftn.d5e24317" class="footnote"><sup class="footnote" id="d5e24317">[1]</sup></a>, depending on how the database is used and what data is popular.</p>
 <p>The memory for the page cache is allocated outside the normal Java heap, so you need to take both the Java heap, and the page cache, into consideration in your capacity planning.
 Other processes running on the OS will impact the availability of such memory. Neo4j will require all of the heap memory of the JVM, plus the memory to be used for the page cache, to be available as physical memory.
 Other processes may thus not use more than what is available after the configured memory allocation is made for Neo4j.</p>
@@ -103,7 +103,7 @@ A rough formula to calculate the memory needed can look like this:</p>
              + number_of_properties * 64</pre>
 <p>Note that the size of the individual property very much depends on what data it contains. The numbers given in the above formula are only a rough estimate.</p>
 </section>
-<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e24312" class="footnote"><p><a href="#d5e24312" class="simpara"><sup class="simpara">[1] </sup></a>This is an informal comparison to the store-specific memory mapping settings of previous versions of Neo4j. We are not claiming that our page replacement algorithms are optimal in the formal sense. Truly optimal page replacement algorithms require knowledge of events arbitrarily far into the future.</p></div></div></section>
+<div class="footnotes"><br /><hr style="width:100; text-align:left;margin-left: 0" /><div id="ftn.d5e24317" class="footnote"><p><a href="#d5e24317" class="simpara"><sup class="simpara">[1] </sup></a>This is an informal comparison to the store-specific memory mapping settings of previous versions of Neo4j. We are not claiming that our page replacement algorithms are optimal in the formal sense. Truly optimal page replacement algorithms require knowledge of events arbitrarily far into the future.</p></div></div></section>
 
  <footer>
    <p>

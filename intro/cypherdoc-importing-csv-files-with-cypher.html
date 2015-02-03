@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.8. Importing CSV files with Cypher -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-create-unique.html" title="12.7. Create Unique" /><link rel="next" href="query-periodic-commit.html" title="12.9. Using Periodic Commit" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.8. Importing CSV files with Cypher" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -122,8 +122,9 @@ Creating a unique constraint also creates a unique index (which is faster than a
 <pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (movie:Movie) ASSERT movie.id IS UNIQUE</pre>
 <p>Now importing the relationships is a matter of finding the nodes and then creating relationships between them.</p>
 <p>For this query we’ll use <code class="literal">USING PERIODIC COMMIT</code> (see <a class="xref" href="query-periodic-commit.html" title="12.9. Using Periodic Commit">Section 12.9, “Using Periodic Commit”</a>) which is helpful for queries that operate on large CSV files.
-This hint tells Neo4j that the query might build up inordinate amounts of transaction state, and so needs to be periodically committed.</p>
-<pre class="programlisting" data-lang="cypher">USING PERIODIC COMMIT
+This hint tells Neo4j that the query might build up inordinate amounts of transaction state, and so needs to be periodically committed.
+In this case we also set the limit to <code class="literal">500</code> rows per commit.</p>
+<pre class="programlisting" data-lang="cypher">USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.2-SNAPSHOT/csv/import/roles.csv" AS csvLine
 MATCH (person:Person { id: toInt(csvLine.personId)}),(movie:Movie { id: toInt(csvLine.movieId)})
 CREATE (person)-[:PLAYED { role: csvLine.role }]-&gt;(movie)</pre>

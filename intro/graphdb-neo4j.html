@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>2.1. The Neo4j Graph Database -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="graphdb-concepts.html" title="Chapter 2. Graph Database Concepts" /><link rel="next" href="tutorial-comparing-models.html" title="2.2. Comparing Database Models" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.1. The Neo4j Graph Database" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75973";
+      var treeCookieId = "treeview-75988";
       var language = "en";
       var w = new Object();
       //Localization
@@ -108,21 +108,22 @@ Let’s add two more nodes and one more property on the node in the previous exa
 <section class="section" id="graphdb-neo4j-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationships</h3></div></div></div>
 
 <div class="abstract">
-<p>Relationships organize the nodes.
+<p>Relationships organize the nodes by connecting them.
+A relationship connects two nodes, a start node and an end node.
 Just like nodes, relationships can have properties.</p>
 </div>
 <p>Relationships between nodes are a key part of a graph database.
 They allow for finding related data.
 Just like nodes, relationships can have <a class="link" href="graphdb-neo4j.html#graphdb-neo4j-properties" title="Properties">properties</a>.</p>
 <p>A relationship connects two nodes, and is guaranteed to have valid start and end nodes.</p>
-<p>Relationships organize Nodes into arbitrary structures, allowing a graph to resemble a list, a tree, a map, or a compound entity — any of which can be combined into yet more complex, richly inter-connected structures.</p>
+<p>Relationships organize nodes into arbitrary structures, allowing a graph to resemble a list, a tree, a map, or a compound entity — any of which can be combined into yet more complex, richly inter-connected structures.</p>
 <p>Our example graph will make a lot more sense once we add relationships to it:</p>
 <div class="informalfigure">
 <a class="ulink" href="images/graphdb-simple-rels.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-simple-rels.svg" alt="graphdb-simple-rels.svg" /></span>
 </a>
 </div>
-<p>Our example uses <code class="literal">ACTED_IN</code> and <code class="literal">DIRECTED</code> relationship types.
+<p>Our example uses <code class="literal">ACTED_IN</code> and <code class="literal">DIRECTED</code> as relationship types.
 The <code class="literal">roles</code> property on the <code class="literal">ACTED_IN</code> relationship has an array value with a single item in it.</p>
 <p>Below is an <code class="literal">ACTED_IN</code> relationship, with the <code class="literal">Tom Hanks</code> node as <span class="emphasis"><em>start node</em></span> and <code class="literal">Forrest Gump</code> as <span class="emphasis"><em>end node</em></span>.</p>
 <div class="informalfigure">
@@ -143,15 +144,14 @@ The <code class="literal">roles</code> property on the <code class="literal">ACT
 </a>
 </div>
 <p>The example above would mean that <code class="literal">Tom Hanks</code> <code class="literal">KNOWS</code> himself.</p>
-<p>To further enhance graph traversal all relationships have a relationship type.
-Note that the word <span class="emphasis"><em>type</em></span> might be misleading here, you could rather think of it as a <span class="emphasis"><em>name</em></span>.</p>
+<p>To further enhance graph traversal all relationships have a relationship type.</p>
 <p>Let’s have a look at what can be found by simply following the relationships of a node in our example graph:</p>
 <div class="informalfigure">
 <a class="ulink" href="images/graphdb-simple-rels.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-simple-rels.svg" alt="graphdb-simple-rels.svg" /></span>
 </a>
 </div>
-<div class="table" id="d5e242"><p class="title"><strong>Using relationship direction and type</strong></p><div class="table-contents">
+<div class="table" id="d5e240"><p class="title"><strong>Using relationship direction and type</strong></p><div class="table-contents">
 
 <table cellspacing="0" cellpadding="0"><thead><tr><th> What we want to know </th><th> Start from </th><th> Relationship type </th><th> Direction</th></tr></thead><tbody><tr><td><p>get actors in movie</p></td><td><p>movie node</p></td><td><p><code class="literal">ACTED_IN</code></p></td><td><p>incoming</p></td></tr><tr><td><p>get movies with actor</p></td><td><p>person node</p></td><td><p><code class="literal">ACTED_IN</code></p></td><td><p>outgoing</p></td></tr><tr><td><p>get directors of movie</p></td><td><p>movie node</p></td><td><p><code class="literal">DIRECTED</code></p></td><td><p>incoming</p></td></tr><tr><td><p>get movies directed by</p></td><td><p>person node</p></td><td><p><code class="literal">DIRECTED</code></p></td><td><p>outgoing</p></td></tr></tbody></table>
 </div></div>
@@ -182,7 +182,7 @@ Collections of any other type of value.
 
 <p><code class="literal">NULL</code>s can instead be modeled by the absence of a key.</p>
 </td></tr></table></div>
-<p>For further details on property values, see <a class="xref" href="tutorials-java-embedded-property-values.html" title="35.3. Property values">Section 35.3, “Property values”</a>.</p>
+<p>For further details on supported property values, see <a class="xref" href="property-values-detailed.html" title="35.3. Property values">Section 35.3, “Property values”</a>.</p>
 </section>
 <section class="section" id="graphdb-neo4j-labels"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Labels</h3></div></div></div>
 
@@ -222,9 +222,9 @@ For instance, <code class="literal">User</code> or <code class="literal">CarOwne
 <section class="section" id="graphdb-neo4j-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Traversal</h3></div></div></div>
 
 <div class="abstract">
-<p>A Traversal navigates a Graph; it identifies Paths which order Nodes.</p>
+<p>A Traversal navigates through a graph to find paths.</p>
 </div>
-<p>A Traversal is how you query a Graph, navigating from starting Nodes to related Nodes, finding answers to questions like “what music do my friends like that I don’t yet own,” or “if this power supply goes down, what web services are affected?”</p>
+<p>A Traversal is how you query a Graph, navigating from starting nodes to related nodes, finding answers to questions like “what music do my friends like that I don’t yet own,” or “if this power supply goes down, what web services are affected?”</p>
 <p>Traversing a graph means visiting its nodes, following relationships according to some rules.
 In most cases only a subgraph is visited, as you already know where in the graph the interesting nodes and relationships are found.</p>
 <p>Cypher provides a declarative way to query the graph powered by traversals and other techniques.
@@ -265,17 +265,21 @@ At a basic level there’s a choice between traversing breadth- or depth-first.<
 </section>
 <section class="section" id="graphdb-neo4j-schema"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Schema</h3></div></div></div>
 
-<p>Neo4j is a schema-optional graph database.
-You can use Neo4j without any schema.
+<div class="abstract">
+<p>Neo4j is a schema-optional graph database.</p>
+</div>
+<p>You can use Neo4j without any schema.
 Optionally you can introduce it in order to gain performance or modeling benefits.
 This allows a way of working where the schema does not get in your way until you are at a stage where you want to reap the benefits of having one.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Schema commands can only be applied on the master machine in a Neo4j cluster (see <a class="xref" href="ha.html" title="Chapter 25. High Availability">Chapter 25, <em>High Availability</em></a>).
 If you apply them on a slave you will receive a <code class="literal">Neo.ClientError.Transaction.InvalidType</code> error code (see <a class="xref" href="status-codes.html" title="21.2. Neo4j Status Codes">Section 21.2, “Neo4j Status Codes”</a>).</p></td></tr></table></div>
 <section class="section" id="graphdb-neo4j-schema-indexes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Indexes</h4></div></div></div>
 
+<div class="abstract">
+<p>Performance is gained by creating indexes, which improve the speed of looking up nodes in the database.</p>
+</div>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This feature was introduced in Neo4j 2.0, and is not the same as the legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 37. Legacy Indexing">Chapter 37, <em>Legacy Indexing</em></a>).</p></td></tr></table></div>
-<p>Performance is gained by creating indexes, which improve the speed of looking up nodes in the database.
-Once you’ve specified which properties to index, Neo4j will make sure your indexes are kept up to date as your graph evolves.
+<p>Once you’ve specified which properties to index, Neo4j will make sure your indexes are kept up to date as your graph evolves.
 Any operation that looks up nodes by the newly indexed properties will see a significant performance boost.</p>
 <p>Indexes in Neo4j are <span class="emphasis"><em>eventually available</em></span>.
 That means that when you first create an index the operation returns immediately.
