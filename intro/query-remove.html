@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.5. Remove -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-delete.html" title="12.4. Delete" /><link rel="next" href="query-foreach.html" title="12.6. Foreach" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.5. Remove" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,7 +71,9 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.5. Remove</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-delete.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-foreach.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-remove"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.5. Remove</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-remove.html#remove-remove-a-property">Remove a property</a></span></li><li><span class="section"><a href="query-remove.html#remove-remove-a-label-from-a-node">Remove a label from a node</a></span></li><li><span class="section"><a href="query-remove.html#remove-removing-multiple-labels">Removing multiple labels</a></span></li></ul></div>
 
-<p>Removing properties and labels from graph elements is done using <code class="literal">REMOVE</code>.</p>
+<div class="abstract">
+<p>The <code class="literal">REMOVE</code> clause is used to remove properties and labels from graph elements.</p>
+</div>
 <p>For deleting nodes and relationships, see <a class="xref" href="query-delete.html" title="12.4. Delete">Section 12.4, “Delete”</a>.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Removing labels from a node is an idempotent operation:
 If you try to remove a label from a node that does not have that label on it, nothing happens.
@@ -91,7 +93,7 @@ REMOVE andres.age
 RETURN andres</pre><p>
 </p>
 <p>The node is returned, and no property <code class="literal">age</code> exists on it.</p>
-<div class="queryresult table" id="d5e11443"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>andres</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11450"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>andres</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Swedish` {`age`:25, `name`:"Tobias"})
 create (_1:`Swedish`:`German` {`age`:34, `name`:"Peter"})
@@ -109,7 +111,7 @@ create _2-[:`KNOWS`]-&gt;_0
 REMOVE n:German
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e11473"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11480"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels removed: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Swedish` {`age`:25, `name`:"Tobias"})
 create (_1:`Swedish`:`German` {`age`:34, `name`:"Peter"})
@@ -127,7 +129,7 @@ create _2-[:`KNOWS`]-&gt;_0
 REMOVE n:German:Swedish
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e11503"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11510"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels removed: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Swedish` {`age`:25, `name`:"Tobias"})
 create (_1:`Swedish`:`German` {`age`:34, `name`:"Peter"})

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>29.3. Import Tool Examples -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool-usage.html" title="29.2. Command Line Usage" /><link rel="next" href="tools-webadmin.html" title="Chapter 30. Web Interface" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.3. Import Tool Examples" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -235,7 +235,8 @@ In this example we’ll put the label <code class="literal">Movie</code> on ever
 </p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int
 tt0133093,"The Matrix",1999</pre><p>
 </p>
-<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>There’s then no need to specify the <code class="literal">:LABEL</code> field in the node file if you pass it as a command line option.</p></td></tr></table></div>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>There’s then no need to specify the <code class="literal">:LABEL</code> field in the node file if you pass it as a command line option.
+If you do then both the label provided in the file and the one provided on the command line will be added to the node.</p></td></tr></table></div>
 <p>And we’ll put the labels <code class="literal">Movie</code> and <code class="literal">Sequel</code> on the nodes specified in <code class="literal">sequels5.csv</code>.</p>
 <p><strong>sequels5.csv </strong>
 </p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int
@@ -266,9 +267,7 @@ carrieanne,"Trinity",tt0242653,ACTS_IN</pre><p>
 <section class="section" id="import-tool-same-relationship-type-for-every-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using the same relationship type for every relationship</h3></div></div></div>
 
 <p>If you want to use the same relationship type for every relationship in your relationships file you can do this by
-specifying
-the
-appropriate value as an option to <code class="literal">neo4j-import</code>.
+specifying the appropriate value as an option to <code class="literal">neo4j-import</code>.
 In this example we’ll put the relationship type <code class="literal">ACTS_IN</code> on every relationship specified in <code class="literal">roles6.csv</code>:</p>
 <p><strong>movies6.csv </strong>
 </p><pre class="programlisting" data-lang="plain">movieId:ID,title,year:int,:LABEL
@@ -294,6 +293,8 @@ carrieanne,"Trinity",tt0133093
 carrieanne,"Trinity",tt0234215
 carrieanne,"Trinity",tt0242653</pre><p>
 </p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>If you provide a relationship type on the command line and in the relationships file the one in the file will be
+applied.</p></td></tr></table></div>
 <p>The call to <code class="literal">neo4j-import</code> would look like this:</p>
 <pre class="programlisting" data-lang="plain">neo4j-import --into path_to_target_directory --nodes movies6.csv --nodes actors6.csv --relationships:ACTS_IN roles6.csv</pre>
 </section>

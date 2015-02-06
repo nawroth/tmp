@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.7. Create Unique -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-foreach.html" title="12.6. Foreach" /><link rel="next" href="cypherdoc-importing-csv-files-with-cypher.html" title="12.8. Importing CSV files with Cypher" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.7. Create Unique" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,6 +71,9 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.7. Create Unique</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-foreach.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-importing-csv-files-with-cypher.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-create-unique"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.7. Create Unique</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-create-unique.html#_introduction_5">Introduction</a></span></li><li><span class="section"><a href="query-create-unique.html#_create_unique_nodes">Create unique nodes</a></span></li><li><span class="section"><a href="query-create-unique.html#_create_unique_relationships">Create unique relationships</a></span></li><li><span class="section"><a href="query-create-unique.html#create-unique-describe-complex-pattern">Describe complex pattern</a></span></li></ul></div>
 
+<div class="abstract">
+<p>The <code class="literal">CREATE UNIQUE</code> clause is a mix of <code class="literal">MATCH</code> and <code class="literal">CREATE</code> — it will match what it can, and create what is missing.</p>
+</div>
 <section class="section" id="_introduction_5"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Introduction</h3></div></div></div>
 
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p><code class="literal"><a class="link" href="query-merge.html" title="12.2. Merge">MERGE</a></code> might be what you want to use instead of <code class="literal">CREATE UNIQUE</code>.
@@ -99,7 +102,7 @@ CREATE UNIQUE (root)-[:LOVES]-(someone)
 RETURN someone</pre><p>
 </p>
 <p>The root node doesn’t have any <code class="literal">LOVES</code> relationships, and so a node is created, and also a relationship to that node.</p>
-<div class="queryresult table" id="d5e11619"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>someone</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11634"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>someone</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"A"})
@@ -122,7 +125,7 @@ CREATE UNIQUE (root)-[:X]-(leaf { name:'D' })
 RETURN leaf</pre><p>
 </p>
 <p>No node connected with the root node has the name <code class="literal">D</code>, and so a new node is created to match the pattern.</p>
-<div class="queryresult table" id="d5e11653"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>leaf</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11668"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>leaf</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"D"}</code></p></td></tr></tbody></table></div></div>
@@ -146,7 +149,7 @@ CREATE UNIQUE (a)-[:KNOWS]-(c:blue)
 RETURN c</pre><p>
 </p>
 <p>The A node is connected in a <code class="literal">KNOWS</code> relationship to the c node, but since C doesn’t have the <code class="literal">:blue</code> label, a new node labeled as <code class="literal">:blue</code> is created along with a <code class="literal">KNOWS</code> relationship from A to it.</p>
-<div class="queryresult table" id="d5e11691"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>c</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11706"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>c</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{}</code></p></td></tr></tbody></table></div></div>
@@ -174,7 +177,7 @@ CREATE UNIQUE (lft)-[r:KNOWS]-&gt;(rgt)
 RETURN r</pre><p>
 </p>
 <p>The left node is matched agains the two right nodes. One relationship already exists and can be matched, and the other relationship is created before it is returned.</p>
-<div class="queryresult table" id="d5e11728"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e11743"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[4]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[3]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"A"})
 create (_1 {`name`:"root"})
@@ -196,7 +199,7 @@ CREATE UNIQUE (root)-[r:X { since:'forever' }]-()
 RETURN r</pre><p>
 </p>
 <p>In this example, we want the relationship to have a value, and since no such relationship can be found, a new node and relationship are created. Note that since we are not interested in the created node, we don’t name it.</p>
-<div class="queryresult table" id="d5e11762"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11777"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:X[4]{since:"forever"}</code></p></td></tr></tbody></table></div></div>
@@ -221,7 +224,7 @@ CREATE UNIQUE (root)-[:FOO]-&gt;(x),(root)-[:BAR]-&gt;(x)
 RETURN x</pre><p>
 </p>
 <p>This example pattern uses two paths, separated by a comma.</p>
-<div class="queryresult table" id="d5e11799"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11814"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"A"})

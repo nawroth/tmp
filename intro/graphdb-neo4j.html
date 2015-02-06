@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>2.1. The Neo4j Graph Database -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="graphdb-concepts.html" title="Chapter 2. Graph Database Concepts" /><link rel="next" href="tutorial-comparing-models.html" title="2.2. Comparing Database Models" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.1. The Neo4j Graph Database" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,6 +72,7 @@
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="graphdb-concepts.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="graphdb-concepts.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorial-comparing-models.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="graphdb-neo4j"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">2.1. The Neo4j Graph Database</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-nodes">Nodes</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-relationships">Relationships</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-properties">Properties</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-labels">Labels</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-traversal">Traversal</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-paths">Paths</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-schema">Schema</a></span></li></ul></div>
 
 <p>A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way.</p>
+<p>For terminology around graph databases, see <a class="xref" href="terminology.html" title="Terminology">Terminology</a>.</p>
 <p>Here’s an example graph which we will approach step by step in the following sections:</p>
 <div class="informalfigure">
 <a class="ulink" href="images/graphdb-simple-labels.svg" target="_blank">
@@ -151,14 +152,16 @@ The <code class="literal">roles</code> property on the <code class="literal">ACT
 <span class="inlinemediaobject"><img src="images/graphdb-simple-rels.svg" alt="graphdb-simple-rels.svg" /></span>
 </a>
 </div>
-<div class="table" id="d5e240"><p class="title"><strong>Using relationship direction and type</strong></p><div class="table-contents">
+<div class="table" id="d5e242"><p class="title"><strong>Using relationship direction and type</strong></p><div class="table-contents">
 
 <table cellspacing="0" cellpadding="0"><thead><tr><th> What we want to know </th><th> Start from </th><th> Relationship type </th><th> Direction</th></tr></thead><tbody><tr><td><p>get actors in movie</p></td><td><p>movie node</p></td><td><p><code class="literal">ACTED_IN</code></p></td><td><p>incoming</p></td></tr><tr><td><p>get movies with actor</p></td><td><p>person node</p></td><td><p><code class="literal">ACTED_IN</code></p></td><td><p>outgoing</p></td></tr><tr><td><p>get directors of movie</p></td><td><p>movie node</p></td><td><p><code class="literal">DIRECTED</code></p></td><td><p>incoming</p></td></tr><tr><td><p>get movies directed by</p></td><td><p>person node</p></td><td><p><code class="literal">DIRECTED</code></p></td><td><p>outgoing</p></td></tr></tbody></table>
 </div></div>
 </section>
 <section class="section" id="graphdb-neo4j-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Properties</h3></div></div></div>
 
+<div class="abstract">
 <p>Both nodes and relationships can have properties.</p>
+</div>
 <p>Properties are named values where the name is a string.
 The supported property values are:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -222,9 +225,9 @@ For instance, <code class="literal">User</code> or <code class="literal">CarOwne
 <section class="section" id="graphdb-neo4j-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Traversal</h3></div></div></div>
 
 <div class="abstract">
-<p>A Traversal navigates through a graph to find paths.</p>
+<p>A traversal navigates through a graph to find paths.</p>
 </div>
-<p>A Traversal is how you query a Graph, navigating from starting nodes to related nodes, finding answers to questions like “what music do my friends like that I don’t yet own,” or “if this power supply goes down, what web services are affected?”</p>
+<p>A traversal is how you query a graph, navigating from starting nodes to related nodes, finding answers to questions like “what music do my friends like that I don’t yet own,” or “if this power supply goes down, what web services are affected?”</p>
 <p>Traversing a graph means visiting its nodes, following relationships according to some rules.
 In most cases only a subgraph is visited, as you already know where in the graph the interesting nodes and relationships are found.</p>
 <p>Cypher provides a declarative way to query the graph powered by traversals and other techniques.

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9.6. Patterns -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-comments.html" title="9.5. Comments" /><link rel="next" href="syntax-collections.html" title="9.7. Collections" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.6. Patterns" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -101,7 +101,7 @@ is described in more details in:</p>
 
 <p>The very simplest “shape” that can be described in a pattern is a node. A node is described using a pair of parentheses, and is typically given a name.
 For example:</p>
-<p><code class="literal"><code class="literal">(a)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)</pre>
 <p>This simple pattern describes a single node, and names that node using the identifier <code class="literal">a</code>.</p>
 <p>Note that the parentheses may be omitted, but only when there are no labels or properties specified for the node pattern.</p>
 </section>
@@ -110,33 +110,33 @@ For example:</p>
 <p>More interesting is patterns that describe multiple nodes and relationships between them.
 Cypher patterns describe relationships by employing an arrow between two nodes.
 For example:</p>
-<p><code class="literal"><code class="literal">(a)--&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)--&gt;(b)</pre>
 <p>This pattern describes a very simple data shape: two nodes, and a single relationship from one to the other.
 In this example, the two nodes are both named as <code class="literal">a</code> and <code class="literal">b</code> respectively, and the relationship is “directed”: it goes from <code class="literal">a</code> to <code class="literal">b</code>.</p>
 <p>This way of describing nodes and relationships can be extended to cover an arbitrary number of nodes and the relationships between them, for example:</p>
-<p><code class="literal"><code class="literal">(a)--&gt;(b)&lt;--(c)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)--&gt;(b)&lt;--(c)</pre>
 <p>Such a series of connected nodes and relationships is called a "path".</p>
 <p>Note that the naming of the nodes in these patterns is only necessary should one need to refer to the same node again, either later in the pattern or elsewhere in the Cypher query.
 If this is not necessary then the name may be omitted, like so:</p>
-<p><code class="literal"><code class="literal">(a)--&gt;()&lt;--(c)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)--&gt;()&lt;--(c)</pre>
 </section>
 <section class="section" id="_labels_2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Labels</h3></div></div></div>
 
 <p>In addition to simply describing the shape of a node in the pattern, one can also describe attributes.
 The most simple attribute that can be described in the pattern is a label that the node must have.
 For example:</p>
-<p><code class="literal"><code class="literal">(a:User)--&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a:User)--&gt;(b)</pre>
 <p>One can also describe a node that has multiple labels:</p>
-<p><code class="literal"><code class="literal">(a:User:Admin)--&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a:User:Admin)--&gt;(b)</pre>
 </section>
 <section class="section" id="_specifying_properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Specifying properties</h3></div></div></div>
 
 <p>Nodes and relationships are the fundamental structures in a graph. Neo4j uses properties on both of these to allow for far richer models.</p>
 <p>Properties can be expressed in patterns using a map-construct: curly brackets surrounding a number of key-expression pairs, separated by commas.
-E.g. a node with two properties on it would look like:
-<code class="literal"><code class="literal">(a { name: "Andres", sport: "Brazilian Ju-Jitsu" })</code>.</code></p>
-<p>A relationship with expectations on it would could look like:
-<code class="literal"><code class="literal">(a)-[{blocked: false}]-&gt;(b)</code>.</code></p>
+E.g. a node with two properties on it would look like:</p>
+<pre class="programlisting" data-lang="cypher">(a { name: "Andres", sport: "Brazilian Ju-Jitsu" })</pre>
+<p>A relationship with expectations on it would could look like:</p>
+<pre class="programlisting" data-lang="cypher">(a)-[{blocked: false}]-&gt;(b)</pre>
 <p>When properties appear in patterns, they add an additional constraint to the shape of the data.
 In the case of a <code class="literal">CREATE</code> clause, the properties will be set in the newly created nodes and relationships.
 In the case of a <code class="literal">MERGE</code> clause, the properties will be used as additional constraints on the shape any existing data must have (the specified properties must exactly match any existing data in the graph).
@@ -149,47 +149,47 @@ This is not possible with patterns used in other clauses, as Cypher needs to kno
 <p>The simplest way to describe a relationship is by using the arrow between two nodes, as in the previous examples.
 Using this technique, you can describe that the relationship should exist and the directionality of it.
 If you don’t care about the direction of the relationship, the arrow head can be omitted, like so:</p>
-<p><code class="literal"><code class="literal">(a)--(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)--(b)</pre>
 <p>As with nodes, relationships may also be given names.
 In this case, a pair of square brackets is used to break up the arrow and the identifier is placed between.
 For example:</p>
-<p><code class="literal"><code class="literal">(a)-[r]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[r]-&gt;(b)</pre>
 <p>Much like labels on nodes, relationships can have types.
 To describe a relationship with a specific type, you can specify this like so:</p>
-<p><code class="literal"><code class="literal">(a)-[r:REL_TYPE]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[r:REL_TYPE]-&gt;(b)</pre>
 <p>Unlike labels, relationships can only have one type.
 But if we’d like to describe some data such that the relationship could have any one of a set of types, then they can all be listed in the pattern, separating them with the pipe symbol <code class="literal">|</code> like this:</p>
-<p><code class="literal"><code class="literal">(a)-[r:TYPE1|TYPE2]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[r:TYPE1|TYPE2]-&gt;(b)</pre>
 <p>Note that this form of pattern can only be used to describe existing data (ie. when using a pattern with <code class="literal">MATCH</code> or as an expression).
 It will not work with <code class="literal">CREATE</code> or <code class="literal">MERGE</code>, since it’s not possible to create a relationship with multiple types.</p>
 <p>As with nodes, the name of the relationship can always be omitted, in this case like so:</p>
-<p><code class="literal"><code class="literal">(a)-[:REL_TYPE]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[:REL_TYPE]-&gt;(b)</pre>
 <section class="section" id="_variable_length"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Variable length</h4></div></div></div>
 
 <p>Rather than describing a long path using a sequence of many node and relationship descriptions in a pattern, many relationships (and the intermediate nodes) can be described by specifying a length in the relationship description of a pattern.
 For example:</p>
-<p><code class="literal"><code class="literal">(a)-[*2]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[*2]-&gt;(b)</pre>
 <p>This describes a graph of three nodes and two relationship, all in one path (a path of length 2).
 This is equivalent to:</p>
-<p><code class="literal"><code class="literal">(a)--&gt;()--&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)--&gt;()--&gt;(b)</pre>
 <p>A range of lengths can also be specified: such relationship patterns are called “variable length relationships”.
 For example:</p>
-<p><code class="literal"><code class="literal">(a)-[*3..5]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[*3..5]-&gt;(b)</pre>
 <p>This is a minimum length of 3, and a maximum of 5.
 It describes a graph of either 4 nodes and 3 relationships, 5 nodes and 4 relationships or 6 nodes and 5 relationships, all connected together in a single path.</p>
 <p>Either bound can be omitted. For example, to describe paths of length 3 or more, use:</p>
-<p><code class="literal"><code class="literal">(a)-[*3..]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[*3..]-&gt;(b)</pre>
 <p>And to describe paths of length 5 or less, use:</p>
-<p><code class="literal"><code class="literal">(a)-[*..5]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[*..5]-&gt;(b)</pre>
 <p>Both bounds can be omitted, allowing paths of any length to be described:</p>
-<p><code class="literal"><code class="literal">(a)-[*]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">(a)-[*]-&gt;(b)</pre>
 <p>As a simple example, let’s take the query below:</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (me)-[:KNOWS*1..2]-(remote_friend)
 WHERE me.name = "Filipa"
 RETURN remote_friend.name</pre><p>
 </p>
-<div class="queryresult table" id="d5e6054"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>remote_friend.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Dilshad"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6025"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>remote_friend.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Dilshad"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Dilshad"})
 create (_1 {`name`:"Emil"})
 create (_2 {`name`:"Filipa"})
@@ -215,7 +215,7 @@ This is a typical example of finding first and second degree friends.</p>
 
 <p>As described above, a series of connected nodes and relationships is called a "path". Cypher allows paths to be named
 using an identifer, like so:</p>
-<p><code class="literal"><code class="literal">p = (a)-[*3..5]-&gt;(b)</code></code></p>
+<pre class="programlisting" data-lang="cypher">p = (a)-[*3..5]-&gt;(b)</pre>
 <p>You can do this in <code class="literal">MATCH</code>, <code class="literal">CREATE</code> and <code class="literal">MERGE</code>, but not when using patterns as expressions.</p>
 </section>
 </section>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.16. Semi Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-select-or-semi-apply.html" title="15.15. Select Or Semi Apply" /><link rel="next" href="query-plan-skip.html" title="15.17. Skip" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.16. Semi Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -93,10 +93,10 @@ RETURN other</pre><p>
 +-----------------+---------------+------+--------+-------------+-----------------------------+
 |        Operator | EstimatedRows | Rows | DbHits | Identifiers |                       Other |
 +-----------------+---------------+------+--------+-------------+-----------------------------+
-|       SemiApply |             4 |    2 |      0 |       other |                             |
-| NodeByLabelScan |             5 |    5 |      6 |       other |                     :Person |
-|     Expand(All) |             2 |    0 |      5 |       other | (other)-[:FRIENDS_WITH]-&gt;() |
-|        Argument |             5 |    5 |      0 |       other |                             |
+|       SemiApply |         4,000 |    2 |      0 |       other |                             |
+| NodeByLabelScan |         5,000 |    5 |      6 |       other |                     :Person |
+|     Expand(All) |         2,000 |    0 |      5 |       other | (other)-[:FRIENDS_WITH]-&gt;() |
+|        Argument |         5,000 |    5 |      0 |       other |                             |
 +-----------------+---------------+------+--------+-------------+-----------------------------+
 
 Total database accesses: 11</pre><p>

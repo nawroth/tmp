@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>10.8. Using -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-union.html" title="10.7. Union" /><link rel="next" href="query-read.html" title="Chapter 11. Reading Clauses" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.8. Using" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,13 +71,16 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>10.8. Using</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-union.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-general.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-read.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-using"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">10.8. Using</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-using.html#using-query-using-an-index-hint">Query using an index hint</a></span></li><li><span class="section"><a href="query-using.html#using-query-using-multiple-index-hints">Query using multiple index hints</a></span></li><li><span class="section"><a href="query-using.html#using-hinting-a-label-scan">Hinting a label scan</a></span></li></ul></div>
 
+<div class="abstract">
+<p><code class="literal">USING</code> is used to give Neo4j hints about which index to use, or to scan instead of using an index.</p>
+</div>
 <p>If you do not specify an explicit <code class="literal">START</code> clause, Cypher needs to infer where in the graph to start your query.
-This is done by looking at the <code class="literal">WHERE</code> clause and the <code class="literal">MATCH</code> clause and using that information to find a useful index.</p>
-<p>This index might not be the best choice though — sometimes multiple indexes could be used, and Cypher has picked the wrong one (from a performance point of view).</p>
-<p>You can force Cypher to use a specific starting point by using the <code class="literal">USING</code> clause.
-This is called giving Cypher an index hint.</p>
+This is done by looking at the <code class="literal">MATCH</code> clause and the <code class="literal">WHERE</code> conditions and using that information to find a useful index.</p>
+<p>This index might not be the best choice though — sometimes multiple indexes could be used, and Neo4j has picked the wrong one (from a performance point of view).</p>
+<p>You can force Neo4j to use a specific starting point through the <code class="literal">USING</code> clause.
+This is called giving an index hint.</p>
 <p>If your query matches large parts of an index, it might be faster to scan the label and filter out nodes that do not match.
-To do this, you can use <code class="literal">USING</code> <code class="literal">SCAN</code>.
+To do this, you can use <code class="literal">USING SCAN</code>.
 It will force Cypher to not use an index that could have been used, and instead do a label scan.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>You cannot use index hints if your query has a <code class="literal">START</code> clause.</p></td></tr></table></div>
 <section class="section" id="using-query-using-an-index-hint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Query using an index hint</h3></div></div></div>
@@ -90,7 +93,7 @@ WHERE n.surname = 'Taylor'
 RETURN n</pre><p>
 </p>
 <p>The query result is returned as usual.</p>
-<div class="queryresult table" id="d5e7719"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",age:36,awesome:true,surname:"Taylor"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7705"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",age:36,awesome:true,surname:"Taylor"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`Swedish`(`surname`)
 create (_0 {`name`:"Emil"})
 create (_1:`German` {`name`:"Stefan", `surname`:"Plantikow"})
@@ -113,7 +116,7 @@ WHERE m.surname = 'Plantikow' AND n.surname = 'Taylor'
 RETURN m</pre><p>
 </p>
 <p>The query result is returned as usual.</p>
-<div class="queryresult table" id="d5e7749"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7735"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create index on :`German`(`surname`)
 create index on :`Swedish`(`surname`)
 create (_0 {`name`:"Emil"})
@@ -136,7 +139,7 @@ WHERE m.surname = 'Plantikow'
 RETURN m</pre><p>
 </p>
 <p>This query does its work by finding all <code class="literal">:German</code> labeled nodes and filtering them by the surname property.</p>
-<div class="queryresult table" id="d5e7780"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7766"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>m</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan",surname:"Plantikow"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Emil"})
 create (_1:`German` {`name`:"Stefan", `surname`:"Plantikow"})
 create (_2 {`age`:34, `name`:"Peter"})

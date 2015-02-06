@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>7.1. How to use the REST API from Java -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="languages.html" title="Chapter 7. Languages" /><link rel="next" href="cypher-query-lang.html" title="Cypher Query Language" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="7.1. How to use the REST API from Java" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,8 @@ which are easily <a class="ulink" href="https://jersey.java.net/nonav/documentat
 </section>
 <section class="section" id="_start_the_server"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Start the server</h3></div></div></div>
 
-<p>Before we can perform any actions on the server, we need to start it as per <a class="xref" href="server-installation.html" title="23.2. Server Installation">Section 23.2, “Server Installation”</a>.</p>
+<p>Before we can perform any actions on the server, we need to start it as per <a class="xref" href="server-installation.html" title="23.2. Server Installation">Section 23.2, “Server Installation”</a>.
+Next up, we’ll check the connection to the server:</p>
 <pre class="programlisting" data-lang="java">WebResource resource = Client.create()
         .resource( SERVER_ROOT_URI );
 ClientResponse response = resource.get( ClientResponse.class );

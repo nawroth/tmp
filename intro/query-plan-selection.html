@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.13. Selection -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-optional-expand.html" title="15.12. Optional Expand" /><link rel="next" href="query-plan-select-or-anti-semi-apply.html" title="15.14. Select Or Anti Semi Apply" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.13. Selection" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -86,8 +86,8 @@ RETURN p</pre><p>
 +-----------------+---------------+------+--------+-------------+------------------------------------------+
 |        Operator | EstimatedRows | Rows | DbHits | Identifiers |                                    Other |
 +-----------------+---------------+------+--------+-------------+------------------------------------------+
-|          Filter |             4 |    0 |     10 |           p | Property(p,name(0)) ~= /{  AUTOSTRING0}/ |
-| NodeByLabelScan |             5 |    5 |      6 |           p |                                  :Person |
+|          Filter |         4,000 |    0 |     10 |           p | Property(p,name(0)) ~= /{  AUTOSTRING0}/ |
+| NodeByLabelScan |         5,000 |    5 |      6 |           p |                                  :Person |
 +-----------------+---------------+------+--------+-------------+------------------------------------------+
 
 Total database accesses: 16</pre><p>

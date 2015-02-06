@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>3.9. Cypher vs. SQL -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-loading-data.html" title="3.8. Loading Data" /><link rel="next" href="cypher-intro-applications.html" title="Chapter 4. Use Cypher in an application" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="3.9. Cypher vs. SQL" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -174,7 +174,7 @@ We’ll come back to schema later, for now it’s enough to know that labels can
 Simply put, the parentheses denote nodes, while the arrows (<code class="literal">--&gt;</code>, or in our case with a relationship type included <code class="literal">-[:DIRECTED]-&gt;</code>) denote relationships.
 For the nodes we set identifiers like <code class="literal">TheMatrix</code> so we can easily refer to them later on in the statement.
 Note that the identifiers are scoped to the statement, and not visible to other Cypher statements.
-We could use identifiers for the relationships as well, but we don’t need that in this case.</p>
+We could use identifiers for the relationships as well, but there’s no need for that in this case.</p>
 <pre class="programlisting" data-lang="cypher">CREATE (TheMatrix:Movie { title:'The Matrix', released:1999, tagline:'Welcome to the Real World' })
 CREATE (Keanu:Person { name:'Keanu Reeves', born:1964 })
 CREATE (Carrie:Person { name:'Carrie-Anne Moss', born:1967 })
@@ -203,7 +203,7 @@ CREATE (Keanu)-[:ACTED_IN { roles: ['Kevin Lomax']}]-&gt;(TheDevilsAdvocate),
 </section>
 <section class="section" id="_simple_read_of_data"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Simple read of data</h3></div></div></div>
 
-<p>Let’s find all entries in the <code class="literal">movie</code> table and output their <code class="literal">title</code> attribute:</p>
+<p>Let’s find all entries in the <code class="literal">movie</code> table and output their <code class="literal">title</code> attribute in our RDBMS:</p>
 <pre class="programlisting" data-lang="sql">SELECT movie.title
 FROM movie;</pre>
 <div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>TITLE</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">The Matrix</code></p></td></tr><tr><td><p><code class="literal">The Devil's Advocate</code></p></td></tr><tr><td><p><code class="literal">Monster</code></p></td></tr></tbody></table></div>

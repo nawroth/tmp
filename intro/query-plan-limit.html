@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.6. Limit -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-expand.html" title="15.5. Expand" /><link rel="next" href="query-plan-node-by-label-scan.html" title="15.7. Node by label scan" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.6. Limit" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -86,8 +86,8 @@ LIMIT 3</pre><p>
 +-----------------+---------------+------+--------+-------------+--------------+
 |        Operator | EstimatedRows | Rows | DbHits | Identifiers |        Other |
 +-----------------+---------------+------+--------+-------------+--------------+
-|           Limit |             5 |    3 |      0 |           p | {  AUTOINT0} |
-| NodeByLabelScan |             5 |    3 |      4 |           p |      :Person |
+|           Limit |         5,000 |    3 |      0 |           p | {  AUTOINT0} |
+| NodeByLabelScan |         5,000 |    3 |      4 |           p |      :Person |
 +-----------------+---------------+------+--------+-------------+--------------+
 
 Total database accesses: 4</pre><p>

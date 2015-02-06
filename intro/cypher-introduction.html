@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>8.1. What is Cypher? -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-intro.html" title="Chapter 8. Introduction" /><link rel="next" href="query-updating.html" title="8.2. Updating the graph" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.1. What is Cypher?" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -91,7 +91,7 @@ Some of the collection semantics have been borrowed from languages such as Haske
 </section>
 <section class="section" id="cypher-structure"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Structure</h3></div></div></div>
 
-<p>Cypher borrows it structure from SQL — queries are built up using various clauses.</p>
+<p>Cypher borrows its structure from SQL — queries are built up using various clauses.</p>
 <p>Clauses are chained together, and the they feed intermediate result sets between each other.
 For example, the matching identifiers from one <code class="literal">MATCH</code> clause will be the context that the next clause exists in.</p>
 <p>The query language is comprised of several distinct clauses.
@@ -114,23 +114,23 @@ You can read more details about them later in the manual.</p>
 </li></ul></div>
 <p>Let’s see <code class="literal">MATCH</code> and <code class="literal">RETURN</code> in action.</p>
 <p>Imagine an example graph like the following one:</p>
-<div class="figure" id="d5e5083"><p class="title"><strong>Figure 8.1. Example Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e5090"><p class="title"><strong>Figure 8.1. Example Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Example-Graph-cypher-intro.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Example-Graph-cypher-intro.svg" alt="Example-Graph-cypher-intro.svg" /></span>
 </a>
 </div></div>
 <p>For example, here is a query which finds a user called John and John’s friends (though not his direct friends) before returning both John and any friends-of-friends that are found.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (john {name: 'John'})-[:friend]-&gt;()-[:friend]-&gt;(fof)
-RETURN john, fof</pre>
+RETURN john.name, fof.name</pre>
 <p>Resulting in:</p>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>john</th><th>fof</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"John"}</code></p></td><td><p><code class="literal">Node[1]{name:"Maria"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"John"}</code></p></td><td><p><code class="literal">Node[2]{name:"Steve"}</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>john.name</th><th>fof.name</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"John"</code></p></td><td><p><code class="literal">"Maria"</code></p></td></tr><tr><td><p><code class="literal">"John"</code></p></td><td><p><code class="literal">"Steve"</code></p></td></tr></tbody></table></div>
 <p>Next up we will add filtering to set more parts in motion:</p>
 <p>We take a list of user names and find all nodes with names from this list, match their friends and return only those followed users who have a <code class="literal">name</code> property starting with <code class="literal">S</code>.</p>
 <pre class="programlisting" data-lang="cypher">MATCH (user)-[:friend]-&gt;(follower)
 WHERE user.name IN ['Joe', 'John', 'Sara', 'Maria', 'Steve'] AND follower.name =~ 'S.*'
-RETURN user, follower.name</pre>
+RETURN user.name, follower.name</pre>
 <p>Resulting in:</p>
-<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>user</th><th>follower.name</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"John"}</code></p></td><td><p><code class="literal">"Sara"</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"Joe"}</code></p></td><td><p><code class="literal">"Steve"</code></p></td></tr></tbody></table></div>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>user.name</th><th>follower.name</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"John"</code></p></td><td><p><code class="literal">"Sara"</code></p></td></tr><tr><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">"Steve"</code></p></td></tr></tbody></table></div>
 <p>And here are examples of clauses that are used to update the graph:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 

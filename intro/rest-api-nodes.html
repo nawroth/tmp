@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.8. Nodes -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-property-values.html" title="21.7. Property values" /><link rel="next" href="rest-api-relationships.html" title="21.9. Relationships" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.8. Nodes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -73,7 +73,7 @@
 
 <section class="section" id="rest-api-create-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node</h3></div></div></div>
 
-<div class="figure" id="d5e17159"><p class="title"><strong>Figure 21.13. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17214"><p class="title"><strong>Figure 21.13. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-create-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-create-node.svg" alt="Final-Graph-create-node.svg" /></span>
 </a>
@@ -104,10 +104,10 @@
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/29/relationships/out",
   "labels" : "http://localhost:7474/db/data/node/29/labels",
-  "traverse" : "http://localhost:7474/db/data/node/29/traverse/{returnType}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/29/relationships/out",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/29/relationships/all/{-list|&amp;|types}",
+  "traverse" : "http://localhost:7474/db/data/node/29/traverse/{returnType}",
   "self" : "http://localhost:7474/db/data/node/29",
   "property" : "http://localhost:7474/db/data/node/29/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/29/properties",
@@ -126,7 +126,7 @@
 </section>
 <section class="section" id="rest-api-create-node-with-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node with properties</h3></div></div></div>
 
-<div class="figure" id="d5e17201"><p class="title"><strong>Figure 21.14. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17256"><p class="title"><strong>Figure 21.14. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-create-node-with-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-create-node-with-properties.svg" alt="Final-Graph-create-node-with-properties.svg" /></span>
 </a>
@@ -168,10 +168,10 @@
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/25/relationships/out",
   "labels" : "http://localhost:7474/db/data/node/25/labels",
-  "traverse" : "http://localhost:7474/db/data/node/25/traverse/{returnType}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/25/relationships/out",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/25/relationships/all/{-list|&amp;|types}",
+  "traverse" : "http://localhost:7474/db/data/node/25/traverse/{returnType}",
   "self" : "http://localhost:7474/db/data/node/25",
   "property" : "http://localhost:7474/db/data/node/25/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/25/properties",
@@ -194,7 +194,7 @@
 
 <p>Note that the response contains URI/templates for the available
 operations for getting properties and relationships.</p>
-<div class="figure" id="d5e17255"><p class="title"><strong>Figure 21.15. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17310"><p class="title"><strong>Figure 21.15. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-node.svg" alt="Final-Graph-Get-node.svg" /></span>
 </a>
@@ -221,10 +221,10 @@ operations for getting properties and relationships.</p>
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
   "extensions" : { },
-  "outgoing_relationships" : "http://localhost:7474/db/data/node/169/relationships/out",
   "labels" : "http://localhost:7474/db/data/node/169/labels",
-  "traverse" : "http://localhost:7474/db/data/node/169/traverse/{returnType}",
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/169/relationships/out",
   "all_typed_relationships" : "http://localhost:7474/db/data/node/169/relationships/all/{-list|&amp;|types}",
+  "traverse" : "http://localhost:7474/db/data/node/169/traverse/{returnType}",
   "self" : "http://localhost:7474/db/data/node/169",
   "property" : "http://localhost:7474/db/data/node/169/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/169/properties",
@@ -243,7 +243,7 @@ operations for getting properties and relationships.</p>
 </section>
 <section class="section" id="rest-api-get-non-existent-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get non-existent node</h3></div></div></div>
 
-<div class="figure" id="d5e17292"><p class="title"><strong>Figure 21.16. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17347"><p class="title"><strong>Figure 21.16. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-non-existent-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-non-existent-node.svg" alt="Final-Graph-Get-non-existent-node.svg" /></span>
 </a>
@@ -291,7 +291,7 @@ operations for getting properties and relationships.</p>
 </section>
 <section class="section" id="rest-api-delete-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete node</h3></div></div></div>
 
-<div class="figure" id="d5e17329"><p class="title"><strong>Figure 21.17. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17384"><p class="title"><strong>Figure 21.17. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Delete-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Delete-node.svg" alt="Final-Graph-Delete-node.svg" /></span>
 </a>
@@ -318,7 +318,7 @@ operations for getting properties and relationships.</p>
 
 <p>The relationships on a node has to be deleted before the node can be
 deleted.</p>
-<div class="figure" id="d5e17362"><p class="title"><strong>Figure 21.18. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17417"><p class="title"><strong>Figure 21.18. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" alt="Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" /></span>
 </a>

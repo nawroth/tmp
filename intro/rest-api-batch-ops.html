@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.19. Batch operations -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-graph-algos.html" title="21.18. Graph Algorithms" /><link rel="next" href="rest-api-indexes.html" title="21.20. Legacy indexing" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.19. Batch operations" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -96,7 +96,7 @@ descriptions:</p>
 <span class="inlinemediaobject"><img src="images/batch-request-api.png" alt="batch-request-api.png" /></span>
 </a>
 </div>
-<div class="figure" id="d5e19979"><p class="title"><strong>Figure 21.71. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e20034"><p class="title"><strong>Figure 21.71. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Execute-multiple-operations-in-batch.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Execute-multiple-operations-in-batch.svg" alt="Final-Graph-Execute-multiple-operations-in-batch.svg" /></span>
 </a>
@@ -158,10 +158,10 @@ descriptions:</p>
   "id" : 1,
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/228/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/228/labels",
-    "traverse" : "http://localhost:7474/db/data/node/228/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/228/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/228/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/228/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/228",
     "property" : "http://localhost:7474/db/data/node/228/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/228/properties",
@@ -185,10 +185,10 @@ descriptions:</p>
   "location" : "http://localhost:7474/db/data/node/229",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/229/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/229/labels",
-    "traverse" : "http://localhost:7474/db/data/node/229/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/229/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/229/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/229/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/229",
     "property" : "http://localhost:7474/db/data/node/229/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/229/properties",
@@ -212,10 +212,10 @@ descriptions:</p>
   "location" : "http://localhost:7474/db/data/node/230",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/230/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/230/labels",
-    "traverse" : "http://localhost:7474/db/data/node/230/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/230/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/230/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/230/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/230",
     "property" : "http://localhost:7474/db/data/node/230/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/230/properties",
@@ -243,7 +243,7 @@ created resource in subsequent job descriptions, within the same batch
 call.</p>
 <p>Use the <code class="literal">{[JOB ID]}</code> special syntax to inject URIs from created resources
 into JSON strings in subsequent job descriptions.</p>
-<div class="figure" id="d5e20025"><p class="title"><strong>Figure 21.72. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e20080"><p class="title"><strong>Figure 21.72. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Refer-to-items-created-earlier-in-the-same-batch-job.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Refer-to-items-created-earlier-in-the-same-batch-job.svg" alt="Final-Graph-Refer-to-items-created-earlier-in-the-same-batch-job.svg" /></span>
 </a>
@@ -312,10 +312,10 @@ into JSON strings in subsequent job descriptions.</p>
   "location" : "http://localhost:7474/db/data/node/220",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/220/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/220/labels",
-    "traverse" : "http://localhost:7474/db/data/node/220/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/220/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/220/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/220/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/220",
     "property" : "http://localhost:7474/db/data/node/220/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/220/properties",
@@ -339,10 +339,10 @@ into JSON strings in subsequent job descriptions.</p>
   "location" : "http://localhost:7474/db/data/node/221",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/221/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/221/labels",
-    "traverse" : "http://localhost:7474/db/data/node/221/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/221/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/221/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/221/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/221",
     "property" : "http://localhost:7474/db/data/node/221/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/221/properties",
@@ -406,7 +406,7 @@ into JSON strings in subsequent job descriptions.</p>
 </section>
 <section class="section" id="rest-api-execute-multiple-operations-in-batch-streaming"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute multiple operations in batch streaming</h3></div></div></div>
 
-<div class="figure" id="d5e20068"><p class="title"><strong>Figure 21.73. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e20123"><p class="title"><strong>Figure 21.73. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-execute-multiple-operations-in-batch-streaming.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-execute-multiple-operations-in-batch-streaming.svg" alt="Final-Graph-execute-multiple-operations-in-batch-streaming.svg" /></span>
 </a>
@@ -475,10 +475,10 @@ into JSON strings in subsequent job descriptions.</p>
   "from" : "/node/113",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/113/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/113/labels",
-    "traverse" : "http://localhost:7474/db/data/node/113/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/113/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/113/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/113/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/113",
     "property" : "http://localhost:7474/db/data/node/113/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/113/properties",
@@ -502,10 +502,10 @@ into JSON strings in subsequent job descriptions.</p>
   "from" : "/node",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/114/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/114/labels",
-    "traverse" : "http://localhost:7474/db/data/node/114/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/114/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/114/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/114/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/114",
     "property" : "http://localhost:7474/db/data/node/114/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/114/properties",
@@ -530,10 +530,10 @@ into JSON strings in subsequent job descriptions.</p>
   "from" : "/node",
   "body" : {
     "extensions" : { },
-    "outgoing_relationships" : "http://localhost:7474/db/data/node/115/relationships/out",
     "labels" : "http://localhost:7474/db/data/node/115/labels",
-    "traverse" : "http://localhost:7474/db/data/node/115/traverse/{returnType}",
+    "outgoing_relationships" : "http://localhost:7474/db/data/node/115/relationships/out",
     "all_typed_relationships" : "http://localhost:7474/db/data/node/115/relationships/all/{-list|&amp;|types}",
+    "traverse" : "http://localhost:7474/db/data/node/115/traverse/{returnType}",
     "self" : "http://localhost:7474/db/data/node/115",
     "property" : "http://localhost:7474/db/data/node/115/properties/{key}",
     "properties" : "http://localhost:7474/db/data/node/115/properties",

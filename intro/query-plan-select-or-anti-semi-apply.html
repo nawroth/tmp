@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.14. Select Or Anti Semi Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-selection.html" title="15.13. Selection" /><link rel="next" href="query-plan-select-or-semi-apply.html" title="15.15. Select Or Semi Apply" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.14. Select Or Anti Semi Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -90,10 +90,10 @@ RETURN other</pre><p>
 +-----------------------+---------------+------+--------+-------------+------------------------------------+
 |              Operator | EstimatedRows | Rows | DbHits | Identifiers |                              Other |
 +-----------------------+---------------+------+--------+-------------+------------------------------------+
-| SelectOrAntiSemiApply |             2 |    3 |      5 |       other | Property(other,age) &gt; {  AUTOINT0} |
-|       NodeByLabelScan |             5 |    5 |      6 |       other |                            :Person |
-|           Expand(All) |             2 |    0 |      5 |       other |        (other)-[:FRIENDS_WITH]-&gt;() |
-|              Argument |             5 |    5 |      0 |       other |                                    |
+| SelectOrAntiSemiApply |         2,000 |    3 |      5 |       other | Property(other,age) &gt; {  AUTOINT0} |
+|       NodeByLabelScan |         5,000 |    5 |      6 |       other |                            :Person |
+|           Expand(All) |         2,000 |    0 |      5 |       other |        (other)-[:FRIENDS_WITH]-&gt;() |
+|              Argument |         5,000 |    5 |      0 |       other |                                    |
 +-----------------------+---------------+------+--------+-------------+------------------------------------+
 
 Total database accesses: 16</pre><p>

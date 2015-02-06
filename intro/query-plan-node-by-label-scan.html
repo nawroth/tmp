@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.7. Node by label scan -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-limit.html" title="15.6. Limit" /><link rel="next" href="query-plan-node-by-id-seek.html" title="15.8. Node by Id seek" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.7. Node by label scan" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -85,8 +85,8 @@ RETURN person</pre><p>
 +-----------------+---------------+------+--------+-------------+---------------------------------------------+
 |        Operator | EstimatedRows | Rows | DbHits | Identifiers |                                       Other |
 +-----------------+---------------+------+--------+-------------+---------------------------------------------+
-|          Filter |             1 |    1 |     10 |      person | Property(person,name(0)) == {  AUTOSTRING0} |
-| NodeByLabelScan |             5 |    5 |      6 |      person |                                     :Person |
+|          Filter |         1,000 |    1 |     10 |      person | Property(person,name(0)) == {  AUTOSTRING0} |
+| NodeByLabelScan |         5,000 |    5 |      6 |      person |                                     :Person |
 +-----------------+---------------+------+--------+-------------+---------------------------------------------+
 
 Total database accesses: 16</pre><p>

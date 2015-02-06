@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.19. Sorted Limit -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-sort.html" title="15.18. Sort" /><link rel="next" href="query-plan-undirected-relationship-by-id-seek.html" title="15.20. Undirected Relationship By Id Seek" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.19. Sorted Limit" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -93,11 +93,11 @@ LIMIT 2</pre><p>
 +-----------------+---------------+------+--------+------------------------------------+----------------+
 |        Operator | EstimatedRows | Rows | DbHits |                        Identifiers |          Other |
 +-----------------+---------------+------+--------+------------------------------------+----------------+
-|   Projection(0) |             5 |    2 |      0 |   FRESHID24,   FRESHID37,   p@7, p |              p |
-|             Top |             5 |    2 |      0 |      FRESHID24,   FRESHID37,   p@7 | {  AUTOINT0};  |
-|   Projection(1) |             5 |    5 |     10 |      FRESHID24,   FRESHID37,   p@7 |             ,  |
-|   Projection(2) |             5 |    5 |      0 |                   FRESHID24,   p@7 |                |
-| NodeByLabelScan |             5 |    5 |      6 |                                p@7 |        :Person |
+|   Projection(0) |         5,000 |    2 |      0 |   FRESHID24,   FRESHID37,   p@7, p |              p |
+|             Top |         5,000 |    2 |      0 |      FRESHID24,   FRESHID37,   p@7 | {  AUTOINT0};  |
+|   Projection(1) |         5,000 |    5 |     10 |      FRESHID24,   FRESHID37,   p@7 |             ,  |
+|   Projection(2) |         5,000 |    5 |      0 |                   FRESHID24,   p@7 |                |
+| NodeByLabelScan |         5,000 |    5 |      6 |                                p@7 |        :Person |
 +-----------------+---------------+------+--------+------------------------------------+----------------+
 
 Total database accesses: 16</pre><p>

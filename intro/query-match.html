@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.1. Match -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-read.html" title="Chapter 11. Reading Clauses" /><link rel="next" href="query-optional-match.html" title="11.2. Optional Match" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.1. Match" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,29 +71,30 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>11.1. Match</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-read.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-read.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-optional-match.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-match"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.1. Match</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-match.html#_introduction_2">Introduction</a></span></li><li><span class="section"><a href="query-match.html#_basic_node_finding">Basic node finding</a></span></li><li><span class="section"><a href="query-match.html#_relationship_basics">Relationship basics</a></span></li><li><span class="section"><a href="query-match.html#_relationships_in_depth">Relationships in depth</a></span></li><li><span class="section"><a href="query-match.html#_shortest_path">Shortest path</a></span></li><li><span class="section"><a href="query-match.html#_get_node_or_relationship_by_id">Get node or relationship by id</a></span></li></ul></div>
 
+<div class="abstract">
+<p>The <code class="literal">MATCH</code> clause is used to search for the pattern described in it.</p>
+</div>
 <section class="section" id="_introduction_2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Introduction</h3></div></div></div>
 
-<p>The <code class="literal">MATCH</code> clause allows you to specify the patterns Cypher will search for in the database, and
-it is the primary way of getting data into the current set of bindings.
+<p>The <code class="literal">MATCH</code> clause allows you to specify the patterns Neo4j will search for in the database.
+This is the primary way of getting data into the current set of bindings.
 It is worth reading up more on the specification of the patterns themselves in <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Section 9.6, “Patterns”</a>.</p>
-<p>It is often coupled to a <code class="literal">WHERE</code> clause which adds restrictions, or predicates, to the <code class="literal">MATCH</code> patterns, making them more specific.
+<p><code class="literal">MATCH</code> is often coupled to a <code class="literal">WHERE</code> clause which adds restrictions, or predicates, to the <code class="literal">MATCH</code> patterns, making them more specific.
 The predicates are part of the pattern description, not a filter applied after the matching is done.
-This means that <code class="literal">WHERE</code> should always be put together with the <code class="literal">MATCH</code> clause it belongs to.</p>
+<span class="emphasis"><em>This means that <code class="literal">WHERE</code> should always be put together with the <code class="literal">MATCH</code> clause it belongs to.</em></span></p>
 <p><code class="literal">MATCH</code> can occur at the beginning of the query or later, possibly after a <code class="literal">WITH</code>.
-If it is the first, nothing will have been bound yet,
-and Cypher will design a search to find the results matching the clause and any associated predicates specified in any <code class="literal">WHERE</code> clause.
-This could involve a scan of the database, a search for nodes of a certain label,
-or a search of an index to find starting points for the pattern matching.
-Nodes and relationships found by this search are available as <span class="emphasis"><em>bound pattern elements</em></span>, and can be used for pattern matching of sub-graphs,
-as well as used in any further <code class="literal">MATCH</code> clauses, where Cypher will use the known elements, and from there find further unknown elements.</p>
+If it is the first clause, nothing will have been bound yet, and Neo4j will design a search to find the results matching the clause and any associated predicates specified in any <code class="literal">WHERE</code> clause.
+This could involve a scan of the database, a search for nodes of a certain label, or a search of an index to find starting points for the pattern matching.
+Nodes and relationships found by this search are available as <span class="emphasis"><em>bound pattern elements,</em></span> and can be used for pattern matching of sub-graphs.
+They can also be used in any further <code class="literal">MATCH</code> clauses, where Neo4j will use the known elements, and from there find further unknown elements.</p>
 <p>Cypher is declarative, and so usually the query itself does not specify the algorithm to use to perform the search.
-Cypher will automatically work out the best approach to finding start nodes and matching patterns.
+Neo4j will automatically work out the best approach to finding start nodes and matching patterns.
 Predicates in <code class="literal">WHERE</code> clauses can be evaluated before pattern matching, during pattern matching, or after finding matches.
 However, there are cases where you can influence the decisions taken by the query compiler.
-Read more about indexes in <a class="xref" href="query-schema-index.html" title="14.1. Indexes">Section 14.1, “Indexes”</a>, and more about the specifying index hints to force Cypher to use a specific index in <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
+Read more about indexes in <a class="xref" href="query-schema-index.html" title="14.1. Indexes">Section 14.1, “Indexes”</a>, and more about the specifying index hints to force Neo4j to use a specific index in <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>To understand more about the patterns used in the <code class="literal">MATCH</code> clause, read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Section 9.6, “Patterns”</a>.</p></td></tr></table></div>
 <p>The following graph is used for the examples below:</p>
-<div class="figure" id="d5e7830"><p class="title"><strong>Figure 11.1. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7821"><p class="title"><strong>Figure 11.1. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-match-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-match-graph.svg" alt="cypher-match-graph.svg" /></span>
 </a>
@@ -109,7 +110,7 @@ Read more about indexes in <a class="xref" href="query-schema-index.html" title=
 RETURN n</pre><p>
 </p>
 <p>Returns all the nodes in the database.</p>
-<div class="queryresult table" id="d5e7848"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>7 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"TheAmericanPresident",title:"The American President"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7839"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>7 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"TheAmericanPresident",title:"The American President"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -136,7 +137,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN movie</pre><p>
 </p>
 <p>Returns all the movies in the database.</p>
-<div class="queryresult table" id="d5e7900"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"TheAmericanPresident",title:"The American President"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7891"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"TheAmericanPresident",title:"The American President"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -163,7 +164,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN movie.title</pre><p>
 </p>
 <p>Returns all the movies directed by Oliver Stone.</p>
-<div class="queryresult table" id="d5e7934"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7925"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -190,7 +191,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN movie</pre><p>
 </p>
 <p>Return any nodes connected with the <code class="literal">Person</code> Charlie that are labeled <code class="literal">Movie</code>.</p>
-<div class="queryresult table" id="d5e7964"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7955"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -220,7 +221,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN movie.title</pre><p>
 </p>
 <p>Returns nodes connected to Martin by outgoing relationships.</p>
-<div class="queryresult table" id="d5e7996"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The American President"</code></p></td></tr><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7987"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The American President"</code></p></td></tr><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -247,7 +248,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN r</pre><p>
 </p>
 <p>Returns all outgoing relationships from Martin.</p>
-<div class="queryresult table" id="d5e8028"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[3]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8019"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[3]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -274,7 +275,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN actor</pre><p>
 </p>
 <p>Returns nodes that <code class="literal">ACTED_IN</code> Wall Street.</p>
-<div class="queryresult table" id="d5e8061"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8052"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -301,7 +302,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN person</pre><p>
 </p>
 <p>Returns nodes with a <code class="literal">ACTED_IN</code> or <code class="literal">DIRECTED</code> relationship to Wall Street.</p>
-<div class="queryresult table" id="d5e8100"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8091"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -328,7 +329,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN r</pre><p>
 </p>
 <p>Returns nodes that <code class="literal">ACTED_IN</code> Wall Street.</p>
-<div class="queryresult table" id="d5e8141"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[2]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8132"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[2]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -360,7 +361,7 @@ You can read more about this in <a class="xref" href="cypherdoc-uniqueness.html"
 RETURN r</pre><p>
 </p>
 <p>Returns a relationship of a type with spaces in it.</p>
-<div class="queryresult table" id="d5e8183"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:TYPE THAT HAS SPACE IN IT[8]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8174"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:TYPE THAT HAS SPACE IN IT[8]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -388,7 +389,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN charlie,movie,director</pre><p>
 </p>
 <p>Returns the three nodes in the path.</p>
-<div class="queryresult table" id="d5e8212"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>charlie</th><th>movie</th><th>director</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8203"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>charlie</th><th>movie</th><th>director</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -415,7 +416,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN x</pre><p>
 </p>
 <p>Returns nodes that are 1 or 2 relationships away from Martin.</p>
-<div class="queryresult table" id="d5e8251"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"TheAmericanPresident",title:"The American President"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8242"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"TheAmericanPresident",title:"The American President"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -442,7 +443,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN r</pre><p>
 </p>
 <p>The query returns a collection of relationships.</p>
-<div class="queryresult table" id="d5e8295"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[2]{}]</code></p></td></tr><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[1]{}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8286"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[2]{}]</code></p></td></tr><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[1]{}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -482,7 +483,7 @@ WHERE charlie.name = 'Charlie Sheen' AND martin.name = 'Martin Sheen'
 RETURN p</pre><p>
 </p>
 <p>Returns the paths between Charlie and Martin Sheen where all relationships have the <code class="literal">blocked</code> property set to <code class="literal">FALSE</code>.</p>
-<div class="queryresult table" id="d5e8338"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[1]{name:"Charlie Sheen"},:X[8]{blocked:false},Node[7]{},:X[9]{blocked:false},Node[2]{name:"Martin Sheen"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8329"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[1]{name:"Charlie Sheen"},:X[8]{blocked:false},Node[7]{},:X[9]{blocked:false},Node[2]{name:"Martin Sheen"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -509,7 +510,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN x</pre><p>
 </p>
 <p>Returns all nodes that are zero or one relationships away from Wall Street.</p>
-<div class="queryresult table" id="d5e8366"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8357"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -536,7 +537,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN p</pre><p>
 </p>
 <p>Returns the two paths starting from Michael.</p>
-<div class="queryresult table" id="d5e8410"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[4]{},Node[3]{name:"TheAmericanPresident",title:"The American President"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[2]{},Node[4]{name:"WallStreet",title:"Wall Street"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8401"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[4]{},Node[3]{name:"TheAmericanPresident",title:"The American President"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[2]{},Node[4]{name:"WallStreet",title:"Wall Street"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -565,7 +566,7 @@ WHERE id(r)= 0
 RETURN a,b</pre><p>
 </p>
 <p>This returns the two connected nodes, once as the start node, and once as the end node.</p>
-<div class="queryresult table" id="d5e8442"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th><th>b</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8433"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th><th>b</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -598,7 +599,7 @@ RETURN p</pre><p>
 <p>This means: find a single shortest path between two nodes, as long as the path is max 15 relationships long. Inside of the parentheses
  you define a single link of a path — the starting node, the connecting relationship and the end node. Characteristics describing the relationship
  like relationship type, max hops and direction are all used when finding the shortest path. You can also mark the path as optional.</p>
-<div class="queryresult table" id="d5e8485"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:DIRECTED[5]{},Node[0]{name:"Oliver Stone"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8476"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:DIRECTED[5]{},Node[0]{name:"Oliver Stone"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -630,7 +631,7 @@ create _6-[:`ACTED_IN`]-&gt;_4
 RETURN p</pre><p>
 </p>
 <p>Finds the two shortest paths between Martin and Michael.</p>
-<div class="queryresult table" id="d5e8513"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[3]{},Node[3]{name:"TheAmericanPresident",title:"The American President"},:ACTED_IN[4]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:ACTED_IN[2]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8504"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[3]{},Node[3]{name:"TheAmericanPresident",title:"The American President"},:ACTED_IN[4]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:ACTED_IN[2]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -667,7 +668,7 @@ WHERE id(n)= 1
 RETURN n</pre><p>
 </p>
 <p>The corresponding node is returned.</p>
-<div class="queryresult table" id="d5e8550"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8541"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -696,7 +697,7 @@ WHERE id(r)= 0
 RETURN r</pre><p>
 </p>
 <p>The relationship with id <code class="literal">0</code> is returned.</p>
-<div class="queryresult table" id="d5e8582"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8573"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})
@@ -724,7 +725,7 @@ WHERE id(n) IN [1, 2, 0]
 RETURN n</pre><p>
 </p>
 <p>This returns the nodes listed in the <code class="literal">IN</code> expression.</p>
-<div class="queryresult table" id="d5e8611"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8602"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Oliver Stone"})
 create (_1:`Person` {`name`:"Charlie Sheen"})
 create (_2:`Person` {`name`:"Martin Sheen"})

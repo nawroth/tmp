@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.1. Create -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-write.html" title="Chapter 12. Writing Clauses" /><link rel="next" href="query-merge.html" title="12.2. Merge" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.1. Create" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,7 +71,9 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.1. Create</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-write.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-merge.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-create"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.1. Create</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-create.html#_create_nodes">Create nodes</a></span></li><li><span class="section"><a href="query-create.html#_create_relationships">Create relationships</a></span></li><li><span class="section"><a href="query-create.html#create-create-a-full-path">Create a full path</a></span></li><li><span class="section"><a href="query-create.html#_use_parameters_with_create">Use parameters with CREATE</a></span></li></ul></div>
 
-<p>Creating graph elements — nodes and relationships, is done with <code class="literal">CREATE</code>.</p>
+<div class="abstract">
+<p>The <code class="literal">CREATE</code> clause is used to create graph elements — nodes and relationships.</p>
+</div>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>In the <code class="literal">CREATE</code> clause, patterns are used a lot.
 Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Section 9.6, “Patterns”</a> for an introduction.</p></td></tr></table></div>
 <section class="section" id="_create_nodes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create nodes</h3></div></div></div>
@@ -83,7 +85,7 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n)</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e10197"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10199"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
 </span><span class="command"><strong>create (n)</strong></span></p>
 </section>
@@ -94,7 +96,7 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person)</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e10222"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e10224"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
 </span><span class="command"><strong>create (n:Person)</strong></span></p>
@@ -106,7 +108,7 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person:Swedish)</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e10249"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e10251"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
 </span><span class="command"><strong>create (n:Person:Swedish)</strong></span></p>
@@ -118,7 +120,7 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person { name : 'Andres', title : 'Developer' })</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e10276"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e10278"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
@@ -132,7 +134,7 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 RETURN a</pre><p>
 </p>
 <p>The newly created node is returned.</p>
-<div class="queryresult table" id="d5e10305"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10307"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none
@@ -151,7 +153,7 @@ CREATE (a)-[r:RELTYPE]-&gt;(b)
 RETURN r</pre><p>
 </p>
 <p>The created relationship is returned by the query.</p>
-<div class="queryresult table" id="d5e10339"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10341"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:RELTYPE[0]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Node A"})
 create (_1:`Person` {`name`:"Node B"})
@@ -168,7 +170,7 @@ CREATE (a)-[r:RELTYPE { name : a.name + '&lt;-&gt;' + b.name }]-&gt;(b)
 RETURN r</pre><p>
 </p>
 <p>The newly created relationship is returned by the example query.</p>
-<div class="queryresult table" id="d5e10369"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10371"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:RELTYPE[0]{name:"Node A&lt;-&gt;Node B"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0:`Person` {`name`:"Node A"})
@@ -186,7 +188,7 @@ will be created.</p>
 RETURN p</pre><p>
 </p>
 <p>This query creates three nodes and two relationships in one go, assigns it to a path identifier, and returns it.</p>
-<div class="queryresult table" id="d5e10402"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10404"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 3
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[0]{name:"Andres"},:WORKS_AT[0]{},Node[1]{},:WORKS_AT[1]{},Node[2]{name:"Michael"}]</code></p></td></tr></tbody></table></div></div>
@@ -212,7 +214,7 @@ In this case we add a <code class="literal">Person</code> label to the node as w
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10442"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10444"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
@@ -236,7 +238,7 @@ RETURN n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n { props })
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10477"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e10479"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Nodes created: 2
 </th></tr><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres",position:"Developer"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Michael",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
 </section>

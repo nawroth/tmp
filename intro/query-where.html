@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.3. Where -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-optional-match.html" title="11.2. Optional Match" /><link rel="next" href="query-start.html" title="11.4. Start" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.3. Where" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,13 +71,16 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>11.3. Where</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-optional-match.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-read.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-start.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-where"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.3. Where</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-where.html#_basic_usage">Basic usage</a></span></li><li><span class="section"><a href="query-where.html#_regular_expressions">Regular expressions</a></span></li><li><span class="section"><a href="query-where.html#query-where-patterns">Using patterns in WHERE</a></span></li><li><span class="section"><a href="query-where.html#_collections">Collections</a></span></li><li><span class="section"><a href="query-where.html#_missing_properties_and_values">Missing properties and values</a></span></li></ul></div>
 
-<p><code class="literal">WHERE</code> is not a clause in it’s own right — rather, it’s part of <code class="literal">MATCH</code>, <code class="literal">OPTIONAL</code> <code class="literal">MATCH</code>, <code class="literal">START</code> and <code class="literal">WITH</code>.</p>
+<div class="abstract">
+<p><code class="literal">WHERE</code> adds constraints to the patterns in an <code class="literal">(OPTIONAL)</code> <code class="literal">MATCH</code> clause or filters the results of a <code class="literal">WITH</code> clause.</p>
+</div>
+<p><code class="literal">WHERE</code> is not a clause in it’s own right — rather, it’s part of <code class="literal">MATCH</code>, <code class="literal">OPTIONAL MATCH</code>, <code class="literal">START</code> and <code class="literal">WITH</code>.</p>
 <p>In the case of <code class="literal">WITH</code> and <code class="literal">START</code>, <code class="literal">WHERE</code> simply filters the results.</p>
-<p>For <code class="literal">MATCH</code> and <code class="literal">OPTIONAL</code> <code class="literal">MATCH</code> on the other hand, <code class="literal">WHERE</code> adds constraints to the patterns described.
+<p>For <code class="literal">MATCH</code> and <code class="literal">OPTIONAL MATCH</code> on the other hand, <code class="literal">WHERE</code> adds constraints to the patterns described.
 It should not be seen as a filter after the matching is finished.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>In the case of multiple (<code class="literal">OPTIONAL</code>) <code class="literal">MATCH</code> clauses, the predicate in <code class="literal">WHERE</code> is always a part of the patterns in the directly preceding <code class="literal">MATCH</code>.
 Both results and performance may be impacted if the <code class="literal">WHERE</code> is put inside the wrong <code class="literal">MATCH</code> clause.</p></td></tr></table></div>
-<div class="figure" id="d5e8797"><p class="title"><strong>Figure 11.3. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e8792"><p class="title"><strong>Figure 11.3. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-where-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-where-graph.svg" alt="cypher-where-graph.svg" /></span>
 </a>
@@ -94,7 +97,7 @@ WHERE n.name = 'Peter' XOR (n.age &lt; 30 AND n.name = "Tobias") OR NOT (n.name 
 RETURN n</pre><p>
 </p>
 <p>This query shows how boolean operators can be used.</p>
-<div class="queryresult table" id="d5e8820"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8815"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -112,7 +115,7 @@ WHERE n:Swedish
 RETURN n</pre><p>
 </p>
 <p>The "<code class="literal">Andres</code>" node will be returned.</p>
-<div class="queryresult table" id="d5e8859"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8854"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -130,7 +133,7 @@ WHERE n.age &lt; 30
 RETURN n</pre><p>
 </p>
 <p>The "<code class="literal">Tobias</code>" node will be returned.</p>
-<div class="queryresult table" id="d5e8889"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8884"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -148,7 +151,7 @@ WHERE HAS (n.belt)
 RETURN n</pre><p>
 </p>
 <p>The node named "<code class="literal">Andres</code>" is returned.</p>
-<div class="queryresult table" id="d5e8919"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8914"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -169,7 +172,7 @@ WHERE n.name =~ 'Tob.*'
 RETURN n</pre><p>
 </p>
 <p>The "<code class="literal">Tobias</code>" node will be returned.</p>
-<div class="queryresult table" id="d5e8951"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8946"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -187,7 +190,7 @@ WHERE n.name =~ 'Some\/thing'
 RETURN n</pre><p>
 </p>
 <p>No nodes match this regular expression.</p>
-<div class="queryresult table" id="d5e8979"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>0 row</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8974"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>0 row</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -205,7 +208,7 @@ WHERE n.name =~ '(?i)ANDR.*'
 RETURN n</pre><p>
 </p>
 <p>The node with name "<code class="literal">Andres</code>" is returned.</p>
-<div class="queryresult table" id="d5e9009"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9004"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -234,7 +237,7 @@ WHERE others.name IN ['Andres', 'Peter'] AND (tobias)&lt;--(others)
 RETURN others</pre><p>
 </p>
 <p>Nodes that have an outgoing relationship to the "<code class="literal">Tobias</code>" node are returned.</p>
-<div class="queryresult table" id="d5e9054"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>others</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9049"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>others</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -252,7 +255,7 @@ WHERE NOT (persons)--&gt;(peter)
 RETURN persons</pre><p>
 </p>
 <p>Nodes that do not have an outgoing relationship to the "<code class="literal">Peter</code>" node are returned.</p>
-<div class="queryresult table" id="d5e9084"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>persons</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9079"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>persons</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -270,7 +273,7 @@ WHERE (n)-[:KNOWS]-({ name:'Tobias' })
 RETURN n</pre><p>
 </p>
 <p>Finds all nodes that have a <code class="literal">KNOWS</code> relationship to a node with the name <code class="literal">Tobias</code>.</p>
-<div class="queryresult table" id="d5e9118"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9113"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -288,7 +291,7 @@ WHERE n.name='Andres' AND type(r)=~ 'K.*'
 RETURN r</pre><p>
 </p>
 <p>This returns relationships that has a type whose name starts with K.</p>
-<div class="queryresult table" id="d5e9148"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[1]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9143"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[1]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[0]{}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -309,7 +312,7 @@ WHERE a.name IN ["Peter", "Tobias"]
 RETURN a</pre><p>
 </p>
 <p>This query shows how to check if a property exists in a literal collection.</p>
-<div class="queryresult table" id="d5e9183"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9178"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -330,7 +333,7 @@ WHERE n.belt = 'white'
 RETURN n</pre><p>
 </p>
 <p>Only nodes with the belt property are returned.</p>
-<div class="queryresult table" id="d5e9220"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9215"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -348,7 +351,7 @@ WHERE n.belt = 'white' OR n.belt IS NULL RETURN n
 ORDER BY n.name</pre><p>
 </p>
 <p>This returns all nodes, even those without the belt property.</p>
-<div class="queryresult table" id="d5e9249"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9244"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})
@@ -365,7 +368,7 @@ create _2-[:`KNOWS`]-&gt;_0
 WHERE person.name = 'Peter' AND person.belt IS NULL RETURN person</pre><p>
 </p>
 <p>Nodes that have name <span class="emphasis"><em>Peter</em></span> but no belt property are returned.</p>
-<div class="queryresult table" id="d5e9290"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9285"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:25, `name`:"Tobias"})
 create (_1 {`age`:34, `name`:"Peter"})
 create (_2:`Swedish` {`age`:36, `belt`:"white", `name`:"Andres"})

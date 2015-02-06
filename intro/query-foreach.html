@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.6. Foreach -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-remove.html" title="12.5. Remove" /><link rel="next" href="query-create-unique.html" title="12.7. Create Unique" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.6. Foreach" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -71,6 +71,9 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>12.6. Foreach</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-remove.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-write.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-create-unique.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-foreach"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">12.6. Foreach</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-foreach.html#foreach-mark-all-nodes-along-a-path">Mark all nodes along a path</a></span></li></ul></div>
 
+<div class="abstract">
+<p>The <code class="literal">FOREACH</code> clause is used to update data within a collection, whether components of a path, or result of aggregation.</p>
+</div>
 <p>Collections and paths are key concepts in Cypher.
 To use them for updating data, you can use the <code class="literal">FOREACH</code> construct.
 It allows you to do updating commands on elements in a collection — a path, or a collection created by aggregation.</p>
@@ -78,7 +81,7 @@ It allows you to do updating commands on elements in a collection — a path
 This means that  if you <code class="literal">CREATE</code> a node identifier inside of a <code class="literal">FOREACH</code>, you will <span class="emphasis"><em>not</em></span> be able to use it outside of the foreach statement, unless you match to find it.</p>
 <p>Inside of the <code class="literal">FOREACH</code> parentheses, you can do any of the updating commands — <code class="literal">CREATE</code>, <code class="literal">CREATE UNIQUE</code>, <code class="literal">MERGE</code>, <code class="literal">DELETE</code>, and <code class="literal">FOREACH</code>.</p>
 <p>If you want to execute an additional <code class="literal">MATCH</code> for each element in a collection then <code class="literal">UNWIND</code> (see <a class="xref" href="query-unwind.html" title="10.6. Unwind">Section 10.6, “Unwind”</a>) would be a more appropriate command.</p>
-<div class="figure" id="d5e11544"><p class="title"><strong>Figure 12.2. Data for the examples</strong></p><div class="figure-contents">
+<div class="figure" id="d5e11554"><p class="title"><strong>Figure 12.2. Data for the examples</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-foreach-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-foreach-graph.svg" alt="cypher-foreach-graph.svg" /></span>
 </a>
@@ -92,7 +95,7 @@ WHERE begin.name='A' AND END .name='D'
 FOREACH (n IN nodes(p)| SET n.marked = TRUE )</pre><p>
 </p>
 <p>Nothing is returned from this query, but four properties are set.</p>
-<div class="queryresult table" id="d5e11561"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11571"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"D"})
 create (_1 {`name`:"A"})
 create (_2 {`name`:"B"})

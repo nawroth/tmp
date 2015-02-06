@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.3. Cartesian Product -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-plan-all-nodes-scan.html" title="15.2. All Nodes Scan" /><link rel="next" href="query-plan-directed-relationship-by-id-seek.html" title="15.4. Directed Relationship By Id Seek" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.3. Cartesian Product" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -87,9 +87,9 @@ RETURN p, l</pre><p>
 +--------------------+---------------+------+--------+-------------+-----------+
 |           Operator | EstimatedRows | Rows | DbHits | Identifiers |     Other |
 +--------------------+---------------+------+--------+-------------+-----------+
-|   CartesianProduct |             5 |    5 |      0 |        l, p |           |
-| NodeByLabelScan(0) |             1 |    1 |      2 |           l | :Location |
-| NodeByLabelScan(1) |             5 |    5 |      6 |           p |   :Person |
+|   CartesianProduct |         5,000 |    5 |      0 |        l, p |           |
+| NodeByLabelScan(0) |         1,000 |    1 |      2 |           l | :Location |
+| NodeByLabelScan(1) |         5,000 |    5 |      6 |           p |   :Person |
 +--------------------+---------------+------+--------+-------------+-----------+
 
 Total database accesses: 8</pre><p>

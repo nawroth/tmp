@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.3. Collection functions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-scalar.html" title="13.2. Scalar functions" /><link rel="next" href="query-functions-mathematical.html" title="13.4. Mathematical functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.3. Collection functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -69,11 +69,11 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>13.3. Collection functions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-functions-scalar.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-functions-mathematical.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-collection"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.3. Collection functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-collection.html#functions-nodes">NODES</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-relationships">RELATIONSHIPS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-labels">LABELS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-extract">EXTRACT</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-filter">FILTER</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-tail">TAIL</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-range">RANGE</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-reduce">REDUCE</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-functions-scalar.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-function.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-functions-mathematical.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-functions-collection"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">13.3. Collection functions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-functions-collection.html#functions-nodes">NODES</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-relationships">RELATIONSHIPS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-labels">LABELS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-keys">KEYS</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-extract">EXTRACT</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-filter">FILTER</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-tail">TAIL</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-range">RANGE</a></span></li><li><span class="section"><a href="query-functions-collection.html#functions-reduce">REDUCE</a></span></li></ul></div>
 
 <p>Collection functions return collections of things — nodes in a path, and so on.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-collection" title="Collection operators">the section called “Collection operators”</a>.</p>
-<div class="figure" id="d5e12702"><p class="title"><strong>Figure 13.3. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e12718"><p class="title"><strong>Figure 13.3. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -94,7 +94,7 @@ WHERE a.name='Alice' AND c.name='Eskil'
 RETURN nodes(p)</pre><p>
 </p>
 <p>All the nodes in the path <code class="literal">p</code> are returned by the example query.</p>
-<div class="queryresult table" id="d5e12728"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>nodes(p)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},Node[3]{name:"Bob",age:25,eyes:"blue"},Node[1]{name:"Eskil",age:41,eyes:"blue",array:["one","two","three"]}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12744"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>nodes(p)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},Node[3]{name:"Bob",age:25,eyes:"blue"},Node[1]{name:"Eskil",age:41,eyes:"blue",array:["one","two","three"]}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -124,7 +124,7 @@ WHERE a.name='Alice' AND c.name='Eskil'
 RETURN relationships(p)</pre><p>
 </p>
 <p>All the relationships in the path <code class="literal">p</code> are returned.</p>
-<div class="queryresult table" id="d5e12766"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>relationships(p)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:KNOWS[0]{},:MARRIED[4]{}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12782"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>relationships(p)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:KNOWS[0]{},:MARRIED[4]{}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -154,7 +154,7 @@ WHERE a.name='Alice'
 RETURN labels(a)</pre><p>
 </p>
 <p>The labels of <code class="literal">n</code> is returned by the query.</p>
-<div class="queryresult table" id="d5e12804"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>labels(a)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["foo","bar"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12820"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>labels(a)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["foo","bar"]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -167,6 +167,36 @@ create _3-[:`MARRIED`]-&gt;_1
 create _4-[:`KNOWS`]-&gt;_0
 </span><span class="command"><strong>
  match (a) where a.name='Alice' return labels(a)</strong></span></p>
+</section>
+<section class="section" id="functions-keys"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">KEYS</h3></div></div></div>
+
+<p>Returns a collection of string representations for the properties names from a node or relationship.</p>
+<p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">KEYS(  property-container )</code></p>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>property-container:</em></span> A node or a relationship.
+
+</li></ul></div>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name='Alice'
+RETURN keys(a)</pre><p>
+</p>
+<p>The name of the properties of <code class="literal">n</code> is returned by the query.</p>
+<div class="queryresult table" id="d5e12858"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>keys(a)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["name","age","eyes"]</code></p></td></tr></tbody></table></div></div>
+<p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
+create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
+create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
+create (_3 {`age`:25, `eyes`:"blue", `name`:"Bob"})
+create (_4 {`age`:53, `eyes`:"green", `name`:"Charlie"})
+create _2-[:`KNOWS`]-&gt;_4
+create _2-[:`KNOWS`]-&gt;_3
+create _3-[:`KNOWS`]-&gt;_0
+create _3-[:`MARRIED`]-&gt;_1
+create _4-[:`KNOWS`]-&gt;_0
+</span><span class="command"><strong>
+ match (a) where a.name='Alice' return keys(a)</strong></span></p>
 </section>
 <section class="section" id="functions-extract"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">EXTRACT</h3></div></div></div>
 
@@ -194,7 +224,7 @@ WHERE a.name='Alice' AND b.name='Bob' AND c.name='Daniel'
 RETURN extract(n IN nodes(p)| n.age) AS extracted</pre><p>
 </p>
 <p>The age property of all nodes in the path are returned.</p>
-<div class="queryresult table" id="d5e12849"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>extracted</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[38,25,54]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12903"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>extracted</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[38,25,54]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -232,7 +262,7 @@ WHERE a.name='Eskil'
 RETURN a.array, filter(x IN a.array WHERE length(x)= 3)</pre><p>
 </p>
 <p>This returns the property named <code class="literal">array</code> and a list of values in it, which have the length <code class="literal">3</code>.</p>
-<div class="queryresult table" id="d5e12895"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>filter(x in a.array WHERE length(x) = 3)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12949"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>filter(x in a.array WHERE length(x) = 3)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -262,7 +292,7 @@ WHERE a.name='Eskil'
 RETURN a.array, tail(a.array)</pre><p>
 </p>
 <p>This returns the property named <code class="literal">array</code> and all elements of that property except the first one.</p>
-<div class="queryresult table" id="d5e12939"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>tail(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">["two","three"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12993"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>tail(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">["two","three"]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -298,7 +328,7 @@ create _4-[:`KNOWS`]-&gt;_0
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10), range(2,18,3)</pre><p>
 </p>
 <p>Two lists of numbers are returned.</p>
-<div class="queryresult table" id="d5e12987"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)</th><th>range(2,18,3)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5,6,7,8,9,10]</code></p></td><td><p><code class="literal">[2,5,8,11,14,17]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13041"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)</th><th>range(2,18,3)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5,6,7,8,9,10]</code></p></td><td><p><code class="literal">[2,5,8,11,14,17]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -346,7 +376,7 @@ WHERE a.name='Alice' AND b.name='Bob' AND c.name='Daniel'
 RETURN reduce(totalAge = 0, n IN nodes(p)| totalAge + n.age) AS reduction</pre><p>
 </p>
 <p>The age property of all nodes in the path are summed and returned as a single value.</p>
-<div class="queryresult table" id="d5e13044"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>reduction</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">117</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13098"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>reduction</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">117</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})

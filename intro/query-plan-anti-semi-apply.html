@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>15.1. Anti Semi Apply -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="execution-plans.html" title="Chapter 15. Execution Plans" /><link rel="next" href="query-plan-all-nodes-scan.html" title="15.2. All Nodes Scan" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.1. Anti Semi Apply" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -99,14 +99,14 @@ RETURN other</pre><p>
 +--------------------+---------------+------+--------+-------------+-----------------------------------------+
 |           Operator | EstimatedRows | Rows | DbHits | Identifiers |                                   Other |
 +--------------------+---------------+------+--------+-------------+-----------------------------------------+
-|         Projection |             1 |    4 |      0 |   me, other |                                   other |
-|      AntiSemiApply |             1 |    4 |      0 |   me, other |                                         |
-|   CartesianProduct |             3 |    5 |      0 |   me, other |                                         |
-|             Filter |             1 |    1 |     10 |          me | Property(me,name(0)) == {  AUTOSTRING0} |
-| NodeByLabelScan(0) |             5 |    5 |      6 |          me |                                 :Person |
-| NodeByLabelScan(1) |             5 |    5 |      6 |       other |                                 :Person |
-|       Expand(Into) |             0 |    0 |     10 |   me, other |           (me)-[:FRIENDS_WITH]-&gt;(other) |
-|           Argument |             3 |    5 |      0 |   me, other |                                         |
+|         Projection |         1,000 |    4 |      0 |   me, other |                                   other |
+|      AntiSemiApply |         1,000 |    4 |      0 |   me, other |                                         |
+|   CartesianProduct |         3,000 |    5 |      0 |   me, other |                                         |
+|             Filter |         1,000 |    1 |     10 |          me | Property(me,name(0)) == {  AUTOSTRING0} |
+| NodeByLabelScan(0) |         5,000 |    5 |      6 |          me |                                 :Person |
+| NodeByLabelScan(1) |         5,000 |    5 |      6 |       other |                                 :Person |
+|       Expand(Into) |         0,000 |    0 |     10 |   me, other |           (me)-[:FRIENDS_WITH]-&gt;(other) |
+|           Argument |         3,000 |    5 |      0 |   me, other |                                         |
 +--------------------+---------------+------+--------+-------------+-----------------------------------------+
 
 Total database accesses: 32</pre><p>

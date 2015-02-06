@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>25.7. REST endpoint for HA status information -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha-setup-tutorial.html" title="25.6. High Availability setup tutorial" /><link rel="next" href="ha-haproxy.html" title="25.8. Setting up HAProxy as a load balancer" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="25.7. REST endpoint for HA status information" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -101,7 +101,7 @@ instances. This is the optimal way to take advantage of Neo4j’s scaling charac
 exists for the general case of directing arbitrary request types to instances that are available for transaction
 processing.</p>
 <p>To use the endpoints, perform an HTTP GET operation on either and the following will be returned:</p>
-<div class="table" id="d5e25841"><p class="title"><strong>HA REST endpoint responses</strong></p><div class="table-contents">
+<div class="table" id="d5e25896"><p class="title"><strong>HA REST endpoint responses</strong></p><div class="table-contents">
 
 <table cellspacing="0" cellpadding="0"><thead><tr><th> Endpoint                              </th><th> Instance State  </th><th> Returned Code  </th><th> Body text</th></tr></thead><tbody><tr><td rowspan="3"><p><code class="literal">/db/manage/server/ha/master</code></p></td><td><p>Master</p></td><td><p><code class="literal">200 OK</code></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p>Slave</p></td><td><p><code class="literal">404 Not Found</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p>Unknown</p></td><td><p><code class="literal">404 Not Found</code></p></td><td><p><code class="literal">UNKNOWN</code></p></td></tr><tr><td rowspan="3"><p><code class="literal">/db/manage/server/ha/slave</code></p></td><td><p>Master</p></td><td><p><code class="literal">404 Not Found</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p>Slave</p></td><td><p><code class="literal">200 OK</code></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p>Unknown</p></td><td><p><code class="literal">404 Not Found</code></p></td><td><p><code class="literal">UNKNOWN</code></p></td></tr><tr><td rowspan="3"><p><code class="literal">/db/manage/server/ha/available</code></p></td><td><p>Master</p></td><td><p><code class="literal">200 OK</code></p></td><td><p><code class="literal">master</code></p></td></tr><tr><td><p>Slave</p></td><td><p><code class="literal">200 OK</code></p></td><td><p><code class="literal">slave</code></p></td></tr><tr><td><p>Unknown</p></td><td><p><code class="literal">404 Not Found</code></p></td><td><p><code class="literal">UNKNOWN</code></p></td></tr></tbody></table>
 </div></div>

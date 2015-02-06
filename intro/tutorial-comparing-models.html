@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>2.2. Comparing Database Models -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="graphdb-neo4j.html" title="2.1. The Neo4j Graph Database" /><link rel="next" href="tutorials.html" title="Tutorials" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.2. Comparing Database Models" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -78,12 +78,12 @@ Because a graph is a generic structure, let’s compare how a few models would l
 
 <p>Topple the stacks of records in a relational database while keeping all the relationships, and you’ll see a graph.
 Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly connected data.</p>
-<div class="figure" id="d5e464"><p class="title"><strong>Figure 2.1. RDBMS</strong></p><div class="figure-contents">
+<div class="figure" id="d5e467"><p class="title"><strong>Figure 2.1. RDBMS</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-rdbms.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-rdbms.svg" alt="graphdb-compare-rdbms.svg" /></span>
 </a>
 </div></div>
-<div class="figure" id="d5e472"><p class="title"><strong>Figure 2.2. Graph Database as RDBMS</strong></p><div class="figure-contents">
+<div class="figure" id="d5e475"><p class="title"><strong>Figure 2.2. Graph Database as RDBMS</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-rdbms-g.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-rdbms-g.svg" alt="graphdb-compare-rdbms-g.svg" /></span>
 </a>
@@ -94,14 +94,14 @@ Where an RDBMS is optimized for aggregated data, Neo4j is optimized for highly c
 <p>A Key-Value model is great for lookups of simple values or lists.
 When the values are themselves interconnected, you’ve got a graph.
 Neo4j lets you elaborate the simple data structures into more complex, interconnected data.</p>
-<div class="figure" id="d5e483"><p class="title"><strong>Figure 2.3. Key-Value Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e486"><p class="title"><strong>Figure 2.3. Key-Value Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-kvstore.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-kvstore.svg" alt="graphdb-compare-kvstore.svg" /></span>
 </a>
 </div></div>
 <p><code class="literal">K*</code> represents a key, <code class="literal">V*</code> a value.
 Note that some keys point to other keys as well as plain values.</p>
-<div class="figure" id="d5e494"><p class="title"><strong>Figure 2.4. Graph Database as Key-Value Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e497"><p class="title"><strong>Figure 2.4. Graph Database as Key-Value Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-kvstore-g.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-kvstore-g.svg" alt="graphdb-compare-kvstore-g.svg" /></span>
 </a>
@@ -118,13 +118,13 @@ Stored in a graph, the families could become hierarchical, and the relationships
 Which is of course a graph.
 Refer to other documents (or document elements) within that tree and you have a more expressive representation of the same data.
 When in Neo4j, those relationships are easily navigable.</p>
-<div class="figure" id="d5e508"><p class="title"><strong>Figure 2.5. Document Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e511"><p class="title"><strong>Figure 2.5. Document Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-docdb.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-docdb.svg" alt="graphdb-compare-docdb.svg" /></span>
 </a>
 </div></div>
 <p><code class="literal">D</code>=Document, <code class="literal">S</code>=Subdocument, <code class="literal">V</code>=Value, <code class="literal">D2/S2</code> = reference to subdocument in (other) document.</p>
-<div class="figure" id="d5e521"><p class="title"><strong>Figure 2.6. Graph Database as Document Store</strong></p><div class="figure-contents">
+<div class="figure" id="d5e524"><p class="title"><strong>Figure 2.6. Graph Database as Document Store</strong></p><div class="figure-contents">
 <a class="ulink" href="images/graphdb-compare-docdb-g.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/graphdb-compare-docdb-g.svg" alt="graphdb-compare-docdb-g.svg" /></span>
 </a>

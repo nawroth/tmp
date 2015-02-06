@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>8.3. Transactions -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-updating.html" title="8.2. Updating the graph" /><link rel="next" href="cypherdoc-uniqueness.html" title="8.4. Uniqueness" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="8.3. Transactions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -100,7 +100,7 @@ and commit all of them in one go.
 <p>Note that a query will hold the changes in memory until the whole query has finished executing.
 A large query will consequently need a JVM with lots of heap space.</p>
 <p>For using transactions over the REST API, see <a class="xref" href="rest-api-transactional.html" title="21.1. Transactional Cypher HTTP endpoint">Section 21.1, “Transactional Cypher HTTP endpoint”</a>.</p>
-<p>When using Neo4j embedded, remember all iterators returned from an execution result should be exhausted fully to ensure that resources bound to them will be properly closed.
+<p>When writing server extensions or using Neo4j embedded, remember that all iterators returned from an execution result should be either fully exhausted or closed to ensure that the resources bound to them will be properly released.
 Resources include transactions started by the query, so failing to do so may, for example, lead to deadlocks or other weird behavior.</p>
 </section>
 

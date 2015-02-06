@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.1. Predicates -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-function.html" title="Chapter 13. Functions" /><link rel="next" href="query-functions-scalar.html" title="13.2. Scalar functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.1. Predicates" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-75988";
+      var treeCookieId = "treeview-76183";
       var language = "en";
       var w = new Object();
       //Localization
@@ -74,7 +74,7 @@
 <p>Predicates are boolean functions that return true or false for a given set of input.
 They are most commonly used to filter out subgraphs in the <code class="literal">WHERE</code> part of a query.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-comparison" title="Comparison operators">the section called “Comparison operators”</a>.</p>
-<div class="figure" id="d5e11913"><p class="title"><strong>Figure 13.1. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e11929"><p class="title"><strong>Figure 13.1. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -103,7 +103,7 @@ WHERE a.name='Alice' AND b.name='Daniel' AND ALL (x IN nodes(p) WHERE x.age &gt;
 RETURN p</pre><p>
 </p>
 <p>All nodes in the returned paths will have an <code class="literal">age</code> property of at least 30.</p>
-<div class="queryresult table" id="d5e11945"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11961"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -141,7 +141,7 @@ WHERE a.name='Eskil' AND ANY (x IN a.array WHERE x = "one")
 RETURN a</pre><p>
 </p>
 <p>All nodes in the returned paths has at least one <code class="literal">one</code> value set in the array property named <code class="literal">array</code>.</p>
-<div class="queryresult table" id="d5e11990"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Eskil",age:41,eyes:"blue",array:["one","two","three"]}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12006"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Eskil",age:41,eyes:"blue",array:["one","two","three"]}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -179,7 +179,7 @@ WHERE n.name='Alice' AND NONE (x IN nodes(p) WHERE x.age = 25)
 RETURN p</pre><p>
 </p>
 <p>No nodes in the returned paths has a <code class="literal">age</code> property set to <code class="literal">25</code>.</p>
-<div class="queryresult table" id="d5e12035"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12051"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -217,7 +217,7 @@ WHERE n.name='Alice' AND SINGLE (var IN nodes(p) WHERE var.eyes = "blue")
 RETURN p</pre><p>
 </p>
 <p>Exactly one node in every returned path will have the <code class="literal">eyes</code> property set to <code class="literal">"blue"</code>.</p>
-<div class="queryresult table" id="d5e12084"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[0]{},Node[3]{name:"Bob",age:25,eyes:"blue"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12100"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[0]{},Node[3]{name:"Bob",age:25,eyes:"blue"}]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
@@ -247,7 +247,7 @@ WHERE EXISTS(n.name)
 RETURN n.name AS name, EXISTS((n)-[:MARRIED]-&gt;()) AS is_married</pre><p>
 </p>
 <p>This query returns all the nodes with a name property along with a boolean true/false indicating if they are married.</p>
-<div class="queryresult table" id="d5e12122"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>is_married</th></tr></thead><tfoot><tr><th colspan="2">5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Daniel"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Eskil"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Alice"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p><code class="literal">"Charlie"</code></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12138"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>is_married</th></tr></thead><tfoot><tr><th colspan="2">5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Daniel"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Eskil"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Alice"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p><code class="literal">"Charlie"</code></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`age`:54, `eyes`:"brown", `name`:"Daniel"})
 create (_1:`Spouse` {`age`:41, `array`:["one", "two", "three"], `eyes`:"blue", `name`:"Eskil"})
 create (_2:`foo`:`bar` {`age`:38, `eyes`:"brown", `name`:"Alice"})
