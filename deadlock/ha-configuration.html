@@ -1,0 +1,248 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>26.2. Setup and configuration -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="ha-architecture.html" title="26.1. Architecture" /><link rel="next" href="ha-how.html" title="26.3. How Neo4j HA operates" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="26.2. Setup and configuration" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-76013";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>26.2. Setup and configuration</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="ha-architecture.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="ha.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="ha-how.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="ha-configuration"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">26.2. Setup and configuration</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="ha-configuration.html#_specifying_cluster_members">Specifying cluster members</a></span></li><li><span class="section"><a href="ha-configuration.html#_server_configuration">Server configuration</a></span></li><li><span class="section"><a href="ha-configuration.html#_database_configuration">Database configuration</a></span></li></ul></div>
+
+<p>Neo4j HA can be set up to accommodate differing requirements for load, fault tolerance and available hardware.</p>
+<p>In HA mode, Neo4j instances form a cluster.
+The instances monitor each others' availability to take account of instances joining and leaving the cluster.
+They elect one instance to be the master, and designate the other instances to be slaves.</p>
+<p>For installation instructions of a High Availability cluster see <a class="xref" href="ha-setup-tutorial.html" title="26.6. High Availability setup tutorial">Section 26.6, “High Availability setup tutorial”</a>.</p>
+<section class="section" id="_specifying_cluster_members"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Specifying cluster members</h3></div></div></div>
+
+<p>Specify the instances that should form the cluster by supplying <code class="literal">ha.initial_hosts</code>, a comma-separated list of URLs.
+When each instance starts, if it can contact any of the initial hosts, then it will form a cluster with them,
+otherwise it will start its own cluster.</p>
+<p>Note that the parameter is called <code class="literal">ha.initial_hosts</code> because it’s only used when instances initially join the cluster.
+This means that you can extend the cluster without changing the configuration of existing instances.</p>
+</section>
+<section class="section" id="_server_configuration"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Server configuration</h3></div></div></div>
+
+<p>If you are running Neo4j server, specify <code class="literal">org.neo4j.server.database.mode=HA</code> in <span class="emphasis"><em>conf/neo4j-server.properties</em></span>.</p>
+<div class="table" id="d5e24505"><p class="title"><strong>HA server configuration parameters</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th> Parameter Name                 </th><th> Description                                      </th><th> Example value </th><th> Required?</th></tr></thead><tbody><tr><td><p><code class="literal">org.neo4j.server.database.mode</code></p></td><td><p>Whether to run as a single server or in HA mode.</p></td><td><p><code class="literal">single or HA</code></p></td><td><p>yes</p></td></tr></tbody></table>
+</div></div>
+</section>
+<section class="section" id="_database_configuration"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Database configuration</h3></div></div></div>
+
+<p>HA configuration parameters should be supplied alongside general Neo4j parameters in <span class="emphasis"><em>conf/neo4j.properties</em></span>.
+There are many configurable parameters. In most cases it isn’t necessary to modify the default values.
+The only parameters that need to be specified are <code class="literal">ha.server_id</code> and <code class="literal">ha.initial_hosts</code>.</p>
+<div class="table" id="config-org.neo4j.kernel.ha.HaSettings"><p class="title"><strong>High Availability configuration settings</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="ha-configuration.html#config_ha.branched_data_policy" title="ha.branched_data_policy">ha.branched_data_policy</a></p></td><td><p>Policy for how to handle branched data.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.com_chunk_size" title="ha.com_chunk_size">ha.com_chunk_size</a></p></td><td><p>Max size of the data chunks that flows between master and slaves in HA.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.lock_read_timeout" title="ha.lock_read_timeout">ha.lock_read_timeout</a></p></td><td><p>Timeout for taking remote (write) locks on slaves.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.max_concurrent_channels_per_slave" title="ha.max_concurrent_channels_per_slave">ha.max_concurrent_channels_per_slave</a></p></td><td><p>Maximum number of connections a slave can have to the master.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.pull_interval" title="ha.pull_interval">ha.pull_interval</a></p></td><td><p>Interval of pulling updates from master.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.read_timeout" title="ha.read_timeout">ha.read_timeout</a></p></td><td><p>How long a slave will wait for response from master before giving up.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.server" title="ha.server">ha.server</a></p></td><td><p>Hostname and port to bind the HA server.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.slave_only" title="ha.slave_only">ha.slave_only</a></p></td><td><p>Whether this instance should only participate as slave in cluster.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.state_switch_timeout" title="ha.state_switch_timeout">ha.state_switch_timeout</a></p></td><td><p>Timeout for waiting for instance to become master or slave.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.tx_push_factor" title="ha.tx_push_factor">ha.tx_push_factor</a></p></td><td><p>The amount of slaves the master will ask to replicate a committed transaction.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.tx_push_strategy" title="ha.tx_push_strategy">ha.tx_push_strategy</a></p></td><td><p>Push strategy of a transaction to a slave during commit.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.branched_data_policy"><p class="title"><strong>ha.branched_data_policy</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Policy for how to handle branched data.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.branched_data_policy</code></code> is one of <code class="literal">+&lt;&lt;config_keep_all,keep_all&gt;&gt;+</code>, <code class="literal">+&lt;&lt;config_keep_last,keep_last&gt;&gt;+</code>, <code class="literal">+&lt;&lt;config_keep_none,keep_none&gt;&gt;+</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">keep_all</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.com_chunk_size"><p class="title"><strong>ha.com_chunk_size</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Max size of the data chunks that flows between master and slaves in HA. Bigger size may increase throughput, but may also be more sensitive to variations in bandwidth, whereas lower size increases tolerance for bandwidth variations.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.com_chunk_size</code></code> is a byte size (valid multipliers are <code class="literal">k</code>, <code class="literal">m</code>, <code class="literal">g</code>, <code class="literal">K</code>, <code class="literal">M</code>, <code class="literal">G</code>) which is minimum <code class="literal">1024</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">2M</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.lock_read_timeout"><p class="title"><strong>ha.lock_read_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for taking remote (write) locks on slaves. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.read_timeout" title="ha.read_timeout">ha.read_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.lock_read_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">20s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.max_concurrent_channels_per_slave"><p class="title"><strong>ha.max_concurrent_channels_per_slave</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Maximum number of connections a slave can have to the master.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.max_concurrent_channels_per_slave</code></code> is an integer which is minimum <code class="literal">1</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">20</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.pull_interval"><p class="title"><strong>ha.pull_interval</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Interval of pulling updates from master.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.pull_interval</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">0s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.read_timeout"><p class="title"><strong>ha.read_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>How long a slave will wait for response from master before giving up.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.read_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">20s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.server"><p class="title"><strong>ha.server</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Hostname and port to bind the HA server.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.server</code></code> is a hostname and port.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">0.0.0.0:6001-6011</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.slave_only"><p class="title"><strong>ha.slave_only</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Whether this instance should only participate as slave in cluster. If set to <code class="literal">true</code>, it will never be elected as master.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.slave_only</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.state_switch_timeout"><p class="title"><strong>ha.state_switch_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for waiting for instance to become master or slave.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.state_switch_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">120s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.tx_push_factor"><p class="title"><strong>ha.tx_push_factor</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The amount of slaves the master will ask to replicate a committed transaction.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.tx_push_factor</code></code> is an integer which is minimum <code class="literal">0</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.tx_push_strategy"><p class="title"><strong>ha.tx_push_strategy</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Push strategy of a transaction to a slave during commit.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.tx_push_strategy</code></code> is one of <code class="literal">+&lt;&lt;config_round_robin,round_robin&gt;&gt;+</code>, <code class="literal">fixed</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">fixed</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config-org.neo4j.cluster.ClusterSettings"><p class="title"><strong>Cluster configuration settings</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="ha-configuration.html#config_ha.allow_init_cluster" title="ha.allow_init_cluster">ha.allow_init_cluster</a></p></td><td><p>Whether to allow this instance to create a cluster if unable to join.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.broadcast_timeout" title="ha.broadcast_timeout">ha.broadcast_timeout</a></p></td><td><p>Timeout for broadcasting values in cluster.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.cluster_name" title="ha.cluster_name">ha.cluster_name</a></p></td><td><p>The name of a cluster.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.cluster_server" title="ha.cluster_server">ha.cluster_server</a></p></td><td><p>Host and port to bind the cluster management communication.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.configuration_timeout" title="ha.configuration_timeout">ha.configuration_timeout</a></p></td><td><p>Timeout for waiting for configuration from an existing cluster member during cluster join.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.default_timeout" title="ha.default_timeout">ha.default_timeout</a></p></td><td><p>Default timeout used for clustering timeouts.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.election_timeout" title="ha.election_timeout">ha.election_timeout</a></p></td><td><p>Timeout for waiting for other members to finish a role election.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.heartbeat_interval" title="ha.heartbeat_interval">ha.heartbeat_interval</a></p></td><td><p>How often heartbeat messages should be sent.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.heartbeat_timeout" title="ha.heartbeat_timeout">ha.heartbeat_timeout</a></p></td><td><p>Timeout for heartbeats between cluster members.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.initial_hosts" title="ha.initial_hosts">ha.initial_hosts</a></p></td><td><p>A comma-separated list of other members of the cluster to join.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.join_timeout" title="ha.join_timeout">ha.join_timeout</a></p></td><td><p>Timeout for joining a cluster.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.learn_timeout" title="ha.learn_timeout">ha.learn_timeout</a></p></td><td><p>Timeout for learning values.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.leave_timeout" title="ha.leave_timeout">ha.leave_timeout</a></p></td><td><p>Timeout for waiting for cluster leave to finish.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.paxos_timeout" title="ha.paxos_timeout">ha.paxos_timeout</a></p></td><td><p>Default timeout for all Paxos timeouts.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.phase1_timeout" title="ha.phase1_timeout">ha.phase1_timeout</a></p></td><td><p>Timeout for Paxos phase 1.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.phase2_timeout" title="ha.phase2_timeout">ha.phase2_timeout</a></p></td><td><p>Timeout for Paxos phase 2.</p></td></tr><tr><td><p><a class="link" href="ha-configuration.html#config_ha.server_id" title="ha.server_id">ha.server_id</a></p></td><td><p>Id for a cluster instance.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.allow_init_cluster"><p class="title"><strong>ha.allow_init_cluster</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Whether to allow this instance to create a cluster if unable to join.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.allow_init_cluster</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.broadcast_timeout"><p class="title"><strong>ha.broadcast_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for broadcasting values in cluster. Must consider end-to-end duration of Paxos algorithm. This value is the default value for the <code class="literal"><a class="link" href="ha-configuration.html#config_ha.join_timeout" title="ha.join_timeout">ha.join_timeout</a></code> and <code class="literal"><a class="link" href="ha-configuration.html#config_ha.leave_timeout" title="ha.leave_timeout">ha.leave_timeout</a></code> settings.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.broadcast_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">30s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.cluster_name"><p class="title"><strong>ha.cluster_name</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The name of a cluster.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.cluster_name</code></code> is a string which must be a valid cluster name.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">neo4j.ha</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.cluster_server"><p class="title"><strong>ha.cluster_server</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Host and port to bind the cluster management communication.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.cluster_server</code></code> is a hostname and port.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">0.0.0.0:5001-5099</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.configuration_timeout"><p class="title"><strong>ha.configuration_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for waiting for configuration from an existing cluster member during cluster join.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.configuration_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.default_timeout"><p class="title"><strong>ha.default_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Default timeout used for clustering timeouts. Override  specific timeout settings with proper values if necessary. This value is the default value for the <code class="literal"><a class="link" href="ha-configuration.html#config_ha.heartbeat_interval" title="ha.heartbeat_interval">ha.heartbeat_interval</a></code>, <code class="literal"><a class="link" href="ha-configuration.html#config_ha.paxos_timeout" title="ha.paxos_timeout">ha.paxos_timeout</a></code> and <code class="literal"><a class="link" href="ha-configuration.html#config_ha.learn_timeout" title="ha.learn_timeout">ha.learn_timeout</a></code> settings.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.default_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.election_timeout"><p class="title"><strong>ha.election_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for waiting for other members to finish a role election. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.paxos_timeout" title="ha.paxos_timeout">ha.paxos_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.election_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.heartbeat_interval"><p class="title"><strong>ha.heartbeat_interval</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>How often heartbeat messages should be sent. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.default_timeout" title="ha.default_timeout">ha.default_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.heartbeat_interval</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.heartbeat_timeout"><p class="title"><strong>ha.heartbeat_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for heartbeats between cluster members. Should be at least twice that of <code class="literal"><a class="link" href="ha-configuration.html#config_ha.heartbeat_interval" title="ha.heartbeat_interval">ha.heartbeat_interval</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.heartbeat_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">11s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.initial_hosts"><p class="title"><strong>ha.initial_hosts</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>A comma-separated list of other members of the cluster to join.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.initial_hosts</code></code> is a list separated by "," where items are a hostname and port.</p></td></tr><tr><td><p><span class="strong"><strong>Mandatory</strong></span></p></td><td><p>The <code class="literal">ha.initial_hosts</code> configuration setting is mandatory.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.join_timeout"><p class="title"><strong>ha.join_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for joining a cluster. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.broadcast_timeout" title="ha.broadcast_timeout">ha.broadcast_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.join_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">30s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.learn_timeout"><p class="title"><strong>ha.learn_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for learning values. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.default_timeout" title="ha.default_timeout">ha.default_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.learn_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.leave_timeout"><p class="title"><strong>ha.leave_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for waiting for cluster leave to finish. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.broadcast_timeout" title="ha.broadcast_timeout">ha.broadcast_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.leave_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">30s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.paxos_timeout"><p class="title"><strong>ha.paxos_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Default timeout for all Paxos timeouts. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.default_timeout" title="ha.default_timeout">ha.default_timeout</a></code>. This value is the default value for the <code class="literal"><a class="link" href="ha-configuration.html#config_ha.phase1_timeout" title="ha.phase1_timeout">ha.phase1_timeout</a></code>, <code class="literal"><a class="link" href="ha-configuration.html#config_ha.phase2_timeout" title="ha.phase2_timeout">ha.phase2_timeout</a></code> and <code class="literal"><a class="link" href="ha-configuration.html#config_ha.election_timeout" title="ha.election_timeout">ha.election_timeout</a></code> settings.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.paxos_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.phase1_timeout"><p class="title"><strong>ha.phase1_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for Paxos phase 1. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.paxos_timeout" title="ha.paxos_timeout">ha.paxos_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.phase1_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.phase2_timeout"><p class="title"><strong>ha.phase2_timeout</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Timeout for Paxos phase 2. Defaults to <code class="literal"><a class="link" href="ha-configuration.html#config_ha.paxos_timeout" title="ha.paxos_timeout">ha.paxos_timeout</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.phase2_timeout</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">5s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_ha.server_id"><p class="title"><strong>ha.server_id</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Id for a cluster instance. Must be unique within the cluster.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">ha.server_id</code></code> is an instance id, which has to be a valid integer.</p></td></tr><tr><td><p><span class="strong"><strong>Mandatory</strong></span></p></td><td><p>The <code class="literal">ha.server_id</code> configuration setting is mandatory.</p></td></tr></tbody></table>
+</div></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

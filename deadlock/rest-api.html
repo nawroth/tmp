@@ -1,0 +1,135 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Chapter 22. REST API -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="graph-algo-introduction.html" title="21.1. Introduction" /><link rel="next" href="rest-api-transactional.html" title="22.1. Transactional Cypher HTTP endpoint" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="Chapter 22. REST API" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-76013";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>Chapter 22. REST API</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="graph-algo-introduction.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="reference-documentation.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-transactional.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="chapter" id="rest-api"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title">Chapter 22. REST API</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><ul class="toc"><li><span class="section"><a href="rest-api-transactional.html">22.1. Transactional Cypher HTTP endpoint</a></span></li><li><span class="section"><a href="status-codes.html">22.2. Neo4j Status Codes</a></span></li><li><span class="section"><a href="rest-api-security.html">22.3. REST API Authentication and Authorization</a></span></li><li><span class="section"><a href="rest-api-service-root.html">22.4. Service root</a></span></li><li><span class="section"><a href="rest-api-streaming.html">22.5. Streaming</a></span></li><li><span class="section"><a href="rest-api-cypher.html">22.6. Legacy Cypher HTTP endpoint</a></span></li><li><span class="section"><a href="rest-api-property-values.html">22.7. Property values</a></span></li><li><span class="section"><a href="rest-api-nodes.html">22.8. Nodes</a></span></li><li><span class="section"><a href="rest-api-relationships.html">22.9. Relationships</a></span></li><li><span class="section"><a href="rest-api-relationship-types.html">22.10. Relationship types</a></span></li><li><span class="section"><a href="rest-api-node-properties.html">22.11. Node properties</a></span></li><li><span class="section"><a href="rest-api-relationship-properties.html">22.12. Relationship properties</a></span></li><li><span class="section"><a href="rest-api-node-labels.html">22.13. Node labels</a></span></li><li><span class="section"><a href="rest-api-node-degree.html">22.14. Node degree</a></span></li><li><span class="section"><a href="rest-api-schema-indexes.html">22.15. Indexing</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html">22.16. Constraints</a></span></li><li><span class="section"><a href="rest-api-traverse.html">22.17. Traversals</a></span></li><li><span class="section"><a href="rest-api-graph-algos.html">22.18. Graph Algorithms</a></span></li><li><span class="section"><a href="rest-api-batch-ops.html">22.19. Batch operations</a></span></li><li><span class="section"><a href="rest-api-indexes.html">22.20. Legacy indexing</a></span></li><li><span class="section"><a href="rest-api-unique-indexes.html">22.21. Unique Indexing</a></span></li><li><span class="section"><a href="rest-api-auto-indexes.html">22.22. Legacy Automatic Indexes</a></span></li><li><span class="section"><a href="rest-api-configurable-auto-indexes.html">22.23. Configurable Legacy Automatic Indexing</a></span></li><li><span class="section"><a href="rest-api-wadl-support.html">22.24. WADL Support</a></span></li><li><span class="section"><a href="rest-api-weblogic.html">22.25. Using the REST API from WebLogic</a></span></li></ul></div>
+
+<p>The Neo4j REST API is designed with discoverability in mind, so that you can start with a <code class="literal">GET</code> on the <a class="xref" href="rest-api-service-root.html" title="22.4. Service root">Section 22.4, “Service root”</a> and from there discover URIs to perform other requests.
+The examples below uses URIs in the examples; they are subject to change in the future, so for future-proofness <span class="emphasis"><em>discover URIs where possible</em></span>, instead of relying on the current layout.
+The default representation is <a class="ulink" href="http://www.json.org/" target="_blank">json</a>, both for responses and for data sent with <code class="literal">POST</code>/<code class="literal">PUT</code> requests.</p>
+<p>Below follows a listing of ways to interact with the REST API. For language bindings to the REST API, see <a class="xref" href="languages.html" title="Chapter 8. Languages">Chapter 8, <em>Languages</em></a>.</p>
+<p>To interact with the JSON interface you must explicitly set the request header <code class="literal">Accept:application/json</code> for those requests that responds with data.
+You should also set the header <code class="literal">Content-Type:application/json</code> if your request sends data, for example when you’re creating a relationship.
+The examples include the relevant request and response headers.</p>
+<p>The server supports streaming results, with better performance and lower memory overhead.
+See <a class="xref" href="rest-api-streaming.html" title="22.5. Streaming">Section 22.5, “Streaming”</a> for more information.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>36.6. Basic unit testing -  - The Neo4j Manual v2.2-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-embedded-resource-iteration.html" title="36.5. Managing resources when using long running transactions" /><link rel="next" href="tutorials-java-embedded-traversal.html" title="36.7. Traversal" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="36.6. Basic unit testing" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-76013";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/1.4.11/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/4.10.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.2-SNAPSHOT</span><span>36.6. Basic unit testing</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials-java-embedded-resource-iteration.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-java-embedded.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-java-embedded-traversal.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorials-java-unit-testing"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">36.6. Basic unit testing</h2></div></div></div>
+
+<p>The basic pattern of unit testing with Neo4j is illustrated by the following example.</p>
+<p>To access the Neo4j testing facilities you should have the <code class="literal">neo4j-kernel</code> <span class="emphasis"><em>tests.jar</em></span> together with the <code class="literal">neo4j-io</code> <span class="emphasis"><em>tests.jar</em></span> on the classpath during tests.
+You can download them from Maven Central: <a class="ulink" href="http://search.maven.org/#search|ga|1|g%3A%22org.neo4j%22%20AND%20a%3A%22neo4j-kernel%22" target="_blank">org.neo4j:neo4j-kernel</a> and <a class="ulink" href="http://search.maven.org/#search|ga|1|g%3A%22org.neo4j%22%20AND%20a%3A%22neo4j-io%22" target="_blank">org.neo4j:neo4j-io</a>.</p>
+<p>Using Maven as a dependency manager you would typically add this dependency together with JUnit and Hamcrest like so:</p>
+<p><strong>Maven dependency </strong>
+</p><pre class="programlisting" data-lang="xml">&lt;project&gt;
+...
+ &lt;dependencies&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;org.neo4j&lt;/groupId&gt;
+   &lt;artifactId&gt;neo4j-kernel&lt;/artifactId&gt;
+   &lt;version&gt;2.2-SNAPSHOT&lt;/version&gt;
+   &lt;type&gt;test-jar&lt;/type&gt;
+   &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;org.neo4j&lt;/groupId&gt;
+   &lt;artifactId&gt;neo4j-io&lt;/artifactId&gt;
+   &lt;version&gt;2.2-SNAPSHOT&lt;/version&gt;
+   &lt;type&gt;test-jar&lt;/type&gt;
+   &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;junit&lt;/groupId&gt;
+   &lt;artifactId&gt;junit&lt;/artifactId&gt;
+   &lt;version&gt;4.12&lt;/version&gt;
+   &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
+  &lt;dependency&gt;
+   &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+   &lt;artifactId&gt;hamcrest-all&lt;/artifactId&gt;
+   &lt;version&gt;1.3&lt;/version&gt;
+   &lt;scope&gt;test&lt;/scope&gt;
+  &lt;/dependency&gt;
+  ...
+ &lt;/dependencies&gt;
+...
+&lt;/project&gt;</pre><p>
+</p>
+<p>Observe that the <code class="literal">&lt;type&gt;test-jar&lt;/type&gt;</code> is crucial.
+Without it you would get the common <code class="literal">neo4j-kernel</code> jar, not the one containing the testing facilities.</p>
+<p>With that in place, we’re ready to code our tests.</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>For the full source code of this example see:
+<a class="ulink" href="https://github.com/neo4j/neo4j/blob/master/community/embedded-examples/src/test/java/org/neo4j/examples/Neo4jBasicDocTest.java" target="_blank">Neo4jBasicDocTest.java</a></p></td></tr></table></div>
+<p>Before each test, create a fresh database:</p>
+<pre class="programlisting" data-lang="java">@Before
+public void prepareTestDatabase()
+{
+    graphDb = new TestGraphDatabaseFactory().newImpermanentDatabase();
+}
+</pre>
+<p>After the test has executed, the database should be shut down:</p>
+<pre class="programlisting" data-lang="java">@After
+public void destroyTestDatabase()
+{
+    graphDb.shutdown();
+}
+</pre>
+<p>During a test, create nodes and check to see that they are there, while enclosing write operations in a transaction.</p>
+<pre class="programlisting" data-lang="java">Node n = null;
+try ( Transaction tx = graphDb.beginTx() )
+{
+    n = graphDb.createNode();
+    n.setProperty( "name", "Nancy" );
+    tx.success();
+}
+
+// The node should have a valid id
+assertThat( n.getId(), is( greaterThan( -1L ) ) );
+
+// Retrieve a node by using the id of the created node. The id's and
+// property should match.
+try ( Transaction tx = graphDb.beginTx() )
+{
+    Node foundNode = graphDb.getNodeById( n.getId() );
+    assertThat( foundNode.getId(), is( n.getId() ) );
+    assertThat( (String) foundNode.getProperty( "name" ), is( "Nancy" ) );
+}
+</pre>
+<p>If you want to set configuration parameters at database creation, it’s done like this:</p>
+<pre class="programlisting" data-lang="java">GraphDatabaseService db = new TestGraphDatabaseFactory()
+    .newImpermanentDatabaseBuilder()
+    .setConfig( GraphDatabaseSettings.pagecache_memory, "512M" )
+    .setConfig( GraphDatabaseSettings.string_block_size, "60" )
+    .setConfig( GraphDatabaseSettings.array_block_size, "300" )
+    .newGraphDatabase();
+</pre>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
