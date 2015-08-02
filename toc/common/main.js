@@ -259,7 +259,7 @@ function addBootstrapStyling()
   $admonblocks.filter('.Warning').find('td.content').addClass('alert alert-danger');
   $('div.sidebar', $content).addClass('alert alert-info');
   $('#content div.titlepage div.abstract').addClass('alert alert-info');
-  $('div.toc', $content).addClass('panel panel-default');
+  $('div.toc').addClass('panel panel-default');
   $('div.abstract', $content).addClass('panel panel-primary').children().addClass('panel-body');
 }
 
