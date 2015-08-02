@@ -1,0 +1,462 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>11.3. Where -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-optional-match.html" title="11.2. Optional Match" /><link rel="next" href="query-start.html" title="11.4. Start" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.3. Where" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-80091";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>11.3. Where</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-optional-match.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-read.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-start.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-where"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">11.3. Where</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-where.html#_basic_usage">Basic usage</a></span><ul><li><span class="section"><a href="query-where.html#where-boolean-operations">Boolean operations</a></span></li><li><span class="section"><a href="query-where.html#where-filter-on-node-label">Filter on node label</a></span></li><li><span class="section"><a href="query-where.html#where-filter-on-node-property">Filter on node property</a></span></li><li><span class="section"><a href="query-where.html#where-filter-on-dynamic-node-property">Filter on dynamic node property</a></span></li><li><span class="section"><a href="query-where.html#where-property-exists">Property exists</a></span></li></ul></li><li><span class="section"><a href="query-where.html#_regular_expressions">Regular expressions</a></span><ul><li><span class="section"><a href="query-where.html#where-regular-expressions">Regular expressions</a></span></li><li><span class="section"><a href="query-where.html#where-escaping-in-regular-expressions">Escaping in regular expressions</a></span></li><li><span class="section"><a href="query-where.html#where-case-insensitive-regular-expressions">Case insensitive regular expressions</a></span></li></ul></li><li><span class="section"><a href="query-where.html#_case_in_sensitive_string_pattern_matching_2">Case-(in)sensitive string pattern matching</a></span><ul><li><span class="section"><a href="query-where.html#where-case-sensitive-pattern-matching">Case-sensitive pattern matching</a></span></li><li><span class="section"><a href="query-where.html#where-case-insensitive-pattern-matching">Case-insensitive pattern matching</a></span></li><li><span class="section"><a href="query-where.html#where-pattern-matching-negation">Pattern matching negation</a></span></li><li><span class="section"><a href="query-where.html#where-escaping-in-pattern-matching">Escaping in pattern matching</a></span></li></ul></li><li><span class="section"><a href="query-where.html#query-where-patterns">Using patterns in WHERE</a></span><ul><li><span class="section"><a href="query-where.html#where-filter-on-patterns">Filter on patterns</a></span></li><li><span class="section"><a href="query-where.html#where-filter-on-patterns-using-not">Filter on patterns using NOT</a></span></li><li><span class="section"><a href="query-where.html#where-filter-on-patterns-with-properties">Filter on patterns with properties</a></span></li><li><span class="section"><a href="query-where.html#where-filtering-on-relationship-type">Filtering on relationship type</a></span></li></ul></li><li><span class="section"><a href="query-where.html#_collections">Collections</a></span><ul><li><span class="section"><a href="query-where.html#where-in-operator">IN operator</a></span></li></ul></li><li><span class="section"><a href="query-where.html#_missing_properties_and_values">Missing properties and values</a></span><ul><li><span class="section"><a href="query-where.html#where-default-to-false-if-property-is-missing">Default to false if property is missing</a></span></li><li><span class="section"><a href="query-where.html#where-default-to-true-if-property-is-missing">Default to true if property is missing</a></span></li><li><span class="section"><a href="query-where.html#where-filter-on-null">Filter on NULL</a></span></li></ul></li><li><span class="section"><a href="query-where.html#_using_ranges">Using ranges</a></span><ul><li><span class="section"><a href="query-where.html#where-simple-range">Simple range</a></span></li><li><span class="section"><a href="query-where.html#where-composite-range">Composite range</a></span></li></ul></li></ul></div>
+
+<div class="abstract">
+<p><code class="literal">WHERE</code> adds constraints to the patterns in an <code class="literal">(OPTIONAL)</code> <code class="literal">MATCH</code> clause or filters the results of a <code class="literal">WITH</code> clause.</p>
+</div>
+<p><code class="literal">WHERE</code> is not a clause in it’s own right — rather, it’s part of <code class="literal">MATCH</code>, <code class="literal">OPTIONAL MATCH</code>, <code class="literal">START</code> and <code class="literal">WITH</code>.</p>
+<p>In the case of <code class="literal">WITH</code> and <code class="literal">START</code>, <code class="literal">WHERE</code> simply filters the results.</p>
+<p>For <code class="literal">MATCH</code> and <code class="literal">OPTIONAL MATCH</code> on the other hand, <code class="literal">WHERE</code> adds constraints to the patterns described.
+It should not be seen as a filter after the matching is finished.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>In the case of multiple (<code class="literal">OPTIONAL</code>) <code class="literal">MATCH</code> clauses, the predicate in <code class="literal">WHERE</code> is always a part of the patterns in the directly preceding <code class="literal">MATCH</code>.
+Both results and performance may be impacted if the <code class="literal">WHERE</code> is put inside the wrong <code class="literal">MATCH</code> clause.</p></td></tr></table></div>
+<div class="figure" id="d5e8771"><p class="title"><strong>Figure 11.3. Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/cypher-where-graph.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/cypher-where-graph.svg" alt="cypher-where-graph.svg" /></span>
+</a>
+</div></div>
+<section class="section" id="_basic_usage"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Basic usage</h3></div></div></div>
+
+<section class="section" id="where-boolean-operations"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Boolean operations</h4></div></div></div>
+
+<p>You can use the expected boolean operators <code class="literal">AND</code> and <code class="literal">OR</code>, and also the boolean function <code class="literal">NOT</code>. See <a class="xref" href="cypher-working-with-null.html" title="9.8. Working with NULL">Section 9.8, “Working with NULL”</a> for more information on how this works with <code class="literal">NULL</code>.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name = 'Peter' XOR (n.age &lt; 30 AND n.name = "Tobias") OR NOT (n.name = "Tobias" OR
+  n.name="Peter")
+RETURN n</pre><p>
+</p>
+<p>This query shows how boolean operators can be used.</p>
+<div class="queryresult table" id="d5e8798"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filter-on-node-label"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on node label</h4></div></div></div>
+
+<p>To filter nodes by label, write a label predicate after the <code class="literal">WHERE</code> keyword using <code class="literal">WHERE n:foo</code>.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n:Swedish
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Andres</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e8836"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filter-on-node-property"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on node property</h4></div></div></div>
+
+<p>To filter on a property, write your clause after the <code class="literal">WHERE</code> keyword. Filtering on relationship properties works just the same way.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.age &lt; 30
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Tobias</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e8865"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filter-on-dynamic-node-property"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on dynamic node property</h4></div></div></div>
+
+<p>To filter on a property using a dynamically computed name, use square bracket syntax.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{
+  "prop" : "AGE"
+}</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n[toLower({ prop })]&lt; 30
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Tobias</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e8893"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-property-exists"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Property exists</h4></div></div></div>
+
+<p>To only include nodes/relationships that have a property, use the <code class="literal">HAS()</code> function and just write out the identifier and the property you expect it to have.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE HAS (n.belt)
+RETURN n</pre><p>
+</p>
+<p>The node named "<code class="literal">Andres</code>" is returned.</p>
+<div class="queryresult table" id="d5e8922"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="_regular_expressions"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Regular expressions</h3></div></div></div>
+
+<p>Cypher supports filtering using regular expressions.
+The regular expression syntax is inherited from <a class="ulink" href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html" target="_blank">the Java regular expressions</a>.
+This includes support for flags that change how strings are matched, including case-insensitive <code class="literal">(?i)</code>, multiline <code class="literal">(?m)</code> and dotall <code class="literal">(?s)</code>.
+Flags are given at the start of the regular expression, for example <code class="literal">MATCH (n) WHERE n.name =~ '(?i)Lon.*' RETURN n</code> will return nodes with name <code class="literal">London</code> or with name <code class="literal">LonDoN</code>.</p>
+<section class="section" id="where-regular-expressions"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Regular expressions</h4></div></div></div>
+
+<p>You can match on regular expressions by using <code class="literal">=~ "regexp"</code>, like this:</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name =~ 'Tob.*'
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Tobias</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e8961"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-escaping-in-regular-expressions"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Escaping in regular expressions</h4></div></div></div>
+
+<p>If you need a forward slash inside of your regular expression, escape it. Remember that back slash needs to be escaped in string literals.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name =~ 'Some\\/thing'
+RETURN n</pre><p>
+</p>
+<p>No nodes match this regular expression.</p>
+<div class="queryresult table" id="d5e8988"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>0 row</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-case-insensitive-regular-expressions"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Case insensitive regular expressions</h4></div></div></div>
+
+<p>By pre-pending a regular expression with <code class="literal">(?i)</code>, the whole expression becomes case insensitive.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name =~ '(?i)ANDR.*'
+RETURN n</pre><p>
+</p>
+<p>The node with name "<code class="literal">Andres</code>" is returned.</p>
+<div class="queryresult table" id="d5e9017"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="_case_in_sensitive_string_pattern_matching_2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Case-(in)sensitive string pattern matching</h3></div></div></div>
+
+<section class="section" id="where-case-sensitive-pattern-matching"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Case-sensitive pattern matching</h4></div></div></div>
+
+<p>The <code class="literal">LIKE</code> keyword can be used to perform case-sensitive matching on strings. Two wildcards are supported: <code class="literal">%</code> matches zero or more characters, <code class="literal">_</code> matches exactly one character. Matches using <code class="literal">LIKE</code> in a prefix pattern (<code class="literal">LIKE 'prefix%'</code> or <code class="literal">LIKE 'prefix_'</code>) can be solved using indexes.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name LIKE 'Pet%'
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Peter</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e9053"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-case-insensitive-pattern-matching"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Case-insensitive pattern matching</h4></div></div></div>
+
+<p>The <code class="literal">ILIKE</code> keyword can be used to perform case-insensitive matching on strings. Two wildcards are supported: <code class="literal">%</code> matches zero or more characters, <code class="literal">_</code> matches exactly one character.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name ILIKE 'ANDRE_'
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Andres</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e9084"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-pattern-matching-negation"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Pattern matching negation</h4></div></div></div>
+
+<p>Use the <code class="literal">NOT</code> keyword to exclude all matches on given string from your result:</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.name NOT LIKE '%s'
+RETURN n</pre><p>
+</p>
+<p>The "<code class="literal">Peter</code>" node will be returned.</p>
+<div class="queryresult table" id="d5e9113"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-escaping-in-pattern-matching"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Escaping in pattern matching</h4></div></div></div>
+
+<p>If one of the wildcard characters (<code class="literal">%</code> or <code class="literal">_</code>) is needed inside your string, escape it. Remember that backslash needs to be escaped in string literals.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.email LIKE '%\_%'
+RETURN n</pre><p>
+</p>
+<p>No nodes match this expression.</p>
+<div class="queryresult table" id="d5e9142"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>0 row</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="query-where-patterns"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using patterns in WHERE</h3></div></div></div>
+
+<section class="section" id="where-filter-on-patterns"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on patterns</h4></div></div></div>
+
+<p>Patterns are expressions in Cypher, expressions that return a collection of paths. Collection
+expressions are also predicates — an empty collection represents <code class="literal">false</code>, and a non-empty represents <code class="literal">true</code>.</p>
+<p>So, patterns are not only expressions, they are also predicates. The only limitation to your pattern is that you must be
+able to express it in a single path. You can not use commas between multiple paths like you do in <code class="literal">MATCH</code>. You can achieve
+the same effect by combining multiple patterns with <code class="literal">AND</code>.</p>
+<p>Note that you can not introduce new identifiers here. Although it might look very similar to the <code class="literal">MATCH</code> patterns, the
+<code class="literal">WHERE</code> clause is all about eliminating matched subgraphs. <code class="literal">MATCH (a)-[*]-&gt;(b)</code> is very different from <code class="literal">WHERE (a)-[*]-&gt;(b)</code>; the
+first will produce a subgraph for every path it can find between <code class="literal">a</code> and <code class="literal">b</code>, and the latter will eliminate any matched
+subgraphs where <code class="literal">a</code> and <code class="literal">b</code> do not have a directed relationship chain between them.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (tobias { name: 'Tobias' }),(others)
+WHERE others.name IN ['Andres', 'Peter'] AND (tobias)&lt;--(others)
+RETURN others</pre><p>
+</p>
+<p>Nodes that have an outgoing relationship to the "<code class="literal">Tobias</code>" node are returned.</p>
+<div class="queryresult table" id="d5e9186"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>others</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filter-on-patterns-using-not"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on patterns using NOT</h4></div></div></div>
+
+<p>The <code class="literal">NOT</code> function can be used to exclude a pattern.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (persons),(peter { name: 'Peter' })
+WHERE NOT (persons)--&gt;(peter)
+RETURN persons</pre><p>
+</p>
+<p>Nodes that do not have an outgoing relationship to the "<code class="literal">Peter</code>" node are returned.</p>
+<div class="queryresult table" id="d5e9215"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>persons</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filter-on-patterns-with-properties"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on patterns with properties</h4></div></div></div>
+
+<p>You can also add properties to your patterns:</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE (n)-[:KNOWS]-({ name:'Tobias' })
+RETURN n</pre><p>
+</p>
+<p>Finds all nodes that have a <code class="literal">KNOWS</code> relationship to a node with the name <code class="literal">Tobias</code>.</p>
+<div class="queryresult table" id="d5e9248"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filtering-on-relationship-type"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filtering on relationship type</h4></div></div></div>
+
+<p>You can put the exact relationship type in the <code class="literal">MATCH</code> pattern, but sometimes you want to be able to do more advanced filtering on the type. You can use the special property <code class="literal">TYPE</code> to compare the type with something else. In this example, the query does a regular expression comparison with the name of the relationship type.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)-[r]-&gt;()
+WHERE n.name='Andres' AND type(r)=~ 'K.*'
+RETURN r</pre><p>
+</p>
+<p>This returns relationships that has a type whose name starts with K.</p>
+<div class="queryresult table" id="d5e9277"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[1]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[0]{}</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="_collections"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Collections</h3></div></div></div>
+
+<section class="section" id="where-in-operator"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">IN operator</h4></div></div></div>
+
+<p>To check if an element exists in a collection, you can use the <code class="literal">IN</code> operator.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name IN ["Peter", "Tobias"]
+RETURN a</pre><p>
+</p>
+<p>This query shows how to check if a property exists in a literal collection.</p>
+<div class="queryresult table" id="d5e9311"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="_missing_properties_and_values"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Missing properties and values</h3></div></div></div>
+
+<section class="section" id="where-default-to-false-if-property-is-missing"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Default to false if property is missing</h4></div></div></div>
+
+<p>As missing properties evaluate to <code class="literal">NULL</code>, the comparision in the example will evaluate to <code class="literal">FALSE</code> for nodes without the <code class="literal">belt</code> property.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.belt = 'white'
+RETURN n</pre><p>
+</p>
+<p>Only nodes with the belt property are returned.</p>
+<div class="queryresult table" id="d5e9347"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-default-to-true-if-property-is-missing"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Default to true if property is missing</h4></div></div></div>
+
+<p>If you want to compare a property on a graph element, but only if it exists, you can compare the property against both the value you are looking for and <code class="literal">NULL</code>, like:</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+WHERE n.belt = 'white' OR n.belt IS NULL RETURN n
+ORDER BY n.name</pre><p>
+</p>
+<p>This returns all nodes, even those without the belt property.</p>
+<div class="queryresult table" id="d5e9375"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-filter-on-null"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on NULL</h4></div></div></div>
+
+<p>Sometimes you might want to test if a value or an identifier is <code class="literal">NULL</code>. This is done just like SQL does it, with <code class="literal">IS NULL</code>. Also like SQL, the negative is <code class="literal">IS NOT NULL</code>, although <code class="literal">NOT(IS NULL x)</code> also works.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (person)
+WHERE person.name = 'Peter' AND person.belt IS NULL RETURN person</pre><p>
+</p>
+<p>Nodes that have name <span class="emphasis"><em>Peter</em></span> but no belt property are returned.</p>
+<div class="queryresult table" id="d5e9415"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+<section class="section" id="_using_ranges"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using ranges</h3></div></div></div>
+
+<section class="section" id="where-simple-range"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Simple range</h4></div></div></div>
+
+<p>To check for an element being inside a specific range, use the inequality operators <code class="literal">&lt;</code>, <code class="literal">&lt;=</code>, <code class="literal">&gt;=</code>, <code class="literal">&gt;</code>.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name &gt;= 'Peter'
+RETURN a</pre><p>
+</p>
+<p>Nodes having a name property lexicographically greater than or equal to <span class="emphasis"><em>Peter</em></span> are returned.</p>
+<div class="queryresult table" id="d5e9449"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="where-composite-range"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Composite range</h4></div></div></div>
+
+<p>Several inequalities can be used to construct a range.</p>
+<p><strong>Parameters </strong>
+</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
+</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (a)
+WHERE a.name &gt; 'Andres' AND a.name &lt; 'Tobias'
+RETURN a</pre><p>
+</p>
+<p>Nodes having a name property lexicographically between <span class="emphasis"><em>Andres</em></span> and <span class="emphasis"><em>Tobias</em></span> are returned.</p>
+<div class="queryresult table" id="d5e9482"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

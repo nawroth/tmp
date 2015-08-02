@@ -1,0 +1,187 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>31.1. Starting the shell -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="shell.html" title="Chapter 31. Neo4j Shell" /><link rel="next" href="shell-options.html" title="31.2. Passing options and arguments" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="31.1. Starting the shell" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-80091";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>31.1. Starting the shell</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="shell.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="shell.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="shell-options.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="shell-starting"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">31.1. Starting the shell</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="shell-starting.html#shell-enabling-remote">Enabling the shell server</a></span></li><li><span class="section"><a href="shell-starting.html#_connecting_to_a_shell_server">Connecting to a shell server</a></span></li><li><span class="section"><a href="shell-starting.html#_pointing_the_shell_to_a_path">Pointing the shell to a path</a></span></li><li><span class="section"><a href="shell-starting.html#read-only-mode">Read-only mode</a></span></li><li><span class="section"><a href="shell-starting.html#_run_a_command_and_then_exit">Run a command and then exit</a></span></li><li><span class="section"><a href="shell-starting.html#_pass_neo4j_configuration_options">Pass Neo4j configuration options</a></span></li><li><span class="section"><a href="shell-starting.html#_execute_a_file_and_then_exit">Execute a file and then exit</a></span></li></ul></div>
+
+<p>When used together with a Neo4j server, simply issue the following at the command line:</p>
+<pre class="programlisting" data-lang="shell">./bin/neo4j-shell</pre>
+<p>Under windows, the command is named <code class="literal">Neo4jShell.bat</code>.</p>
+<p>For the full list of options, see the reference in the <a class="link" href="re02.html#shell-manpage" title="Synopsis">Shell manual page</a>.</p>
+<p>To connect to a running Neo4j database, use <a class="xref" href="shell-starting.html#read-only-mode" title="Read-only mode">the section called “Read-only mode”</a> for local databases
+and see <a class="xref" href="shell-starting.html#shell-enabling-remote" title="Enabling the shell server">the section called “Enabling the shell server”</a> for remote databases.</p>
+<p>You need to make sure that the shell jar file is on the classpath when you start up your Neo4j instance.</p>
+<section class="section" id="shell-enabling-remote"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Enabling the shell server</h3></div></div></div>
+
+<p>Shell is enabled from the main configuration of Neo4j, see <a class="xref" href="configuration-settings.html" title="24.5. Configuration Settings">Section 24.5, “Configuration Settings”</a>.
+Here’s the available settings:</p>
+<div class="table" id="config-org.neo4j.shell.ShellSettings"><p class="title"><strong>Settings for the remote shell extension</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="shell-starting.html#config_remote_shell_enabled" title="remote_shell_enabled">remote_shell_enabled</a></p></td><td><p>Enable a remote shell server which Neo4j Shell clients can log in to.</p></td></tr><tr><td><p><a class="link" href="shell-starting.html#config_remote_shell_host" title="remote_shell_host">remote_shell_host</a></p></td><td><p>Remote host for shell.</p></td></tr><tr><td><p><a class="link" href="shell-starting.html#config_remote_shell_name" title="remote_shell_name">remote_shell_name</a></p></td><td><p>The name of the shell.</p></td></tr><tr><td><p><a class="link" href="shell-starting.html#config_remote_shell_port" title="remote_shell_port">remote_shell_port</a></p></td><td><p>The port the shell will listen on.</p></td></tr><tr><td><p><a class="link" href="shell-starting.html#config_remote_shell_read_only" title="remote_shell_read_only">remote_shell_read_only</a></p></td><td><p>Read only mode.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_shell_enabled"><p class="title"><strong>remote_shell_enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable a remote shell server which Neo4j Shell clients can log in to.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_shell_enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_shell_host"><p class="title"><strong>remote_shell_host</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Remote host for shell. By default, the shell server listens only on the loopback interface, but you can specify the IP address of any network interface or use <code class="literal">0.0.0.0</code> for all interfaces.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_shell_host</code></code> is a string which must be a valid name.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">127.0.0.1</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_shell_name"><p class="title"><strong>remote_shell_name</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The name of the shell.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_shell_name</code></code> is a string which must be a valid name.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">shell</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_shell_port"><p class="title"><strong>remote_shell_port</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The port the shell will listen on.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_shell_port</code></code> is an integer which must be a valid port number (is in the range <code class="literal">0</code> to <code class="literal">65535</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">1337</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_remote_shell_read_only"><p class="title"><strong>remote_shell_read_only</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Read only mode. Will only allow read operations.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">remote_shell_read_only</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<p>There are two ways to start the shell, either by connecting to a remote shell server or by pointing it to a Neo4j store path.</p>
+</section>
+<section class="section" id="_connecting_to_a_shell_server"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Connecting to a shell server</h3></div></div></div>
+
+<p>To start the shell and connect to a running server, run:</p>
+<pre class="programlisting" data-lang="plain">neo4j-shell</pre>
+<p>Alternatively supply <code class="literal">-port</code> and <code class="literal">-name</code> options depending on how the remote shell server was enabled.
+Then you’ll get the shell prompt like this:</p>
+<pre class="programlisting" data-lang="plain">neo4j-sh (0)$</pre>
+</section>
+<section class="section" id="_pointing_the_shell_to_a_path"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Pointing the shell to a path</h3></div></div></div>
+
+<p>To start the shell by just pointing it to a Neo4j store path you run the shell jar file.
+Given that the right neo4j-kernel-&lt;version&gt;.jar and jta jar files are in the same path as your neo4j-shell-&lt;version&gt;.jar file you run it with:</p>
+<pre class="programlisting" data-lang="plain">$ neo4j-shell -path path/to/neo4j-db</pre>
+</section>
+<section class="section" id="read-only-mode"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Read-only mode</h3></div></div></div>
+
+<p>By issuing the <code class="literal">-readonly</code> switch when starting the shell with a store path,
+changes cannot be made to the database during the session.</p>
+<pre class="programlisting" data-lang="plain">$ neo4j-shell -readonly -path path/to/neo4j-db</pre>
+</section>
+<section class="section" id="_run_a_command_and_then_exit"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Run a command and then exit</h3></div></div></div>
+
+<p>It is possible to tell the shell to just start, execute a command and then exit.
+This opens up for uses of background jobs and also handling of huge output of f.ex. an <code class="literal">ls</code> command where you then could pipe the output to <code class="literal">less</code> or another reader of your choice, or even to a file.</p>
+<p>And even to another neo4j-shell, e.g. for importing a <code class="literal">dump</code> of another database or cypher result. When used with command mode the shell will not output a welcome message.
+So some examples of usage:</p>
+<pre class="programlisting" data-lang="plain">$ neo4j-shell -c "cd -a 24 &amp;&amp; set name Mattias"
+$ neo4j-shell -c "trav -r KNOWS" | less</pre>
+</section>
+<section class="section" id="_pass_neo4j_configuration_options"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Pass Neo4j configuration options</h3></div></div></div>
+
+<p>By setting the <code class="literal">-config</code> switch, you can provide a properties file that will be used to configure your Neo4j instance,
+if started in embedded mode.</p>
+<pre class="programlisting" data-lang="plain">$ neo4j-shell -config conf/neo4j.properties -path mydb</pre>
+</section>
+<section class="section" id="_execute_a_file_and_then_exit"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Execute a file and then exit</h3></div></div></div>
+
+<p>To execute commands from a file  and then exit just provide a <code class="literal">-file
+filename</code>. This is faster than piping to the shell which still handles
+the input as if it was user input.</p>
+<p>For example reading a dump file directly from the command line and executing
+it against the given database. For example:</p>
+<pre class="programlisting" data-lang="plain">$ neo4j-shell -file export.cql &gt; result.txt</pre>
+<p>Supplying <code class="literal">-</code> as the filename reads from <code class="literal">stdin</code> instead.</p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

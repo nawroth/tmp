@@ -1,0 +1,202 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>29.2. Command Line Usage -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool-header-format.html" title="29.1. CSV file Header format" /><link rel="next" href="import-tool-basic-example.html" title="29.3. Basic Import Tool Example" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.2. Command Line Usage" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-80091";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.2. Command Line Usage</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool-header-format.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-basic-example.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-usage"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.2. Command Line Usage</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="import-tool-usage.html#_command">Command</a></span></li><li><span class="section"><a href="import-tool-usage.html#import-tool-options">Options</a></span></li></ul></div>
+
+<section class="section" id="_command"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Command</h3></div></div></div>
+
+<p>Under Unix/Linux/OSX, the command is named <code class="literal">neo4j-import</code>.
+Under Windows, the command is named <code class="literal">Neo4jImport.bat</code>.</p>
+<p>Depending on the installation type, the tool is either available globally, or used by executing <code class="literal">./bin/neo4j-import</code> or <code class="literal">bin\Neo4jImport.bat</code> from inside the installation directory.</p>
+</section>
+<section class="section" id="import-tool-options"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Options</h3></div></div></div>
+
+<div class="variablelist"><dl class="variablelist"><dt><span class="term">
+<span class="strong"><strong>--into &lt;store-dir&gt;</strong></span>
+</span></dt><dd>
+
+Database directory to import into. Must not contain existing database.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--nodes [:Label1:Label2] "&lt;file1&gt;,&lt;file2&gt;,…"</strong></span>
+</span></dt><dd>
+
+Node CSV header and data. Multiple files will be logically seen as one big file from the perspective of the importer. The first line must contain the header. Multiple data sources like these can be specified in one import, where each data source has its own header. Note that file groups must be enclosed in quotation marks.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--relationships [:RELATIONSHIP_TYPE] "&lt;file1&gt;,&lt;file2&gt;,…"</strong></span>
+</span></dt><dd>
+
+Relationship CSV header and data. Multiple files will be logically seen as one big file from the perspective of the importer. The first line must contain the header. Multiple data sources like these can be specified in one import, where each data source has its own header. Note that file groups must be enclosed in quotation marks.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--delimiter &lt;delimiter-character&gt;</strong></span>
+</span></dt><dd>
+
+Delimiter character, or <span class="emphasis"><em>TAB</em></span>, between values in CSV data. The default option is <code class="literal">,</code>.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--array-delimiter &lt;array-delimiter-character&gt;</strong></span>
+</span></dt><dd>
+
+Delimiter character, or <span class="emphasis"><em>TAB</em></span>, between array elements within a value in CSV data. The default option is <code class="literal">;</code>.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--quote &lt;quotation-character&gt;</strong></span>
+</span></dt><dd>
+
+Character to treat as quotation character for values in CSV data. The default option is <code class="literal">"</code>. Quotes inside quotes escaped like <code class="literal">"""Go away"", he said."</code> and <code class="literal">"\"Go away\", he said."</code> are supported. If you have set "<code class="literal">'</code>" to be used as the quotation character, you could write the previous example like this instead: <code class="literal">'"Go away", he said.'</code>
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--multiline-fields &lt;true/false&gt;</strong></span>
+</span></dt><dd>
+
+Whether or not fields from input source can span multiple lines, i.e. contain newline characters.Default value: false
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--id-type &lt;id-type&gt;</strong></span>
+</span></dt><dd>
+
+One out of [STRING, INTEGER, ACTUAL] and specifies how ids in node/relationship input files are treated.
+STRING: arbitrary strings for identifying nodes.
+INTEGER: arbitrary integer values for identifying nodes.
+ACTUAL: (advanced) actual node ids. The default option is <code class="literal">STRING</code>.Default value: STRING
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--processors &lt;max processor count&gt;</strong></span>
+</span></dt><dd>
+
+(advanced) Max number of processors used by the importer. Defaults to the number of available processors reported by the JVM. There is a certain amount of minimum threads needed so for that reason there is no lower bound for this value. For optimal performance this value shouldn’t be greater than the number of available processors.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--stacktrace &lt;true/false&gt;</strong></span>
+</span></dt><dd>
+
+Enable printing of error stack traces.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--bad-tolerance &lt;max number of bad entries&gt;</strong></span>
+</span></dt><dd>
+
+Number of bad entries before the import is considered failed. This tolerance threshold is about relationships refering to missing nodes. Format errors in input data are still treated as errors. Default value: 1000
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--input-encoding &lt;character set&gt;</strong></span>
+</span></dt><dd>
+
+Character set that input data is encoded in. Provided value must be one out of the available character sets in the JVM, as provided by Charset#availableCharsets(). If no input encoding is provided, the default character set of the JVM will be used.
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--skip-bad-relationships &lt;true/false&gt;</strong></span>
+</span></dt><dd>
+
+Whether or not to skip importing relationships that refers to missing node ids, i.e. either start or end node id/group referring to node that wasn’t specified by the node input data. Skipped nodes will be logged, containing at most number of entites specified by bad-tolerance.Default value: true
+
+</dd><dt><span class="term">
+<span class="strong"><strong>--skip-duplicate-nodes &lt;true/false&gt;</strong></span>
+</span></dt><dd>
+
+Whether or not to skip importing nodes that have the same id/group. In the event of multiple nodes within the same group having the same id, the first encountered will be imported whereas consecutive such nodes will be skipped. Skipped nodes will be logged, containing at most number of entites specified by bad-tolerance.Default value: false
+
+</dd></dl></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>3.6. Utilizing Data Structures -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypherdoc-how-to-compose-large-statements.html" title="3.5. How to Compose Large Statements" /><link rel="next" href="cypherdoc-labels-constraints-and-indexes.html" title="3.7. Labels, Constraints and Indexes" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="3.6. Utilizing Data Structures" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-80091";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.5.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>3.6. Utilizing Data Structures</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypherdoc-how-to-compose-large-statements.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-getting-started.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypherdoc-labels-constraints-and-indexes.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-utilizing-data-structures"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">3.6. Utilizing Data Structures</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypherdoc-utilizing-data-structures.html#_list_predicates">List Predicates</a></span></li><li><span class="section"><a href="cypherdoc-utilizing-data-structures.html#_list_processing">List Processing</a></span></li><li><span class="section"><a href="cypherdoc-utilizing-data-structures.html#_unwind_lists">Unwind Lists</a></span></li></ul></div>
+
+<p>Cypher can create and consume more complex data structures out of the box.
+As already mentioned you can create literal lists (<code class="literal">[1,2,3]</code>) and maps (<code class="literal">{name: value}</code>) within a statement.</p>
+<p>There is a number of functions that work with lists, from simple ones like <code class="literal">length(list)</code> that returns the size of a list to</p>
+<pre class="programlisting" data-lang="cypher">MATCH (m:Movie)&lt;-[:ACTED_IN]-(a:Person)
+RETURN m.title AS movie, collect(a.name)[0..5] AS five_of_cast</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th><th>five_of_cast</th></tr></thead><tfoot><tr><th colspan="2">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="2"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<p>You can also access individual elements or slices of a list quickly with <code class="literal">list[1]</code> or <code class="literal">list[5..-5]</code>.
+Other functions to access parts of a list are <code class="literal">head(list)</code>, <code class="literal">tail(list)</code> and <code class="literal">last(list)</code>.</p>
+<section class="section" id="_list_predicates"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">List Predicates</h3></div></div></div>
+
+<p>When using lists and arrays in comparisons you can use predicates like <code class="literal">value IN list</code> or <code class="literal">any(x IN list WHERE x = value)</code>.
+There are list predicates to satisfy conditions for <code class="literal">all</code>, <code class="literal">any</code>, <code class="literal">none</code> and <code class="literal">single</code> elements.</p>
+<pre class="programlisting" data-lang="cypher">MATCH path =(:Person)--&gt;(:Movie)&lt;--(:Person)
+WHERE ALL (r IN rels(path) WHERE type(r)= 'ACTED_IN') AND ANY (n IN nodes(path) WHERE n.name = 'Clint
+  Eastwood')
+RETURN path</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>path</th></tr></thead><tfoot><tr><th>0 row</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+</section>
+<section class="section" id="_list_processing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">List Processing</h3></div></div></div>
+
+<p>Oftentimes you want to process lists to <code class="literal">filter</code>, aggregate (<code class="literal">reduce</code>) or transform (<code class="literal">extract</code>) their values.
+Those transformations can be done within Cypher or in the calling code.
+This kind of list-processing can reduce the amount of data handled and returned, so it might make sense to do it within the Cypher statement.</p>
+<p>A simple, non-graph example would be:</p>
+<pre class="programlisting" data-lang="cypher">WITH range(1,10) AS numbers
+WITH extract(n IN numbers | n*n) AS squares
+WITH filter(n IN squares WHERE n &gt; 25) AS large_squares
+RETURN reduce(a = 0, n IN large_squares | a + n) AS sum_large_squares</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>sum_large_squares</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">330</code></p></td></tr></tbody></table></div>
+<p>In a graph-query you can filter or aggregate collected values instead or work on array properties.</p>
+<pre class="programlisting" data-lang="cypher">MATCH (m:Movie)&lt;-[r:ACTED_IN]-(a:Person)
+WITH m.title AS movie, collect({ name: a.name, roles: r.roles }) AS cast
+RETURN movie, extract(c2 IN filter(c1 IN cast WHERE c1.name =~ "T.*")| c2.roles)</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th><th>extract(c2 IN filter(c1 IN cast WHERE c1.name =~ "T.*")</th><th>c2.roles )</th></tr></thead><tfoot><tr><th colspan="3">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="3"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<p>Cypher offers to create and consume more complex data structures out of the box.
+As already mentioned you can create literal lists (<code class="literal">[1,2,3]</code>) and maps (<code class="literal">{name: value}</code>) within your statement.</p>
+<p>There is a number of functions to work with lists, from simple ones like <code class="literal">length(list)</code> that returns the size of a list to</p>
+<pre class="programlisting" data-lang="cypher">MATCH (m:Movie)&lt;-[:ACTED_IN]-(a:Person)
+RETURN m.title AS movie, collect(a.name)[0..5] AS five_of_cast</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th><th>five_of_cast</th></tr></thead><tfoot><tr><th colspan="2">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="2"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<p>You can also access individual elements or slices of a list quickly with <code class="literal">list[1]</code> or <code class="literal">list[5..-5]</code>.
+Other functions to access parts of a list are <code class="literal">head(list)</code>, <code class="literal">tail(list)</code> and <code class="literal">last(list)</code>.</p>
+</section>
+<section class="section" id="_unwind_lists"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Unwind Lists</h3></div></div></div>
+
+<p>Sometimes you have collected information into a list, but want to use each element individually as a row.
+For instance, you might want to further match patterns in the graph.
+Or you passed in a collection of values but now want to create or match a node or relationship for each element.
+Then you can use the <code class="literal">UNWIND</code> clause to unroll a list into a sequence of rows again.</p>
+<p>For instance, a query to find the top 5-co-actors and then follow their movies and again list the cast for each of those movies:</p>
+<pre class="programlisting" data-lang="cypher">MATCH (a:Person)-[:ACTED_IN]-&gt;(m:Movie)&lt;-[:ACTED_IN]-(colleague:Person)
+WITH colleague, count(*) AS frequency, collect(DISTINCT m) AS movies
+ORDER BY frequency DESC LIMIT 5 UNWIND movies AS m
+MATCH (m)&lt;-[:ACTED_IN]-(a)
+RETURN m.title AS movie, collect(a.name) AS cast</pre>
+<div class="queryresult table"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th><th>cast</th></tr></thead><tfoot><tr><th colspan="2">0 row</th></tr></tfoot><tbody><tr><td class="emptyresult" colspan="2"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div>
+<p class="cypherdoc-console"></p>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

@@ -1,0 +1,53 @@
+-classpath
+'/opt/teamcity-agent/work/4a01577060c314a1/manual/javadocs/target/classes:/home/teamcity/.m2/repository/org/neo4j/neo4j-cypher-compiler-2.2_2.11/2.2.3/neo4j-cypher-compiler-2.2_2.11-2.2.3.jar:/home/teamcity/.m2/repository/commons-lang/commons-lang/2.6/commons-lang-2.6.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/cypher/cypher/target/neo4j-cypher-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/logging/target/neo4j-logging-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/lucene-index/target/neo4j-lucene-index-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/org/apache/commons/commons-lang3/3.3.2/commons-lang3-3.3.2.jar:/home/teamcity/.m2/repository/org/scala-lang/scala-reflect/2.11.7/scala-reflect-2.11.7.jar:/opt/teamcity-agent/work/4a01577060c314a1/enterprise/neo4j-enterprise/target/neo4j-enterprise-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/enterprise/com/target/neo4j-com-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/org/parboiled/parboiled-core/1.1.7/parboiled-core-1.1.7.jar:/home/teamcity/.m2/repository/commons-beanutils/commons-beanutils/1.8.3/commons-beanutils-1.8.3.jar:/home/teamcity/.m2/repository/org/neo4j/neo4j-cypher-compiler-1.9_2.11/2.0.5/neo4j-cypher-compiler-1.9_2.11-2.0.5.jar:/opt/teamcity-agent/work/4a01577060c314a1/enterprise/cluster/target/neo4j-cluster-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/org/ow2/asm/asm/5.0.2/asm-5.0.2.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/function/target/neo4j-function-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.4/scala-parser-combinators_2.11-1.0.4.jar:/home/teamcity/.m2/repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar:/home/teamcity/.m2/repository/commons-digester/commons-digester/2.1/commons-digester-2.1.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/kernel/target/neo4j-kernel-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/commons-configuration/commons-configuration/1.10/commons-configuration-1.10.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/consistency-check/target/neo4j-consistency-check-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/org/parboiled/parboiled-scala_2.11/1.1.7/parboiled-scala_2.11-1.1.7.jar:/home/teamcity/.m2/repository/org/apache/lucene/lucene-core/3.6.2/lucene-core-3.6.2.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/graph-matching/target/neo4j-graph-matching-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/enterprise/ha/target/neo4j-ha-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/graph-algo/target/neo4j-graph-algo-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/cypher/cypher-compiler-2.3/target/neo4j-cypher-compiler-2.3-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/csv/target/neo4j-csv-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/net/sf/opencsv/opencsv/2.3/opencsv-2.3.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/unsafe/target/neo4j-unsafe-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/io/netty/netty/3.6.3.Final/netty-3.6.3.Final.jar:/home/teamcity/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar:/usr/lib/jvm/java-7-openjdk-amd64/jre/../lib/tools.jar:/home/teamcity/.m2/repository/org/scala-lang/scala-library/2.11.7/scala-library-2.11.7.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/neo4j/target/neo4j-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/advanced/management/target/neo4j-management-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/codegen/target/neo4j-codegen-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/advanced/neo4j-advanced/target/neo4j-advanced-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/io/target/neo4j-io-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/udc/target/neo4j-udc-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/enterprise/query-logging/target/neo4j-query-logging-2.3-SNAPSHOT.jar:/home/teamcity/.m2/repository/org/neo4j/3rdparty/javax/ws/rs/jsr311-api/1.1.2.r612/jsr311-api-1.1.2.r612.jar:/opt/teamcity-agent/work/4a01577060c314a1/enterprise/backup/target/neo4j-backup-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/primitive-collections/target/neo4j-primitive-collections-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/server-api/target/server-api-2.3-SNAPSHOT.jar:/opt/teamcity-agent/work/4a01577060c314a1/community/jmx/target/neo4j-jmx-2.3-SNAPSHOT.jar'
+-encoding
+'UTF-8'
+-public
+-quiet
+-sourcepath
+'/opt/teamcity-agent/work/4a01577060c314a1/manual/javadocs/target/javadoc-sources'
+-author
+-bottom
+'Copyright &#169; 2002&#x2013;2015 <a href="http://neo4j.org/">The Neo4j Graph Database Project</a>. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/opt/teamcity-agent/work/4a01577060c314a1/manual/javadocs/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Neo4j 2.3-SNAPSHOT API'
+-group
+'Graph database' 'org.neo4j.graphdb:org.neo4j.graphdb.*'
+-group
+'Query language' 'org.neo4j.cypher.javacompat:org.neo4j.cypher.javacompat.*:org.neo4j.cypher.export'
+-group
+'Graph algorithms' 'org.neo4j.graphalgo:org.neo4j.graphalgo.*'
+-group
+'Management' 'org.neo4j.jmx:org.neo4j.jmx.*'
+-group
+'Management (Enterprise edition)' 'org.neo4j.management:org.neo4j.management.*'
+-group
+'Tooling' 'org.neo4j.tooling:org.neo4j.tooling.*'
+-group
+'Import' 'org.neo4j.unsafe.batchinsert'
+-group
+'Server Plugin API' 'org.neo4j.server:org.neo4j.server.*'
+-group
+'Helpers' 'org.neo4j.helpers:org.neo4j.helpers.*'
+-group
+'High Availability (Enterprise edition)' 'org.neo4j.cluster'
+-group
+'Backup (Enterprise edition)' 'org.neo4j.backup'
+-group
+'Legacy Indexes' 'org.neo4j.index:org.neo4j.index.*'
+-group
+'Graph matching' 'org.neo4j.graphmatching:org.neo4j.graphmatching.*'
+-header
+'Neo4j'
+-linkoffline
+'http://docs.oracle.com/javase/7/docs/api' '/opt/teamcity-agent/work/4a01577060c314a1/manual/javadocs/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Neo4j 2.3-SNAPSHOT API'
