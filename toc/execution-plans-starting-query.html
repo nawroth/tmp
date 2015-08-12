@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>16.1. Starting point operators -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="execution-plans.html" title="Chapter 16. Execution Plans" /><link rel="next" href="execution-plan-expand.html" title="16.2. Expand operators" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="16.1. Starting point operators" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -225,11 +225,11 @@ RETURN l</pre><p>
 </p><pre class="programlisting" data-lang="plain">+-----------------------+----------------+------+---------+-------------+---------------------------+
 | Operator              | Estimated Rows | Rows | DB Hits | Identifiers | Other                     |
 +-----------------------+----------------+------+---------+-------------+---------------------------+
-| +ProduceResults       |             26 |    1 |       0 | l           | l                         |
+| +ProduceResults       |             28 |    1 |       0 | l           | l                         |
 | |                     +----------------+------+---------+-------------+---------------------------+
-| +Projection           |             26 |    1 |       0 | l           | l                         |
+| +Projection           |             28 |    1 |       0 | l           | l                         |
 | |                     +----------------+------+---------+-------------+---------------------------+
-| +NodeIndexSeekByRange |             26 |    1 |       2 | l           | :Location(name LIKE Lon%) |
+| +NodeIndexSeekByRange |             28 |    1 |       2 | l           | :Location(name LIKE Lon%) |
 +-----------------------+----------------+------+---------+-------------+---------------------------+
 
 Total database accesses: 2</pre><p>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.4. Delete -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-set.html" title="12.3. Set" /><link rel="next" href="query-remove.html" title="12.5. Remove" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.4. Delete" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -88,43 +88,34 @@
 <section class="section" id="delete-delete-single-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete single node</h3></div></div></div>
 
 <p>To delete a node, use the <code class="literal">DELETE</code> clause.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Useless)
 DELETE n</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e11542"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10918"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="delete-delete-a-node-and-connected-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete a node and connected relationships</h3></div></div></div>
 
 <p>If you are trying to delete a node with relationships on it, you have to delete these as well.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'Andres' })-[r]-()
 DELETE n, r</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e11566"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1
+<div class="queryresult table" id="d5e10938"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1
 </th></tr><tr><th>Relationships deleted: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="delete-delete-all-nodes-and-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete all nodes and relationships</h3></div></div></div>
 
 <p>This query isn’t for deleting large amounts of data, but is nice when playing around with small example data sets.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 OPTIONAL MATCH (n)-[r]-()
 DELETE n,r</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e11592"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 3
+<div class="queryresult table" id="d5e10960"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 3
 </th></tr><tr><th>Relationships deleted: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>

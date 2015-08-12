@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>14.1. Indexes -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-schema.html" title="Chapter 14. Schema" /><link rel="next" href="query-constraints.html" title="14.2. Constraints" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.1. Indexes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -73,84 +73,115 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>14.1. Indexes</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-schema.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-schema.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-constraints.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-schema-index"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">14.1. Indexes</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-schema-index.html#schema-index-create-index-on-a-label">Create index on a label</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-drop-index-on-a-label">Drop index on a label</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index">Use index</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-where-using-equality">Use index with WHERE using equality</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-where-using-inequality">Use index with WHERE using inequality</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-in">Use index with IN</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-like">Use index with LIKE</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-when-checking-for-the-existence-of-a-property">Use index when checking for the existence of a property</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-schema.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-schema.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-constraints.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-schema-index"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">14.1. Indexes</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-schema-index.html#schema-index-create-an-index">Create an index</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-drop-an-index">Drop an index</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index">Use index</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-where-using-equality">Use index with WHERE using equality</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-where-using-inequality">Use index with WHERE using inequality</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-in">Use index with IN</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-with-like">Use index with LIKE</a></span></li><li><span class="section"><a href="query-schema-index.html#schema-index-use-index-when-checking-for-the-existence-of-a-property">Use index when checking for the existence of a property</a></span></li></ul></div>
 
 <p>A database index is a redundant copy of information in the database for the purpose of making retrieving said data more efficient.
-This comes at the cost of additional storage space and slower writes.</p>
+This comes at the cost of additional storage space and slower writes, so deciding what to index and what not to index is an important and often non-trivial task.</p>
 <p>Cypher allows the creation of indexes over a property for all nodes that have a given label.
-These indexes are automatically managed and kept up to date by the database whenever the graph is changed.</p>
-<section class="section" id="schema-index-create-index-on-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create index on a label</h3></div></div></div>
+Once an index has been created, it will automatically be managed and kept up to date by the database whenever the graph is changed.
+Neo4j will automatically pick up and start using the index once it has been created and brought online.</p>
+<section class="section" id="schema-index-create-an-index"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create an index</h3></div></div></div>
 
-<p>To create an index on a property for all nodes that have a label, use <code class="literal">CREATE</code> <code class="literal">INDEX</code> <code class="literal">ON</code>. Note that the index is not immediately available, but will be created in the background. See <a class="xref" href="graphdb-neo4j.html#graphdb-neo4j-schema-indexes" title="Indexes">the section called “Indexes”</a> for details.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
+<p>To create an index on a property for all nodes that have a label, use <code class="literal">CREATE</code> <code class="literal">INDEX</code> <code class="literal">ON</code>. Note that the index is not immediately available, but will be created in the background.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE INDEX ON :Person(name)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14745"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13854"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="schema-index-drop-index-on-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop index on a label</h3></div></div></div>
+<section class="section" id="schema-index-drop-an-index"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop an index</h3></div></div></div>
 
-<p>To drop an index on all nodes that have a label, use the <code class="literal">DROP</code> <code class="literal">INDEX</code> clause.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
+<p>To drop an index on all nodes that have a label and property combination, use the <code class="literal">DROP</code> <code class="literal">INDEX</code> clause.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">DROP INDEX ON :Person(name)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14767"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Indexes removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13872"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Indexes removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="schema-index-use-index"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Use index</h3></div></div></div>
 
-<p>There is usually no need to specify which indexes to use in a query, Cypher will figure that out by itself. For example the query below will use the <code class="literal">Person(name)</code> index, if it exists. If you for some reason want to hint to specific indexes, see <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
+<p>There is usually no need to specify which indexes to use in a query, Cypher will figure that out by itself. For example the query below will use the <code class="literal">Person(name)</code> index, if it exists. If you want Cypher to use specific indexes, you can enforce it using hints. See <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (person:Person { name: 'Andres' })
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14792"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[20]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
+<p><strong>Query Plan </strong>
+</p><pre class="programlisting" data-lang="plain">+-----------------+----------------+------+---------+-------------+---------------+
+| Operator        | Estimated Rows | Rows | DB Hits | Identifiers | Other         |
++-----------------+----------------+------+---------+-------------+---------------+
+| +ProduceResults |              1 |    1 |       0 | person      | person        |
+| |               +----------------+------+---------+-------------+---------------+
+| +Projection     |              1 |    1 |       0 | person      | person        |
+| |               +----------------+------+---------+-------------+---------------+
+| +NodeIndexSeek  |              1 |    1 |       2 | person      | :Person(name) |
++-----------------+----------------+------+---------+-------------+---------------+
+
+Total database accesses: 2</pre><p>
+</p>
 </section>
 <section class="section" id="schema-index-use-index-with-where-using-equality"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Use index with WHERE using equality</h3></div></div></div>
 
-<p>Indexes are also automatically used for equality comparisons of an indexed property in the WHERE clause. If you for some reason want to hint to specific indexes, see <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
+<p>Indexes are also automatically used for equality comparisons of an indexed property in the WHERE clause. If you want Cypher to use specific indexes, you can enforce it using hints. See <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (person:Person)
 WHERE person.name = 'Andres'
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14819"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[20]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
+<p><strong>Query Plan </strong>
+</p><pre class="programlisting" data-lang="plain">+-----------------+----------------+------+---------+-------------+---------------+
+| Operator        | Estimated Rows | Rows | DB Hits | Identifiers | Other         |
++-----------------+----------------+------+---------+-------------+---------------+
+| +ProduceResults |              1 |    1 |       0 | person      | person        |
+| |               +----------------+------+---------+-------------+---------------+
+| +Projection     |              1 |    1 |       0 | person      | person        |
+| |               +----------------+------+---------+-------------+---------------+
+| +NodeIndexSeek  |              1 |    1 |       2 | person      | :Person(name) |
++-----------------+----------------+------+---------+-------------+---------------+
+
+Total database accesses: 2</pre><p>
+</p>
 </section>
 <section class="section" id="schema-index-use-index-with-where-using-inequality"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Use index with WHERE using inequality</h3></div></div></div>
 
-<p>Indexes are also automatically used for inequality (range) comparisons of an indexed property in the WHERE clause. If you for some reason want to hint to specific indexes, see <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
+<p>Indexes are also automatically used for inequality (range) comparisons of an indexed property in the WHERE clause. If you want Cypher to use specific indexes, you can enforce it using hints. See <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (person:Person)
 WHERE person.name &gt; 'B'
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14846"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[21]{name:"Mark"}</code></p></td></tr></tbody></table></div></div>
+<p><strong>Query Plan </strong>
+</p><pre class="programlisting" data-lang="plain">+-----------------------+----------------+------+---------+-------------+---------------------------------+
+| Operator              | Estimated Rows | Rows | DB Hits | Identifiers | Other                           |
++-----------------------+----------------+------+---------+-------------+---------------------------------+
+| +ProduceResults       |             33 |    1 |       0 | person      | person                          |
+| |                     +----------------+------+---------+-------------+---------------------------------+
+| +Projection           |             33 |    1 |       0 | person      | person                          |
+| |                     +----------------+------+---------+-------------+---------------------------------+
+| +NodeIndexSeekByRange |             33 |    1 |       2 | person      | :Person(name) &gt; {  AUTOSTRING0} |
++-----------------------+----------------+------+---------+-------------+---------------------------------+
+
+Total database accesses: 2</pre><p>
+</p>
 </section>
 <section class="section" id="schema-index-use-index-with-in"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Use index with IN</h3></div></div></div>
 
-<p>The IN predicate on <code class="literal">person.name</code> in the following query will use the <code class="literal">Person(name)</code> index, if it exists. If you for some reason want Cypher to use specific indexes, you can enforce it using hints. See <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
+<p>The IN predicate on <code class="literal">person.name</code> in the following query will use the <code class="literal">Person(name)</code> index, if it exists. If you want Cypher to use specific indexes, you can enforce it using hints. See <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (person:Person)
 WHERE person.name IN ['Andres', 'Mark']
 RETURN person</pre><p>
 </p>
-<div class="queryresult table" id="d5e14875"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[20]{name:"Andres"}</code></p></td></tr><tr><td><p><code class="literal">Node[21]{name:"Mark"}</code></p></td></tr></tbody></table></div></div>
+<p><strong>Query Plan </strong>
+</p><pre class="programlisting" data-lang="plain">+-----------------+----------------+------+---------+-------------+---------------+
+| Operator        | Estimated Rows | Rows | DB Hits | Identifiers | Other         |
++-----------------+----------------+------+---------+-------------+---------------+
+| +ProduceResults |              2 |    2 |       0 | person      | person        |
+| |               +----------------+------+---------+-------------+---------------+
+| +Projection     |              2 |    2 |       0 | person      | person        |
+| |               +----------------+------+---------+-------------+---------------+
+| +NodeIndexSeek  |              2 |    2 |       4 | person      | :Person(name) |
++-----------------+----------------+------+---------+-------------+---------------+
+
+Total database accesses: 4</pre><p>
+</p>
 </section>
 <section class="section" id="schema-index-use-index-with-like"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Use index with LIKE</h3></div></div></div>
 
@@ -164,11 +195,11 @@ RETURN person</pre><p>
 </p><pre class="programlisting" data-lang="plain">+-----------------------+----------------+------+---------+-------------+-------------------------+
 | Operator              | Estimated Rows | Rows | DB Hits | Identifiers | Other                   |
 +-----------------------+----------------+------+---------+-------------+-------------------------+
-| +ProduceResults       |             26 |    1 |       0 | person      | person                  |
+| +ProduceResults       |             28 |    1 |       0 | person      | person                  |
 | |                     +----------------+------+---------+-------------+-------------------------+
-| +Projection           |             26 |    1 |       0 | person      | person                  |
+| +Projection           |             28 |    1 |       0 | person      | person                  |
 | |                     +----------------+------+---------+-------------+-------------------------+
-| +NodeIndexSeekByRange |             26 |    1 |       2 | person      | :Person(name LIKE And%) |
+| +NodeIndexSeekByRange |             28 |    1 |       2 | person      | :Person(name LIKE And%) |
 +-----------------------+----------------+------+---------+-------------+-------------------------+
 
 Total database accesses: 2</pre><p>

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>29.2. Command Line Usage -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool-header-format.html" title="29.1. CSV file Header format" /><link rel="next" href="import-tool-basic-example.html" title="29.3. Basic Import Tool Example" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.2. Command Line Usage" /><script type="text/javascript">
+    <title>29.2. Command line usage -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool-header-format.html" title="29.1. CSV file header format" /><link rel="next" href="import-tool-examples.html" title="29.3. Import tool examples" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.2. Command line usage" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,8 +72,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.2. Command Line Usage</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool-header-format.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-basic-example.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-usage"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.2. Command Line Usage</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="import-tool-usage.html#_command">Command</a></span></li><li><span class="section"><a href="import-tool-usage.html#import-tool-options">Options</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.2. Command line usage</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool-header-format.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-examples.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-usage"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.2. Command line usage</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="import-tool-usage.html#_command">Command</a></span></li><li><span class="section"><a href="import-tool-usage.html#import-tool-options">Options</a></span></li></ul></div>
 
 <section class="section" id="_command"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Command</h3></div></div></div>
 
@@ -123,7 +123,7 @@ Character to treat as quotation character for values in CSV data. The default op
 <span class="strong"><strong>--multiline-fields &lt;true/false&gt;</strong></span>
 </span></dt><dd>
 
-Whether or not fields from input source can span multiple lines, i.e. contain newline characters.Default value: false
+Whether or not fields from input source can span multiple lines, i.e. contain newline characters. Default value: false
 
 </dd><dt><span class="term">
 <span class="strong"><strong>--id-type &lt;id-type&gt;</strong></span>
@@ -132,7 +132,7 @@ Whether or not fields from input source can span multiple lines, i.e. contain ne
 One out of [STRING, INTEGER, ACTUAL] and specifies how ids in node/relationship input files are treated.
 STRING: arbitrary strings for identifying nodes.
 INTEGER: arbitrary integer values for identifying nodes.
-ACTUAL: (advanced) actual node ids. The default option is <code class="literal">STRING</code>.Default value: STRING
+ACTUAL: (advanced) actual node ids. The default option is <code class="literal">STRING</code>. Default value: STRING
 
 </dd><dt><span class="term">
 <span class="strong"><strong>--processors &lt;max processor count&gt;</strong></span>
@@ -162,13 +162,13 @@ Character set that input data is encoded in. Provided value must be one out of t
 <span class="strong"><strong>--skip-bad-relationships &lt;true/false&gt;</strong></span>
 </span></dt><dd>
 
-Whether or not to skip importing relationships that refers to missing node ids, i.e. either start or end node id/group referring to node that wasn’t specified by the node input data. Skipped nodes will be logged, containing at most number of entites specified by bad-tolerance.Default value: true
+Whether or not to skip importing relationships that refers to missing node ids, i.e. either start or end node id/group referring to node that wasn’t specified by the node input data. Skipped nodes will be logged, containing at most number of entites specified by bad-tolerance. Default value: true
 
 </dd><dt><span class="term">
 <span class="strong"><strong>--skip-duplicate-nodes &lt;true/false&gt;</strong></span>
 </span></dt><dd>
 
-Whether or not to skip importing nodes that have the same id/group. In the event of multiple nodes within the same group having the same id, the first encountered will be imported whereas consecutive such nodes will be skipped. Skipped nodes will be logged, containing at most number of entites specified by bad-tolerance.Default value: false
+Whether or not to skip importing nodes that have the same id/group. In the event of multiple nodes within the same group having the same id, the first encountered will be imported whereas consecutive such nodes will be skipped. Skipped nodes will be logged, containing at most number of entites specified by bad-tolerance. Default value: false
 
 </dd></dl></div>
 </section>

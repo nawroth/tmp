@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>16.3. Combining operators -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="execution-plan-expand.html" title="16.2. Expand operators" /><link rel="next" href="execution-plans-row-operators.html" title="16.4. Row operators" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="16.3. Combining operators" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -200,11 +200,11 @@ RETURN other</pre><p>
 </p><pre class="programlisting" data-lang="plain">+------------------------+----------------+------+---------+---------------------------+-----------------------------+
 | Operator               | Estimated Rows | Rows | DB Hits | Identifiers               | Other                       |
 +------------------------+----------------+------+---------+---------------------------+-----------------------------+
-| +ProduceResults        |              3 |    4 |       0 | other                     | other                       |
+| +ProduceResults        |              2 |    4 |       0 | other                     | other                       |
 | |                      +----------------+------+---------+---------------------------+-----------------------------+
-| +Projection            |              3 |    4 |       0 | other                     | other                       |
+| +Projection            |              2 |    4 |       0 | other                     | other                       |
 | |                      +----------------+------+---------+---------------------------+-----------------------------+
-| +SelectOrAntiSemiApply |              3 |    4 |      12 | other                     | other.age &gt; {  AUTOINT0}    |
+| +SelectOrAntiSemiApply |              2 |    4 |      12 | other                     | other.age &gt; {  AUTOINT0}    |
 | |\                     +----------------+------+---------+---------------------------+-----------------------------+
 | | +Expand(All)         |              2 |    0 |       6 | anon[68], anon[86], other | (other)-[:FRIENDS_WITH]-&gt;() |
 | | |                    +----------------+------+---------+---------------------------+-----------------------------+

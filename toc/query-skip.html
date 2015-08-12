@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>10.4. Skip -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-limit.html" title="10.3. Limit" /><link rel="next" href="query-with.html" title="10.5. With" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.4. Skip" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,7 +80,7 @@
 </div>
 <p>By using <code class="literal">SKIP</code>, the result set will get trimmed from the top.
 Please note that no guarantees are made on the order of the result unless the query specifies the <code class="literal">ORDER BY</code> clause.</p>
-<div class="figure" id="d5e7280"><p class="title"><strong>Figure 10.4. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7121"><p class="title"><strong>Figure 10.4. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-skip-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-skip-graph.svg" alt="cypher-skip-graph.svg" /></span>
 </a>
@@ -88,9 +88,6 @@ Please note that no guarantees are made on the order of the result unless the qu
 <section class="section" id="skip-skip-first-three"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Skip first three</h3></div></div></div>
 
 <p>To return a subset of the result, starting from the fourth result, use the following syntax:</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 RETURN n
@@ -98,14 +95,11 @@ ORDER BY n.name
 SKIP 3</pre><p>
 </p>
 <p>The first three nodes are skipped, and only the last two are returned in the result.</p>
-<div class="queryresult table" id="d5e7300"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"D"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"E"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7137"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"D"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"E"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="skip-return-middle-two"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Return middle two</h3></div></div></div>
 
 <p>To return a subset of the result, starting from somewhere in the middle, use this syntax:</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 RETURN n
@@ -114,7 +108,7 @@ SKIP 1
 LIMIT 2</pre><p>
 </p>
 <p>Two nodes from the middle are returned.</p>
-<div class="queryresult table" id="d5e7331"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"B"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"C"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7164"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"B"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"C"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

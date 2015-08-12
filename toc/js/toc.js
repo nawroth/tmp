@@ -28,13 +28,7 @@ function initToc()
   {
     return;
   }
-  var size = $( 'li', $wrapper ).length;
-  if ( size < 7 )
-  {
-    return;
-  }
-
-  $wrapper.addClass( VISIBLE_CLASS );
+  var totalItems = $( 'li', $wrapper ).length;
 
   var $outerList = $( 'ul.toc', $wrapper );
   var hasInnerList = $( 'ul', $outerList ).length > 0;
@@ -45,23 +39,47 @@ function initToc()
     $heading = $( '<p/>' ).prependTo( $wrapper );
   }
 
-  var $hideButton = $( '<label class="btn btn-default btn-xs" title="Hide table of contents"><input type="radio" name="tocState" autocomplete="off">Hide</label>' ).click(function(){
+  var $hideButton = $( '<label class="btn btn-default btn-xs" title="Hide table of contents"><input type="radio" name="tocState" autocomplete="off">Hidden</label>' ).click(function(){
     $wrapper.addClass( HIDDEN_CLASS ).removeClass( VISIBLE_CLASS );
   });
-  var $showButton = $( '<label class="btn btn-default btn-xs active" title="Show table of contents"><input type="radio" name="tocState" autocomplete="off" checked>Show</label>' ).click(function(){
+  var $showButton = $( '<label class="btn btn-default btn-xs" title="Show table of contents"><input type="radio" name="tocState" autocomplete="off">Normal</label>' ).click(function(){
     $wrapper.addClass( VISIBLE_CLASS ).removeClass( HIDDEN_CLASS );
   });
-  var $detailButton = $( '<label class="btn btn-default btn-xs" title="Show detailed table of contents"><input type="radio" name="tocState" autocomplete="off">Details</label>' ).click(function(){
-    $wrapper.removeClass( VISIBLE_CLASS ).removeClass( HIDDEN_CLASS );
+  var $detailButton = $( '<label class="btn btn-default btn-xs" title="Show detailed table of contents"><input type="radio" name="tocState" autocomplete="off">Extended</label>' ).click(function(){
+    if ( hasInnerList )
+    {
+      $wrapper.removeClass( VISIBLE_CLASS ).removeClass( HIDDEN_CLASS );
+    }
+    else
+    {
+      return false;
+    }
   });
+
+  if ( hasInnerList && totalItems < 8 )
+  {
+    $detailButton.addClass( "active" )
+    $detailButton.children().prop( "checked", true );
+    $wrapper.removeClass( VISIBLE_CLASS ).removeClass( HIDDEN_CLASS );
+  }
+  else
+  {
+    $showButton.addClass( "active" )
+    $showButton.children().prop( "checked", true );
+    $wrapper.addClass( VISIBLE_CLASS ).removeClass( HIDDEN_CLASS );
+  }
+
+  if ( !hasInnerList )
+  {
+    $detailButton.addClass( "disabled" );
+    $detailButton.children().prop( "disabled", true );
+  }
 
   var $buttons = $( '<div class="btn-group" data-toggle="buttons"></div>' )
     .append( $hideButton )
-    .append( $showButton );
-  if ( hasInnerList )
-  {
-    $buttons.append( $detailButton );
-  }
+    .append( $showButton )
+    .append( $detailButton );
+
   $heading.append( $buttons );
 }
 

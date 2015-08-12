@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.7. Create Unique -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-foreach.html" title="12.6. Foreach" /><link rel="next" href="cypherdoc-importing-csv-files-with-cypher.html" title="12.8. Importing CSV files with Cypher" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.7. Create Unique" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -100,32 +100,26 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 <section class="section" id="create-unique-create-node-if-missing"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node if missing</h4></div></div></div>
 
 <p>If the pattern described needs a node, and it can’t be matched, a new node will be created.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (root { name: 'root' })
 CREATE UNIQUE (root)-[:LOVES]-(someone)
 RETURN someone</pre><p>
 </p>
 <p>The root node doesn’t have any <code class="literal">LOVES</code> relationships, and so a node is created, and also a relationship to that node.</p>
-<div class="queryresult table" id="d5e11818"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>someone</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11166"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>someone</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-unique-create-nodes-with-values"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create nodes with values</h4></div></div></div>
 
 <p>The pattern described can also contain values on the node. These are given using the following syntax: <code class="literal">prop : &lt;expression&gt;</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (root { name: 'root' })
 CREATE UNIQUE (root)-[:X]-(leaf { name:'D' })
 RETURN leaf</pre><p>
 </p>
 <p>No node connected with the root node has the name <code class="literal">D</code>, and so a new node is created to match the pattern.</p>
-<div class="queryresult table" id="d5e11851"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>leaf</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11195"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>leaf</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"D"}</code></p></td></tr></tbody></table></div></div>
@@ -133,16 +127,13 @@ RETURN leaf</pre><p>
 <section class="section" id="create-unique-create-labeled-node-if-missing"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create labeled node if missing</h4></div></div></div>
 
 <p>If the pattern described needs a labeled node and there is none with the given labels, Cypher will create a new one.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a { name: 'A' })
 CREATE UNIQUE (a)-[:KNOWS]-(c:blue)
 RETURN c</pre><p>
 </p>
 <p>The A node is connected in a <code class="literal">KNOWS</code> relationship to the c node, but since C doesn’t have the <code class="literal">:blue</code> label, a new node labeled as <code class="literal">:blue</code> is created along with a <code class="literal">KNOWS</code> relationship from A to it.</p>
-<div class="queryresult table" id="d5e11888"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>c</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11228"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>c</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{}</code></p></td></tr></tbody></table></div></div>
@@ -153,9 +144,6 @@ RETURN c</pre><p>
 <section class="section" id="create-unique-create-relationship-if-it-is-missing"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create relationship if it is missing</h4></div></div></div>
 
 <p><code class="literal">CREATE UNIQUE</code> is used to describe the pattern that should be found or created.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (lft { name: 'A' }),(rgt)
 WHERE rgt.name IN ['B', 'C']
@@ -163,22 +151,19 @@ CREATE UNIQUE (lft)-[r:KNOWS]-&gt;(rgt)
 RETURN r</pre><p>
 </p>
 <p>The left node is matched agains the two right nodes. One relationship already exists and can be matched, and the other relationship is created before it is returned.</p>
-<div class="queryresult table" id="d5e11924"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e11260"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[4]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[3]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-unique-create-relationship-with-values"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create relationship with values</h4></div></div></div>
 
 <p>Relationships to be created can also be matched on values.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (root { name: 'root' })
 CREATE UNIQUE (root)-[r:X { since:'forever' }]-()
 RETURN r</pre><p>
 </p>
 <p>In this example, we want the relationship to have a value, and since no such relationship can be found, a new node and relationship are created. Note that since we are not interested in the created node, we don’t name it.</p>
-<div class="queryresult table" id="d5e11957"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11289"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:X[4]{since:"forever"}</code></p></td></tr></tbody></table></div></div>
@@ -187,16 +172,13 @@ RETURN r</pre><p>
 <section class="section" id="create-unique-describe-complex-pattern"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Describe complex pattern</h3></div></div></div>
 
 <p>The pattern described by <code class="literal">CREATE UNIQUE</code> can be separated by commas, just like in <code class="literal">MATCH</code> and <code class="literal">CREATE</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (root { name: 'root' })
 CREATE UNIQUE (root)-[:FOO]-&gt;(x),(root)-[:BAR]-&gt;(x)
 RETURN x</pre><p>
 </p>
 <p>This example pattern uses two paths, separated by a comma.</p>
-<div class="queryresult table" id="d5e11993"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11321"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Relationships created: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{}</code></p></td></tr></tbody></table></div></div>
 </section>

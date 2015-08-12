@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>10.6. Unwind -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-with.html" title="10.5. With" /><link rel="next" href="query-union.html" title="10.7. Union" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.6. Unwind" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -86,29 +86,23 @@ Another is to create data from parameter collections that are provided to the qu
 <section class="section" id="unwind-unwind-a-collection"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Unwind a collection</h3></div></div></div>
 
 <p>We want to transform the literal collection into rows named <code class="literal">x</code> and return them.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">UNWIND[1,2,3] AS x
 RETURN x</pre><p>
 </p>
 <p>Each value of the original collection is returned as an individual row.</p>
-<div class="queryresult table" id="d5e7488"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7305"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="unwind-create-a-distinct-collection"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a distinct collection</h3></div></div></div>
 
 <p>We want to transform a collection of duplicates into a set using <code class="literal">DISTINCT</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">WITH [1,1,2,2] AS coll UNWIND coll AS x
 WITH DISTINCT x
 RETURN collect(x) AS SET</pre><p>
 </p>
 <p>Each value of the original collection is unwound and passed through <code class="literal">DISTINCT</code> to create a unique set.</p>
-<div class="queryresult table" id="d5e7525"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>set</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[1,2]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7338"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>set</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[1,2]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="unwind-create-nodes-from-a-collection-parameter"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create nodes from a collection parameter</h3></div></div></div>
 
@@ -132,7 +126,7 @@ RETURN e.id AS x
 ORDER BY x</pre><p>
 </p>
 <p>Each value of the original collection is unwound and passed through <code class="literal">MERGE</code> to find or create the nodes and relationships.</p>
-<div class="queryresult table" id="d5e7554"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e7367"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Nodes created: 3
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Properties set: 3

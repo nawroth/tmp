@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>6.15. The Graphity activity stream model -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-similarity-calc.html" title="6.14. Complex similarity computations" /><link rel="next" href="examples-user-roles-in-graphs.html" title="6.16. User roles in graphs" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="6.15. The Graphity activity stream model" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -84,17 +84,14 @@ When new activities occur for a friend, all the ordered friend lists that this f
 This needs to be taken into consideration when designing a production system with this approach.
 See <a class="xref" href="capabilities-capacity.html" title="17.5. Capacity">Section 17.5, “Capacity”</a> for the maximum number of relationship types.</p></td></tr></table></div>
 <p>To find the activity stream for a person, just follow the linked list of the friend list, and retrieve the needed amount of activities form the respective activity list of the friends.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH p=(me { name: 'Jane' })-[:jane_knows*]-&gt;(friend),(friend)-[:has]-&gt;(status)
 RETURN me.name, friend.name, status.name, length(p)
 ORDER BY length(p)</pre><p>
 </p>
 <p>The returns the activity stream for Jane.</p>
-<div class="queryresult table" id="d5e4589"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>me.name</th><th>friend.name</th><th>status.name</th><th>length(p)</th></tr></thead><tfoot><tr><th colspan="4">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bill"</code></p></td><td><p><code class="literal">"Bill_s1"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">"Joe_s1"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">"Bob_s1"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
-<div class="figure" id="d5e4645"><p class="title"><strong>Figure 6.20. Graph</strong></p><div class="figure-contents">
+<div class="queryresult table" id="d5e4494"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>me.name</th><th>friend.name</th><th>status.name</th><th>length(p)</th></tr></thead><tfoot><tr><th colspan="4">3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bill"</code></p></td><td><p><code class="literal">"Bill_s1"</code></p></td><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Joe"</code></p></td><td><p><code class="literal">"Joe_s1"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Jane"</code></p></td><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">"Bob_s1"</code></p></td><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="figure" id="d5e4550"><p class="title"><strong>Figure 6.20. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-graphity-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-graphity-graph.svg" alt="cypher-graphity-graph.svg" /></span>
 </a>

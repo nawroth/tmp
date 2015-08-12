@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.1. Predicates -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-function.html" title="Chapter 13. Functions" /><link rel="next" href="query-functions-scalar.html" title="13.2. Scalar functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.1. Predicates" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -78,7 +78,7 @@
 <p>Predicates are boolean functions that return true or false for a given set of input.
 They are most commonly used to filter out subgraphs in the <code class="literal">WHERE</code> part of a query.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-comparison" title="Comparison operators">the section called “Comparison operators”</a>.</p>
-<div class="figure" id="d5e12106"><p class="title"><strong>Figure 13.1. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e11434"><p class="title"><strong>Figure 13.1. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -101,16 +101,13 @@ They are most commonly used to filter out subgraphs in the <code class="literal"
 <span class="emphasis"><em>predicate:</em></span> A predicate that is tested against all items in the collection.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH p=(a)-[*1..3]-&gt;(b)
 WHERE a.name='Alice' AND b.name='Daniel' AND ALL (x IN nodes(p) WHERE x.age &gt; 30)
 RETURN p</pre><p>
 </p>
 <p>All nodes in the returned paths will have an <code class="literal">age</code> property of at least 30.</p>
-<div class="queryresult table" id="d5e12142"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11466"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-any"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ANY</h3></div></div></div>
 
@@ -130,16 +127,13 @@ RETURN p</pre><p>
 <span class="emphasis"><em>predicate:</em></span> A predicate that is tested against all items in the collection.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a)
 WHERE a.name='Eskil' AND ANY (x IN a.array WHERE x = "one")
 RETURN a</pre><p>
 </p>
 <p>All nodes in the returned paths has at least one <code class="literal">one</code> value set in the array property named <code class="literal">array</code>.</p>
-<div class="queryresult table" id="d5e12186"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{array:["one","two","three"],name:"Eskil",age:41,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11506"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{array:["one","two","three"],name:"Eskil",age:41,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-none"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">NONE</h3></div></div></div>
 
@@ -159,16 +153,13 @@ RETURN a</pre><p>
 <span class="emphasis"><em>predicate:</em></span> A predicate that is tested against all items in the collection.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH p=(n)-[*1..3]-&gt;(b)
 WHERE n.name='Alice' AND NONE (x IN nodes(p) WHERE x.age = 25)
 RETURN p</pre><p>
 </p>
 <p>No nodes in the returned paths has a <code class="literal">age</code> property set to <code class="literal">25</code>.</p>
-<div class="queryresult table" id="d5e12230"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11546"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[1]{},Node[4]{name:"Charlie",age:53,eyes:"green"},:KNOWS[3]{},Node[0]{name:"Daniel",age:54,eyes:"brown"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-single"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SINGLE</h3></div></div></div>
 
@@ -188,16 +179,13 @@ RETURN p</pre><p>
 <span class="emphasis"><em>predicate:</em></span> A predicate that is tested against all items in the collection.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH p=(n)--&gt;(b)
 WHERE n.name='Alice' AND SINGLE (var IN nodes(p) WHERE var.eyes = "blue")
 RETURN p</pre><p>
 </p>
 <p>Exactly one node in every returned path will have the <code class="literal">eyes</code> property set to <code class="literal">"blue"</code>.</p>
-<div class="queryresult table" id="d5e12278"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[0]{},Node[3]{name:"Bob",age:25,eyes:"blue"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11590"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Alice",age:38,eyes:"brown"},:KNOWS[0]{},Node[3]{name:"Bob",age:25,eyes:"blue"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-exists"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">EXISTS</h3></div></div></div>
 
@@ -209,16 +197,13 @@ RETURN p</pre><p>
 <span class="emphasis"><em>pattern-or-property:</em></span> A pattern or a property (in the form <span class="emphasis"><em>identifier.prop</em></span>).
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 WHERE EXISTS(n.name)
 RETURN n.name AS name, EXISTS((n)-[:MARRIED]-&gt;()) AS is_married</pre><p>
 </p>
 <p>This query returns all the nodes with a name property along with a boolean true/false indicating if they are married.</p>
-<div class="queryresult table" id="d5e12315"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>is_married</th></tr></thead><tfoot><tr><th colspan="2">5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Daniel"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Eskil"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Alice"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p><code class="literal">"Charlie"</code></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11623"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>is_married</th></tr></thead><tfoot><tr><th colspan="2">5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Daniel"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Eskil"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Alice"</code></p></td><td><p><code class="literal">false</code></p></td></tr><tr><td><p><code class="literal">"Bob"</code></p></td><td><p><code class="literal">true</code></p></td></tr><tr><td><p><code class="literal">"Charlie"</code></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

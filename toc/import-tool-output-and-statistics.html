@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>29.7. Output and statistics -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="_bad_input_data.html" title="29.6. Bad input data" /><link rel="next" href="_verbose_error_information.html" title="29.8. Verbose error information" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.7. Output and statistics" /><script type="text/javascript">
+    <title>29.4. Output and statistics -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool-examples.html" title="29.3. Import tool examples" /><link rel="next" href="import-tool-verbose-error-information.html" title="29.5. Verbose error information" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.4. Output and statistics" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,8 +72,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.7. Output and statistics</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="_bad_input_data.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="_verbose_error_information.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="_output_and_statistics"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.7. Output and statistics</h2></div></div></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.4. Output and statistics</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool-examples.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-verbose-error-information.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-output-and-statistics"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.4. Output and statistics</h2></div></div></div>
 
 <p>While an import is running through its different stages, some statistics and figures are printed in the console.
 The general interpretation of that output is to look at the horizontal line, which is divided up into sections, each section representing one type of work going on in parallel with the other sections.
@@ -82,11 +82,24 @@ If a section has a double line, instead of just a single line, it means that mul
 To the far right a number is displayed telling how many entities (nodes or relationships) have been processed by that stage.</p>
 <p>As an example:</p>
 <p><code class="literal">[*&gt;:20,25 MB/s------------------|PREPARE(3)====================|RELATIONSHIP(2)===============] 16M</code></p>
-<p>Would be interpreted as:
-* <code class="literal">&gt;</code> data being read, and perhaps parsed, at <code class="literal">20,25 MB/s</code>, data that is being passed on to…
-* <code class="literal">PREPARE</code> preparing the data for…
-* <code class="literal">RELATIONSHIP</code> creating actual relationship records and…
-* <code class="literal">v</code> writing the relationships to the store. This step isn’t visible in this example, because it’s so cheap compared to the other sections</p>
+<p>Would be interpreted as:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<code class="literal">&gt;</code> data being read, and perhaps parsed, at <code class="literal">20,25 MB/s</code>, data that is being passed on to …
+
+</li><li class="listitem">
+
+<code class="literal">PREPARE</code> preparing the data for …
+
+</li><li class="listitem">
+
+<code class="literal">RELATIONSHIP</code> creating actual relationship records and …
+
+</li><li class="listitem">
+
+<code class="literal">v</code> writing the relationships to the store. This step isn’t visible in this example, because it’s so cheap compared to the other sections.
+
+</li></ul></div>
 <p>Observing the section sizes can give hints about where performance can be improved.
 As an example, reading data from input, marked as <code class="literal">&gt;</code>, being the bottleneck might hint about the disk being slow, or poorly handling simultaneously reading and writing (since often the last section revolves around writing to disk).</p>
 </section>

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>29.1. CSV file Header format -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool.html" title="Chapter 29. Import Tool" /><link rel="next" href="import-tool-usage.html" title="29.2. Command Line Usage" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.1. CSV file Header format" /><script type="text/javascript">
+    <title>29.1. CSV file header format -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="import-tool.html" title="Chapter 29. Import tool" /><link rel="next" href="import-tool-usage.html" title="29.2. Command line usage" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="29.1. CSV file header format" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,8 +72,8 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.1. CSV file Header format</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-usage.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-header-format"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.1. CSV file Header format</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="import-tool-header-format.html#import-tool-header-format-nodes">Nodes</a></span></li><li><span class="section"><a href="import-tool-header-format.html#import-tool-header-format-rels">Relationships</a></span></li><li><span class="section"><a href="import-tool-header-format.html#import-tool-id-spaces">ID Spaces</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>29.1. CSV file header format</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="import-tool.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="import-tool.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="import-tool-usage.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="import-tool-header-format"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">29.1. CSV file header format</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="import-tool-header-format.html#import-tool-header-format-nodes">Nodes</a></span></li><li><span class="section"><a href="import-tool-header-format.html#import-tool-header-format-rels">Relationships</a></span></li><li><span class="section"><a href="import-tool-header-format.html#import-tool-id-spaces">ID spaces</a></span></li></ul></div>
 
 <p>The header row of each data source specifies how the fields should be interpreted.
 The same delimiter is used for the header row as for the rest of the data.</p>
@@ -140,7 +140,7 @@ END_ID
 
 </dd></dl></div>
 </section>
-<section class="section" id="import-tool-id-spaces"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ID Spaces</h3></div></div></div>
+<section class="section" id="import-tool-id-spaces"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ID spaces</h3></div></div></div>
 
 <p>The import tool assumes that node identifiers are unique across node files.
 If this isn’t the case then we can define an <code class="literal">id space</code>.

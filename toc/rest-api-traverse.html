@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.17. Traversals -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-schema-constraints.html" title="21.16. Constraints" /><link rel="next" href="rest-api-graph-algos.html" title="21.18. Graph Algorithms" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.17. Traversals" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -213,7 +213,7 @@ See the examples for the exact syntax of the request.</p>
 is supplied in order to return all names containing "t".
 The result is to be returned as nodes and the max depth is
 set to 3.</p>
-<div class="figure" id="d5e20491"><p class="title"><strong>Figure 21.62. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19474"><p class="title"><strong>Figure 21.62. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Traversal-using-a-return-filter.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Traversal-using-a-return-filter.svg" alt="Final-Graph-Traversal-using-a-return-filter.svg" /></span>
 </a>
@@ -268,8 +268,8 @@ set to 3.</p>
   "data" : {
     "name" : "Root"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/440/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/440/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/440/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/440",
   "property" : "http://localhost:7474/db/data/node/440/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/440/properties",
@@ -290,8 +290,8 @@ set to 3.</p>
   "data" : {
     "name" : "Mattias"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/443/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/443/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/443/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/443",
   "property" : "http://localhost:7474/db/data/node/443/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/443/properties",
@@ -312,8 +312,8 @@ set to 3.</p>
   "data" : {
     "name" : "Peter"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/442/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/442/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/442/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/442",
   "property" : "http://localhost:7474/db/data/node/442/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/442/properties",
@@ -334,8 +334,8 @@ set to 3.</p>
   "data" : {
     "name" : "Tobias"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/441/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/441/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/441/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/441",
   "property" : "http://localhost:7474/db/data/node/441/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/441/properties",
@@ -354,7 +354,7 @@ set to 3.</p>
 </section>
 <section class="section" id="rest-api-return-relationships-from-a-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Return relationships from a traversal</h3></div></div></div>
 
-<div class="figure" id="d5e20534"><p class="title"><strong>Figure 21.63. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19517"><p class="title"><strong>Figure 21.63. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-return-relationships-from-a-traversal.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-return-relationships-from-a-traversal.svg" alt="Final-Graph-return-relationships-from-a-traversal.svg" /></span>
 </a>
@@ -421,7 +421,7 @@ set to 3.</p>
 </section>
 <section class="section" id="rest-api-return-paths-from-a-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Return paths from a traversal</h3></div></div></div>
 
-<div class="figure" id="d5e20577"><p class="title"><strong>Figure 21.64. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19560"><p class="title"><strong>Figure 21.64. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-return-paths-from-a-traversal.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-return-paths-from-a-traversal.svg" alt="Final-Graph-return-paths-from-a-traversal.svg" /></span>
 </a>
@@ -484,7 +484,7 @@ set to 3.</p>
 <section class="section" id="rest-api-traversal-returning-nodes-below-a-certain-depth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Traversal returning nodes below a certain depth</h3></div></div></div>
 
 <p>Here, all nodes at a traversal depth below 3 are returned.</p>
-<div class="figure" id="d5e20621"><p class="title"><strong>Figure 21.65. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e19604"><p class="title"><strong>Figure 21.65. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Traversal-returning-nodes-below-a-certain-depth.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Traversal-returning-nodes-below-a-certain-depth.svg" alt="Final-Graph-Traversal-returning-nodes-below-a-certain-depth.svg" /></span>
 </a>
@@ -529,8 +529,8 @@ set to 3.</p>
   "data" : {
     "name" : "Root"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/428/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/428/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/428/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/428",
   "property" : "http://localhost:7474/db/data/node/428/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/428/properties",
@@ -551,8 +551,8 @@ set to 3.</p>
   "data" : {
     "name" : "Mattias"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/431/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/431/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/431/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/431",
   "property" : "http://localhost:7474/db/data/node/431/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/431/properties",
@@ -573,8 +573,8 @@ set to 3.</p>
   "data" : {
     "name" : "Johan"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/426/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/426/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/426/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/426",
   "property" : "http://localhost:7474/db/data/node/426/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/426/properties",
@@ -595,8 +595,8 @@ set to 3.</p>
   "data" : {
     "name" : "Emil"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/427/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/427/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/427/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/427",
   "property" : "http://localhost:7474/db/data/node/427/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/427/properties",
@@ -660,7 +660,7 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/297/paged/traverse/node/ed5d1f2d25b244ddb3013f08634a6ab1</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/297/paged/traverse/node/f8c3bb9973fe4b10b1d99248c0d20dd3</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
@@ -669,8 +669,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "1"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/298/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/298/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/298/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/298",
   "property" : "http://localhost:7474/db/data/node/298/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/298/properties",
@@ -691,8 +691,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "10"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/307/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/307/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/307/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/307",
   "property" : "http://localhost:7474/db/data/node/307/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/307/properties",
@@ -713,8 +713,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "11"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/308/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/308/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/308/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/308",
   "property" : "http://localhost:7474/db/data/node/308/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/308/properties",
@@ -735,8 +735,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "12"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/309/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/309/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/309/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/309",
   "property" : "http://localhost:7474/db/data/node/309/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/309/properties",
@@ -757,8 +757,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "13"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/310/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/310/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/310/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/310",
   "property" : "http://localhost:7474/db/data/node/310/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/310/properties",
@@ -779,8 +779,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "14"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/311/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/311/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/311/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/311",
   "property" : "http://localhost:7474/db/data/node/311/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/311/properties",
@@ -801,8 +801,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "15"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/312/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/312/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/312/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/312",
   "property" : "http://localhost:7474/db/data/node/312/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/312/properties",
@@ -823,8 +823,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "16"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/313/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/313/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/313/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/313",
   "property" : "http://localhost:7474/db/data/node/313/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/313/properties",
@@ -845,8 +845,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "17"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/314/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/314/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/314/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/314",
   "property" : "http://localhost:7474/db/data/node/314/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/314/properties",
@@ -867,8 +867,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "18"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/315/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/315/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/315/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/315",
   "property" : "http://localhost:7474/db/data/node/315/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/315/properties",
@@ -889,8 +889,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "19"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/316/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/316/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/316/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/316",
   "property" : "http://localhost:7474/db/data/node/316/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/316/properties",
@@ -911,8 +911,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "21"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/318/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/318/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/318/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/318",
   "property" : "http://localhost:7474/db/data/node/318/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/318/properties",
@@ -933,8 +933,8 @@ or <code class="literal">fullpath</code>, can be targeted.</p>
   "data" : {
     "name" : "31"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/328/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/328/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/328/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/328",
   "property" : "http://localhost:7474/db/data/node/328/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/328/properties",
@@ -968,7 +968,7 @@ expect a 404 response as the traverser is disposed by the server.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/330/paged/traverse/node/91fbf246824842d5a135524c786e5236</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/330/paged/traverse/node/5e6acfbbaeef4cefa111703d256582fe</code>
 
 </li><li class="listitem">
 
@@ -991,8 +991,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "331"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/661/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/661/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/661/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/661",
   "property" : "http://localhost:7474/db/data/node/661/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/661/properties",
@@ -1013,8 +1013,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "341"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/671/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/671/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/671/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/671",
   "property" : "http://localhost:7474/db/data/node/671/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/671/properties",
@@ -1035,8 +1035,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "351"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/681/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/681/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/681/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/681",
   "property" : "http://localhost:7474/db/data/node/681/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/681/properties",
@@ -1057,8 +1057,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "361"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/691/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/691/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/691/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/691",
   "property" : "http://localhost:7474/db/data/node/691/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/691/properties",
@@ -1079,8 +1079,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "371"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/701/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/701/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/701/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/701",
   "property" : "http://localhost:7474/db/data/node/701/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/701/properties",
@@ -1101,8 +1101,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "381"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/711/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/711/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/711/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/711",
   "property" : "http://localhost:7474/db/data/node/711/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/711/properties",
@@ -1123,8 +1123,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "391"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/721/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/721/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/721/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/721",
   "property" : "http://localhost:7474/db/data/node/721/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/721/properties",
@@ -1145,8 +1145,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "401"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/731/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/731/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/731/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/731",
   "property" : "http://localhost:7474/db/data/node/731/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/731/properties",
@@ -1167,8 +1167,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "410"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/740/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/740/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/740/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/740",
   "property" : "http://localhost:7474/db/data/node/740/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/740/properties",
@@ -1189,8 +1189,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "411"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/741/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/741/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/741/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/741",
   "property" : "http://localhost:7474/db/data/node/741/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/741/properties",
@@ -1211,8 +1211,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "412"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/742/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/742/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/742/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/742",
   "property" : "http://localhost:7474/db/data/node/742/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/742/properties",
@@ -1233,8 +1233,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "413"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/743/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/743/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/743/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/743",
   "property" : "http://localhost:7474/db/data/node/743/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/743/properties",
@@ -1255,8 +1255,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "414"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/744/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/744/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/744/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/744",
   "property" : "http://localhost:7474/db/data/node/744/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/744/properties",
@@ -1277,8 +1277,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "415"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/745/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/745/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/745/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/745",
   "property" : "http://localhost:7474/db/data/node/745/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/745/properties",
@@ -1299,8 +1299,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "416"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/746/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/746/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/746/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/746",
   "property" : "http://localhost:7474/db/data/node/746/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/746/properties",
@@ -1321,8 +1321,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "417"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/747/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/747/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/747/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/747",
   "property" : "http://localhost:7474/db/data/node/747/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/747/properties",
@@ -1343,8 +1343,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "418"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/748/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/748/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/748/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/748",
   "property" : "http://localhost:7474/db/data/node/748/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/748/properties",
@@ -1365,8 +1365,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "419"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/749/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/749/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/749/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/749",
   "property" : "http://localhost:7474/db/data/node/749/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/749/properties",
@@ -1387,8 +1387,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "421"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/751/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/751/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/751/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/751",
   "property" : "http://localhost:7474/db/data/node/751/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/751/properties",
@@ -1409,8 +1409,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "431"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/761/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/761/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/761/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/761",
   "property" : "http://localhost:7474/db/data/node/761/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/761/properties",
@@ -1431,8 +1431,8 @@ expect a 404 response as the traverser is disposed by the server.</p>
   "data" : {
     "name" : "441"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/771/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/771/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/771/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/771",
   "property" : "http://localhost:7474/db/data/node/771/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/771/properties",
@@ -1494,7 +1494,7 @@ appropriate. This can be set by adding a <code class="literal">pageSize</code> q
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/33/paged/traverse/node/5145c085b857453b9fe80b4c91b5dbd2</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/33/paged/traverse/node/525400a0ac2a48339e6111356bfc6511</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
@@ -1503,8 +1503,8 @@ appropriate. This can be set by adding a <code class="literal">pageSize</code> q
   "data" : {
     "name" : "1"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/34/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/34/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/34/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/34",
   "property" : "http://localhost:7474/db/data/node/34/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/34/properties",
@@ -1567,7 +1567,7 @@ parameter with the number of seconds the paged traverser should last.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/807/paged/traverse/node/ee8939ba06b9428aace0ae2bb732eb25</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/node/807/paged/traverse/node/44c03e316b9f4da592a96d2d103db853</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
@@ -1576,8 +1576,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "1"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/808/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/808/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/808/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/808",
   "property" : "http://localhost:7474/db/data/node/808/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/808/properties",
@@ -1598,8 +1598,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "10"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/817/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/817/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/817/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/817",
   "property" : "http://localhost:7474/db/data/node/817/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/817/properties",
@@ -1620,8 +1620,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "11"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/818/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/818/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/818/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/818",
   "property" : "http://localhost:7474/db/data/node/818/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/818/properties",
@@ -1642,8 +1642,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "12"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/819/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/819/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/819/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/819",
   "property" : "http://localhost:7474/db/data/node/819/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/819/properties",
@@ -1664,8 +1664,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "13"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/820/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/820/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/820/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/820",
   "property" : "http://localhost:7474/db/data/node/820/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/820/properties",
@@ -1686,8 +1686,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "14"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/821/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/821/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/821/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/821",
   "property" : "http://localhost:7474/db/data/node/821/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/821/properties",
@@ -1708,8 +1708,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "15"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/822/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/822/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/822/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/822",
   "property" : "http://localhost:7474/db/data/node/822/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/822/properties",
@@ -1730,8 +1730,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "16"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/823/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/823/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/823/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/823",
   "property" : "http://localhost:7474/db/data/node/823/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/823/properties",
@@ -1752,8 +1752,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "17"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/824/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/824/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/824/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/824",
   "property" : "http://localhost:7474/db/data/node/824/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/824/properties",
@@ -1774,8 +1774,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "18"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/825/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/825/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/825/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/825",
   "property" : "http://localhost:7474/db/data/node/825/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/825/properties",
@@ -1796,8 +1796,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "19"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/826/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/826/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/826/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/826",
   "property" : "http://localhost:7474/db/data/node/826/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/826/properties",
@@ -1818,8 +1818,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "21"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/828/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/828/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/828/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/828",
   "property" : "http://localhost:7474/db/data/node/828/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/828/properties",
@@ -1840,8 +1840,8 @@ parameter with the number of seconds the paged traverser should last.</p>
   "data" : {
     "name" : "31"
   },
-  "all_typed_relationships" : "http://localhost:7474/db/data/node/838/relationships/all/{-list|&amp;|types}",
   "traverse" : "http://localhost:7474/db/data/node/838/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/838/relationships/all/{-list|&amp;|types}",
   "self" : "http://localhost:7474/db/data/node/838",
   "property" : "http://localhost:7474/db/data/node/838/properties/{key}",
   "properties" : "http://localhost:7474/db/data/node/838/properties",

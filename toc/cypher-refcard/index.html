@@ -600,30 +600,30 @@ This constraint will create an accompanying index.</p></div></div></td>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">CREATE CONSTRAINT ON (p:Person)
-       ASSERT p.name IS NOT NULL</pre></div>
-<div class="paragraph"><p>Create a mandatory node property constraint on the label <span class="monospaced">Person</span> and property <span class="monospaced">name</span>.
+       ASSERT exists(p.name)</pre></div>
+<div class="paragraph"><p>Create a node property existence constraint on the label <span class="monospaced">Person</span> and property <span class="monospaced">name</span>.
 If a node with that label is created without a <span class="monospaced">name</span>, or if the <span class="monospaced">name</span> property is
 removed from an existing node with the <span class="monospaced">Person</span> label, the write operation will fail.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">DROP CONSTRAINT ON (p:Person)
-     ASSERT p.name IS NOT NULL</pre></div>
-<div class="paragraph"><p>Drop the mandatory node property constraint on the label <span class="monospaced">Person</span> and property <span class="monospaced">name</span>.</p></div></div></td>
+     ASSERT exists(p.name)</pre></div>
+<div class="paragraph"><p>Drop the node property existence constraint on the label <span class="monospaced">Person</span> and property <span class="monospaced">name</span>.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">CREATE CONSTRAINT ON ()-[l:LIKED]-()
-       ASSERT l.when IS NOT NULL</pre></div>
-<div class="paragraph"><p>Create a mandatory relationship property constraint on the type <span class="monospaced">LIKED</span> and property <span class="monospaced">when</span>.
+       ASSERT exists(l.when)</pre></div>
+<div class="paragraph"><p>Create a relationship property existence constraint on the type <span class="monospaced">LIKED</span> and property <span class="monospaced">when</span>.
 If a relationship with that type is created without a <span class="monospaced">when</span>, or if the <span class="monospaced">when</span> property is
 removed from an existing relationship with the <span class="monospaced">LIKED</span> type, the write operation will fail.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">DROP CONSTRAINT ON ()-[l:LIKED]-()
-     ASSERT l.when IS NOT NULL</pre></div>
-<div class="paragraph"><p>Drop the mandatory relationship property constraint on the type <span class="monospaced">LIKED</span> and property <span class="monospaced">when</span>.</p></div></div></td>
+     ASSERT exists(l.when)</pre></div>
+<div class="paragraph"><p>Drop the relationship property existence constraint on the type <span class="monospaced">LIKED</span> and property <span class="monospaced">when</span>.</p></div></div></td>
 </tr>
 </tbody>
 </table>
@@ -837,6 +837,11 @@ See the performance tips.</p></div></div></td>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">allShortestPaths((n1:Person)-[*..6]-&gt;(n2:Person))</pre></div>
 <div class="paragraph"><p>Find all shortest paths.</p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><div><div class="listingblock">
+<pre class="programlisting brush: cypher">size((n)--&gt;()--&gt;())</pre></div>
+<div class="paragraph"><p>Count the number of rows matching the pattern expression.</p></div></div></td>
 </tr>
 </tbody>
 </table>
@@ -1086,7 +1091,8 @@ width:100%;
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
-<pre class="programlisting brush: cypher">n.property LIKE "Tob%" OR n.property ILIKE "ANDR_S"</pre></div>
+<pre class="programlisting brush: cypher">n.property LIKE "Tob%" OR
+n.property ILIKE "ANDR_S"</pre></div>
 <div class="paragraph"><p>String pattern matching. <span class="monospaced">%</span> matches zero or more characters, <span class="monospaced">_</span> matches exactly one character. <span class="monospaced">LIKE</span> is case sensitive, while <span class="monospaced">ILIKE</span> is not.</p></div></div></td>
 </tr>
 <tr>
@@ -1258,8 +1264,8 @@ width:100%;
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">head({coll}), last({coll}), tail({coll})</pre></div>
 <div class="paragraph"><p><span class="monospaced">head</span> returns the first, <span class="monospaced">last</span> the last element
-of the collection. <span class="monospaced">tail</span> the remainder of the
-collection. All return null for an empty collection.</p></div></div></td>
+of the collection. <span class="monospaced">tail</span> returns all but the first element.
+All return <span class="monospaced">NULL</span> for an empty collection.</p></div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
@@ -1400,6 +1406,11 @@ The <span class="monospaced">sub_length</span> argument is optional.</p></div></
 <td class="tableblock halign-left valign-top" ><div><div class="listingblock">
 <pre class="programlisting brush: cypher">reverse({original})</pre></div>
 <div class="paragraph"><p>Reverse a string.</p></div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" ><div><div class="listingblock">
+<pre class="programlisting brush: cypher">length({string})</pre></div>
+<div class="paragraph"><p>Calculate the number of characters in the string.</p></div></div></td>
 </tr>
 </tbody>
 </table>

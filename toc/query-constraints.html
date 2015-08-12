@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>14.2. Constraints -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-schema-index.html" title="14.1. Indexes" /><link rel="next" href="query-schema-statistics.html" title="14.3. Statistics" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="14.2. Constraints" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -73,18 +73,18 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>14.2. Constraints</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-schema-index.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-schema.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-schema-statistics.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-constraints"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">14.2. Constraints</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-constraints.html#constraints-create-uniqueness-constraint">Create uniqueness constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-drop-uniqueness-constraint">Drop uniqueness constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-complies-with-unique-property-constraints">Create a node that complies with unique property constraints</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-breaks-a-unique-property-constraint">Create a node that breaks a unique property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-failure-to-create-a-unique-property-constraint-due-to-conflicting-nodes">Failure to create a unique property constraint due to conflicting nodes</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-mandatory-node-property-constraint">Create mandatory node property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-drop-mandatory-node-property-constraint">Drop mandatory node property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-complies-with-mandatory-property-constraints">Create a node that complies with mandatory property constraints</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-breaks-a-mandatory-property-constraint">Create a node that breaks a mandatory property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-removing-a-mandatory-node-property">Removing a mandatory node property</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-failure-to-create-a-mandatory-node-property-constraint-due-to-existing-node">Failure to create a mandatory node property constraint due to existing node</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-mandatory-relationship-property-constraint">Create mandatory relationship property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-drop-mandatory-relationship-property-constraint">Drop mandatory relationship property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-relationship-that-complies-with-mandatory-property-constraints">Create a relationship that complies with mandatory property constraints</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-relationship-that-breaks-a-mandatory-property-constraint">Create a relationship that breaks a mandatory property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-removing-a-mandatory-relationship-property">Removing a mandatory relationship property</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-failure-to-create-a-mandatory-relationship-property-constraint-due-to-existing-relationship">Failure to create a mandatory relationship property constraint due to existing relationship</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="query-schema-index.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="cypher-schema.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="query-schema-statistics.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="query-constraints"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">14.2. Constraints</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="query-constraints.html#constraints-create-uniqueness-constraint">Create uniqueness constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-drop-uniqueness-constraint">Drop uniqueness constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-complies-with-unique-property-constraints">Create a node that complies with unique property constraints</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-breaks-a-unique-property-constraint">Create a node that breaks a unique property constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-failure-to-create-a-unique-property-constraint-due-to-conflicting-nodes">Failure to create a unique property constraint due to conflicting nodes</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-node-property-existence-constraint">Create node property existence constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-drop-node-property-existence-constraint">Drop node property existence constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-complies-with-property-existence-constraints">Create a node that complies with property existence constraints</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-node-that-breaks-a-property-existence-constraint">Create a node that breaks a property existence constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-removing-a-mandatory-node-property">Removing a mandatory node property</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-failure-to-create-a-node-property-existence-constraint-due-to-existing-node">Failure to create a node property existence constraint due to existing node</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-relationship-property-existence-constraint">Create relationship property existence constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-drop-relationship-property-existence-constraint">Drop relationship property existence constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-relationship-that-complies-with-property-existence-constraints">Create a relationship that complies with property existence constraints</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-create-a-relationship-that-breaks-a-property-existence-constraint">Create a relationship that breaks a property existence constraint</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-removing-a-mandatory-relationship-property">Removing a mandatory relationship property</a></span></li><li><span class="section"><a href="query-constraints.html#constraints-failure-to-create-a-relationship-property-existence-constraint-due-to-existing-relationship">Failure to create a relationship property existence constraint due to existing relationship</a></span></li></ul></div>
 
 <div class="abstract">
 <p>Neo4j helps enforce data integrity with the use of constraints.
 Constraints can be applied to either nodes or relationships.
-There exits unique node property constraints, mandatory node  relationship property constraints.</p>
+There exit unique node property constraints, node and relationship property existence constraints.</p>
 </div>
 <p>You can use unique property constraints to ensure that property values are unique for all nodes with a specific label.
 Unique constraints do not mean that all nodes have to have a unique value for the properties — nodes without the property are not subject to this rule.</p>
-<p>You can use mandatory property constraints to ensure that a property exists for all nodes with a specific label or relationship with specific type.
+<p>You can use property existence constraints to ensure that a property exists for all nodes with a specific label or relationship with specific type.
 All queries that try to create new nodes or relationships without the property, or queries that try to remove the mandatory property will now fail.</p>
-<p>You can have multiple constraints for a given label and you can also combine unique and mandatory property constraints on the same property.</p>
+<p>You can have multiple constraints for a given label and you can also combine unique and property existence constraints on the same property.</p>
 <p>Remember that adding constraints is an atomic operation that can take a while — all existing data has to be scanned before Neo4j can turn the constraint “on”.</p>
 <p>Note that adding a unique property constraint on a property will also add an index on that property, so you cannot add such an index separately.
 Cypher will use that index for lookups just like other indexes.
@@ -92,44 +92,32 @@ If you drop a unique property constraint and still want an index on the property
 <section class="section" id="constraints-create-uniqueness-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create uniqueness constraint</h3></div></div></div>
 
 <p>To create a constraint that makes sure that your database will never contain more than one node with a specific label and one property value, use the <code class="literal">IS</code> <code class="literal">UNIQUE</code> syntax.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT book.isbn IS UNIQUE</pre><p>
 </p>
-<div class="queryresult table" id="d5e14943"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Unique constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13980"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Unique constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="constraints-drop-uniqueness-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop uniqueness constraint</h3></div></div></div>
 
 <p>By using <code class="literal">DROP</code> <code class="literal">CONSTRAINT</code>, you remove a constraint from the database.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON (book:Book) ASSERT book.isbn IS UNIQUE</pre><p>
 </p>
-<div class="queryresult table" id="d5e14968"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Unique constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14001"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Unique constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="constraints-create-a-node-that-complies-with-unique-property-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that complies with unique property constraints</h3></div></div></div>
 
 <p>Create a <code class="literal">Book</code> node with an <code class="literal">isbn</code> that isn’t already in the database.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (book:Book { isbn: '1449356265', title: 'Graph Databases' })</pre><p>
 </p>
-<div class="queryresult table" id="d5e14993"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e14022"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="constraints-create-a-node-that-breaks-a-unique-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that breaks a unique property constraint</h3></div></div></div>
 
 <p>Create a <code class="literal">Book</code> node with an <code class="literal">isbn</code> that is already used in the database.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (book:Book { isbn: '1449356265', title: 'Graph Databases' })</pre><p>
 </p>
@@ -141,9 +129,6 @@ If you drop a unique property constraint and still want an index on the property
 <section class="section" id="constraints-failure-to-create-a-unique-property-constraint-due-to-conflicting-nodes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Failure to create a unique property constraint due to conflicting nodes</h3></div></div></div>
 
 <p>Create a unique property constraint on the property <code class="literal">isbn</code> on nodes with the <code class="literal">Book</code> label when there are two nodes with the same <code class="literal">isbn</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT book.isbn IS UNIQUE</pre><p>
 </p>
@@ -155,47 +140,35 @@ Multiple nodes with label `Book` have property `isbn` = '1449356265':
   node(1)</pre><p>
 </p>
 </section>
-<section class="section" id="constraints-create-mandatory-node-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create mandatory node property constraint</h3></div></div></div>
+<section class="section" id="constraints-create-node-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node property existence constraint</h3></div></div></div>
 
 <p>To create a constraint that makes sure that all nodes with a certain label have a certain property, use the <code class="literal">IS</code> <code class="literal">NOT</code> <code class="literal">NULL</code> syntax.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
-</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT book.isbn IS NOT NULL</pre><p>
+</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT exists(book.isbn)</pre><p>
 </p>
-<div class="queryresult table" id="d5e15061"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Mandatory property constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14078"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Property existence constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="constraints-drop-mandatory-node-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop mandatory node property constraint</h3></div></div></div>
+<section class="section" id="constraints-drop-node-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop node property existence constraint</h3></div></div></div>
 
 <p>By using <code class="literal">DROP</code> <code class="literal">CONSTRAINT</code>, you remove a constraint from the database.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
-</p><pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON (book:Book) ASSERT book.isbn IS NOT NULL</pre><p>
+</p><pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON (book:Book) ASSERT exists(book.isbn)</pre><p>
 </p>
-<div class="queryresult table" id="d5e15086"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Mandatory property constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14099"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Property existence constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="constraints-create-a-node-that-complies-with-mandatory-property-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that complies with mandatory property constraints</h3></div></div></div>
+<section class="section" id="constraints-create-a-node-that-complies-with-property-existence-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that complies with property existence constraints</h3></div></div></div>
 
 <p>Create a <code class="literal">Book</code> node with an existing <code class="literal">isbn</code> property.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (book:Book { isbn: '1449356265', title: 'Graph Databases' })</pre><p>
 </p>
-<div class="queryresult table" id="d5e15111"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e14120"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="constraints-create-a-node-that-breaks-a-mandatory-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that breaks a mandatory property constraint</h3></div></div></div>
+<section class="section" id="constraints-create-a-node-that-breaks-a-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node that breaks a property existence constraint</h3></div></div></div>
 
 <p>Create a <code class="literal">Book</code> node without an <code class="literal">isbn</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (book:Book { title: 'Graph Databases' })</pre><p>
 </p>
@@ -207,9 +180,6 @@ Multiple nodes with label `Book` have property `isbn` = '1449356265':
 <section class="section" id="constraints-removing-a-mandatory-node-property"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Removing a mandatory node property</h3></div></div></div>
 
 <p>Trying to remove property <code class="literal">isbn</code> from an existing book.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (book:Book { title: 'Graph Databases' })
 REMOVE book.isbn</pre><p>
@@ -219,63 +189,48 @@ REMOVE book.isbn</pre><p>
 </p><pre class="programlisting" data-lang="plain">Node 0 with label "Book" does not have a "isbn" property</pre><p>
 </p>
 </section>
-<section class="section" id="constraints-failure-to-create-a-mandatory-node-property-constraint-due-to-existing-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Failure to create a mandatory node property constraint due to existing node</h3></div></div></div>
+<section class="section" id="constraints-failure-to-create-a-node-property-existence-constraint-due-to-existing-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Failure to create a node property existence constraint due to existing node</h3></div></div></div>
 
 <p>Create a constraint on the property <code class="literal">isbn</code> on nodes with the <code class="literal">Book</code> label when there already exists  a node without an <code class="literal">isbn</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
-</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT book.isbn IS NOT NULL</pre><p>
+</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON (book:Book) ASSERT exists(book.isbn)</pre><p>
 </p>
 <p>In this case the constraint can’t be created because it is violated by existing data. We may choose to remove the offending nodes and then re-apply the constraint.</p>
 <p><strong>Error message </strong>
-</p><pre class="programlisting" data-lang="plain">Unable to create CONSTRAINT ON ( book:Book ) ASSERT book.isbn IS NOT NULL:
+</p><pre class="programlisting" data-lang="plain">Unable to create CONSTRAINT ON ( book:Book ) ASSERT exists(book.isbn):
 Node(0) with label `Book` has no value for property `isbn`</pre><p>
 </p>
 </section>
-<section class="section" id="constraints-create-mandatory-relationship-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create mandatory relationship property constraint</h3></div></div></div>
+<section class="section" id="constraints-create-relationship-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create relationship property existence constraint</h3></div></div></div>
 
 <p>To create a constraint that makes sure that all relationships with a certain type have a certain property, use the <code class="literal">IS</code> <code class="literal">NOT</code> <code class="literal">NULL</code> syntax.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
-</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON ()-[like:LIKED]-() ASSERT like.day IS NOT NULL</pre><p>
+</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON ()-[like:LIKED]-() ASSERT exists(like.day)</pre><p>
 </p>
-<div class="queryresult table" id="d5e15195"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Mandatory property constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14188"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Property existence constraints added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="constraints-drop-mandatory-relationship-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop mandatory relationship property constraint</h3></div></div></div>
+<section class="section" id="constraints-drop-relationship-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop relationship property existence constraint</h3></div></div></div>
 
 <p>By using <code class="literal">DROP</code> <code class="literal">CONSTRAINT</code>, you remove a constraint from the database.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
-</p><pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON ()-[like:LIKED]-() ASSERT like.day IS NOT NULL</pre><p>
+</p><pre class="programlisting" data-lang="cypher">DROP CONSTRAINT ON ()-[like:LIKED]-() ASSERT exists(like.day)</pre><p>
 </p>
-<div class="queryresult table" id="d5e15220"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Mandatory property constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e14209"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Property existence constraints removed: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="constraints-create-a-relationship-that-complies-with-mandatory-property-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a relationship that complies with mandatory property constraints</h3></div></div></div>
+<section class="section" id="constraints-create-a-relationship-that-complies-with-property-existence-constraints"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a relationship that complies with property existence constraints</h3></div></div></div>
 
 <p>Create a <code class="literal">LIKED</code> relationship with an existing <code class="literal">day</code> property.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (user:User)-[like:LIKED { day: 'yesterday' }]-&gt;(book:Book)</pre><p>
 </p>
-<div class="queryresult table" id="d5e15245"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 2
+<div class="queryresult table" id="d5e14230"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 2
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
-<section class="section" id="constraints-create-a-relationship-that-breaks-a-mandatory-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a relationship that breaks a mandatory property constraint</h3></div></div></div>
+<section class="section" id="constraints-create-a-relationship-that-breaks-a-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a relationship that breaks a property existence constraint</h3></div></div></div>
 
 <p>Create a <code class="literal">LIKED</code> relationship without an existing <code class="literal">day</code> property.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (user:User)-[like:LIKED]-&gt;(book:Book)</pre><p>
 </p>
@@ -287,9 +242,6 @@ Node(0) with label `Book` has no value for property `isbn`</pre><p>
 <section class="section" id="constraints-removing-a-mandatory-relationship-property"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Removing a mandatory relationship property</h3></div></div></div>
 
 <p>Trying to remove property <code class="literal">day</code> from an existing like.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (user:User)-[like:LIKED]-&gt;(book:Book)
 REMOVE like.day</pre><p>
@@ -299,19 +251,15 @@ REMOVE like.day</pre><p>
 </p><pre class="programlisting" data-lang="plain">Relationship 0 with type "LIKED" does not have a "day" property</pre><p>
 </p>
 </section>
-<section class="section" id="constraints-failure-to-create-a-mandatory-relationship-property-constraint-due-to-existing-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Failure to create a mandatory relationship property constraint due to existing relationship</h3></div></div></div>
+<section class="section" id="constraints-failure-to-create-a-relationship-property-existence-constraint-due-to-existing-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Failure to create a relationship property existence constraint due to existing relationship</h3></div></div></div>
 
 <p>Create a constraint on the property <code class="literal">day</code> on relationships with the <code class="literal">LIKED</code> type when there already exists a relationship without an <code class="literal">day</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
-</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON ()-[like:LIKED]-() ASSERT like.day IS NOT NULL</pre><p>
+</p><pre class="programlisting" data-lang="cypher">CREATE CONSTRAINT ON ()-[like:LIKED]-() ASSERT exists(like.day)</pre><p>
 </p>
 <p>In this case the constraint can’t be created because it is violated by existing data. We may choose to remove the offending relationships and then re-apply the constraint.</p>
 <p><strong>Error message </strong>
-</p><pre class="programlisting" data-lang="plain">Unable to create CONSTRAINT ON ()-[ liked:LIKED ]-() ASSERT liked.day IS NOT
-NULL:
+</p><pre class="programlisting" data-lang="plain">Unable to create CONSTRAINT ON ()-[ liked:LIKED ]-() ASSERT exists(liked.day):
 Relationship(0) with type `LIKED` has no value for property `day`</pre><p>
 </p>
 </section>

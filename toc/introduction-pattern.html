@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9.6. Patterns -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-comments.html" title="9.5. Comments" /><link rel="next" href="syntax-collections.html" title="9.7. Collections" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.6. Patterns" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -98,7 +98,7 @@ is described in more details in:</p>
 
 </li><li class="listitem">
 
-<a class="xref" href="query-where.html#query-where-patterns" title="Using patterns in WHERE">the section called “Using patterns in WHERE”</a>
+<a class="xref" href="query-where.html#query-where-patterns" title="Using path patterns in WHERE">the section called “Using path patterns in WHERE”</a>
 
 </li></ul></div>
 <section class="section" id="_patterns_for_nodes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Patterns for nodes</h3></div></div></div>
@@ -198,7 +198,7 @@ It describes a graph of either 4 nodes and 3 relationships, 5 nodes and 4 relati
 WHERE me.name = "Filipa"
 RETURN remote_friend.name</pre><p>
 </p>
-<div class="queryresult table" id="d5e6047"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>remote_friend.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Dilshad"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e5944"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>remote_friend.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Dilshad"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">create (_0 {`name`:"Dilshad"})
 create (_1 {`name`:"Emil"})
 create (_2 {`name`:"Filipa"})

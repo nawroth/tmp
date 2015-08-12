@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.15. Indexing -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-degree.html" title="21.14. Node degree" /><link rel="next" href="rest-api-schema-constraints.html" title="21.16. Constraints" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.15. Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,13 +81,11 @@
 
 <p>&lt;p/&gt;
 This will start a background job in the database that will create and populate the index.
-You can check the status of your index by listing all the indexes for the relevant label.
-The created index will show up, but have a state of <code class="literal">POPULATING</code> until the index is ready,
-where it is marked as <code class="literal">ONLINE</code>.</p>
+You can check the status of your index by listing all the indexes for the relevant label.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1438338179579_1</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1439351990768_1</code>
 
 </li><li class="listitem">
 
@@ -99,7 +97,7 @@ where it is marked as <code class="literal">ONLINE</code>.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "property_keys" : [ "property_1438338179579_1" ]
+  "property_keys" : [ "property_1439351990768_1" ]
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -112,8 +110,8 @@ where it is marked as <code class="literal">ONLINE</code>.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "label" : "label_1438338179579_1",
-  "property_keys" : [ "property_1438338179579_1" ]
+  "label" : "label_1439351990768_1",
+  "property_keys" : [ "property_1439351990768_1" ]
 }</pre>
 </section>
 <section class="section" id="rest-api-list-indexes-for-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">List indexes for a label</h3></div></div></div>
@@ -121,7 +119,7 @@ where it is marked as <code class="literal">ONLINE</code>.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1438338179349_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1439351990537_1</code>
 
 </li><li class="listitem">
 
@@ -139,8 +137,8 @@ where it is marked as <code class="literal">ONLINE</code>.</p>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338179349_1" ],
-  "label" : "label_1438338179349_1"
+  "property_keys" : [ "property_1439351990537_1" ],
+  "label" : "label_1439351990537_1"
 } ]</pre>
 </section>
 <section class="section" id="rest-api-drop-index"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop index</h3></div></div></div>
@@ -149,7 +147,7 @@ where it is marked as <code class="literal">ONLINE</code>.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1438338179506_1/property_1438338179506_1</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1439351990692_1/property_1439351990692_1</code>
 
 </li><li class="listitem">
 

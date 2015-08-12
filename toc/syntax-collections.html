@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9.7. Collections -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="introduction-pattern.html" title="9.6. Patterns" /><link rel="next" href="cypher-working-with-null.html" title="9.8. Working with NULL" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.7. Collections" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -82,7 +82,7 @@
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN [0,1,2,3,4,5,6,7,8,9] AS collection</pre><p>
 </p>
-<div class="queryresult table" id="d5e6095"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collection</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5,6,7,8,9]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e5992"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collection</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5,6,7,8,9]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN [0,1,2,3,4,5,6,7,8,9] AS collection</strong></span></p>
 <p>In our examples, we’ll use the range function.
@@ -93,59 +93,59 @@ This will extract from the start index and up to but not including the end index
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[3]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6121"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[3]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6018"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[3]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[3]</strong></span></p>
 <p>You can also use negative numbers, to start from the end of the collection instead.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[-3]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6146"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[-3]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">8</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6043"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[-3]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">8</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[-3]</strong></span></p>
 <p>Finally, you can use ranges inside the brackets to return ranges of the collection.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[0..3]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6171"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[0..3]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6068"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[0..3]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[0..3]</strong></span></p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[0..-5]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6195"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[0..-5]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6092"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[0..-5]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3,4,5]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[0..-5]</strong></span></p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[-5..]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6219"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[-5..]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[6,7,8,9,10]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6116"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[-5..]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[6,7,8,9,10]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[-5..]</strong></span></p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[..4]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6243"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[..4]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6140"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[..4]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,1,2,3]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[..4]</strong></span></p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Out-of-bound slices are simply truncated, but out-of-bound single elements return <code class="literal">NULL</code>.</p></td></tr></table></div>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[15]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6270"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[15]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6167"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[15]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[15]</strong></span></p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN range(0,10)[5..15]</pre><p>
 </p>
-<div class="queryresult table" id="d5e6294"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[5..15]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[5,6,7,8,9,10]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6191"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>range(0,10)[5..15]</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[5,6,7,8,9,10]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN range(0,10)[5..15]</strong></span></p>
 <p>You can get the size of a collection like this:</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN size(range(0,10)[0..3])</pre><p>
 </p>
-<div class="queryresult table" id="d5e6319"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>size(range(0,10)[0..3])</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6216"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>size(range(0,10)[0..3])</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN size(range(0,10)[0..3])</strong></span></p>
 </section>
@@ -157,20 +157,20 @@ and filter functions.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN [x IN range(0,10) WHERE x % 2 = 0 | x^3] AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e6346"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0.0,8.0,64.0,216.0,512.0,1000.0]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6243"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0.0,8.0,64.0,216.0,512.0,1000.0]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN [x IN range(0,10) WHERE x % 2 = 0 | x^3] AS result</strong></span></p>
 <p>Either the <code class="literal">WHERE</code> part, or the expression, can be omitted, if you only want to filter or map respectively.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN [x IN range(0,10) WHERE x % 2 = 0] AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e6372"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,2,4,6,8,10]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6269"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0,2,4,6,8,10]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN [x IN range(0,10) WHERE x % 2 = 0] AS result</strong></span></p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN [x IN range(0,10)| x^3] AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e6396"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0.0,1.0,8.0,27.0,64.0,125.0,216.0,343.0,512.0,729.0,1000.0]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6293"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[0.0,1.0,8.0,27.0,64.0,125.0,216.0,343.0,512.0,729.0,1000.0]</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN [x IN range(0,10)| x^3] AS result</strong></span></p>
 </section>
@@ -180,7 +180,7 @@ and filter functions.</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN { key : "Value", collectionKey: [{ inner: "Map1" }, { inner: "Map2" }]}</pre><p>
 </p>
-<div class="queryresult table" id="d5e6424"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>{ key : "Value", collectionKey: [ { inner: "Map1" }, { inner: "Map2" } ] }</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">{key -&gt; "Value", collectionKey -&gt; [{inner -&gt; "Map1"},{inner -&gt; "Map2"}]}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e6321"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>{ key : "Value", collectionKey: [ { inner: "Map1" }, { inner: "Map2" } ] }</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">{key -&gt; "Value", collectionKey -&gt; [{inner -&gt; "Map1"},{inner -&gt; "Map2"}]}</code></p></td></tr></tbody></table></div></div>
 <p class="cypherconsole"><strong>Try this query live </strong><span class="database">none</span><span class="command"><strong>
  RETURN { key : "Value", collectionKey: [{ inner: "Map1" }, { inner: "Map2" }]}</strong></span></p>
 </section>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>10.7. Union -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-unwind.html" title="10.6. Unwind" /><link rel="next" href="query-using.html" title="10.8. Using" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.7. Union" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -82,7 +82,7 @@
 <p>The number and the names of the columns must be identical in all queries combined by using  <code class="literal">UNION</code>.</p>
 <p>To keep all the result rows, use <code class="literal">UNION ALL</code>.
 Using just <code class="literal">UNION</code> will combine and remove duplicates from the result set.</p>
-<div class="figure" id="d5e7592"><p class="title"><strong>Figure 10.6. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7405"><p class="title"><strong>Figure 10.6. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-union-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-union-graph.svg" alt="cypher-union-graph.svg" /></span>
 </a>
@@ -90,9 +90,6 @@ Using just <code class="literal">UNION</code> will combine and remove duplicates
 <section class="section" id="union-combine-two-queries"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Combine two queries</h3></div></div></div>
 
 <p>Combining the results from two queries is done using <code class="literal">UNION ALL</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Actor)
 RETURN n.name AS name
@@ -100,14 +97,11 @@ UNION ALL MATCH (n:Movie)
 RETURN n.title AS name</pre><p>
 </p>
 <p>The combined result is returned, including duplicates.</p>
-<div class="queryresult table" id="d5e7613"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7422"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="union-combine-two-queries-and-remove-duplicates"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Combine two queries and remove duplicates</h3></div></div></div>
 
 <p>By not including <code class="literal">ALL</code> in the <code class="literal">UNION</code>, duplicates are removed from the combined result set</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Actor)
 RETURN n.name AS name
@@ -116,7 +110,7 @@ MATCH (n:Movie)
 RETURN n.title AS name</pre><p>
 </p>
 <p>The combined result is returned, without duplicates.</p>
-<div class="queryresult table" id="d5e7654"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7459"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Anthony Hopkins"</code></p></td></tr><tr><td><p><code class="literal">"Helen Mirren"</code></p></td></tr><tr><td><p><code class="literal">"Hitchcock"</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

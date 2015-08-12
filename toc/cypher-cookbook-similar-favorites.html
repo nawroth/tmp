@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>6.5. Find people based on similar favorites -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-cookbook-co-favorited-places.html" title="6.4. Co-favorited places" /><link rel="next" href="cypher-cookbook-mutual-friends-and-groups.html" title="6.6. Find people based on mutual friends and groups" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="6.5. Find people based on similar favorites" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -75,15 +75,12 @@
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>6.5. Find people based on similar favorites</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
             </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-cookbook-co-favorited-places.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="data-modeling-examples-advanced.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-cookbook-mutual-friends-and-groups.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-cookbook-similar-favorites"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">6.5. Find people based on similar favorites</h2></div></div></div>
 
-<div class="figure" id="d5e3703"><p class="title"><strong>Figure 6.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e3676"><p class="title"><strong>Figure 6.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-peoplesimilarityfavorites-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-peoplesimilarityfavorites-graph.svg" alt="cypher-peoplesimilarityfavorites-graph.svg" /></span>
 </a>
 </div></div>
 <p id="cookbook-find-people-based-on-similar-favorites">To find out the possible new friends based on them liking similar things as the asking person, use a query like this:</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (me { name: 'Joe' })-[:favorite]-&gt;(stuff)&lt;-[:favorite]-(person)
 WHERE NOT (me)-[:friend]-(person)
@@ -91,7 +88,7 @@ RETURN person.name, count(stuff)
 ORDER BY count(stuff) DESC</pre><p>
 </p>
 <p>The list of possible friends ranked by them liking similar stuff that are not yet friends is returned.</p>
-<div class="queryresult table" id="d5e3721"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person.name</th><th>count(stuff)</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Derrick"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Jill"</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e3690"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person.name</th><th>count(stuff)</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Derrick"</code></p></td><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">"Jill"</code></p></td><td><p><code class="literal">1</code></p></td></tr></tbody></table></div></div>
 </section>
 
  <footer>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.6. Load CSV -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-aggregation.html" title="11.5. Aggregation" /><link rel="next" href="query-write.html" title="Chapter 12. Writing Clauses" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.6. Load CSV" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -124,16 +124,13 @@ Then you write it to your database using the normal updating clauses of Cypher.<
 "3","Europe","1979"
 "4","The Cardigans","1992"</pre><p>
 </p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">LOAD CSV FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/artists.csv' AS line
 CREATE (:Artist { name: line[1], year: toInt(line[2])})</pre><p>
 </p>
 <p>A new node with the <code class="literal">Artist</code> label is created for each row in the CSV file.
 In addition, two columns from the CSV file are set as properties on the nodes.</p>
-<div class="queryresult table" id="d5e10173"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
+<div class="queryresult table" id="d5e9693"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
 </th></tr><tr><th>Properties set: 8
 </th></tr><tr><th>Labels added: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -147,16 +144,13 @@ In addition, two columns from the CSV file are set as properties on the nodes.</
 "3","Europe","1979"
 "4","The Cardigans","1992"</pre><p>
 </p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/artists-with-headers.csv' AS line
 CREATE (:Artist { name: line.Name, year: toInt(line.Year)})</pre><p>
 </p>
 <p>This time, the file starts with a single row containing column names.
 Indicate this using <code class="literal">WITH HEADERS</code> and you can access specific fields by their corresponding column name.</p>
-<div class="queryresult table" id="d5e10206"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
+<div class="queryresult table" id="d5e9722"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
 </th></tr><tr><th>Properties set: 8
 </th></tr><tr><th>Labels added: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -170,16 +164,13 @@ You can specify which delimiter your file uses using <code class="literal">FIELD
 "3";"Europe";"1979"
 "4";"The Cardigans";"1992"</pre><p>
 </p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">LOAD CSV FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/artists-fieldterminator.csv' AS line
   FIELDTERMINATOR ';'
 CREATE (:Artist { name: line[1], year: toInt(line[2])})</pre><p>
 </p>
 <p>As values in this file are separated by a semicolon, a custom <code class="literal">FIELDTERMINATOR</code> is specified in the <code class="literal">LOAD CSV</code> clause.</p>
-<div class="queryresult table" id="d5e10241"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
+<div class="queryresult table" id="d5e9753"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
 </th></tr><tr><th>Properties set: 8
 </th></tr><tr><th>Labels added: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -190,30 +181,24 @@ can be used to instruct Neo4j to perform a commit after a number of rows.
 This reduces the memory overhead of the transaction state.
 By default, the commit will happen every 1000 rows.
 For more information, see <a class="xref" href="query-periodic-commit.html" title="12.9. Using Periodic Commit">Section 12.9, “Using Periodic Commit”</a>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">USING PERIODIC COMMIT
 LOAD CSV FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/artists.csv' AS line
 CREATE (:Artist { name: line[1], year: toInt(line[2])})</pre><p>
 </p>
-<div class="queryresult table" id="d5e10270"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
+<div class="queryresult table" id="d5e9778"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
 </th></tr><tr><th>Properties set: 8
 </th></tr><tr><th>Labels added: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="load-csv-setting-the-rate-of-periodic-commits"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Setting the rate of periodic commits</h3></div></div></div>
 
 <p>You can set the number of rows as in the example, where it is set to 500 rows.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">USING PERIODIC COMMIT 500
 LOAD CSV FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/artists.csv' AS line
 CREATE (:Artist { name: line[1], year: toInt(line[2])})</pre><p>
 </p>
-<div class="queryresult table" id="d5e10297"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
+<div class="queryresult table" id="d5e9801"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 4
 </th></tr><tr><th>Properties set: 8
 </th></tr><tr><th>Labels added: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -223,9 +208,6 @@ CREATE (:Artist { name: line[1], year: toInt(line[2])})</pre><p>
 <p><strong>artists-with-escaped-char.csv </strong>
 </p><pre class="programlisting" data-lang="plain">"1","The ""Symbol""","1992"</pre><p>
 </p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">LOAD CSV FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/artists-with-escaped-char.csv' AS line
 CREATE (a:Artist { name: line[1], year: toInt(line[2])})
@@ -233,7 +215,7 @@ RETURN a.name AS name, a.year AS year, length(a.name) AS length</pre><p>
 </p>
 <p>Note that strings are wrapped in quotes in the output here.
 You can see that when comparing to the length of the string in this case!</p>
-<div class="queryresult table" id="d5e10329"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>year</th><th>length</th></tr></thead><tfoot><tr><th colspan="3">1 row
+<div class="queryresult table" id="d5e9829"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>name</th><th>year</th><th>length</th></tr></thead><tfoot><tr><th colspan="3">1 row
 </th></tr><tr><th colspan="3">Nodes created: 1
 </th></tr><tr><th colspan="3">Properties set: 2
 </th></tr><tr><th colspan="3">Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The "Symbol""</code></p></td><td><p><code class="literal">1992</code></p></td><td><p><code class="literal">12</code></p></td></tr></tbody></table></div></div>

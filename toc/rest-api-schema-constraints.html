@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.16. Constraints -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-schema-indexes.html" title="21.15. Indexing" /><link rel="next" href="rest-api-traverse.html" title="21.17. Traversals" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.16. Constraints" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -73,7 +73,7 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>21.16. Constraints</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-schema-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-traverse.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-schema-constraints"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.16. Constraints</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-create-uniqueness-constraint">Create uniqueness constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-a-specific-uniqueness-constraint">Get a specific uniqueness constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-uniqueness-constraints-for-a-label">Get all uniqueness constraints for a label</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-drop-uniqueness-constraint">Drop uniqueness constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-create-mandatory-node-property-constraint">Create mandatory node property constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-a-specific-mandatory-node-property-constraint">Get a specific mandatory node property constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-mandatory-node-property-constraints-for-a-label">Get all mandatory node property constraints for a label</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-drop-mandatory-node-property-constraint">Drop mandatory node property constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-constraints-for-a-label">Get all constraints for a label</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-create-mandatory-relationship-property-constraint">Create mandatory relationship property constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-a-specific-mandatory-relationship-property-constraint">Get a specific mandatory relationship property constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-mandatory-relationship-property-constraints-for-a-type">Get all mandatory relationship property constraints for a type</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-drop-mandatory-relationship-property-constraint">Drop mandatory relationship property constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-constraints">Get all constraints</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-schema-indexes.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-traverse.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-schema-constraints"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.16. Constraints</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-create-uniqueness-constraint">Create uniqueness constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-a-specific-uniqueness-constraint">Get a specific uniqueness constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-uniqueness-constraints-for-a-label">Get all uniqueness constraints for a label</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-drop-uniqueness-constraint">Drop uniqueness constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-create-node-property-existence-constraint">Create node property existence constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-a-specific-node-property-existence-constraint">Get a specific node property existence constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-node-property-existence-constraints-for-a-label">Get all node property existence constraints for a label</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-drop-node-property-existence-constraint">Drop node property existence constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-constraints-for-a-label">Get all constraints for a label</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-create-relationship-property-existence-constraint">Create relationship property existence constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-a-specific-relationship-property-existence-constraint">Get a specific relationship property existence constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-relationship-property-existence-constraints-for-a-type">Get all relationship property existence constraints for a type</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-drop-relationship-property-existence-constraint">Drop relationship property existence constraint</a></span></li><li><span class="section"><a href="rest-api-schema-constraints.html#rest-api-get-all-constraints">Get all constraints</a></span></li></ul></div>
 
 <section class="section" id="rest-api-create-uniqueness-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create uniqueness constraint</h3></div></div></div>
 
@@ -81,7 +81,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338175459_1/uniqueness/</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351986629_1/uniqueness/</code>
 
 </li><li class="listitem">
 
@@ -93,7 +93,7 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "property_keys" : [ "property_1438338175459_1" ]
+  "property_keys" : [ "property_1439351986629_1" ]
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -106,9 +106,9 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "label" : "label_1438338175459_1",
+  "label" : "label_1439351986629_1",
   "type" : "UNIQUENESS",
-  "property_keys" : [ "property_1438338175459_1" ]
+  "property_keys" : [ "property_1439351986629_1" ]
 }</pre>
 </section>
 <section class="section" id="rest-api-get-a-specific-uniqueness-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get a specific uniqueness constraint</h3></div></div></div>
@@ -117,7 +117,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338176408_1/uniqueness/property_1438338176408_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351987368_1/uniqueness/property_1439351987368_1</code>
 
 </li><li class="listitem">
 
@@ -135,8 +135,8 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338176408_1" ],
-  "label" : "label_1438338176408_1",
+  "property_keys" : [ "property_1439351987368_1" ],
+  "label" : "label_1439351987368_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>
@@ -145,7 +145,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338176350_1/uniqueness/</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351987303_1/uniqueness/</code>
 
 </li><li class="listitem">
 
@@ -163,12 +163,12 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338176350_1" ],
-  "label" : "label_1438338176350_1",
+  "property_keys" : [ "property_1439351987303_2" ],
+  "label" : "label_1439351987303_1",
   "type" : "UNIQUENESS"
 }, {
-  "property_keys" : [ "property_1438338176350_2" ],
-  "label" : "label_1438338176350_1",
+  "property_keys" : [ "property_1439351987303_1" ],
+  "label" : "label_1439351987303_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>
@@ -178,7 +178,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338175318_1/uniqueness/property_1438338175318_1</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351986410_1/uniqueness/property_1439351986410_1</code>
 
 </li><li class="listitem">
 
@@ -193,13 +193,13 @@
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript"></pre>
 </section>
-<section class="section" id="rest-api-create-mandatory-node-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create mandatory node property constraint</h3></div></div></div>
+<section class="section" id="rest-api-create-node-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node property existence constraint</h3></div></div></div>
 
-<p>Create a mandatory node property constraint for a label and a property.</p>
+<p>Create a node property existence constraint for a label and a property.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338175678_1/existence/</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351986781_1/existence/</code>
 
 </li><li class="listitem">
 
@@ -211,7 +211,7 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "property_keys" : [ "property_1438338175678_1" ]
+  "property_keys" : [ "property_1439351986781_1" ]
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -224,18 +224,18 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "label" : "label_1438338175678_1",
-  "type" : "MANDATORY_NODE_PROPERTY",
-  "property_keys" : [ "property_1438338175678_1" ]
+  "label" : "label_1439351986781_1",
+  "type" : "NODE_PROPERTY_EXISTENCE",
+  "property_keys" : [ "property_1439351986781_1" ]
 }</pre>
 </section>
-<section class="section" id="rest-api-get-a-specific-mandatory-node-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get a specific mandatory node property constraint</h3></div></div></div>
+<section class="section" id="rest-api-get-a-specific-node-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get a specific node property existence constraint</h3></div></div></div>
 
-<p>Get a specific mandatory node property constraint for a label and a property.</p>
+<p>Get a specific node property existence constraint for a label and a property.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338176489_1/existence/property_1438338176489_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351987507_1/existence/property_1439351987507_1</code>
 
 </li><li class="listitem">
 
@@ -253,17 +253,17 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338176489_1" ],
-  "label" : "label_1438338176489_1",
-  "type" : "MANDATORY_NODE_PROPERTY"
+  "property_keys" : [ "property_1439351987507_1" ],
+  "label" : "label_1439351987507_1",
+  "type" : "NODE_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
-<section class="section" id="rest-api-get-all-mandatory-node-property-constraints-for-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all mandatory node property constraints for a label</h3></div></div></div>
+<section class="section" id="rest-api-get-all-node-property-existence-constraints-for-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all node property existence constraints for a label</h3></div></div></div>
 
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338176304_1/existence/</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351987561_1/existence/</code>
 
 </li><li class="listitem">
 
@@ -281,22 +281,22 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338176304_1" ],
-  "label" : "label_1438338176304_1",
-  "type" : "MANDATORY_NODE_PROPERTY"
+  "property_keys" : [ "property_1439351987561_2" ],
+  "label" : "label_1439351987561_1",
+  "type" : "NODE_PROPERTY_EXISTENCE"
 }, {
-  "property_keys" : [ "property_1438338176304_2" ],
-  "label" : "label_1438338176304_1",
-  "type" : "MANDATORY_NODE_PROPERTY"
+  "property_keys" : [ "property_1439351987561_1" ],
+  "label" : "label_1439351987561_1",
+  "type" : "NODE_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
-<section class="section" id="rest-api-drop-mandatory-node-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop mandatory node property constraint</h3></div></div></div>
+<section class="section" id="rest-api-drop-node-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop node property existence constraint</h3></div></div></div>
 
-<p>Drop mandatory node property constraint for a label and a property.</p>
+<p>Drop node property existence constraint for a label and a property.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338175514_1/existence/property_1438338175514_1</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351987161_1/existence/property_1439351987161_1</code>
 
 </li><li class="listitem">
 
@@ -316,7 +316,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1438338176179_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1439351987204_1</code>
 
 </li><li class="listitem">
 
@@ -334,22 +334,22 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338176179_2" ],
-  "label" : "label_1438338176179_1",
-  "type" : "MANDATORY_NODE_PROPERTY"
+  "property_keys" : [ "property_1439351987204_2" ],
+  "label" : "label_1439351987204_1",
+  "type" : "NODE_PROPERTY_EXISTENCE"
 }, {
-  "property_keys" : [ "property_1438338176179_1" ],
-  "label" : "label_1438338176179_1",
+  "property_keys" : [ "property_1439351987204_1" ],
+  "label" : "label_1439351987204_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>
-<section class="section" id="rest-api-create-mandatory-relationship-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create mandatory relationship property constraint</h3></div></div></div>
+<section class="section" id="rest-api-create-relationship-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create relationship property existence constraint</h3></div></div></div>
 
-<p>Create a mandatory relationship property constraint for a relationship type and a property.</p>
+<p>Create a relationship property existence constraint for a relationship type and a property.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1438338175940_1/existence/</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1439351987114_1/existence/</code>
 
 </li><li class="listitem">
 
@@ -361,7 +361,7 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "property_keys" : [ "property_1438338175940_1" ]
+  "property_keys" : [ "property_1439351987114_1" ]
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -374,18 +374,18 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "relationshipType" : "relationshipType_1438338175940_1",
-  "type" : "MANDATORY_RELATIONSHIP_PROPERTY",
-  "property_keys" : [ "property_1438338175940_1" ]
+  "relationshipType" : "relationshipType_1439351987114_1",
+  "type" : "RELATIONSHIP_PROPERTY_EXISTENCE",
+  "property_keys" : [ "property_1439351987114_1" ]
 }</pre>
 </section>
-<section class="section" id="rest-api-get-a-specific-mandatory-relationship-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get a specific mandatory relationship property constraint</h3></div></div></div>
+<section class="section" id="rest-api-get-a-specific-relationship-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get a specific relationship property existence constraint</h3></div></div></div>
 
-<p>Get a specific mandatory relationship property constraint for a label and a property.</p>
+<p>Get a specific relationship property existence constraint for a label and a property.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1438338175576_1/existence/property_1438338175577_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1439351986723_1/existence/property_1439351986723_1</code>
 
 </li><li class="listitem">
 
@@ -403,17 +403,17 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "relationshipType" : "relationshipType_1438338175576_1",
-  "property_keys" : [ "property_1438338175577_1" ],
-  "type" : "MANDATORY_RELATIONSHIP_PROPERTY"
+  "relationshipType" : "relationshipType_1439351986723_1",
+  "property_keys" : [ "property_1439351986723_1" ],
+  "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
-<section class="section" id="rest-api-get-all-mandatory-relationship-property-constraints-for-a-type"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all mandatory relationship property constraints for a type</h3></div></div></div>
+<section class="section" id="rest-api-get-all-relationship-property-existence-constraints-for-a-type"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all relationship property existence constraints for a type</h3></div></div></div>
 
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1438338176012_1/existence/</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1439351987426_1/existence/</code>
 
 </li><li class="listitem">
 
@@ -431,22 +431,22 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "relationshipType" : "relationshipType_1438338176012_1",
-  "property_keys" : [ "property_1438338176012_2" ],
-  "type" : "MANDATORY_RELATIONSHIP_PROPERTY"
+  "relationshipType" : "relationshipType_1439351987426_1",
+  "property_keys" : [ "property_1439351987426_1" ],
+  "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 }, {
-  "relationshipType" : "relationshipType_1438338176012_1",
-  "property_keys" : [ "property_1438338176012_1" ],
-  "type" : "MANDATORY_RELATIONSHIP_PROPERTY"
+  "relationshipType" : "relationshipType_1439351987426_1",
+  "property_keys" : [ "property_1439351987426_2" ],
+  "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
-<section class="section" id="rest-api-drop-mandatory-relationship-property-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop mandatory relationship property constraint</h3></div></div></div>
+<section class="section" id="rest-api-drop-relationship-property-existence-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop relationship property existence constraint</h3></div></div></div>
 
-<p>Drop mandatory relationship property constraint for a relationship type and a property.</p>
+<p>Drop relationship property existence constraint for a relationship type and a property.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1438338176090_1/existence/property_1438338176090_1</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1439351987605_1/existence/property_1439351987605_1</code>
 
 </li><li class="listitem">
 
@@ -484,25 +484,25 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1438338175459_1" ],
-  "label" : "label_1438338175459_1",
+  "property_keys" : [ "property_1439351986629_1" ],
+  "label" : "label_1439351986629_1",
   "type" : "UNIQUENESS"
 }, {
-  "property_keys" : [ "property_1438338175744_2" ],
-  "label" : "label_1438338175744_2",
-  "type" : "MANDATORY_NODE_PROPERTY"
+  "property_keys" : [ "property_1439351986864_2" ],
+  "label" : "label_1439351986864_2",
+  "type" : "NODE_PROPERTY_EXISTENCE"
 }, {
-  "property_keys" : [ "property_1438338175744_1" ],
-  "label" : "label_1438338175744_1",
+  "property_keys" : [ "property_1439351986864_1" ],
+  "label" : "label_1439351986864_1",
   "type" : "UNIQUENESS"
 }, {
-  "property_keys" : [ "property_1438338175678_1" ],
-  "label" : "label_1438338175678_1",
-  "type" : "MANDATORY_NODE_PROPERTY"
+  "property_keys" : [ "property_1439351986781_1" ],
+  "label" : "label_1439351986781_1",
+  "type" : "NODE_PROPERTY_EXISTENCE"
 }, {
-  "relationshipType" : "relationshipType_1438338175576_1",
-  "property_keys" : [ "property_1438338175577_1" ],
-  "type" : "MANDATORY_RELATIONSHIP_PROPERTY"
+  "relationshipType" : "relationshipType_1439351986723_1",
+  "property_keys" : [ "property_1439351986723_1" ],
+  "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
 </section>

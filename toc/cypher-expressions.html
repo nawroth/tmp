@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>9.2. Expressions -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-values.html" title="9.1. Values" /><link rel="next" href="cypher-identifiers.html" title="9.3. Identifiers" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.2. Expressions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -195,9 +195,6 @@ END</pre>
 <span class="emphasis"><em>default:</em></span> The expression to use if no match is found.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 RETURN
@@ -208,7 +205,7 @@ WHEN 'brown'
 THEN 2
 ELSE 3 END AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e5705"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e5606"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="syntax-generic-case"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Generic CASE</h3></div></div></div>
 
@@ -233,9 +230,6 @@ END</pre>
 <span class="emphasis"><em>default:</em></span> The expression to use if no match is found.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)
 RETURN
@@ -246,7 +240,7 @@ WHEN n.age &lt; 40
 THEN 2
 ELSE 3 END AS result</pre><p>
 </p>
-<div class="queryresult table" id="d5e5765"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e5662"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

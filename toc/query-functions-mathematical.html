@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.4. Mathematical functions -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-collection.html" title="13.3. Collection functions" /><link rel="next" href="query-functions-string.html" title="13.5. String functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.4. Mathematical functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -77,7 +77,7 @@
 
 <p>These functions all operate on numerical expressions only, and will return an error if used on any other values.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-mathematical" title="Mathematical operators">the section called “Mathematical operators”</a>.</p>
-<div class="figure" id="d5e13348"><p class="title"><strong>Figure 13.4. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e12606"><p class="title"><strong>Figure 13.4. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -92,16 +92,13 @@
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a),(e)
 WHERE a.name = 'Alice' AND e.name = 'Eskil'
 RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 </p>
 <p>The absolute value of the age difference is returned.</p>
-<div class="queryresult table" id="d5e13378"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.age</th><th>e.age</th><th>abs(a.age - e.age)</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">38</code></p></td><td><p><code class="literal">41</code></p></td><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12632"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.age</th><th>e.age</th><th>abs(a.age - e.age)</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">38</code></p></td><td><p><code class="literal">41</code></p></td><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-acos"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ACOS</h3></div></div></div>
 
@@ -113,14 +110,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN acos(0.5)</pre><p>
 </p>
 <p>The arccosine of 0.5.</p>
-<div class="queryresult table" id="d5e13425"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>acos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.0471975511965979</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12675"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>acos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.0471975511965979</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-asin"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ASIN</h3></div></div></div>
 
@@ -132,14 +126,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN asin(0.5)</pre><p>
 </p>
 <p>The arcsine of 0.5.</p>
-<div class="queryresult table" id="d5e13462"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>asin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5235987755982989</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12708"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>asin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5235987755982989</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-atan"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ATAN</h3></div></div></div>
 
@@ -151,14 +142,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN atan(0.5)</pre><p>
 </p>
 <p>The arctangent of 0.5.</p>
-<div class="queryresult table" id="d5e13499"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.4636476090008061</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12741"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.4636476090008061</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-atan2"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ATAN2</h3></div></div></div>
 
@@ -174,14 +162,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression for x.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN atan2(0.5, 0.6)</pre><p>
 </p>
 <p>The arctangent2 of 0.5, 0.6.</p>
-<div class="queryresult table" id="d5e13539"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan2(0.5, 0.6)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.6947382761967033</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12777"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>atan2(0.5, 0.6)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.6947382761967033</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-ceil"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">CEIL</h3></div></div></div>
 
@@ -193,14 +178,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN ceil(0.1)</pre><p>
 </p>
 <p>The ceil of 0.1</p>
-<div class="queryresult table" id="d5e13576"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ceil(0.1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12810"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ceil(0.1)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.0</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-cos"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">COS</h3></div></div></div>
 
@@ -212,14 +194,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN cos(0.5)</pre><p>
 </p>
 <p>The cosine of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e13613"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.8775825618903728</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12843"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cos(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.8775825618903728</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-cot"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">COT</h3></div></div></div>
 
@@ -231,14 +210,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN cot(0.5)</pre><p>
 </p>
 <p>The cotangent of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e13650"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cot(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.830487721712452</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12876"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>cot(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.830487721712452</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-degrees"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">DEGREES</h3></div></div></div>
 
@@ -250,28 +226,22 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN degrees(3.14159)</pre><p>
 </p>
 <p>The number of degrees in something close to pi.</p>
-<div class="queryresult table" id="d5e13687"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>degrees(3.14159)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">179.99984796050427</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12909"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>degrees(3.14159)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">179.99984796050427</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-e"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">E</h3></div></div></div>
 
 <p><code class="literal">E</code> returns the constant, e.</p>
 <p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">E()</code></p>
 <p><span class="strong"><strong>Arguments:</strong></span></p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN e()</pre><p>
 </p>
 <p>The constant e is returned (the base of natural log).</p>
-<div class="queryresult table" id="d5e13720"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>e()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2.718281828459045</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12938"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>e()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2.718281828459045</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-exp"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">EXP</h3></div></div></div>
 
@@ -283,14 +253,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN exp(2)</pre><p>
 </p>
 <p>The exp of 2 is returned: e<sup>2</sup>.</p>
-<div class="queryresult table" id="d5e13758"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>exp(2)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">7.38905609893065</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12972"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>exp(2)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">7.38905609893065</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-floor"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">FLOOR</h3></div></div></div>
 
@@ -302,14 +269,11 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN floor(0.9)</pre><p>
 </p>
 <p>The floor of 0.9 is returned.</p>
-<div class="queryresult table" id="d5e13795"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>floor(0.9)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13005"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>floor(0.9)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.0</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-haversin"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">HAVERSIN</h3></div></div></div>
 
@@ -321,27 +285,21 @@ RETURN a.age, e.age, abs(a.age - e.age)</pre><p>
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN haversin(0.5)</pre><p>
 </p>
 <p>The haversine of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e13832"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>haversin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.06120871905481362</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13038"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>haversin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.06120871905481362</code></p></td></tr></tbody></table></div></div>
 <section class="section" id="functions-spherical-distance-using-the-haversin-function"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Spherical distance using the haversin function</h4></div></div></div>
 
 <p>The <code class="literal">haversin</code> function may be used to compute the distance on the surface of a sphere between two points (each given by their latitude and longitude). In this example the spherical distance (in km) between Berlin in Germany (at lat 52.5, lon 13.4) and San Mateo in California (at lat 37.5, lon -122.3) is calculated using an average earth radius of 6371 km.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (ber:City { lat: 52.5, lon: 13.4 }),(sm:City { lat: 37.5, lon: -122.3 })
 RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.lat))*
   cos(radians(ber.lat))* haversin(radians(sm.lon - ber.lon)))) AS dist</pre><p>
 </p>
 <p>The distance between Berlin and San Mateo is returned (about 9129 km).</p>
-<div class="queryresult table" id="d5e13860"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>dist</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e13062"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>dist</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 2
 </th></tr><tr><th>Properties set: 4
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">9129.969740051658</code></p></td></tr></tbody></table></div></div>
@@ -357,14 +315,11 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN log(27)</pre><p>
 </p>
 <p>The log of 27 is returned.</p>
-<div class="queryresult table" id="d5e13903"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.295836866004329</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13101"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.295836866004329</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-log10"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LOG10</h3></div></div></div>
 
@@ -376,28 +331,22 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN log10(27)</pre><p>
 </p>
 <p>The log10 of 27 is returned.</p>
-<div class="queryresult table" id="d5e13940"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log10(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.4313637641589874</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13134"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>log10(27)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1.4313637641589874</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-pi"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">PI</h3></div></div></div>
 
 <p><code class="literal">PI</code> returns the mathematical constant pi.</p>
 <p><span class="strong"><strong>Syntax:</strong></span> <code class="literal">PI()</code></p>
 <p><span class="strong"><strong>Arguments:</strong></span></p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN pi()</pre><p>
 </p>
 <p>The constant pi is returned.</p>
-<div class="queryresult table" id="d5e13973"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>pi()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13163"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>pi()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-radians"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RADIANS</h3></div></div></div>
 
@@ -409,14 +358,11 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN radians(180)</pre><p>
 </p>
 <p>The number of radians in 180 is returned (pi).</p>
-<div class="queryresult table" id="d5e14010"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>radians(180)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13196"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>radians(180)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.141592653589793</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-rand"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RAND</h3></div></div></div>
 
@@ -428,14 +374,11 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN rand() AS x1</pre><p>
 </p>
 <p>A random number is returned.</p>
-<div class="queryresult table" id="d5e14047"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x1</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.3517897164760293</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13229"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x1</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.9277747975784076</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-round"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ROUND</h3></div></div></div>
 
@@ -447,13 +390,10 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numerical expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN round(3.141592)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14083"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>round(3.141592)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13261"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>round(3.141592)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3.0</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-sign"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SIGN</h3></div></div></div>
 
@@ -465,13 +405,10 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numerical expression
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN sign(-17), sign(0.1)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14121"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sign(-17)</th><th>sign(0.1)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">-1.0</code></p></td><td><p><code class="literal">1.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13295"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sign(-17)</th><th>sign(0.1)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">-1.0</code></p></td><td><p><code class="literal">1.0</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-sin"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SIN</h3></div></div></div>
 
@@ -483,14 +420,11 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN sin(0.5)</pre><p>
 </p>
 <p>The sine of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e14163"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.479425538604203</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13333"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sin(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.479425538604203</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-sqrt"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SQRT</h3></div></div></div>
 
@@ -502,13 +436,10 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numerical expression
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN sqrt(256)</pre><p>
 </p>
-<div class="queryresult table" id="d5e14199"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sqrt(256)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">16.0</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13365"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>sqrt(256)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">16.0</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-tan"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TAN</h3></div></div></div>
 
@@ -520,14 +451,11 @@ RETURN 2 * 6371 * asin(sqrt(haversin(radians(sm.lat - ber.lat))+ cos(radians(sm.
 <span class="emphasis"><em>expression:</em></span> A numeric expression.
 
 </li></ul></div>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN tan(0.5)</pre><p>
 </p>
 <p>The tangent of 0.5 is returned.</p>
-<div class="queryresult table" id="d5e14236"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>tan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5463024898437905</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13398"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>tan(0.5)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">0.5463024898437905</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

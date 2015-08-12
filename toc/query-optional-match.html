@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.2. Optional Match -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-match.html" title="11.1. Match" /><link rel="next" href="query-where.html" title="11.3. Where" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.2. Optional Match" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -88,7 +88,7 @@ Remember that <code class="literal">WHERE</code> is part of the pattern descript
 This matters especially in the case of multiple (<code class="literal">OPTIONAL</code>) <code class="literal">MATCH</code> clauses, where it is crucial to put <code class="literal">WHERE</code> together with the <code class="literal">MATCH</code> it belongs to.</p>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>To understand the patterns used in the <code class="literal">OPTIONAL MATCH</code> clause, read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Section 9.6, “Patterns”</a>.</p></td></tr></table></div>
 <p>The following graph is used for the examples below:</p>
-<div class="figure" id="d5e8637"><p class="title"><strong>Figure 11.2. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e8318"><p class="title"><strong>Figure 11.2. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-optionalmatch-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-optionalmatch-graph.svg" alt="cypher-optionalmatch-graph.svg" /></span>
 </a>
@@ -97,44 +97,35 @@ This matters especially in the case of multiple (<code class="literal">OPTIONAL<
 <section class="section" id="optional-match-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationship</h3></div></div></div>
 
 <p>If a relationship is optional, use the <code class="literal">OPTIONAL</code> <code class="literal">MATCH</code> clause. This is similar to how a SQL outer join works. If the relationship is there, it is returned. If it’s not, <code class="literal">NULL</code> is returned in it’s place.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a:Movie { title: 'Wall Street' })
 OPTIONAL MATCH (a)--&gt;(x)
 RETURN x</pre><p>
 </p>
 <p>Returns <code class="literal">NULL</code>, since the node has no outgoing relationships.</p>
-<div class="queryresult table" id="d5e8661"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8338"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="optional-match-properties-on-optional-elements"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Properties on optional elements</h3></div></div></div>
 
 <p>Returning a property from an optional element that is <code class="literal">NULL</code> will also return <code class="literal">NULL</code>.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a:Movie { title: 'Wall Street' })
 OPTIONAL MATCH (a)--&gt;(x)
 RETURN x, x.name</pre><p>
 </p>
 <p>Returns the element x (<code class="literal">NULL</code> in this query), and <code class="literal">NULL</code> as its name.</p>
-<div class="queryresult table" id="d5e8692"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th><th>x.name</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8365"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th><th>x.name</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="optional-match-optional-typed-and-named-relationship"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Optional typed and named relationship</h3></div></div></div>
 
 <p>Just as with a normal relationship, you can decide which identifier it goes into, and what relationship type you need.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a:Movie { title: 'Wall Street' })
 OPTIONAL MATCH (a)-[r:ACTS_IN]-&gt;()
 RETURN r</pre><p>
 </p>
 <p>This returns a node, and <code class="literal">NULL</code>, since the node has no outgoing <code class="literal">ACTS_IN</code> relationships.</p>
-<div class="queryresult table" id="d5e8726"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8395"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

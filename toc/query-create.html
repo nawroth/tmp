@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.1. Create -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-write.html" title="Chapter 12. Writing Clauses" /><link rel="next" href="query-merge.html" title="12.2. Merge" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.1. Create" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-80091";
+      var treeCookieId = "treeview-77944";
       var language = "en";
       var w = new Object();
       //Localization
@@ -85,78 +85,60 @@ Read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Sec
 <section class="section" id="create-create-single-node"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create single node</h4></div></div></div>
 
 <p>Creating a single node is done by issuing the following query.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n)</pre><p>
 </p>
 <p>Nothing is returned from this query, except the count of affected nodes.</p>
-<div class="queryresult table" id="d5e10386"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9882"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-create-multiple-nodes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create multiple nodes</h4></div></div></div>
 
 <p>Creating multiple nodes is done by separating them with a comma.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n),(m)</pre><p>
 </p>
-<div class="queryresult table" id="d5e10409"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9901"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-create-a-node-with-a-label"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node with a label</h4></div></div></div>
 
 <p>To add a label when creating a node, use the syntax below.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person)</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e10433"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e9921"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-create-a-node-with-multiple-labels"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a node with multiple labels</h4></div></div></div>
 
 <p>To add labels when creating a node, use the syntax below. In this case, we add two labels.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person:Swedish)</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e10459"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e9943"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-create-node-and-add-labels-and-properties"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node and add labels and properties</h4></div></div></div>
 
 <p>When creating a new node with labels, you can add properties at the same time.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person { name : 'Andres', title : 'Developer' })</pre><p>
 </p>
 <p>Nothing is returned from this query.</p>
-<div class="queryresult table" id="d5e10485"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
+<div class="queryresult table" id="d5e9965"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-return-created-node"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Return created node</h4></div></div></div>
 
 <p>Creating a single node is done by issuing the following query.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE (a { name : 'Andres' })
 RETURN a</pre><p>
 </p>
 <p>The newly created node is returned.</p>
-<div class="queryresult table" id="d5e10513"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e9989"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -166,9 +148,6 @@ RETURN a</pre><p>
 <section class="section" id="create-create-a-relationship-between-two-nodes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a relationship between two nodes</h4></div></div></div>
 
 <p>To create a relationship between two nodes, we first get the two nodes. Once the nodes are loaded, we simply create a relationship between them.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a:Person),(b:Person)
 WHERE a.name = 'Node A' AND b.name = 'Node B'
@@ -176,15 +155,12 @@ CREATE (a)-[r:RELTYPE]-&gt;(b)
 RETURN r</pre><p>
 </p>
 <p>The created relationship is returned by the query.</p>
-<div class="queryresult table" id="d5e10546"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10018"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:RELTYPE[0]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="create-create-a-relationship-and-set-properties"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a relationship and set properties</h4></div></div></div>
 
 <p>Setting properties on relationships is done in a similar manner to how it’s done when creating nodes. Note that the values can be any expression.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">MATCH (a:Person),(b:Person)
 WHERE a.name = 'Node A' AND b.name = 'Node B'
@@ -192,7 +168,7 @@ CREATE (a)-[r:RELTYPE { name : a.name + '&lt;-&gt;' + b.name }]-&gt;(b)
 RETURN r</pre><p>
 </p>
 <p>The newly created relationship is returned by the example query.</p>
-<div class="queryresult table" id="d5e10575"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10043"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Relationships created: 1
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">:RELTYPE[0]{name:"Node A&lt;-&gt;Node B"}</code></p></td></tr></tbody></table></div></div>
 </section>
@@ -201,15 +177,12 @@ RETURN r</pre><p>
 
 <p>When you use <code class="literal">CREATE</code> and a pattern, all parts of the pattern that are not already in scope at this time
 will be created.</p>
-<p><strong>Parameters </strong>
-</p><pre class="programlisting" data-lang="javascript">{ }</pre><p>
-</p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">CREATE p =(andres { name:'Andres' })-[:WORKS_AT]-&gt;(neo)&lt;-[:WORKS_AT]-(michael { name:'Michael' })
 RETURN p</pre><p>
 </p>
 <p>This query creates three nodes and two relationships in one go, assigns it to a path identifier, and returns it.</p>
-<div class="queryresult table" id="d5e10607"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10071"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 3
 </th></tr><tr><th>Relationships created: 2
 </th></tr><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[0]{name:"Andres"},:WORKS_AT[0]{},Node[1]{},:WORKS_AT[1]{},Node[2]{name:"Michael"}]</code></p></td></tr></tbody></table></div></div>
@@ -233,7 +206,7 @@ In this case we add a <code class="literal">Person</code> label to the node as w
 </p><pre class="programlisting" data-lang="cypher">CREATE (n:Person { props })
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10642"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10106"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Nodes created: 1
 </th></tr><tr><th>Properties set: 2
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
@@ -257,7 +230,7 @@ RETURN n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">CREATE (n { props })
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10677"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows
+<div class="queryresult table" id="d5e10141"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>2 rows
 </th></tr><tr><th>Nodes created: 2
 </th></tr><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Andres",position:"Developer"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Michael",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
 </section>
