@@ -1,0 +1,430 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>33.8. Traversal -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-unit-testing.html" title="33.7. Basic unit testing" /><link rel="next" href="tutorials-java-embedded-entities.html" title="33.9. Domain entities" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="33.8. Traversal" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-73202";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>33.8. Traversal</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="tutorials-java-unit-testing.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="tutorials-java-embedded.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorials-java-embedded-entities.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="tutorials-java-embedded-traversal"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">33.8. Traversal</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_the_matrix">The Matrix</a></span><ul><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_walking_an_ordered_path">Walking an ordered path</a></span></li></ul></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#examples-uniqueness-of-paths-in-traversals">Uniqueness of Paths in traversals</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#tutorials-java-embedded-social">Social network</a></span><ul><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_simple_social_model">Simple social model</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_status_graph_instance">Status graph instance</a></span></li><li><span class="section"><a href="tutorials-java-embedded-traversal.html#_activity_stream">Activity stream</a></span></li></ul></li></ul></div>
+
+<p>For reading about traversals, see <a class="xref" href="tutorial-traversal.html" title="Chapter 34. The Traversal Framework">Chapter 34, <em>The Traversal Framework</em></a>.</p>
+<p>For more examples of traversals, see <a class="xref" href="data-modeling-examples.html" title="Chapter 5. Basic Data Modeling Examples">Chapter 5, <em>Basic Data Modeling Examples</em></a>.</p>
+<section class="section" id="_the_matrix"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">The Matrix</h3></div></div></div>
+
+<p>This is the first graph we want to traverse into:</p>
+<div class="figure" id="d5e29778"><p class="title"><strong>Figure 33.2. Matrix node space view</strong></p><div class="figure-contents">
+<a class="ulink" href="images/examples-matrix.png" target="_blank">
+<span class="inlinemediaobject"><img src="images/examples-matrix.png" alt="examples-matrix.png" /></span>
+</a>
+</div></div>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>The source code of this example is found here:
+<a class="ulink" href="https://github.com/neo4j/neo4j/blob/master/community/embedded-examples/src/main/java/org/neo4j/examples/NewMatrix.java" target="_blank">NewMatrix.java</a></p></td></tr></table></div>
+<p><strong>Friends and friends of friends </strong>
+</p><pre class="programlisting" data-lang="java">private Traverser getFriends(
+        final Node person )
+{
+    TraversalDescription td = graphDb.traversalDescription()
+            .breadthFirst()
+            .relationships( RelTypes.KNOWS, Direction.OUTGOING )
+            .evaluator( Evaluators.excludeStartPosition() );
+    return td.traverse( person );
+}
+</pre><p>
+</p>
+<p>Let’s perform the actual traversal and print the results:</p>
+<pre class="programlisting" data-lang="java">int numberOfFriends = 0;
+String output = neoNode.getProperty( "name" ) + "'s friends:\n";
+Traverser friendsTraverser = getFriends( neoNode );
+for ( Path friendPath : friendsTraverser )
+{
+    output += "At depth " + friendPath.length() + " =&gt; "
+              + friendPath.endNode()
+                      .getProperty( "name" ) + "\n";
+    numberOfFriends++;
+}
+output += "Number of friends found: " + numberOfFriends + "\n";
+</pre>
+<p>Which will give us the following output:</p>
+<pre class="programlisting" data-lang="plain">Thomas Anderson's friends:
+At depth 1 =&gt; Morpheus
+At depth 1 =&gt; Trinity
+At depth 2 =&gt; Cypher
+At depth 3 =&gt; Agent Smith
+Number of friends found: 4</pre>
+<p><strong>Who coded the Matrix? </strong>
+</p><pre class="programlisting" data-lang="java">private Traverser findHackers( final Node startNode )
+{
+    TraversalDescription td = graphDb.traversalDescription()
+            .breadthFirst()
+            .relationships( RelTypes.CODED_BY, Direction.OUTGOING )
+            .relationships( RelTypes.KNOWS, Direction.OUTGOING )
+            .evaluator(
+                    Evaluators.includeWhereLastRelationshipTypeIs( RelTypes.CODED_BY ) );
+    return td.traverse( startNode );
+}
+</pre><p>
+</p>
+<p>Print out the result:</p>
+<pre class="programlisting" data-lang="java">String output = "Hackers:\n";
+int numberOfHackers = 0;
+Traverser traverser = findHackers( getNeoNode() );
+for ( Path hackerPath : traverser )
+{
+    output += "At depth " + hackerPath.length() + " =&gt; "
+              + hackerPath.endNode()
+                      .getProperty( "name" ) + "\n";
+    numberOfHackers++;
+}
+output += "Number of hackers found: " + numberOfHackers + "\n";
+</pre>
+<p>Now we know who coded the Matrix:</p>
+<pre class="programlisting" data-lang="plain">Hackers:
+At depth 4 =&gt; The Architect
+Number of hackers found: 1</pre>
+<section class="section" id="_walking_an_ordered_path"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Walking an ordered path</h4></div></div></div>
+
+<p>This example shows how to use a path context holding a representation of a path.</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>The source code of this example is found here:
+<a class="ulink" href="https://github.com/neo4j/neo4j/blob/master/community/embedded-examples/src/main/java/org/neo4j/examples/orderedpath/OrderedPath.java" target="_blank">OrderedPath.java</a></p></td></tr></table></div>
+<p><strong>Create a toy graph </strong>
+</p><pre class="programlisting" data-lang="java">Node A = db.createNode();
+Node B = db.createNode();
+Node C = db.createNode();
+Node D = db.createNode();
+
+A.createRelationshipTo( C, REL2 );
+C.createRelationshipTo( D, REL3 );
+A.createRelationshipTo( B, REL1 );
+B.createRelationshipTo( C, REL2 );
+</pre><p>
+</p>
+<div class="informalfigure">
+<a class="ulink" href="images/example-ordered-path.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/example-ordered-path.svg" alt="example-ordered-path.svg" /></span>
+</a>
+</div>
+<p>Now, the order of relationships (<code class="literal">REL1</code> → <code class="literal">REL2</code> → <code class="literal">REL3</code>) is stored in an <code class="literal">ArrayList</code>.
+Upon traversal, the <code class="literal">Evaluator</code> can check against it to ensure that only paths are included and returned that have the predefined order of relationships:</p>
+<p><strong>Define how to walk the path </strong>
+</p><pre class="programlisting" data-lang="java">final ArrayList&lt;RelationshipType&gt; orderedPathContext = new ArrayList&lt;RelationshipType&gt;();
+orderedPathContext.add( REL1 );
+orderedPathContext.add( withName( "REL2" ) );
+orderedPathContext.add( withName( "REL3" ) );
+TraversalDescription td = db.traversalDescription()
+        .evaluator( new Evaluator()
+        {
+            @Override
+            public Evaluation evaluate( final Path path )
+            {
+                if ( path.length() == 0 )
+                {
+                    return Evaluation.EXCLUDE_AND_CONTINUE;
+                }
+                RelationshipType expectedType = orderedPathContext.get( path.length() - 1 );
+                boolean isExpectedType = path.lastRelationship()
+                        .isType( expectedType );
+                boolean included = path.length() == orderedPathContext.size() &amp;&amp; isExpectedType;
+                boolean continued = path.length() &lt; orderedPathContext.size() &amp;&amp; isExpectedType;
+                return Evaluation.of( included, continued );
+            }
+        } )
+        .uniqueness( Uniqueness.NODE_PATH );
+</pre><p>
+</p>
+<p>Note that we set the uniqueness to
+<code class="literal"><a class="ulink" href="javadocs/org/neo4j/graphdb/traversal/Uniqueness.html#NODE_PATH" target="_blank">Uniqueness.NODE_PATH</a></code>
+as we want to be able to revisit the same node dureing the traversal, but not the same path.</p>
+<p><strong>Perform the traversal and print the result </strong>
+</p><pre class="programlisting" data-lang="java">Traverser traverser = td.traverse( A );
+PathPrinter pathPrinter = new PathPrinter( "name" );
+for ( Path path : traverser )
+{
+    output += Paths.pathToString( path, pathPrinter );
+}
+</pre><p>
+</p>
+<p>Which will output:</p>
+<pre class="programlisting" data-lang="plain">(A)--[REL1]--&gt;(B)--[REL2]--&gt;(C)--[REL3]--&gt;(D)</pre>
+<p>In this case we use a custom class to format the path output.
+This is how it’s done:</p>
+<pre class="programlisting" data-lang="java">static class PathPrinter implements Paths.PathDescriptor&lt;Path&gt;
+{
+    private final String nodePropertyKey;
+
+    public PathPrinter( String nodePropertyKey )
+    {
+        this.nodePropertyKey = nodePropertyKey;
+    }
+
+    @Override
+    public String nodeRepresentation( Path path, Node node )
+    {
+        return "(" + node.getProperty( nodePropertyKey, "" ) + ")";
+    }
+
+    @Override
+    public String relationshipRepresentation( Path path, Node from, Relationship relationship )
+    {
+        String prefix = "--", suffix = "--";
+        if ( from.equals( relationship.getEndNode() ) )
+        {
+            prefix = "&lt;--";
+        }
+        else
+        {
+            suffix = "--&gt;";
+        }
+        return prefix + "[" + relationship.getType().name() + "]" + suffix;
+    }
+}
+</pre>
+</section>
+</section>
+<section class="section" id="examples-uniqueness-of-paths-in-traversals"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Uniqueness of Paths in traversals</h3></div></div></div>
+
+<p>This example is demonstrating the use of node uniqueness.
+Below an imaginary domain graph with Principals
+that own pets that are descendant to other pets.</p>
+<div class="figure" id="d5e29846"><p class="title"><strong>Figure 33.3. Descendants Example Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Descendants-Example-Graph-Uniqueness-of-Paths-in-traversals.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Descendants-Example-Graph-Uniqueness-of-Paths-in-traversals.svg" alt="Descendants-Example-Graph-Uniqueness-of-Paths-in-traversals.svg" /></span>
+</a>
+</div></div>
+<p>In order to return all descendants
+of <code class="literal">Pet0</code> which have the relation <code class="literal">owns</code> to <code class="literal">Principal1</code> (<code class="literal">Pet1</code> and <code class="literal">Pet3</code>),
+the Uniqueness of the traversal needs to be set to
+<code class="literal">NODE_PATH</code> rather than the default <code class="literal">NODE_GLOBAL</code> so that nodes
+can be traversed more that once, and paths that have
+different nodes but can have some nodes in common (like the
+start and end node) can be returned.</p>
+<pre class="programlisting" data-lang="java">final Node target = data.get().get( "Principal1" );
+TraversalDescription td = db.traversalDescription()
+        .uniqueness( Uniqueness.NODE_PATH )
+        .evaluator( new Evaluator()
+{
+    @Override
+    public Evaluation evaluate( Path path )
+    {
+        boolean endNodeIsTarget = path.endNode().equals( target );
+        return Evaluation.of( endNodeIsTarget, !endNodeIsTarget );
+    }
+} );
+
+Traverser results = td.traverse( start );
+</pre>
+<p>This will return the following paths:</p>
+<pre class="programlisting" data-lang="plain">(2)--[descendant,2]--&gt;(3)&lt;--[owns,5]--(4)
+(2)--[descendant,0]--&gt;(0)&lt;--[owns,3]--(4)</pre>
+<p>In the default <code class="literal">path.toString()</code> implementation, <code class="literal">(1)--[knows,2]--&gt;(4)</code> denotes
+a node with ID=1 having a relationship with ID 2 or type <code class="literal">knows</code> to a node with ID-4.</p>
+<p>Let’s create a new <code class="literal">TraversalDescription</code> from the old one,
+having <code class="literal">NODE_GLOBAL</code> uniqueness to see the difference.</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>The <code class="literal">TraversalDescription</code> object is immutable,
+     so we have to use the new instance returned
+     with the new uniqueness setting.</p></td></tr></table></div>
+<pre class="programlisting" data-lang="java">TraversalDescription nodeGlobalTd = td.uniqueness( Uniqueness.NODE_GLOBAL );
+results = nodeGlobalTd.traverse( start );
+</pre>
+<p>Now only one path is returned:</p>
+<pre class="programlisting" data-lang="plain">(2)--[descendant,2]--&gt;(3)&lt;--[owns,5]--(4)</pre>
+</section>
+<section class="section" id="tutorials-java-embedded-social"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Social network</h3></div></div></div>
+
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The following example uses the new enhanced traversal API.</p></td></tr></table></div>
+<p>Social networks (know as social graphs out on the web) are natural to model with a graph.
+This example shows a very simple social model that connects friends and keeps track of status updates.</p>
+<div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>The source code of the example is found here:
+<a class="ulink" href="https://github.com/neo4j/neo4j/tree/master/community/embedded-examples/src/main/java/org/neo4j/examples/socnet" target="_blank">socnet</a></p></td></tr></table></div>
+<section class="section" id="_simple_social_model"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Simple social model</h4></div></div></div>
+
+<div class="figure" id="d5e29888"><p class="title"><strong>Figure 33.4. Social network data model</strong></p><div class="figure-contents">
+<a class="ulink" href="images/socnet-model.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/socnet-model.svg" alt="socnet-model.svg" /></span>
+</a>
+</div></div>
+<p>The data model for a social network is pretty simple: <code class="literal">Persons</code> with names and <code class="literal">StatusUpdates</code> with timestamped text.
+These entities are then connected by specific relationships.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+<p class="simpara">
+<code class="literal">Person</code>
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+
+<code class="literal">friend</code>: relates two distinct <code class="literal">Person</code> instances (no self-reference)
+
+</li><li class="listitem">
+
+<code class="literal">status</code>: connects to the most recent <code class="literal">StatusUpdate</code>
+
+</li></ul></div>
+</li><li class="listitem">
+<p class="simpara">
+<code class="literal">StatusUpdate</code>
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: circle; "><li class="listitem">
+
+<code class="literal">next</code>: points to the next <code class="literal">StatusUpdate</code> in the chain, which was posted before the current one
+
+</li></ul></div>
+</li></ul></div>
+</section>
+<section class="section" id="_status_graph_instance"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Status graph instance</h4></div></div></div>
+
+<p>The <code class="literal">StatusUpdate</code> list for a <code class="literal">Person</code> is a linked list.
+The head of the list (the most recent status) is found by following <code class="literal">status</code>.
+Each subsequent <code class="literal">StatusUpdate</code> is connected by <code class="literal">next</code>.</p>
+<p>Here’s an example where Andreas Kollegger micro-blogged his way to work in the morning:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/andreas-status-updates.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/andreas-status-updates.svg" alt="andreas-status-updates.svg" /></span>
+</a>
+</div>
+<p>To read the status updates, we can create a traversal, like so:</p>
+<pre class="programlisting" data-lang="java">TraversalDescription traversal = graphDb().traversalDescription()
+        .depthFirst()
+        .relationships( NEXT );
+</pre>
+<p>This gives us a traverser that will start at one <code class="literal">StatusUpdate</code>, and will follow the chain of updates until they run out.
+Traversers are lazy loading, so it’s performant even when dealing with thousands of statuses — they are not loaded until we actually consume them.</p>
+</section>
+<section class="section" id="_activity_stream"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Activity stream</h4></div></div></div>
+
+<p>Once we have friends, and they have status messages, we might want to read our friends status' messages, in reverse time order — latest first.
+To do this, we go through these steps:</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+
+Gather all friend’s status update iterators in a list — latest date first.
+
+</li><li class="listitem">
+
+Sort the list.
+
+</li><li class="listitem">
+
+Return the first item in the list.
+
+</li><li class="listitem">
+
+If the first iterator is exhausted, remove it from the list.
+  Otherwise, get the next item in that iterator.
+
+</li><li class="listitem">
+
+Go to step 2 until there are no iterators left in the list.
+
+</li></ol></div>
+<p>Animated, the sequence looks like <a class="ulink" href="http://www.slideshare.net/systay/pattern-activity-stream" target="_blank">this</a>.</p>
+<p>The code looks like:</p>
+<pre class="programlisting" data-lang="java">PositionedIterator&lt;StatusUpdate&gt; first = statuses.get(0);
+StatusUpdate returnVal = first.current();
+
+if ( !first.hasNext() )
+{
+    statuses.remove( 0 );
+}
+else
+{
+    first.next();
+    sort();
+}
+
+return returnVal;
+</pre>
+</section>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

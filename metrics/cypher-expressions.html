@@ -1,0 +1,272 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>9.2. Expressions -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="cypher-values.html" title="9.1. Values" /><link rel="next" href="cypher-identifiers.html" title="9.3. Identifiers" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="9.2. Expressions" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-73202";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>9.2. Expressions</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="cypher-values.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-syntax.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="cypher-identifiers.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypher-expressions"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">9.2. Expressions</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="cypher-expressions.html#_expressions_in_general">Expressions in general</a></span></li><li><span class="section"><a href="cypher-expressions.html#_note_on_string_literals">Note on string literals</a></span></li><li><span class="section"><a href="cypher-expressions.html#query-syntax-case">Case Expressions</a></span></li><li><span class="section"><a href="cypher-expressions.html#syntax-simple-case">Simple CASE</a></span></li><li><span class="section"><a href="cypher-expressions.html#syntax-generic-case">Generic CASE</a></span></li></ul></div>
+
+<section class="section" id="_expressions_in_general"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Expressions in general</h3></div></div></div>
+
+<p>An expression in Cypher can be:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+A decimal (integer or double) literal: <code class="literal">13</code>, <code class="literal">-40000</code>, <code class="literal">3.14</code>, <code class="literal">6.022E23</code>.
+
+</li><li class="listitem">
+
+A hexadecimal integer literal (starting with <code class="literal">0x</code>): <code class="literal">0x13zf</code>, <code class="literal">0xFC3A9</code>, <code class="literal">-0x66eff</code>.
+
+</li><li class="listitem">
+
+An octal integer literal (starting with <code class="literal">0</code>): <code class="literal">01372</code>, <code class="literal">01278</code>, <code class="literal">-05671</code>.
+
+</li><li class="listitem">
+
+A string literal: <code class="literal">"Hello"</code>, <code class="literal">'World'</code>.
+
+</li><li class="listitem">
+
+A boolean literal:  <code class="literal">true</code>, <code class="literal">false</code>, <code class="literal">TRUE</code>, <code class="literal">FALSE</code>.
+
+</li><li class="listitem">
+
+An identifier: <code class="literal">n</code>, <code class="literal">x</code>, <code class="literal">rel</code>, <code class="literal">myFancyIdentifier</code>, <code class="literal">`A name with weird stuff in it[]!`</code>.
+
+</li><li class="listitem">
+
+A property: <code class="literal">n.prop</code>, <code class="literal">x.prop</code>, <code class="literal">rel.thisProperty</code>, <code class="literal">myFancyIdentifier.`(weird property name)`</code>.
+
+</li><li class="listitem">
+
+A dynamic property: <code class="literal">n["prop"]</code>, <code class="literal">rel[n.city + n.zip]</code>, <code class="literal">map[coll[0]]</code>.
+
+</li><li class="listitem">
+
+A parameter: <code class="literal">{param}</code>, <code class="literal">{0}</code>
+
+</li><li class="listitem">
+
+A collection of expressions: <code class="literal">["a", "b"]</code>, <code class="literal">[1,2,3]</code>, <code class="literal">["a", 2, n.property, {param}]</code>, <code class="literal">[ ]</code>.
+
+</li><li class="listitem">
+
+A function call: <code class="literal">length(p)</code>, <code class="literal">nodes(p)</code>.
+
+</li><li class="listitem">
+
+An aggregate function: <code class="literal">avg(x.prop)</code>, <code class="literal">count(*)</code>.
+
+</li><li class="listitem">
+
+A path-pattern: <code class="literal">(a)--&gt;()&lt;--(b)</code>.
+
+</li><li class="listitem">
+
+An operator application: <code class="literal">1 + 2</code> and <code class="literal">3 &lt; 4</code>.
+
+</li><li class="listitem">
+
+A predicate expression is an expression that returns true or false: <code class="literal">a.prop = "Hello"</code>, <code class="literal">length(p) &gt; 10</code>,
+<code class="literal">has(a.name)</code>.
+
+</li><li class="listitem">
+
+A regular expression: <code class="literal">a.name =~ "Tob.*"</code>
+
+</li><li class="listitem">
+
+A case-(in)sensitive string pattern matching expression: <code class="literal">a.surname LIKE "%son"</code>
+
+</li><li class="listitem">
+
+A <code class="literal">CASE</code> expression.
+
+</li></ul></div>
+</section>
+<section class="section" id="_note_on_string_literals"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Note on string literals</h3></div></div></div>
+
+<p>String literals can contain these escape sequences.</p>
+<div class="informaltable">
+
+
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Escape sequence</th><th>Character</th></tr></thead><tbody><tr><td><p><code class="literal">\t</code></p></td><td><p>Tab</p></td></tr><tr><td><p><code class="literal">\b</code></p></td><td><p>Backspace</p></td></tr><tr><td><p><code class="literal">\n</code></p></td><td><p>Newline</p></td></tr><tr><td><p><code class="literal">\r</code></p></td><td><p>Carriage return</p></td></tr><tr><td><p><code class="literal">\f</code></p></td><td><p>Form feed</p></td></tr><tr><td><p><code class="literal">\'</code></p></td><td><p>Single quote</p></td></tr><tr><td><p><code class="literal">\"</code></p></td><td><p>Double quote</p></td></tr><tr><td><p><code class="literal">\\</code></p></td><td><p>Backslash</p></td></tr><tr><td><p><code class="literal">\_</code></p></td><td><p>Underscore (for use with LIKE)</p></td></tr><tr><td><p><code class="literal">\%</code></p></td><td><p>Percentage sign (for use with LIKE)</p></td></tr><tr><td><p><code class="literal">\uxxxx</code></p></td><td><p>Unicode UTF-16 code point (4 hex digits must follow the <code class="literal">\u</code>)</p></td></tr><tr><td><p><code class="literal">\Uxxxxxxxx</code></p></td><td><p>Unicode UTF-32 code point (8 hex digits must follow the <code class="literal">\U</code>)</p></td></tr></tbody></table>
+</div>
+</section>
+<section class="section" id="query-syntax-case"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Case Expressions</h3></div></div></div>
+
+<p>Cypher supports <code class="literal">CASE</code> expressions, which is a generic conditional expression, similar to if/else statements in other languages.
+Two variants of <code class="literal">CASE</code> exist — the simple form and the generic form.</p>
+</section>
+<section class="section" id="syntax-simple-case"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Simple CASE</h3></div></div></div>
+
+<p>The expression is calculated, and compared in order with the <code class="literal">WHEN</code> clauses until a match is found. If no match is found the expression in the <code class="literal">ELSE</code> clause is used, or <code class="literal">null</code>, if no <code class="literal">ELSE</code> case exists.</p>
+<p><span class="strong"><strong>Syntax:</strong></span></p>
+<pre class="programlisting" data-lang="cypher">CASE test
+WHEN value THEN result
+[WHEN ...]
+[ELSE default]
+END</pre>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>test:</em></span> A valid expression.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>value:</em></span> An expression whose result will be compared to the <code class="literal">test</code> expression.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>result:</em></span> This is the result expression used if the value expression matches the <code class="literal">test</code> expression.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>default:</em></span> The expression to use if no match is found.
+
+</li></ul></div>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+RETURN
+CASE n.eyes
+WHEN 'blue'
+THEN 1
+WHEN 'brown'
+THEN 2
+ELSE 3 END AS result</pre><p>
+</p>
+<div class="queryresult table" id="d5e5626"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+</section>
+<section class="section" id="syntax-generic-case"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Generic CASE</h3></div></div></div>
+
+<p>The predicates are evaluated in order until a true value is found, and the result value is used. If no match is found the expression in the <code class="literal">ELSE</code> clause is used, or <code class="literal">null</code>, if no <code class="literal">ELSE</code> case exists.</p>
+<p><span class="strong"><strong>Syntax:</strong></span></p>
+<pre class="programlisting" data-lang="cypher">CASE
+WHEN predicate THEN result
+[WHEN ...]
+[ELSE default]
+END</pre>
+<p><span class="strong"><strong>Arguments:</strong></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="emphasis"><em>predicate:</em></span> A predicate that is tested to find a valid alternative.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>result:</em></span> This is the result expression used if the predicate matches.
+
+</li><li class="listitem">
+
+<span class="emphasis"><em>default:</em></span> The expression to use if no match is found.
+
+</li></ul></div>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (n)
+RETURN
+CASE
+WHEN n.eyes = 'blue'
+THEN 1
+WHEN n.age &lt; 40
+THEN 2
+ELSE 3 END AS result</pre><p>
+</p>
+<div class="queryresult table" id="d5e5682"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>result</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

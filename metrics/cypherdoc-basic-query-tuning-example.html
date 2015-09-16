@@ -1,0 +1,194 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>15.3. Basic query tuning example -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="how-do-i-profile-a-query.html" title="15.2. How do I profile a query?" /><link rel="next" href="execution-plans.html" title="Chapter 16. Execution Plans" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="15.3. Basic query tuning example" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-73202";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>15.3. Basic query tuning example</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="how-do-i-profile-a-query.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="query-tuning.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="execution-plans.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="cypherdoc-basic-query-tuning-example"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">15.3. Basic query tuning example</h2></div></div></div>
+
+<p>We’ll start with a basic example to help you get the hang of profiling queries.
+The following examples will use a movies data set.</p>
+<p>Let’s start by importing the data:</p>
+<p class="setup-query"></p>
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM "http://neo4j.com/docs/2.3-SNAPSHOT/csv/query-tuning/movies.csv" AS line
+MERGE (m:Movie { title:line.title })
+ON CREATE SET m.released = toInt(line.released), m.tagline = line.tagline</pre>
+<p class="setup-query"></p>
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/query-tuning/actors.csv' AS line
+MATCH (m:Movie { title:line.title })
+MERGE (p:Person { name:line.name })
+ON CREATE SET p.born = toInt(line.born)
+MERGE (p)-[:ACTED_IN { roles:split(line.roles,";")}]-&gt;(m)</pre>
+<p class="setup-query"></p>
+<pre class="programlisting" data-lang="cypher">LOAD CSV WITH HEADERS FROM 'http://neo4j.com/docs/2.3-SNAPSHOT/csv/query-tuning/directors.csv' AS
+  line
+MATCH (m:Movie { title:line.title })
+MERGE (p:Person { name:line.name })
+ON CREATE SET p.born = toInt(line.born)
+MERGE (p)-[:DIRECTED]-&gt;(m)</pre>
+<p>Let’s say we want to write a query to find Tom Hanks.
+The naive way of doing this would be to write the following:</p>
+<pre class="programlisting" data-lang="cypher">MATCH (p { name:"Tom Hanks" })
+RETURN p</pre>
+<p>This query will find the Tom Hanks node but as the number of nodes in the database increase it will become slower and slower.
+We can profile the query to find out why that is.</p>
+<p>You can learn more about the options for profiling queries in <a class="xref" href="how-do-i-profile-a-query.html" title="15.2. How do I profile a query?">Section 15.2, “How do I profile a query?”</a> but in this case we’re going to prefix our query with <code class="literal">PROFILE</code>:</p>
+<pre class="programlisting" data-lang="cypher">PROFILE
+MATCH (p { name:"Tom Hanks" })
+RETURN p</pre>
+<pre class="programlisting" data-lang="plain">+-----------------+----------------+------+---------+-------------+---------------------------+
+| Operator        | Estimated Rows | Rows | DB Hits | Identifiers | Other                     |
++-----------------+----------------+------+---------+-------------+---------------------------+
+| +ProduceResults |             16 |    1 |       0 | p           | p                         |
+| |               +----------------+------+---------+-------------+---------------------------+
+| +Filter         |             16 |    1 |     163 | p           | p.name == {  AUTOSTRING0} |
+| |               +----------------+------+---------+-------------+---------------------------+
+| +AllNodesScan   |            163 |  163 |     164 | p           |                           |
++-----------------+----------------+------+---------+-------------+---------------------------+
+
+Total database accesses: 327</pre>
+<p>The first thing to keep in mind when reading execution plans is that you need to read from the bottom up.</p>
+<p>In that vein, starting from the last row, the first thing we notice is that the value in the <code class="literal">Rows</code> column seems high given there is only one node with the name property <code class="literal">Tom Hanks</code> in the database.
+If we look across to the <code class="literal">Operator</code> column we’ll see that <a class="link" href="execution-plans-starting-query.html#query-plan-all-nodes-scan" title="All Nodes Scan">AllNodesScan</a> has been used which means that the query planner scanned through all the nodes in the database.</p>
+<p>Moving up to the previous row we see the <a class="link" href="execution-plans-row-operators.html#query-plan-filter" title="Filter">Filter</a> operator which will check the <code class="literal">name</code> property on each of the nodes passed through by <code class="literal">AllNodesScan</code>.</p>
+<p>This seems like an inefficient way of finding <code class="literal">Tom Hanks</code> given that we are looking at many nodes that aren’t even people and therefore aren’t what we’re looking for.</p>
+<p>The solution to this problem is that whenever we’re looking for a node we should specify a label to help the query planner narrow down the search space.
+For this query we’d need to add a <code class="literal">Person</code> label.</p>
+<pre class="programlisting" data-lang="cypher">MATCH (p:Person { name:"Tom Hanks" })
+RETURN p</pre>
+<p>This query will be faster than the first one but as the number of people in our database increase we again notice that the query slows down.</p>
+<p>Again we can profile the query to work out why:</p>
+<pre class="programlisting" data-lang="cypher">PROFILE
+MATCH (p:Person { name:"Tom Hanks" })
+RETURN p</pre>
+<pre class="programlisting" data-lang="plain">+------------------+----------------+------+---------+-------------+---------------------------+
+| Operator         | Estimated Rows | Rows | DB Hits | Identifiers | Other                     |
++------------------+----------------+------+---------+-------------+---------------------------+
+| +ProduceResults  |             13 |    1 |       0 | p           | p                         |
+| |                +----------------+------+---------+-------------+---------------------------+
+| +Filter          |             13 |    1 |     125 | p           | p.name == {  AUTOSTRING0} |
+| |                +----------------+------+---------+-------------+---------------------------+
+| +NodeByLabelScan |            125 |  125 |     126 | p           | :Person                   |
++------------------+----------------+------+---------+-------------+---------------------------+
+
+Total database accesses: 251</pre>
+<p>This time the <code class="literal">Rows</code> value on the last row has reduced so we’re not scanning some nodes that we were before which is a good start.
+The <a class="link" href="execution-plans-starting-query.html#query-plan-node-by-label-scan" title="Node by label scan">NodeByLabelScan</a> operator indicates that we achieved this by first doing a linear scan of all the <code class="literal">Person</code> nodes in the database.</p>
+<p>Once we’ve done that we again scan through all those nodes using the <code class="literal">Filter</code> operator, comparing the name property of each one.</p>
+<p>This might be acceptable in some cases but if we’re going to be looking up people by name frequently then we’ll see better performance if we create an index on the <code class="literal">name</code> property for the <code class="literal">Person</code> label:</p>
+<pre class="programlisting" data-lang="cypher">CREATE INDEX ON :Person(name)</pre>
+<p>Now if we run the query again it will run more quickly:</p>
+<pre class="programlisting" data-lang="cypher">MATCH (p:Person { name:"Tom Hanks" })
+RETURN p</pre>
+<p>Let’s profile the query to see why that is:</p>
+<pre class="programlisting" data-lang="cypher">PROFILE
+MATCH (p:Person { name:"Tom Hanks" })
+RETURN p</pre>
+<pre class="programlisting" data-lang="plain">+-----------------+----------------+------+---------+-------------+---------------+
+| Operator        | Estimated Rows | Rows | DB Hits | Identifiers | Other         |
++-----------------+----------------+------+---------+-------------+---------------+
+| +ProduceResults |              1 |    1 |       0 | p           | p             |
+| |               +----------------+------+---------+-------------+---------------+
+| +NodeIndexSeek  |              1 |    1 |       2 | p           | :Person(name) |
++-----------------+----------------+------+---------+-------------+---------------+
+
+Total database accesses: 2</pre>
+<p>Our execution plan is down to a single row and uses the <a class="link" href="execution-plans-starting-query.html#query-plan-node-index-seek" title="Node index seek">Node Index Seek</a> operator which does a schema index seek (see <a class="xref" href="query-schema-index.html" title="14.1. Indexes">Section 14.1, “Indexes”</a>) to find the appropriate node.</p>
+<p class="cypherdoc-console"></p>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

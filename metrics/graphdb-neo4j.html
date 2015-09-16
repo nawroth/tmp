@@ -1,0 +1,371 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>2.1. The Neo4j Graph Database -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="graphdb-concepts.html" title="Chapter 2. Graph Database Concepts" /><link rel="next" href="tutorial-comparing-models.html" title="2.2. Comparing Database Models" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="2.1. The Neo4j Graph Database" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-73202";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>2.1. The Neo4j Graph Database</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="graphdb-concepts.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="graphdb-concepts.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tutorial-comparing-models.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="graphdb-neo4j"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">2.1. The Neo4j Graph Database</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-nodes">Nodes</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-relationships">Relationships</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-properties">Properties</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-labels">Labels</a></span><ul><li><span class="section"><a href="graphdb-neo4j.html#_label_names">Label names</a></span></li></ul></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-traversal">Traversal</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-paths">Paths</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-schema">Schema</a></span><ul><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-schema-indexes">Indexes</a></span></li><li><span class="section"><a href="graphdb-neo4j.html#graphdb-neo4j-schema-constraints">Constraints</a></span></li></ul></li></ul></div>
+
+<p>A graph database stores data in a graph, the most generic of data structures, capable of elegantly representing any kind of data in a highly accessible way.</p>
+<p>For terminology around graph databases, see <a class="xref" href="terminology.html" title="Terminology">Terminology</a>.</p>
+<p>Here’s an example graph which we will approach step by step in the following sections:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-labels.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-labels.svg" alt="graphdb-simple-labels.svg" /></span>
+</a>
+</div>
+<section class="section" id="graphdb-neo4j-nodes"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Nodes</h3></div></div></div>
+
+<div class="abstract">
+<p>A graph records data in nodes and relationships.
+Both can have properties.
+This is sometimes referred to as the <span class="emphasis"><em>Property Graph Model</em></span>.</p>
+</div>
+<p>The fundamental units that form a graph are nodes and relationships.
+In Neo4j, both nodes and relationships can contain <a class="link" href="graphdb-neo4j.html#graphdb-neo4j-properties" title="Properties">properties</a>.</p>
+<p>Nodes are often used to represent <span class="emphasis"><em>entities,</em></span> but depending on the domain relationships may be used for that purpose as well.</p>
+<p>Apart from properties and relationships, nodes can also be <a class="link" href="graphdb-neo4j.html#graphdb-neo4j-labels" title="Labels">labeled</a> with zero or more labels.</p>
+<p>The simplest possible graph is a single Node.
+A Node can have zero or more named values referred to as <span class="emphasis"><em>properties.</em></span>
+Let’s start out with one node that has a single property named <code class="literal">title</code>:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-node.svg" alt="graphdb-simple-node.svg" /></span>
+</a>
+</div>
+<p>The next step is to have multiple nodes.
+Let’s add two more nodes and one more property on the node in the previous example:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-nodes.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-nodes.svg" alt="graphdb-simple-nodes.svg" /></span>
+</a>
+</div>
+</section>
+<section class="section" id="graphdb-neo4j-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationships</h3></div></div></div>
+
+<div class="abstract">
+<p>Relationships organize the nodes by connecting them.
+A relationship connects two nodes — a start node and an end node.
+Just like nodes, relationships can have properties.</p>
+</div>
+<p>Relationships between nodes are a key part of a graph database.
+They allow for finding related data.
+Just like nodes, relationships can have <a class="link" href="graphdb-neo4j.html#graphdb-neo4j-properties" title="Properties">properties</a>.</p>
+<p>A relationship connects two nodes, and is guaranteed to have valid start and end nodes.</p>
+<p>Relationships organize nodes into arbitrary structures, allowing a graph to resemble a list, a tree, a map, or a compound entity — any of which can be combined into yet more complex, richly inter-connected structures.</p>
+<p>Our example graph will make a lot more sense once we add relationships to it:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-rels.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-rels.svg" alt="graphdb-simple-rels.svg" /></span>
+</a>
+</div>
+<p>Our example uses <code class="literal">ACTED_IN</code> and <code class="literal">DIRECTED</code> as relationship types.
+The <code class="literal">roles</code> property on the <code class="literal">ACTED_IN</code> relationship has an array value with a single item in it.</p>
+<p>Below is an <code class="literal">ACTED_IN</code> relationship, with the <code class="literal">Tom Hanks</code> node as <span class="emphasis"><em>start node</em></span> and <code class="literal">Forrest Gump</code> as <span class="emphasis"><em>end node</em></span>.</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-nodes-and-rel.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-nodes-and-rel.svg" alt="graphdb-nodes-and-rel.svg" /></span>
+</a>
+</div>
+<p>You could also say that the <code class="literal">Tom Hanks</code> node has an <span class="emphasis"><em>outgoing</em></span> relationship, while the <code class="literal">Forrest Gump</code> node has an <span class="emphasis"><em>incoming</em></span> relationship.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Relationships are equally well traversed in either direction.</b>
+
+<p>This means that there is no need to add duplicate relationships in the opposite direction (with regard to traversal or performance).</p>
+</td></tr></table></div>
+<p>While relationships always have a direction, you can ignore the direction where it is not useful in your application.</p>
+<p>Note that a node can have relationships to itself as well:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-nodes-and-rel-self.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-nodes-and-rel-self.svg" alt="graphdb-nodes-and-rel-self.svg" /></span>
+</a>
+</div>
+<p>The example above would mean that <code class="literal">Tom Hanks</code> <code class="literal">KNOWS</code> himself.</p>
+<p>To further enhance graph traversal all relationships have a relationship type.</p>
+<p>Let’s have a look at what can be found by simply following the relationships of a node in our example graph:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-rels.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-rels.svg" alt="graphdb-simple-rels.svg" /></span>
+</a>
+</div>
+<div class="table" id="d5e272"><p class="title"><strong>Using relationship direction and type</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th> What we want to know </th><th> Start from </th><th> Relationship type </th><th> Direction</th></tr></thead><tbody><tr><td><p>get actors in movie</p></td><td><p>movie node</p></td><td><p><code class="literal">ACTED_IN</code></p></td><td><p>incoming</p></td></tr><tr><td><p>get movies with actor</p></td><td><p>person node</p></td><td><p><code class="literal">ACTED_IN</code></p></td><td><p>outgoing</p></td></tr><tr><td><p>get directors of movie</p></td><td><p>movie node</p></td><td><p><code class="literal">DIRECTED</code></p></td><td><p>incoming</p></td></tr><tr><td><p>get movies directed by</p></td><td><p>person node</p></td><td><p><code class="literal">DIRECTED</code></p></td><td><p>outgoing</p></td></tr></tbody></table>
+</div></div>
+</section>
+<section class="section" id="graphdb-neo4j-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Properties</h3></div></div></div>
+
+<div class="abstract">
+<p>Both nodes and relationships can have properties.</p>
+</div>
+<p>Properties are named values where the name is a string.
+The supported property values are:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Numeric values,
+
+</li><li class="listitem">
+
+String values,
+
+</li><li class="listitem">
+
+Boolean values,
+
+</li><li class="listitem">
+
+Collections of any other type of value.
+
+</li></ul></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b><code class="literal">NULL</code> is not a valid property value.</b>
+
+<p><code class="literal">NULL</code>s can instead be modeled by the absence of a key.</p>
+</td></tr></table></div>
+<p>For further details on supported property values, see <a class="xref" href="property-values-detailed.html" title="33.3. Property values">Section 33.3, “Property values”</a>.</p>
+</section>
+<section class="section" id="graphdb-neo4j-labels"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Labels</h3></div></div></div>
+
+<div class="abstract">
+<p>Labels assign roles or types to nodes.</p>
+</div>
+<p>A label is a named graph construct that is used to group nodes into sets; all nodes labeled with the same label belongs to the same set.
+Many database queries can work with these sets instead of the whole graph, making queries easier to write and more efficient to execute.
+A node may be labeled with any number of labels, including none, making labels an optional addition to the graph.</p>
+<p>Labels are used when defining constraints and adding indexes for properties (see <a class="xref" href="graphdb-neo4j.html#graphdb-neo4j-schema" title="Schema">the section called “Schema”</a>).</p>
+<p>An example would be a label named <code class="literal">User</code> that you label all your nodes representing users with.
+With that in place, you can ask Neo4j to perform operations only on your user nodes, such as finding all users with a given name.</p>
+<p>However, you can use labels for much more.
+For instance, since labels can be added and removed during runtime, they can be used to mark temporary states for your nodes.
+You might create an <code class="literal">Offline</code> label for phones that are offline, a <code class="literal">Happy</code> label for happy pets, and so on.</p>
+<p>In our example, we’ll add <code class="literal">Person</code> and <code class="literal">Movie</code> labels to our graph:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-labels.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-labels.svg" alt="graphdb-simple-labels.svg" /></span>
+</a>
+</div>
+<p>A node can have multiple labels, let’s add an <code class="literal">Actor</code> label to the <code class="literal">Tom Hanks</code> node.</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-simple-labels-multi.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-simple-labels-multi.svg" alt="graphdb-simple-labels-multi.svg" /></span>
+</a>
+</div>
+<section class="section" id="_label_names"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Label names</h4></div></div></div>
+
+<p>Any non-empty Unicode string can be used as a label name.
+In Cypher, you may need to use the backtick (<code class="literal">`</code>) syntax to avoid clashes with Cypher identifier rules or to allow non-alphanumeric characters in a label.
+By convention, labels are written with CamelCase notation, with the first letter in upper case.
+For instance, <code class="literal">User</code> or <code class="literal">CarOwner</code>.</p>
+<p>Labels have an id space of an int, meaning the maximum number of labels the database can contain is roughly 2 billion.</p>
+</section>
+</section>
+<section class="section" id="graphdb-neo4j-traversal"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Traversal</h3></div></div></div>
+
+<div class="abstract">
+<p>A traversal navigates through a graph to find paths.</p>
+</div>
+<p>A traversal is how you query a graph, navigating from starting nodes to related nodes, finding answers to questions like “what music do my friends like that I don’t yet own,” or “if this power supply goes down, what web services are affected?”</p>
+<p>Traversing a graph means visiting its nodes, following relationships according to some rules.
+In most cases only a subgraph is visited, as you already know where in the graph the interesting nodes and relationships are found.</p>
+<p>Cypher provides a declarative way to query the graph powered by traversals and other techniques.
+See <a class="xref" href="cypher-query-lang.html" title="Cypher Query Language">Cypher Query Language</a> for more information.</p>
+<p>When writing server plugins or using Neo4j embedded, Neo4j provides a callback based traversal API which lets you specify the traversal rules.
+At a basic level there’s a choice between traversing breadth- or depth-first.</p>
+<p>If we want to find out which movies Tom Hanks acted in according to our tiny example database the traversal would start from the <code class="literal">Tom Hanks</code> node, follow any <code class="literal">ACTED_IN</code> relationships connected to the node, and end up with <code class="literal">Forrest Gump</code> as the result (see the dashed lines):</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-traversal.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-traversal.svg" alt="graphdb-traversal.svg" /></span>
+</a>
+</div>
+</section>
+<section class="section" id="graphdb-neo4j-paths"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Paths</h3></div></div></div>
+
+<div class="abstract">
+<p>A path is one or more nodes with connecting relationships, typically retrieved as a query or traversal result.</p>
+</div>
+<p>In the previous example, the traversal result could be returned as a path:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-path.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-path.svg" alt="graphdb-path.svg" /></span>
+</a>
+</div>
+<p>The path above has length one.</p>
+<p>The shortest possible path has length zero — that is it contains only a single node and no relationships — and can look like this:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-path-zero.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-path-zero.svg" alt="graphdb-path-zero.svg" /></span>
+</a>
+</div>
+<p>This path has length one:</p>
+<div class="informalfigure">
+<a class="ulink" href="images/graphdb-path-example-loop.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/graphdb-path-example-loop.svg" alt="graphdb-path-example-loop.svg" /></span>
+</a>
+</div>
+</section>
+<section class="section" id="graphdb-neo4j-schema"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Schema</h3></div></div></div>
+
+<div class="abstract">
+<p>Neo4j is a schema-optional graph database.</p>
+</div>
+<p>You can use Neo4j without any schema.
+Optionally you can introduce it in order to gain performance or modeling benefits.
+This allows a way of working where the schema does not get in your way until you are at a stage where you want to reap the benefits of having one.</p>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Schema commands can only be applied on the master machine in a Neo4j cluster (see <a class="xref" href="ha.html" title="Chapter 25. High Availability">Chapter 25, <em>High Availability</em></a>).
+If you apply them on a slave you will receive a <code class="literal">Neo.ClientError.Transaction.InvalidType</code> error code (see <a class="xref" href="status-codes.html" title="21.2. Neo4j Status Codes">Section 21.2, “Neo4j Status Codes”</a>).</p></td></tr></table></div>
+<section class="section" id="graphdb-neo4j-schema-indexes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Indexes</h4></div></div></div>
+
+<div class="abstract">
+<p>Performance is gained by creating indexes, which improve the speed of looking up nodes in the database.</p>
+</div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This feature was introduced in Neo4j 2.0, and is not the same as the legacy indexes (see <a class="xref" href="indexing.html" title="Chapter 35. Legacy Indexing">Chapter 35, <em>Legacy Indexing</em></a>).</p></td></tr></table></div>
+<p>Once you’ve specified which properties to index, Neo4j will make sure your indexes are kept up to date as your graph evolves.
+Any operation that looks up nodes by the newly indexed properties will see a significant performance boost.</p>
+<p>Indexes in Neo4j are <span class="emphasis"><em>eventually available</em></span>.
+That means that when you first create an index the operation returns immediately.
+The index is <span class="emphasis"><em>populating</em></span> in the background and so is not immediately available for querying.
+When the index has been fully populated it will eventually come <span class="emphasis"><em>online</em></span>.
+That means that it is now ready to be used in queries.</p>
+<p>If something should go wrong with the index, it can end up in a <span class="strong"><strong>failed</strong></span> state.
+When it is failed, it will not be used to speed up queries.
+To rebuild it, you can drop and recreate the index.
+Look at logs for clues about the failure.</p>
+<p>You can track the status of your index by asking for the index state through the API you are using.
+Note, however, that this is not yet possible through Cypher.</p>
+<p>How to use indexes through the different APIs:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Cypher: <a class="xref" href="query-schema-index.html" title="14.1. Indexes">Section 14.1, “Indexes”</a>
+
+</li><li class="listitem">
+
+REST API: <a class="xref" href="rest-api-schema-indexes.html" title="21.15. Indexing">Section 21.15, “Indexing”</a>
+
+</li><li class="listitem">
+
+Listing Indexes via Shell: <a class="xref" href="shell-commands.html#shell-listing-indexes-and-constraints" title="Listing Indexes and Constraints">the section called “Listing Indexes and Constraints”</a>
+
+</li><li class="listitem">
+
+Java Core API: <a class="xref" href="tutorials-java-embedded-new-index.html" title="33.4. User database with indexes">Section 33.4, “User database with indexes”</a>
+
+</li></ul></div>
+</section>
+<section class="section" id="graphdb-neo4j-schema-constraints"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Constraints</h4></div></div></div>
+
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>This feature was introduced in Neo4j 2.0.</p></td></tr></table></div>
+<p>Neo4j can help you keep your data clean.
+It does so using constraints, that allow you to specify the rules for what your data should look like.
+Any changes that break these rules will be denied.</p>
+<p>In this version, unique constraints is the only available constraint type.</p>
+<p>How to use constraints through the different APIs:</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+Cypher: <a class="xref" href="query-constraints.html" title="14.2. Constraints">Section 14.2, “Constraints”</a>
+
+</li><li class="listitem">
+
+REST API: <a class="xref" href="rest-api-schema-constraints.html" title="21.16. Constraints">Section 21.16, “Constraints”</a>
+
+</li><li class="listitem">
+
+Listing Constraints via Shell: <a class="xref" href="shell-commands.html#shell-listing-indexes-and-constraints" title="Listing Indexes and Constraints">the section called “Listing Indexes and Constraints”</a>
+
+</li></ul></div>
+</section>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>

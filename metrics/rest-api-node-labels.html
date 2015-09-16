@@ -1,0 +1,506 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>21.13. Node labels -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-relationship-properties.html" title="21.12. Relationship properties" /><link rel="next" href="rest-api-node-degree.html" title="21.14. Node degree" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.13. Node labels" /><script type="text/javascript">
+      //The id for tree cookie
+      var treeCookieId = "treeview-73202";
+      var language = "en";
+      var w = new Object();
+      //Localization
+      txt_filesfound = 'Results';
+      txt_enter_at_least_1_char = "You must enter at least one character.";
+      txt_browser_not_supported = "JavaScript is disabled on your browser. Please enable JavaScript to enjoy all the features of this site.";
+      txt_please_wait = "Please wait. Search in progress...";
+      txt_results_for = "Results for: ";
+    </script><meta name="viewport" content="width=device-width, initial-scale=1" /><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /><link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/redmond/jquery-ui.min.css" /><link rel="stylesheet" type="text/css" href="common/jquery/treeview/jquery.treeview.css" /><link rel="stylesheet" type="text/css" href="common/css/positioning.css" /><link rel="stylesheet" type="text/css" href="common/css/style.css" /><!--[if IE]>
+  <link rel="stylesheet" type="text/css" href="../common/css/ie.css"/>
+  <![endif]--><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" /><script type="text/javascript" src="common/browserDetect.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script><script type="text/javascript" src="common/jquery/jquery.highlight.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script><script type="text/javascript" src="common/jquery/treeview/jquery.treeview.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-scrollTo/2.1.1/jquery.scrollTo.min.js"></script><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script><script type="text/javascript" src="common/main.js"></script><script type="text/javascript" src="search/l10n.js"></script><script type="text/javascript" src="search/htmlFileInfoList.js"></script><script type="text/javascript" src="common/search.js"></script><script type="text/javascript" src="search/stemmers/en_stemmer.js"></script><script type="text/javascript" src="search/index-1.js"></script><script type="text/javascript" src="search/index-2.js"></script><script type="text/javascript" src="search/index-3.js"></script>
+
+
+<!-- favicon -->
+
+<link rel="shortcut icon" href="common/images/favicon.ico" />
+
+<!-- fonts -->
+
+<link href='//fonts.googleapis.com/css?family=Ubuntu+Mono|PT+Sans:400,700,400italic' rel='stylesheet' type='text/css' />
+
+<!-- Syntax Highlighter -->
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.css" />
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/theme/neo.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/codemirror.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/addon/runmode/runmode.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/javascript/javascript.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/shell/shell.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/sql/sql.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/xml/xml.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/clike/clike.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/cypher/cypher.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.6.0/mode/properties/properties.min.js"></script>
+
+<script src="js/colorize.js"></script>
+ 
+<script type="text/javascript">
+  $(function (){
+    CodeMirror.colorize();
+  });
+</script>
+
+<!-- Section table of contents -->
+
+<script type="text/javascript" src="js/toc.js"></script>
+
+<!-- Cypher Console -->
+
+<script type="text/javascript" src="js/console.js"></script>
+<script type="text/javascript" src="js/cypherconsole.js"></script>
+
+<!-- Version -->
+<script type="text/javascript" src="js/version.js"></script>
+<script type="text/javascript" src="js/versionswitcher.js"></script>
+
+<!-- Discuss -->
+<script type="text/javascript" src="js/mutate.min.js"></script>
+<script type="text/javascript" src="js/disqus.js"></script>
+
+<script type="text/javascript">
+    /*@cc_on @*/
+    /*@
+     $( '#content' ).addClass( 'internet-explorer' );
+     @*/
+</script>
+
+
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>21.13. Node labels</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="rest-api-relationship-properties.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="rest-api.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="rest-api-node-degree.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="rest-api-node-labels"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">21.13. Node labels</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-a-label-to-a-node">Adding a label to a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-multiple-labels-to-a-node">Adding multiple labels to a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-adding-a-label-with-an-invalid-name">Adding a label with an invalid name</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-replacing-labels-on-a-node">Replacing labels on a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-removing-a-label-from-a-node">Removing a label from a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-listing-labels-for-a-node">Listing labels for a node</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-get-all-nodes-with-a-label">Get all nodes with a label</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-get-nodes-by-label-and-property">Get nodes by label and property</a></span></li><li><span class="section"><a href="rest-api-node-labels.html#rest-api-list-all-labels">List all labels</a></span></li></ul></div>
+
+<section class="section" id="rest-api-adding-a-label-to-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding a label to a node</h3></div></div></div>
+
+<div class="figure" id="d5e18346"><p class="title"><strong>Figure 21.50. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Adding-a-label-to-a-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Adding-a-label-to-a-node.svg" alt="Final-Graph-Adding-a-label-to-a-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/178/labels</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">"Person"</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">204:</code></strong></span> <code class="literal">No Content</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="rest-api-adding-multiple-labels-to-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding multiple labels to a node</h3></div></div></div>
+
+<div class="figure" id="d5e18384"><p class="title"><strong>Figure 21.51. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Adding-multiple-labels-to-a-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Adding-multiple-labels-to-a-node.svg" alt="Final-Graph-Adding-multiple-labels-to-a-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/189/labels</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">[ "Person", "Actor" ]</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">204:</code></strong></span> <code class="literal">No Content</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="rest-api-adding-a-label-with-an-invalid-name"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding a label with an invalid name</h3></div></div></div>
+
+<p>Labels with empty names are not allowed, however, all other valid strings are accepted as label names.
+Adding an invalid label to a node will lead to a HTTP 400 response.</p>
+<div class="figure" id="d5e18423"><p class="title"><strong>Figure 21.52. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Adding-a-label-with-an-invalid-name.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Adding-a-label-with-an-invalid-name.svg" alt="Final-Graph-Adding-a-label-with-an-invalid-name.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/196/labels</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">""</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">400:</code></strong></span> <code class="literal">Bad Request</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">{
+  "message": "Unable to add label, see nested exception.",
+  "exception": "BadInputException",
+  "fullname": "org.neo4j.server.rest.repr.BadInputException",
+  "stackTrace": [
+    "org.neo4j.server.rest.web.DatabaseActions.addLabelToNode(DatabaseActions.java:319)",
+    "org.neo4j.server.rest.web.RestfulGraphDatabase.addNodeLabel(RestfulGraphDatabase.java:446)",
+    "java.lang.reflect.Method.invoke(Method.java:606)",
+    "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
+    "org.neo4j.server.rest.web.CollectUserAgentFilter.doFilter(CollectUserAgentFilter.java:69)",
+    "java.lang.Thread.run(Thread.java:745)"
+  ],
+  "cause": {
+    "message": "Invalid label name \u0027\u0027.",
+    "errors": [
+      {
+        "message": "Invalid label name \u0027\u0027.",
+        "code": "Neo.ClientError.Schema.ConstraintViolation"
+      }
+    ],
+    "cause": {
+      "message": "\u0027\u0027 is not a valid token name. Only non-null, non-empty strings are allowed.",
+      "errors": [
+        {
+          "message": "\u0027\u0027 is not a valid token name. Only non-null, non-empty strings are allowed.",
+          "code": "Neo.ClientError.Schema.IllegalTokenName"
+        }
+      ],
+      "exception": "IllegalTokenNameException",
+      "fullname": "org.neo4j.kernel.api.exceptions.schema.IllegalTokenNameException",
+      "stackTrace": [
+        "org.neo4j.kernel.impl.api.DataIntegrityValidatingStatementOperations.checkValidTokenName(DataIntegrityValidatingStatementOperations.java:280)",
+        "org.neo4j.kernel.impl.api.DataIntegrityValidatingStatementOperations.labelGetOrCreateForName(DataIntegrityValidatingStatementOperations.java:91)",
+        "org.neo4j.kernel.impl.api.OperationsFacade.labelGetOrCreateForName(OperationsFacade.java:783)",
+        "org.neo4j.kernel.impl.core.NodeProxy.addLabel(NodeProxy.java:620)",
+        "org.neo4j.server.rest.web.DatabaseActions.addLabelToNode(DatabaseActions.java:314)",
+        "org.neo4j.server.rest.web.RestfulGraphDatabase.addNodeLabel(RestfulGraphDatabase.java:446)",
+        "java.lang.reflect.Method.invoke(Method.java:606)",
+        "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
+        "org.neo4j.server.rest.web.CollectUserAgentFilter.doFilter(CollectUserAgentFilter.java:69)",
+        "java.lang.Thread.run(Thread.java:745)"
+      ]
+    },
+    "exception": "ConstraintViolationException",
+    "fullname": "org.neo4j.graphdb.ConstraintViolationException",
+    "stackTrace": [
+      "org.neo4j.kernel.impl.core.NodeProxy.addLabel(NodeProxy.java:631)",
+      "org.neo4j.server.rest.web.DatabaseActions.addLabelToNode(DatabaseActions.java:314)",
+      "org.neo4j.server.rest.web.RestfulGraphDatabase.addNodeLabel(RestfulGraphDatabase.java:446)",
+      "java.lang.reflect.Method.invoke(Method.java:606)",
+      "org.neo4j.server.rest.transactional.TransactionalRequestDispatcher.dispatch(TransactionalRequestDispatcher.java:139)",
+      "org.neo4j.server.rest.web.CollectUserAgentFilter.doFilter(CollectUserAgentFilter.java:69)",
+      "java.lang.Thread.run(Thread.java:745)"
+    ]
+  },
+  "errors": [
+    {
+      "message": "Unable to add label, see nested exception.",
+      "code": "Neo.ClientError.Request.InvalidFormat"
+    }
+  ]
+}</pre>
+</section>
+<section class="section" id="rest-api-replacing-labels-on-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Replacing labels on a node</h3></div></div></div>
+
+<p>This removes any labels currently on a node, and replaces them with the labels passed in as the
+request body.</p>
+<div class="figure" id="d5e18467"><p class="title"><strong>Figure 21.53. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Replacing-labels-on-a-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Replacing-labels-on-a-node.svg" alt="Final-Graph-Replacing-labels-on-a-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">PUT</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/179/labels</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">[ "Actor", "Director" ]</pre>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">204:</code></strong></span> <code class="literal">No Content</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="rest-api-removing-a-label-from-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Removing a label from a node</h3></div></div></div>
+
+<div class="figure" id="d5e18505"><p class="title"><strong>Figure 21.54. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Removing-a-label-from-a-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Removing-a-label-from-a-node.svg" alt="Final-Graph-Removing-a-label-from-a-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/180/labels/Person</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">204:</code></strong></span> <code class="literal">No Content</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript"></pre>
+</section>
+<section class="section" id="rest-api-listing-labels-for-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Listing labels for a node</h3></div></div></div>
+
+<div class="figure" id="d5e18537"><p class="title"><strong>Figure 21.55. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Listing-labels-for-a-node.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Listing-labels-for-a-node.svg" alt="Final-Graph-Listing-labels-for-a-node.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/node/185/labels</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">[ "Director", "Actor" ]</pre>
+</section>
+<section class="section" id="rest-api-get-all-nodes-with-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all nodes with a label</h3></div></div></div>
+
+<div class="figure" id="d5e18574"><p class="title"><strong>Figure 21.56. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Get-all-nodes-with-a-label.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Get-all-nodes-with-a-label.svg" alt="Final-Graph-Get-all-nodes-with-a-label.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/label/Actor/nodes</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">[ {
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/191/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/191/labels",
+  "data" : {
+    "name" : "Clint Eastwood"
+  },
+  "traverse" : "http://localhost:7474/db/data/node/191/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/191/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/191",
+  "property" : "http://localhost:7474/db/data/node/191/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/191/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/191/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/191/relationships/in",
+  "extensions" : { },
+  "create_relationship" : "http://localhost:7474/db/data/node/191/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/191/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/191/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/191/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 191,
+    "labels" : [ "Director", "Actor" ]
+  }
+}, {
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/192/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/192/labels",
+  "data" : {
+    "name" : "Donald Sutherland"
+  },
+  "traverse" : "http://localhost:7474/db/data/node/192/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/192/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/192",
+  "property" : "http://localhost:7474/db/data/node/192/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/192/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/192/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/192/relationships/in",
+  "extensions" : { },
+  "create_relationship" : "http://localhost:7474/db/data/node/192/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/192/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/192/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/192/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 192,
+    "labels" : [ "Actor" ]
+  }
+} ]</pre>
+</section>
+<section class="section" id="rest-api-get-nodes-by-label-and-property"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get nodes by label and property</h3></div></div></div>
+
+<p>You can retrieve all nodes with a given label and property by passing one property as a query parameter.
+Notice that the property value is JSON-encoded and then URL-encoded.</p>
+<p>If there is an index available on the label/property combination you send, that index will be used. If no
+index is available, all nodes with the given label will be filtered through to find matching nodes.</p>
+<p>Currently, it is not possible to search using multiple properties.</p>
+<div class="figure" id="d5e18614"><p class="title"><strong>Figure 21.57. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-Get-nodes-by-label-and-property.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-Get-nodes-by-label-and-property.svg" alt="Final-Graph-Get-nodes-by-label-and-property.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/label/Person/nodes?name=%22Clint+Eastwood%22</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">[ {
+  "outgoing_relationships" : "http://localhost:7474/db/data/node/194/relationships/out",
+  "labels" : "http://localhost:7474/db/data/node/194/labels",
+  "data" : {
+    "name" : "Clint Eastwood"
+  },
+  "traverse" : "http://localhost:7474/db/data/node/194/traverse/{returnType}",
+  "all_typed_relationships" : "http://localhost:7474/db/data/node/194/relationships/all/{-list|&amp;|types}",
+  "self" : "http://localhost:7474/db/data/node/194",
+  "property" : "http://localhost:7474/db/data/node/194/properties/{key}",
+  "properties" : "http://localhost:7474/db/data/node/194/properties",
+  "outgoing_typed_relationships" : "http://localhost:7474/db/data/node/194/relationships/out/{-list|&amp;|types}",
+  "incoming_relationships" : "http://localhost:7474/db/data/node/194/relationships/in",
+  "extensions" : { },
+  "create_relationship" : "http://localhost:7474/db/data/node/194/relationships",
+  "paged_traverse" : "http://localhost:7474/db/data/node/194/paged/traverse/{returnType}{?pageSize,leaseTime}",
+  "all_relationships" : "http://localhost:7474/db/data/node/194/relationships/all",
+  "incoming_typed_relationships" : "http://localhost:7474/db/data/node/194/relationships/in/{-list|&amp;|types}",
+  "metadata" : {
+    "id" : 194,
+    "labels" : [ "Person" ]
+  }
+} ]</pre>
+</section>
+<section class="section" id="rest-api-list-all-labels"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">List all labels</h3></div></div></div>
+
+<div class="figure" id="d5e18651"><p class="title"><strong>Figure 21.58. Final Graph</strong></p><div class="figure-contents">
+<a class="ulink" href="images/Final-Graph-List-all-labels.svg" target="_blank">
+<span class="inlinemediaobject"><img src="images/Final-Graph-List-all-labels.svg" alt="Final-Graph-List-all-labels.svg" /></span>
+</a>
+</div></div>
+<p><span class="emphasis"><em>Example request</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/labels</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Accept:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<p><span class="emphasis"><em>Example response</em></span></p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+
+<span class="strong"><strong><code class="literal">200:</code></strong></span> <code class="literal">OK</code>
+
+</li><li class="listitem">
+
+<span class="strong"><strong><code class="literal">Content-Type:</code></strong></span> <code class="literal">application/json; charset=UTF-8</code>
+
+</li></ul></div>
+<pre class="programlisting" data-lang="javascript">[ "Person", "Director", "Actor" ]</pre>
+</section>
+</section>
+
+ <footer>
+   <p>
+   © Copyright
+   <a href="http://creativecommons.org/licenses/by-sa/3.0/"><img id="copyright-img" src="images/by-sa.svg" alt="CC BY-SA 3.0" title="Creative Commons Attribution-ShareAlike 3.0"></a>
+   <a href="http://neo4j.com/"><img id="neotech-logo" src="images/neo-technology.svg" alt="Neo Technology"></a>
+   </p>
+ </footer>
+  <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    //Allow Linker
+    ga('create', 'UA-1192232-34','auto', {'allowLinker': true});
+    ga('send', 'pageview');
+
+    // Load the plugin.
+    ga('require', 'linker');
+
+    // Define which domains to autoLink.
+    ga('linker:autoLink', ['neo4j.org','neo4j.com','neotechnology.com','graphdatabases.com','graphconnect.com']);
+  </script>
+
+</div></body></html>
