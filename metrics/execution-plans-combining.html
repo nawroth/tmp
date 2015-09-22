@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>16.3. Combining operators -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="execution-plan-expand.html" title="16.2. Expand operators" /><link rel="next" href="execution-plans-row-operators.html" title="16.4. Row operators" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="16.3. Combining operators" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -166,7 +166,7 @@ RETURN other</pre><p>
 | |                  +----------------+------+---------+---------------------+-------------------------------+
 | +AntiSemiApply     |              3 |   13 |       0 | me, other           |                               |
 | |\                 +----------------+------+---------+---------------------+-------------------------------+
-| | +Expand(Into)    |              0 |    0 |      48 | anon[73], me, other | (me)-[:FRIENDS_WITH]-&gt;(other) |
+| | +Expand(Into)    |              0 |    0 |      49 | anon[73], me, other | (me)-[:FRIENDS_WITH]-&gt;(other) |
 | | |                +----------------+------+---------+---------------------+-------------------------------+
 | | +Argument        |             14 |   14 |       0 | me, other           |                               |
 | |                  +----------------+------+---------+---------------------+-------------------------------+
@@ -177,7 +177,7 @@ RETURN other</pre><p>
 | +NodeIndexSeek     |              1 |    1 |       2 | me                  | :Person(name)                 |
 +--------------------+----------------+------+---------+---------------------+-------------------------------+
 
-Total database accesses: 65</pre><p>
+Total database accesses: 66</pre><p>
 </p>
 </section>
 <section class="section" id="query-plan-let-anti-semi-apply"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Let Anti Semi Apply</h3></div></div></div>

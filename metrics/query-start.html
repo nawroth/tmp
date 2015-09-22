@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.4. Start -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-where.html" title="11.3. Where" /><link rel="next" href="query-aggregation.html" title="11.5. Aggregation" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.4. Start" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -85,7 +85,7 @@ A starting point is a relationship or a node where a pattern is anchored.
 Using <code class="literal">START</code> you can only introduce starting points by legacy index seeks.
 Note that trying to use a legacy index that doesn’t exist will generate an error.</p>
 <p>This is the graph the examples are using:</p>
-<div class="figure" id="d5e9059"><p class="title"><strong>Figure 11.4. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e9124"><p class="title"><strong>Figure 11.4. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-start-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-start-graph.svg" alt="cypher-start-graph.svg" /></span>
 </a>
@@ -100,7 +100,7 @@ Note that trying to use a legacy index that doesn’t exist will generate an err
 RETURN n</pre><p>
 </p>
 <p>The query returns the node indexed with the name "<code class="literal">A</code>".</p>
-<div class="queryresult table" id="d5e9080"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9145"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="start-relationship-by-index-seek"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationship by index seek</h4></div></div></div>
 
@@ -110,7 +110,7 @@ RETURN n</pre><p>
 RETURN r</pre><p>
 </p>
 <p>The relationship indexed with the <code class="literal">name</code> property set to "<code class="literal">Andrés</code>" is returned by the query.</p>
-<div class="queryresult table" id="d5e9106"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[0]{name:"Andrés"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9171"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[0]{name:"Andrés"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="start-node-by-index-query"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Node by index query</h4></div></div></div>
 
@@ -120,7 +120,7 @@ RETURN r</pre><p>
 RETURN n</pre><p>
 </p>
 <p>The node indexed with name "A" is returned by the query.</p>
-<div class="queryresult table" id="d5e9130"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9195"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"A"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 </section>

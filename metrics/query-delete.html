@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.4. Delete -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-set.html" title="12.3. Set" /><link rel="next" href="query-remove.html" title="12.5. Remove" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.4. Delete" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -94,7 +94,7 @@ Either explicitly delete the relationships, or use <code class="literal">DETACH 
 </p><pre class="programlisting" data-lang="cypher">MATCH (n:Useless)
 DELETE n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10871"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10941"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="delete-delete-all-nodes-and-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete all nodes and relationships</h3></div></div></div>
 
@@ -103,7 +103,7 @@ DELETE n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n)DETACH
 DELETE n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10890"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 3
+<div class="queryresult table" id="d5e10960"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 3
 </th></tr><tr><th>Relationships deleted: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="delete-delete-a-node-with-all-its-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete a node with all its relationships</h3></div></div></div>
@@ -113,7 +113,7 @@ DELETE n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name:'Andres' })DETACH
 DELETE n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10913"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1
+<div class="queryresult table" id="d5e10983"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Nodes deleted: 1
 </th></tr><tr><th>Relationships deleted: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>

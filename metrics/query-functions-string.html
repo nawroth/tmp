@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.5. String functions -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-functions-mathematical.html" title="13.4. Mathematical functions" /><link rel="next" href="cypher-schema.html" title="Chapter 14. Schema" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.5. String functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -78,7 +78,7 @@
 <p>These functions all operate on string expressions only, and will return an error if used on any other values.
 The exception to this rule is <code class="literal">TOSTRING()</code>, which also accepts numbers.</p>
 <p>See also <a class="xref" href="query-operators.html#query-operators-string" title="String operators">the section called “String operators”</a>.</p>
-<div class="figure" id="d5e13335"><p class="title"><strong>Figure 13.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e13405"><p class="title"><strong>Figure 13.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -96,7 +96,7 @@ The exception to this rule is <code class="literal">TOSTRING()</code>, which als
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN str(1), str("hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13360"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th><th>str("hello")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td><td><p><code class="literal">""hello""</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13430"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>str(1)</th><th>str("hello")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"1"</code></p></td><td><p><code class="literal">""hello""</code></p></td></tr></tbody></table></div></div>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The <code class="literal">STR()</code> function is deprecated from Neo4j version 2.3 and onwards.
 This means it may be removed in a future Neo4j major release.</p></td></tr></table></div>
 </section>
@@ -121,7 +121,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN replace("hello", "l", "w")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13406"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13476"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>replace("hello", "l", "w")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hewwo"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-substring"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SUBSTRING</h3></div></div></div>
 
@@ -144,7 +144,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN substring("hello", 1, 3), substring("hello", 2)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13444"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13514"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>substring("hello", 1, 3)</th><th>substring("hello", 2)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"ell"</code></p></td><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-left"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LEFT</h3></div></div></div>
 
@@ -163,7 +163,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN left("hello", 3)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13484"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13554"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>left("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hel"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-right"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RIGHT</h3></div></div></div>
 
@@ -182,7 +182,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN right("hello", 3)</pre><p>
 </p>
-<div class="queryresult table" id="d5e13519"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13589"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>right("hello", 3)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"llo"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-ltrim"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LTRIM</h3></div></div></div>
 
@@ -197,7 +197,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN ltrim("   hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13551"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13621"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>ltrim("   hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-rtrim"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">RTRIM</h3></div></div></div>
 
@@ -212,7 +212,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN rtrim("hello   ")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13583"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13653"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>rtrim("hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-trim"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TRIM</h3></div></div></div>
 
@@ -227,7 +227,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN trim("   hello   ")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13615"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13685"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>trim("   hello   ")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-lower"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LOWER</h3></div></div></div>
 
@@ -242,7 +242,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN lower("HELLO")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13647"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13717"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>lower("HELLO")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"hello"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-upper"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">UPPER</h3></div></div></div>
 
@@ -257,7 +257,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN upper("hello")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13679"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13749"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>upper("hello")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"HELLO"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-split"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SPLIT</h3></div></div></div>
 
@@ -276,7 +276,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN split("one,two", ",")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13714"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13784"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>split("one,two", ",")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two"]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-reverse"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">REVERSE</h3></div></div></div>
 
@@ -291,7 +291,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN reverse("anagram")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13746"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>reverse("anagram")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"margana"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13816"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>reverse("anagram")</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"margana"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-tostring"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TOSTRING</h3></div></div></div>
 
@@ -306,7 +306,7 @@ This means it may be removed in a future Neo4j major release.</p></td></tr></tab
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN toString(11.5), toString("already a string")</pre><p>
 </p>
-<div class="queryresult table" id="d5e13778"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toString(11.5)</th><th>toString("already a string")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"11.5"</code></p></td><td><p><code class="literal">"already a string"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e13848"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toString(11.5)</th><th>toString("already a string")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"11.5"</code></p></td><td><p><code class="literal">"already a string"</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

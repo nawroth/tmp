@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.1. Match -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-read.html" title="Chapter 11. Reading Clauses" /><link rel="next" href="query-optional-match.html" title="11.2. Optional Match" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.1. Match" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -98,7 +98,7 @@ However, there are cases where you can influence the decisions taken by the quer
 Read more about indexes in <a class="xref" href="query-schema-index.html" title="14.1. Indexes">Section 14.1, “Indexes”</a>, and more about the specifying index hints to force Neo4j to use a specific index in <a class="xref" href="query-using.html" title="10.8. Using">Section 10.8, “Using”</a>.</p>
 <div class="admonitionblock Tip"><table><tr><td class="icon"><img alt="[Tip]" src="images/icons/admon/tip.svg" /></td><td class="content"><b>Tip</b><p>To understand more about the patterns used in the <code class="literal">MATCH</code> clause, read <a class="xref" href="introduction-pattern.html" title="9.6. Patterns">Section 9.6, “Patterns”</a>.</p></td></tr></table></div>
 <p>The following graph is used for the examples below:</p>
-<div class="figure" id="d5e7654"><p class="title"><strong>Figure 11.1. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7719"><p class="title"><strong>Figure 11.1. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-match-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-match-graph.svg" alt="cypher-match-graph.svg" /></span>
 </a>
@@ -114,7 +114,7 @@ Read more about indexes in <a class="xref" href="query-schema-index.html" title=
 RETURN n</pre><p>
 </p>
 <p>Returns all the nodes in the database.</p>
-<div class="queryresult table" id="d5e7672"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>9 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{title:"The American President",name:"TheAmericanPresident"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[7]{name:"Rob Reiner"}</code></p></td></tr><tr><td><p><code class="literal">Node[8]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7737"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>9 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{title:"The American President",name:"TheAmericanPresident"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[5]{name:"Rob Reiner"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[7]{name:"Rob Reiner"}</code></p></td></tr><tr><td><p><code class="literal">Node[8]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-get-all-nodes-with-a-label"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Get all nodes with a label</h4></div></div></div>
 
@@ -124,7 +124,7 @@ RETURN n</pre><p>
 RETURN movie</pre><p>
 </p>
 <p>Returns all the movies in the database.</p>
-<div class="queryresult table" id="d5e7727"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{title:"The American President",name:"TheAmericanPresident"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7792"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{title:"The American President",name:"TheAmericanPresident"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-related-nodes"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Related nodes</h4></div></div></div>
 
@@ -134,7 +134,7 @@ RETURN movie</pre><p>
 RETURN movie.title</pre><p>
 </p>
 <p>Returns all the movies directed by Oliver Stone.</p>
-<div class="queryresult table" id="d5e7756"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7821"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-match-with-labels"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Match with labels</h4></div></div></div>
 
@@ -144,7 +144,7 @@ RETURN movie.title</pre><p>
 RETURN movie</pre><p>
 </p>
 <p>Return any nodes connected with the <code class="literal">Person</code> Charlie that are labeled <code class="literal">Movie</code>.</p>
-<div class="queryresult table" id="d5e7781"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7846"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_relationship_basics"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationship basics</h3></div></div></div>
@@ -157,7 +157,7 @@ RETURN movie</pre><p>
 RETURN movie.title</pre><p>
 </p>
 <p>Returns nodes connected to Martin by outgoing relationships.</p>
-<div class="queryresult table" id="d5e7808"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The American President"</code></p></td></tr><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7873"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>movie.title</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"The American President"</code></p></td></tr><tr><td><p><code class="literal">"Wall Street"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-directed-relationships-and-identifier"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Directed relationships and identifier</h4></div></div></div>
 
@@ -167,7 +167,7 @@ RETURN movie.title</pre><p>
 RETURN r</pre><p>
 </p>
 <p>Returns all outgoing relationships from Martin.</p>
-<div class="queryresult table" id="d5e7835"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[3]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7900"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[3]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-match-by-relationship-type"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Match by relationship type</h4></div></div></div>
 
@@ -177,7 +177,7 @@ RETURN r</pre><p>
 RETURN actor</pre><p>
 </p>
 <p>Returns nodes that <code class="literal">ACTED_IN</code> Wall Street.</p>
-<div class="queryresult table" id="d5e7863"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7928"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>actor</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-match-by-multiple-relationship-types"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Match by multiple relationship types</h4></div></div></div>
 
@@ -187,7 +187,7 @@ RETURN actor</pre><p>
 RETURN person</pre><p>
 </p>
 <p>Returns nodes with a <code class="literal">ACTED_IN</code> or <code class="literal">DIRECTED</code> relationship to Wall Street.</p>
-<div class="queryresult table" id="d5e7897"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7962"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>4 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-match-by-relationship-type-and-use-an-identifier"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Match by relationship type and use an identifier</h4></div></div></div>
 
@@ -197,7 +197,7 @@ RETURN person</pre><p>
 RETURN r</pre><p>
 </p>
 <p>Returns nodes that <code class="literal">ACTED_IN</code> Wall Street.</p>
-<div class="queryresult table" id="d5e7933"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[2]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7998"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[2]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[1]{}</code></p></td></tr><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_relationships_in_depth"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationships in depth</h3></div></div></div>
@@ -212,7 +212,7 @@ You can read more about this in <a class="xref" href="cypherdoc-uniqueness.html"
 RETURN r</pre><p>
 </p>
 <p>Returns a relationship of a type with spaces in it.</p>
-<div class="queryresult table" id="d5e7970"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:TYPE THAT HAS SPACE IN IT[8]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8035"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:TYPE THAT HAS SPACE IN IT[8]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-multiple-relationships"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Multiple relationships</h4></div></div></div>
 
@@ -222,7 +222,7 @@ RETURN r</pre><p>
 RETURN charlie,movie,director</pre><p>
 </p>
 <p>Returns the three nodes in the path.</p>
-<div class="queryresult table" id="d5e7994"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>charlie</th><th>movie</th><th>director</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8059"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>charlie</th><th>movie</th><th>director</th></tr></thead><tfoot><tr><th colspan="3">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-variable-length-relationships"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Variable length relationships</h4></div></div></div>
 
@@ -232,7 +232,7 @@ RETURN charlie,movie,director</pre><p>
 RETURN x</pre><p>
 </p>
 <p>Returns nodes that are 1 or 2 relationships away from Martin.</p>
-<div class="queryresult table" id="d5e8028"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{title:"The American President",name:"TheAmericanPresident"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8093"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{title:"The American President",name:"TheAmericanPresident"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-relationship-identifier-in-variable-length-relationships"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationship identifier in variable length relationships</h4></div></div></div>
 
@@ -242,7 +242,7 @@ RETURN x</pre><p>
 RETURN r</pre><p>
 </p>
 <p>The query returns a collection of relationships.</p>
-<div class="queryresult table" id="d5e8067"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[1]{}]</code></p></td></tr><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[2]{}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8132"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[1]{}]</code></p></td></tr><tr><td><p><code class="literal">[:ACTED_IN[0]{},:ACTED_IN[2]{}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-match-with-properties-on-a-variable-length-path"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Match with properties on a variable length path</h4></div></div></div>
 
@@ -265,7 +265,7 @@ WHERE charlie.name = 'Charlie Sheen' AND martin.name = 'Martin Sheen'
 RETURN p</pre><p>
 </p>
 <p>Returns the paths between Charlie and Martin Sheen where all relationships have the <code class="literal">blocked</code> property set to <code class="literal">FALSE</code>.</p>
-<div class="queryresult table" id="d5e8105"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[1]{name:"Charlie Sheen"},:X[9]{blocked:false},Node[9]{},:X[10]{blocked:false},Node[2]{name:"Martin Sheen"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8170"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[1]{name:"Charlie Sheen"},:X[9]{blocked:false},Node[9]{},:X[10]{blocked:false},Node[2]{name:"Martin Sheen"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-zero-length-paths"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Zero length paths</h4></div></div></div>
 
@@ -275,7 +275,7 @@ RETURN p</pre><p>
 RETURN x</pre><p>
 </p>
 <p>Returns all nodes that are zero or one relationships away from Wall Street.</p>
-<div class="queryresult table" id="d5e8128"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8193"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>x</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[6]{name:"Michael Douglas"}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-named-path"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Named path</h4></div></div></div>
 
@@ -285,7 +285,7 @@ RETURN x</pre><p>
 RETURN p</pre><p>
 </p>
 <p>Returns the two paths starting from Michael.</p>
-<div class="queryresult table" id="d5e8167"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[4]{},Node[3]{title:"The American President",name:"TheAmericanPresident"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[2]{},Node[4]{name:"WallStreet",title:"Wall Street"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8232"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[4]{},Node[3]{title:"The American President",name:"TheAmericanPresident"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[6]{name:"Michael Douglas"},:ACTED_IN[2]{},Node[4]{name:"WallStreet",title:"Wall Street"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-matching-on-a-bound-relationship"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Matching on a bound relationship</h4></div></div></div>
 
@@ -297,7 +297,7 @@ WHERE id(r)= 0
 RETURN a,b</pre><p>
 </p>
 <p>This returns the two connected nodes, once as the start node, and once as the end node.</p>
-<div class="queryresult table" id="d5e8194"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th><th>b</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8259"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th><th>b</th></tr></thead><tfoot><tr><th colspan="2">2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td></tr><tr><td><p><code class="literal">Node[4]{name:"WallStreet",title:"Wall Street"}</code></p></td><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_shortest_path"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Shortest path</h3></div></div></div>
@@ -313,7 +313,7 @@ RETURN p</pre><p>
 <p>This means: find a single shortest path between two nodes, as long as the path is max 15 relationships long. Inside of the parentheses
  you define a single link of a path — the starting node, the connecting relationship and the end node. Characteristics describing the relationship
  like relationship type, max hops and direction are all used when finding the shortest path. You can also mark the path as optional.</p>
-<div class="queryresult table" id="d5e8232"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:DIRECTED[5]{},Node[0]{name:"Oliver Stone"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8297"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:DIRECTED[5]{},Node[0]{name:"Oliver Stone"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-all-shortest-paths"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">All shortest paths</h4></div></div></div>
 
@@ -324,7 +324,7 @@ RETURN p</pre><p>
 RETURN p</pre><p>
 </p>
 <p>Finds the two shortest paths between Martin and Michael.</p>
-<div class="queryresult table" id="d5e8255"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[3]{},Node[3]{title:"The American President",name:"TheAmericanPresident"},:ACTED_IN[4]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:ACTED_IN[2]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8320"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>p</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[3]{},Node[3]{title:"The American President",name:"TheAmericanPresident"},:ACTED_IN[4]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr><tr><td><p><code class="literal">[Node[2]{name:"Martin Sheen"},:ACTED_IN[1]{},Node[4]{name:"WallStreet",title:"Wall Street"},:ACTED_IN[2]{},Node[6]{name:"Michael Douglas"}]</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_get_node_or_relationship_by_id"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get node or relationship by id</h3></div></div></div>
@@ -341,7 +341,7 @@ WHERE id(n)= 1
 RETURN n</pre><p>
 </p>
 <p>The corresponding node is returned.</p>
-<div class="queryresult table" id="d5e8287"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8352"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-relationship-by-id"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Relationship by id</h4></div></div></div>
 
@@ -353,7 +353,7 @@ WHERE id(r)= 0
 RETURN r</pre><p>
 </p>
 <p>The relationship with id <code class="literal">0</code> is returned.</p>
-<div class="queryresult table" id="d5e8314"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8379"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">:ACTED_IN[0]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="match-multiple-nodes-by-id"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Multiple nodes by id</h4></div></div></div>
 
@@ -364,7 +364,7 @@ WHERE id(n) IN [1, 2, 0]
 RETURN n</pre><p>
 </p>
 <p>This returns the nodes listed in the <code class="literal">IN</code> expression.</p>
-<div class="queryresult table" id="d5e8338"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8403"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Oliver Stone"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{name:"Charlie Sheen"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Martin Sheen"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 </section>

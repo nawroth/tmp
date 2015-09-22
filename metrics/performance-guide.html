@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>24.4. Performance Guide -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="server-performance.html" title="24.3. Server Performance Tuning" /><link rel="next" href="configuration-logical-logs.html" title="24.5. Logical logs" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="24.4. Performance Guide" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -114,7 +114,7 @@ For embedded, you specify the heap size by giving the <code class="literal">-Xmx
 The initial size of the heap is specified by the <code class="literal">wrapper.java.initmemory</code> setting, or with the <code class="literal">-Xms???m</code> flag, or chosen heuristically by the JVM itself if left unspecified.
 The JVM will automatically grow the heap as needed, up to the maximum size.
 The growing of the heap requires a full GC cycle, so if you know that you will need all the heap memory, you can set the initial heap size and the maximum heap size to the same value, and avoid the GC pauses that would otherwise be required to grow the heap.</p>
-<div class="table" id="d5e21702"><p class="title"><strong>Guidelines for heap size</strong></p><div class="table-contents">
+<div class="table" id="d5e21801"><p class="title"><strong>Guidelines for heap size</strong></p><div class="table-contents">
 
 
 

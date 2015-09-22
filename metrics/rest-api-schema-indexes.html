@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.15. Indexing -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-node-degree.html" title="21.14. Node degree" /><link rel="next" href="rest-api-schema-constraints.html" title="21.16. Constraints" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.15. Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -85,7 +85,7 @@ You can check the status of your index by listing all the indexes for the releva
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1442410494455_1</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1442935462580_1</code>
 
 </li><li class="listitem">
 
@@ -97,7 +97,7 @@ You can check the status of your index by listing all the indexes for the releva
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "property_keys" : [ "property_1442410494455_1" ]
+  "property_keys" : [ "property_1442935462580_1" ]
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -110,8 +110,8 @@ You can check the status of your index by listing all the indexes for the releva
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "label" : "label_1442410494455_1",
-  "property_keys" : [ "property_1442410494455_1" ]
+  "label" : "label_1442935462580_1",
+  "property_keys" : [ "property_1442935462580_1" ]
 }</pre>
 </section>
 <section class="section" id="rest-api-list-indexes-for-a-label"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">List indexes for a label</h3></div></div></div>
@@ -119,7 +119,7 @@ You can check the status of your index by listing all the indexes for the releva
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1442410494302_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1442935462441_1</code>
 
 </li><li class="listitem">
 
@@ -137,8 +137,8 @@ You can check the status of your index by listing all the indexes for the releva
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410494302_1" ],
-  "label" : "label_1442410494302_1"
+  "property_keys" : [ "property_1442935462441_1" ],
+  "label" : "label_1442935462441_1"
 } ]</pre>
 </section>
 <section class="section" id="rest-api-drop-index"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Drop index</h3></div></div></div>
@@ -147,7 +147,7 @@ You can check the status of your index by listing all the indexes for the releva
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1442410494390_1/property_1442410494390_1</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/index/label_1442935462524_1/property_1442935462524_1</code>
 
 </li><li class="listitem">
 

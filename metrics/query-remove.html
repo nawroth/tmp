@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.5. Remove -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-delete.html" title="12.4. Delete" /><link rel="next" href="query-foreach.html" title="12.6. Foreach" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.5. Remove" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -97,7 +97,7 @@ REMOVE andres.age
 RETURN andres</pre><p>
 </p>
 <p>The node is returned, and no property <code class="literal">age</code> exists on it.</p>
-<div class="queryresult table" id="d5e10955"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>andres</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11025"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>andres</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="remove-remove-a-label-from-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove a label from a node</h3></div></div></div>
@@ -108,7 +108,7 @@ RETURN andres</pre><p>
 REMOVE n:German
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e10980"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11050"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels removed: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="remove-removing-multiple-labels"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Removing multiple labels</h3></div></div></div>
@@ -119,7 +119,7 @@ RETURN n</pre><p>
 REMOVE n:German:Swedish
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e11005"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e11075"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels removed: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>

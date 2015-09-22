@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>10.5. With -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-skip.html" title="10.4. Skip" /><link rel="next" href="query-unwind.html" title="10.6. Unwind" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="10.5. With" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -88,7 +88,7 @@ These aggregate expressions create new bindings in the results.
 <p><code class="literal">WITH</code> is also used to separate reading from updating of the graph.
 Every part of a query must be either read-only or write-only.
 When going from a writing part to a reading part, the switch must be done with a <code class="literal">WITH</code> clause.</p>
-<div class="figure" id="d5e7258"><p class="title"><strong>Figure 10.5. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e7323"><p class="title"><strong>Figure 10.5. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-with-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-with-graph.svg" alt="cypher-with-graph.svg" /></span>
 </a>
@@ -103,7 +103,7 @@ WHERE foaf &gt; 1
 RETURN otherPerson</pre><p>
 </p>
 <p>The person connected to David with the at least more than one outgoing relationship will be returned by the query.</p>
-<div class="queryresult table" id="d5e7275"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>otherPerson</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Anders"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7340"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>otherPerson</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Anders"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="with-sort-results-before-using-collect-on-them"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Sort results before using collect on them</h3></div></div></div>
 
@@ -115,7 +115,7 @@ ORDER BY n.name DESC LIMIT 3
 RETURN collect(n.name)</pre><p>
 </p>
 <p>A list of the names of people in reverse order, limited to 3, in a collection.</p>
-<div class="queryresult table" id="d5e7298"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.name)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["Emil","David","Ceasar"]</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7363"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>collect(n.name)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["Emil","David","Ceasar"]</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="with-limit-branching-of-your-path-search"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Limit branching of your path search</h3></div></div></div>
 
@@ -128,7 +128,7 @@ MATCH (m)--(o)
 RETURN o.name</pre><p>
 </p>
 <p>Starting at Anders, find all matching nodes, order by name descending and get the top result, then find all the nodes connected to that top result, and return their names.</p>
-<div class="queryresult table" id="d5e7321"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>o.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Bossman"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e7386"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>o.name</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"Bossman"</code></p></td></tr><tr><td><p><code class="literal">"Anders"</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

@@ -1,9 +1,9 @@
 <!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>28.5. Metrics Extension -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="jmx-mxbeans.html" title="28.4. Reference of supported JMX MBeans" /><link rel="next" href="tools.html" title="Tools" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="28.5. Metrics Extension" /><script type="text/javascript">
+    <title>28.5. Metrics Reporting -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="jmx-mxbeans.html" title="28.4. Reference of supported JMX MBeans" /><link rel="next" href="tools.html" title="Tools" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="28.5. Metrics Reporting" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -72,18 +72,37 @@
 </script>
 
 
-</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>28.5. Metrics Extension</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="jmx-mxbeans.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-monitoring.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tools.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="metrics-extension"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">28.5. Metrics Extension</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="metrics-extension.html#metrics-introduction">Introducing Metrics</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-graphite">Graphite Configuration</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-ganglia">Ganglia Configuration</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-csv">Export to CSV Configuration</a></span></li></ul></div>
+</head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>28.5. Metrics Reporting</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="jmx-mxbeans.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="operations-monitoring.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="tools.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="metrics-extension"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">28.5. Metrics Reporting</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="metrics-extension.html#metrics-introduction">Introducing Metrics</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-graphite">Graphite Configuration</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-ganglia">Ganglia Configuration</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-csv">Export to CSV Configuration</a></span></li><li><span class="section"><a href="metrics-extension.html#metrics-config-reference">Configuration Settings Reference for Metrics</a></span></li></ul></div>
 
-<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The Metrics extension is only available in the Neo4j Enterprise Edition.</p></td></tr></table></div>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>Metrics reporting is only available in the Neo4j Enterprise Edition.</p></td></tr></table></div>
 <section class="section" id="metrics-introduction"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Introducing Metrics</h3></div></div></div>
 
-<p>The <span class="emphasis"><em>Metrics extension</em></span> for Neo4j exports Neo4j-specific metrics to Graphite, Ganglia, or CSV files.</p>
+<p>Neo4j Enterprise can be configured to continuously export Neo4j-specific metrics to Graphite, Ganglia, or CSV files.
+This makes it easy to monitor the health of running Neo4j instances.</p>
+<p>Neo4j Enterprise can expose metrics for the following parts of the database, and does so by default:</p>
+<pre class="programlisting" data-lang="properties">// default setting for enabling all supported metrics
+metrics.enabled=true
+
+// default setting for enabling all Neo4j specific metrics
+metrics.neo4j.enabled=true
+
+// setting for exposing metrics about transactions; number of transactions started, committed, etc.
+metrics.neo4j.tx.enabled=true
+
+// setting for exposing metrics about the Neo4j page cache; page faults, evictions, flushes and exceptions, etc.
+metrics.neo4j.pagecache.enabled=true
+
+// setting for exposing metrics about approximately entities are in the database; nodes, relationships, properties, etc.
+metrics.neo4j.counts.enabled=true
+
+// setting for exposing metrics about the network usage of the HA cluster component
+metrics.neo4j.network.enabled=true</pre>
 </section>
 <section class="section" id="metrics-graphite"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Graphite Configuration</h3></div></div></div>
 
 <p>For Graphite integration add the following settings to <span class="emphasis"><em>neo4j.properties:</em></span></p>
-<pre class="programlisting" data-lang="properties">metrics.graphite.enabled=true
+<pre class="programlisting" data-lang="properties">metrics.graphite.enabled=true // default is 'false'
 metrics.graphite.server=&lt;ip&gt;:2003
 metrics.graphite.interval=&lt;how often to send data, defaults to 3s&gt;
 metrics.prefix=&lt;Neo4j instance name, e.g. wwwneo1&gt;</pre>
@@ -92,7 +111,7 @@ metrics.prefix=&lt;Neo4j instance name, e.g. wwwneo1&gt;</pre>
 <section class="section" id="metrics-ganglia"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Ganglia Configuration</h3></div></div></div>
 
 <p>For Ganglia integration add the following settings to <span class="emphasis"><em>neo4j.properties:</em></span></p>
-<pre class="programlisting" data-lang="properties">metrics.ganglia.enabled=true
+<pre class="programlisting" data-lang="properties">metrics.ganglia.enabled=true // default is 'false'
 metrics.ganglia.server=&lt;ip&gt;:8469
 metrics.ganglia.interval=&lt;how often to send data, defaults to 3s&gt;
 metrics.prefix=&lt;Neo4j instance name, e.g. wwwneo1&gt;</pre>
@@ -100,10 +119,86 @@ metrics.prefix=&lt;Neo4j instance name, e.g. wwwneo1&gt;</pre>
 <section class="section" id="metrics-csv"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Export to CSV Configuration</h3></div></div></div>
 
 <p>For storing metrics in local CSV files add the following settings to <span class="emphasis"><em>neo4j.properties:</em></span></p>
-<pre class="programlisting" data-lang="properties">metrics.csv.enabled=true
-metrics.csv.path=&lt;file or directory path, defaults to "metrics/" in the store directory)
+<pre class="programlisting" data-lang="properties">metrics.csv.enabled=true // default is 'false'
+metrics.csv.path=&lt;file or directory path, defaults to "metrics/" in the store directory&gt;
 metrics.csv.file=&lt;single/split, if split then each metric gets its own file in given directory&gt;
 metrics.csv.interval=&lt;how often to store data, defaults to 3s&gt;</pre>
+<div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>The CSV exporter does not automatically rotate the output files, so it is recommended to also set up a CRON job to periodically archive the files.</p></td></tr></table></div>
+</section>
+<section class="section" id="metrics-config-reference"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Configuration Settings Reference for Metrics</h3></div></div></div>
+
+<div class="table" id="config-org.neo4j.metrics.MetricsSettings"><p class="title"><strong>Metrics settings</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><thead><tr><th>Name</th><th>Description</th></tr></thead><tbody><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.csv.enabled" title="metrics.csv.enabled">metrics.csv.enabled</a></p></td><td><p>Set to <code class="literal">true</code> to enable exporting metrics to CSV files.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.csv.file" title="metrics.csv.file">metrics.csv.file</a></p></td><td><p>Write to a single CSV file or to multiple files.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.csv.interval" title="metrics.csv.interval">metrics.csv.interval</a></p></td><td><p>The reporting interval for the CSV files.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.csv.path" title="metrics.csv.path">metrics.csv.path</a></p></td><td><p>The target location of the CSV files.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.enabled" title="metrics.enabled">metrics.enabled</a></p></td><td><p>The default enablement value for all the supported metrics.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.ganglia.enabled" title="metrics.ganglia.enabled">metrics.ganglia.enabled</a></p></td><td><p>Set to <code class="literal">true</code> to enable exporting metrics to Ganglia.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.ganglia.interval" title="metrics.ganglia.interval">metrics.ganglia.interval</a></p></td><td><p>The reporting interval for Ganglia.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.ganglia.server" title="metrics.ganglia.server">metrics.ganglia.server</a></p></td><td><p>The hostname or IP address of the Ganglia server.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.graphite.enabled" title="metrics.graphite.enabled">metrics.graphite.enabled</a></p></td><td><p>Set to <code class="literal">true</code> to enable exporting metrics to Graphite.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.graphite.interval" title="metrics.graphite.interval">metrics.graphite.interval</a></p></td><td><p>The reporting interval for Graphite.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.graphite.server" title="metrics.graphite.server">metrics.graphite.server</a></p></td><td><p>The hostname or IP address of the Graphite server.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.neo4j.counts.enabled" title="metrics.neo4j.counts.enabled">metrics.neo4j.counts.enabled</a></p></td><td><p>Enable reporting metrics about approximately how many entities are in the database.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.neo4j.enabled" title="metrics.neo4j.enabled">metrics.neo4j.enabled</a></p></td><td><p>The default enablement value for all Neo4j specific support metrics.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.neo4j.network.enabled" title="metrics.neo4j.network.enabled">metrics.neo4j.network.enabled</a></p></td><td><p>Enable reporting metrics about the network usage the of the HA cluster component.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.neo4j.pagecache.enabled" title="metrics.neo4j.pagecache.enabled">metrics.neo4j.pagecache.enabled</a></p></td><td><p>Enable reporting metrics about the Neo4j page cache.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.neo4j.tx.enabled" title="metrics.neo4j.tx.enabled">metrics.neo4j.tx.enabled</a></p></td><td><p>Enable reporting metrics about transactions.</p></td></tr><tr><td><p><a class="link" href="metrics-extension.html#config_metrics.prefix" title="metrics.prefix">metrics.prefix</a></p></td><td><p>A common prefix for the reported metrics field names.</p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.csv.enabled"><p class="title"><strong>metrics.csv.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Set to <code class="literal">true</code> to enable exporting metrics to CSV files.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.csv.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.csv.file"><p class="title"><strong>metrics.csv.file</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Write to a single CSV file or to multiple files. Set to <code class="literal">single</code> (the default) for reporting the metrics in a single CSV file (given by <code class="literal"><a class="link" href="metrics-extension.html#config_metrics.csv.path" title="metrics.csv.path">metrics.csv.path</a></code>), with a column per metrics field. Or set to <code class="literal">split</code> to produce a CSV file for each metrics field, in a directory given by <code class="literal"><a class="link" href="metrics-extension.html#config_metrics.csv.path" title="metrics.csv.path">metrics.csv.path</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.csv.file</code></code> is one of <code class="literal">single</code>, <code class="literal">split</code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">single</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.csv.interval"><p class="title"><strong>metrics.csv.interval</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The reporting interval for the CSV files. That is, how often new rows with numbers are appended to the CSV files.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.csv.interval</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">3s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.csv.path"><p class="title"><strong>metrics.csv.path</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The target location of the CSV files. Depending on the <code class="literal"><a class="link" href="metrics-extension.html#config_metrics.csv.file" title="metrics.csv.file">metrics.csv.file</a></code> setting, this is either the path to an individual CSV file, that have each of the reported metrics fields as columns, or it is a path to a directory wherein a CSV file per reported field will be written. Relative paths will be intepreted relative to the configured Neo4j store directory.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.csv.path</code></code> is a path which is relative to <code class="literal"><a class="link" href="configuration-settings.html#config_store_dir" title="store_dir">store_dir</a></code>.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">metrics.csv</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.enabled"><p class="title"><strong>metrics.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The default enablement value for all the supported metrics. Set this to <code class="literal">false</code> to turn off all metrics by default. The individual settings can then be used to selectively re-enable specific metrics.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.ganglia.enabled"><p class="title"><strong>metrics.ganglia.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Set to <code class="literal">true</code> to enable exporting metrics to Ganglia.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.ganglia.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.ganglia.interval"><p class="title"><strong>metrics.ganglia.interval</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The reporting interval for Ganglia. That is, how often to send updated metrics to Ganglia.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.ganglia.interval</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">3s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.ganglia.server"><p class="title"><strong>metrics.ganglia.server</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The hostname or IP address of the Ganglia server.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.ganglia.server</code></code> is a hostname and port.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">:8469</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.graphite.enabled"><p class="title"><strong>metrics.graphite.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Set to <code class="literal">true</code> to enable exporting metrics to Graphite.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.graphite.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">false</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.graphite.interval"><p class="title"><strong>metrics.graphite.interval</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The reporting interval for Graphite. That is, how often to send updated metrics to Graphite.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.graphite.interval</code></code> is a duration (valid units are <code class="literal">ms</code>, <code class="literal">s</code>, <code class="literal">m</code>).</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">3s</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.graphite.server"><p class="title"><strong>metrics.graphite.server</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The hostname or IP address of the Graphite server.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.graphite.server</code></code> is a hostname and port.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">:2003</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.neo4j.counts.enabled"><p class="title"><strong>metrics.neo4j.counts.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable reporting metrics about approximately how many entities are in the database; nodes, relationships, properties, etc.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.neo4j.counts.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.neo4j.enabled"><p class="title"><strong>metrics.neo4j.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>The default enablement value for all Neo4j specific support metrics. Set this to <code class="literal">false</code> to turn off all Neo4j specific metrics by default. The individual <code class="literal">metrics.neo4j.*</code> metrics can then be turned on selectively.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.neo4j.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.neo4j.network.enabled"><p class="title"><strong>metrics.neo4j.network.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable reporting metrics about the network usage the of the HA cluster component.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.neo4j.network.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.neo4j.pagecache.enabled"><p class="title"><strong>metrics.neo4j.pagecache.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable reporting metrics about the Neo4j page cache; page faults, evictions, flushes, exceptions, etc.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.neo4j.pagecache.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.neo4j.tx.enabled"><p class="title"><strong>metrics.neo4j.tx.enabled</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>Enable reporting metrics about transactions; number of transactions started, committed, etc.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.neo4j.tx.enabled</code></code> is a boolean.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">true</code></p></td></tr></tbody></table>
+</div></div>
+<div class="table" id="config_metrics.prefix"><p class="title"><strong>metrics.prefix</strong></p><div class="table-contents">
+
+<table cellspacing="0" cellpadding="0"><tbody><tr><td><p><span class="strong"><strong>Description</strong></span></p></td><td><p>A common prefix for the reported metrics field names. By default, this is either be <span class="emphasis"><em>neo4j</em></span>, or a computed value based on the cluster and instance names, when running in an HA configuration.</p></td></tr><tr><td><p><span class="strong"><strong>Valid values</strong></span></p></td><td><p><code class="literal"><code class="literal">metrics.prefix</code></code> is a string.</p></td></tr><tr><td><p><span class="strong"><strong>Default value</strong></span></p></td><td><p><code class="literal">neo4j</code></p></td></tr></tbody></table>
+</div></div>
 </section>
 </section>
 

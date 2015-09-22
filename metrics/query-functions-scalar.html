@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>13.2. Scalar functions -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-predicates.html" title="13.1. Predicates" /><link rel="next" href="query-functions-collection.html" title="13.3. Collection functions" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="13.2. Scalar functions" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -80,7 +80,7 @@
 Due to backwards compatibility <code class="literal">LENGTH</code> currently works on four types: strings, paths, collections and pattern expressions.
 However, for clarity it is recommended to only use <code class="literal">LENGTH</code> on strings and paths, and use the new <code class="literal">SIZE</code> function
 on collections and pattern expressions. <code class="literal">LENGTH</code> on those types may be deprecated in future.</p></td></tr></table></div>
-<div class="figure" id="d5e11635"><p class="title"><strong>Figure 13.2. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e11705"><p class="title"><strong>Figure 13.2. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-functions-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-functions-graph.svg" alt="cypher-functions-graph.svg" /></span>
 </a>
@@ -99,7 +99,7 @@ on collections and pattern expressions. <code class="literal">LENGTH</code> on t
 </p><pre class="programlisting" data-lang="cypher">RETURN size(['Alice', 'Bob']) AS col</pre><p>
 </p>
 <p>The number of items in the collection is returned by the query.</p>
-<div class="queryresult table" id="d5e11661"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>col</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11731"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>col</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-size-of-pattern-expression"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">SIZE of pattern expression</h3></div></div></div>
 
@@ -120,7 +120,7 @@ WHERE a.name='Alice'
 RETURN size((a)--&gt;()--&gt;()) AS fof</pre><p>
 </p>
 <p>The number of sub-graphs matching the pattern expression is returned by the query.</p>
-<div class="queryresult table" id="d5e11694"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>fof</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11764"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>fof</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">3</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-length"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LENGTH</h3></div></div></div>
 
@@ -138,7 +138,7 @@ WHERE a.name='Alice'
 RETURN length(p)</pre><p>
 </p>
 <p>The length of the path <code class="literal">p</code> is returned by the query.</p>
-<div class="queryresult table" id="d5e11728"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(p)</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11798"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(p)</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-length-of-string"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LENGTH of string</h3></div></div></div>
 
@@ -156,7 +156,7 @@ WHERE length(a.name)&gt; 6
 RETURN length(a.name)</pre><p>
 </p>
 <p>The length of the name <code class="literal">Charlie</code> is returned by the query.</p>
-<div class="queryresult table" id="d5e11770"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(a.name)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">7</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11840"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>length(a.name)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">7</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-type"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TYPE</h3></div></div></div>
 
@@ -174,7 +174,7 @@ WHERE n.name='Alice'
 RETURN type(r)</pre><p>
 </p>
 <p>The relationship type of <code class="literal">r</code> is returned by the query.</p>
-<div class="queryresult table" id="d5e11803"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11873"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>type(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr><tr><td><p><code class="literal">"KNOWS"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-id"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ID</h3></div></div></div>
 
@@ -191,7 +191,7 @@ RETURN type(r)</pre><p>
 RETURN id(a)</pre><p>
 </p>
 <p>This returns the node id for three nodes.</p>
-<div class="queryresult table" id="d5e11839"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id(a)</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">4</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11909"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>id(a)</th></tr></thead><tfoot><tr><th>5 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">0</code></p></td></tr><tr><td><p><code class="literal">1</code></p></td></tr><tr><td><p><code class="literal">2</code></p></td></tr><tr><td><p><code class="literal">3</code></p></td></tr><tr><td><p><code class="literal">4</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-coalesce"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">COALESCE</h3></div></div></div>
 
@@ -209,7 +209,7 @@ In case all arguments are <code class="literal">NULL</code>, <code class="litera
 WHERE a.name='Alice'
 RETURN coalesce(a.hairColor, a.eyes)</pre><p>
 </p>
-<div class="queryresult table" id="d5e11889"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>coalesce(a.hairColor, a.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"brown"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11959"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>coalesce(a.hairColor, a.eyes)</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">"brown"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-head"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">HEAD</h3></div></div></div>
 
@@ -227,7 +227,7 @@ WHERE a.name='Eskil'
 RETURN a.array, head(a.array)</pre><p>
 </p>
 <p>The first node in the path is returned.</p>
-<div class="queryresult table" id="d5e11922"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>head(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"one"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11992"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>head(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"one"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-last"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">LAST</h3></div></div></div>
 
@@ -245,7 +245,7 @@ WHERE a.name='Eskil'
 RETURN a.array, last(a.array)</pre><p>
 </p>
 <p>The last node in the path is returned.</p>
-<div class="queryresult table" id="d5e11960"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>last(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"three"</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12030"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a.array</th><th>last(a.array)</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">["one","two","three"]</code></p></td><td><p><code class="literal">"three"</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-timestamp"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TIMESTAMP</h3></div></div></div>
 
@@ -256,7 +256,7 @@ RETURN a.array, last(a.array)</pre><p>
 </p><pre class="programlisting" data-lang="cypher">RETURN timestamp()</pre><p>
 </p>
 <p>The time in milliseconds is returned.</p>
-<div class="queryresult table" id="d5e11994"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>timestamp()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1442410744545</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12064"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>timestamp()</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">1442935624884</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-startnode"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">STARTNODE</h3></div></div></div>
 
@@ -272,7 +272,7 @@ RETURN a.array, last(a.array)</pre><p>
 </p><pre class="programlisting" data-lang="cypher">MATCH (x:foo)-[r]-()
 RETURN startNode(r)</pre><p>
 </p>
-<div class="queryresult table" id="d5e12026"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>startNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12096"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>startNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Alice",age:38,eyes:"brown"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-endnode"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">ENDNODE</h3></div></div></div>
 
@@ -288,7 +288,7 @@ RETURN startNode(r)</pre><p>
 </p><pre class="programlisting" data-lang="cypher">MATCH (x:foo)-[r]-()
 RETURN endNode(r)</pre><p>
 </p>
-<div class="queryresult table" id="d5e12062"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>endNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"Charlie",age:53,eyes:"green"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"Bob",age:25,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12132"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>endNode(r)</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[4]{name:"Charlie",age:53,eyes:"green"}</code></p></td></tr><tr><td><p><code class="literal">Node[3]{name:"Bob",age:25,eyes:"blue"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-toint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TOINT</h3></div></div></div>
 
@@ -303,7 +303,7 @@ RETURN endNode(r)</pre><p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN toInt("42"), toInt("not a number")</pre><p>
 </p>
-<div class="queryresult table" id="d5e12099"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toInt("42")</th><th>toInt("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">42</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12169"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toInt("42")</th><th>toInt("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">42</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="functions-tofloat"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">TOFLOAT</h3></div></div></div>
 
@@ -318,7 +318,7 @@ RETURN endNode(r)</pre><p>
 <p><strong>Query </strong>
 </p><pre class="programlisting" data-lang="cypher">RETURN toFloat("11.5"), toFloat("not a number")</pre><p>
 </p>
-<div class="queryresult table" id="d5e12137"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toFloat("11.5")</th><th>toFloat("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">11.5</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e12207"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>toFloat("11.5")</th><th>toFloat("not a number")</th></tr></thead><tfoot><tr><th colspan="2">1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">11.5</code></p></td><td><p><code class="literal">&lt;null&gt;</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 

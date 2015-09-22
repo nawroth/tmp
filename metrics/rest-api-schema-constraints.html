@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.16. Constraints -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-schema-indexes.html" title="21.15. Indexing" /><link rel="next" href="rest-api-traverse.html" title="21.17. Traversals" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.16. Constraints" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -81,7 +81,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410492830_1/uniqueness/</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935461213_1/uniqueness/</code>
 
 </li><li class="listitem">
 
@@ -93,7 +93,7 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "property_keys" : [ "property_1442410492830_1" ]
+  "property_keys" : [ "property_1442935461213_1" ]
 }</pre>
 <p><span class="emphasis"><em>Example response</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
@@ -106,9 +106,9 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
-  "label" : "label_1442410492830_1",
+  "label" : "label_1442935461213_1",
   "type" : "UNIQUENESS",
-  "property_keys" : [ "property_1442410492830_1" ]
+  "property_keys" : [ "property_1442935461213_1" ]
 }</pre>
 </section>
 <section class="section" id="rest-api-get-a-specific-uniqueness-constraint"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get a specific uniqueness constraint</h3></div></div></div>
@@ -117,7 +117,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410493050_1/uniqueness/property_1442410493050_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935461432_1/uniqueness/property_1442935461432_1</code>
 
 </li><li class="listitem">
 
@@ -135,8 +135,8 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410493050_1" ],
-  "label" : "label_1442410493050_1",
+  "property_keys" : [ "property_1442935461432_1" ],
+  "label" : "label_1442935461432_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>
@@ -145,7 +145,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410493018_1/uniqueness/</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935461402_1/uniqueness/</code>
 
 </li><li class="listitem">
 
@@ -163,12 +163,12 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410493018_2" ],
-  "label" : "label_1442410493018_1",
+  "property_keys" : [ "property_1442935461402_2" ],
+  "label" : "label_1442935461402_1",
   "type" : "UNIQUENESS"
 }, {
-  "property_keys" : [ "property_1442410493018_1" ],
-  "label" : "label_1442410493018_1",
+  "property_keys" : [ "property_1442935461402_1" ],
+  "label" : "label_1442935461402_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>
@@ -178,7 +178,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410492774_1/uniqueness/property_1442410492774_1</code>
+<span class="strong"><strong><code class="literal">DELETE</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935461156_1/uniqueness/property_1442935461156_1</code>
 
 </li><li class="listitem">
 
@@ -199,7 +199,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410647798_1/existence/property_1442410647798_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935549722_1/existence/property_1442935549722_1</code>
 
 </li><li class="listitem">
 
@@ -217,8 +217,8 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410647798_1" ],
-  "label" : "label_1442410647798_1",
+  "property_keys" : [ "property_1442935549722_1" ],
+  "label" : "label_1442935549722_1",
   "type" : "NODE_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
@@ -227,7 +227,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410647952_1/existence/</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935549795_1/existence/</code>
 
 </li><li class="listitem">
 
@@ -245,12 +245,12 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410647952_1" ],
-  "label" : "label_1442410647952_1",
+  "property_keys" : [ "property_1442935549795_2" ],
+  "label" : "label_1442935549795_1",
   "type" : "NODE_PROPERTY_EXISTENCE"
 }, {
-  "property_keys" : [ "property_1442410647952_2" ],
-  "label" : "label_1442410647952_1",
+  "property_keys" : [ "property_1442935549795_1" ],
+  "label" : "label_1442935549795_1",
   "type" : "NODE_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
@@ -259,7 +259,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442410492962_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/constraint/label_1442935461345_1</code>
 
 </li><li class="listitem">
 
@@ -277,8 +277,8 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410492962_1" ],
-  "label" : "label_1442410492962_1",
+  "property_keys" : [ "property_1442935461345_1" ],
+  "label" : "label_1442935461345_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>
@@ -288,7 +288,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1442410645766_1/existence/property_1442410645766_1</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1442935548163_1/existence/property_1442935548163_1</code>
 
 </li><li class="listitem">
 
@@ -306,8 +306,8 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "relationshipType" : "relationshipType_1442410645766_1",
-  "property_keys" : [ "property_1442410645766_1" ],
+  "relationshipType" : "relationshipType_1442935548163_1",
+  "property_keys" : [ "property_1442935548163_1" ],
   "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
@@ -316,7 +316,7 @@
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1442410647697_1/existence/</code>
+<span class="strong"><strong><code class="literal">GET</code></strong></span>  <code class="literal">http://localhost:7474/db/data/schema/relationship/constraint/relationshipType_1442935549620_1/existence/</code>
 
 </li><li class="listitem">
 
@@ -334,12 +334,12 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "relationshipType" : "relationshipType_1442410647697_1",
-  "property_keys" : [ "property_1442410647697_2" ],
+  "relationshipType" : "relationshipType_1442935549620_1",
+  "property_keys" : [ "property_1442935549620_2" ],
   "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 }, {
-  "relationshipType" : "relationshipType_1442410647697_1",
-  "property_keys" : [ "property_1442410647697_1" ],
+  "relationshipType" : "relationshipType_1442935549620_1",
+  "property_keys" : [ "property_1442935549620_1" ],
   "type" : "RELATIONSHIP_PROPERTY_EXISTENCE"
 } ]</pre>
 </section>
@@ -366,12 +366,12 @@
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">[ {
-  "property_keys" : [ "property_1442410492830_1" ],
-  "label" : "label_1442410492830_1",
+  "property_keys" : [ "property_1442935461213_1" ],
+  "label" : "label_1442935461213_1",
   "type" : "UNIQUENESS"
 }, {
-  "property_keys" : [ "property_1442410492870_1" ],
-  "label" : "label_1442410492870_1",
+  "property_keys" : [ "property_1442935461243_1" ],
+  "label" : "label_1442935461243_1",
   "type" : "UNIQUENESS"
 } ]</pre>
 </section>

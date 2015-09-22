@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>16.5. Update Operators -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="execution-plans-row-operators.html" title="16.4. Row operators" /><link rel="next" href="reference-documentation.html" title="Reference" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="16.5. Update Operators" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -73,7 +73,7 @@
 
 
 </head><body><div id="header"><a href="index.html" id="logo"><img src="common/images/logo-neo4j.svg" alt="" /></a><h1><span id="book-title">The Neo4j Manual v2.3-SNAPSHOT</span><span>16.5. Update Operators</span></h1><div id="navheader"><!----><div id="navLinks"><span><a id="showHideButton" href="#" class="pointLeft" tabindex="5" title="Show/Hide TOC tree"><i class="fa fa-columns"></i> Contents
-            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="execution-plans-row-operators.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="execution-plans.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="reference-documentation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="execution-plans-update"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">16.5. Update Operators</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="execution-plans-update.html#query-plan-constraint-operation">Constraint Operation</a></span></li><li><span class="section"><a href="execution-plans-update.html#query-plan-empty-result">Empty Result</a></span></li><li><span class="section"><a href="execution-plans-update.html#query-plan-update-graph">Update Graph</a></span></li></ul></div>
+            </a></span><span><a accesskey="p" id="navLinkPrevious" tabindex="5" href="execution-plans-row-operators.html"><i class="fa fa-arrow-circle-left"></i> Prev</a></span><span><a accesskey="u" id="navLinkUp" tabindex="5" href="execution-plans.html">Up <i class="fa fa-arrow-circle-up"></i></a></span><span><a accesskey="n" id="navLinkNext" tabindex="5" href="reference-documentation.html">Next <i class="fa fa-arrow-circle-right"></i></a></span></div></div></div><div id="content"><section class="section" id="execution-plans-update"><div xmlns="" class="titlepage"><div><div><h2 xmlns="http://www.w3.org/1999/xhtml" class="title" style="clear: both">16.5. Update Operators</h2></div></div></div><div class="toc"><ul class="toc"><li><span class="section"><a href="execution-plans-update.html#query-plan-constraint-operation">Constraint Operation</a></span></li><li><span class="section"><a href="execution-plans-update.html#query-plan-empty-result">Empty Result</a></span></li><li><span class="section"><a href="execution-plans-update.html#query-plan-update-graph">Update Graph</a></span></li><li><span class="section"><a href="execution-plans-update.html#query-plan-merge-into">Merge Into</a></span></li></ul></div>
 
 <p>These operators are used in queries that update the graph.</p>
 <section class="section" id="query-plan-constraint-operation"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Constraint Operation</h3></div></div></div>
@@ -127,6 +127,29 @@ Total database accesses: 2</pre><p>
 +--------------+------+---------+-------------+------------+
 
 Total database accesses: 4</pre><p>
+</p>
+</section>
+<section class="section" id="query-plan-merge-into"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Merge Into</h3></div></div></div>
+
+<p>When both the start and end node have already been found, merge-into is used to find all connecting relationships or creating a new relationship between the two nodes.</p>
+<p><strong>Query </strong>
+</p><pre class="programlisting" data-lang="cypher">MATCH (p:Person { name: "me" }),(f:Person { name: "Andres" })
+MERGE (p)-[:FRIENDS_WITH]-&gt;(f)</pre><p>
+</p>
+<p><strong>Query Plan </strong>
+</p><pre class="programlisting" data-lang="plain">+--------------+------+---------+----------------+--------------------------------+
+| Operator     | Rows | DB Hits | Identifiers    | Other                          |
++--------------+------+---------+----------------+--------------------------------+
+| +EmptyResult |    0 |       0 |                |                                |
+| |            +------+---------+----------------+--------------------------------+
+| +Merge(Into) |    1 |       5 | anon[68], f, p | (p)-[:FRIENDS_WITH]-&gt;(f)       |
+| |            +------+---------+----------------+--------------------------------+
+| +SchemaIndex |    1 |       2 | f, p           | {  AUTOSTRING1}; :Person(name) |
+| |            +------+---------+----------------+--------------------------------+
+| +SchemaIndex |    1 |       2 | p              | {  AUTOSTRING0}; :Person(name) |
++--------------+------+---------+----------------+--------------------------------+
+
+Total database accesses: 9</pre><p>
 </p>
 </section>
 </section>

@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.8. Nodes -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-property-values.html" title="21.7. Property values" /><link rel="next" href="rest-api-relationships.html" title="21.9. Relationships" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.8. Nodes" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -77,7 +77,7 @@
 
 <section class="section" id="rest-api-create-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node</h3></div></div></div>
 
-<div class="figure" id="d5e16996"><p class="title"><strong>Figure 21.13. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17095"><p class="title"><strong>Figure 21.13. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-create-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-create-node.svg" alt="Final-Graph-create-node.svg" /></span>
 </a>
@@ -130,7 +130,7 @@
 </section>
 <section class="section" id="rest-api-create-node-with-properties"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create node with properties</h3></div></div></div>
 
-<div class="figure" id="d5e17038"><p class="title"><strong>Figure 21.14. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17137"><p class="title"><strong>Figure 21.14. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-create-node-with-properties.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-create-node-with-properties.svg" alt="Final-Graph-create-node-with-properties.svg" /></span>
 </a>
@@ -198,7 +198,7 @@
 
 <p>Note that the response contains URI/templates for the available
 operations for getting properties and relationships.</p>
-<div class="figure" id="d5e17092"><p class="title"><strong>Figure 21.15. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17191"><p class="title"><strong>Figure 21.15. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-node.svg" alt="Final-Graph-Get-node.svg" /></span>
 </a>
@@ -247,7 +247,7 @@ operations for getting properties and relationships.</p>
 </section>
 <section class="section" id="rest-api-get-non-existent-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get non-existent node</h3></div></div></div>
 
-<div class="figure" id="d5e17129"><p class="title"><strong>Figure 21.16. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17228"><p class="title"><strong>Figure 21.16. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Get-non-existent-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Get-non-existent-node.svg" alt="Final-Graph-Get-non-existent-node.svg" /></span>
 </a>
@@ -304,7 +304,7 @@ operations for getting properties and relationships.</p>
       "exception": "EntityNotFoundException",
       "fullname": "org.neo4j.kernel.api.exceptions.EntityNotFoundException",
       "stackTrace": [
-        "org.neo4j.kernel.impl.factory.GraphDatabaseFacade.getNodeById(GraphDatabaseFacade.java:226)",
+        "org.neo4j.kernel.impl.factory.GraphDatabaseFacade.getNodeById(GraphDatabaseFacade.java:228)",
         "org.neo4j.server.rest.web.DatabaseActions.node(DatabaseActions.java:170)",
         "org.neo4j.server.rest.web.DatabaseActions.getNode(DatabaseActions.java:219)",
         "org.neo4j.server.rest.web.RestfulGraphDatabase.getNode(RestfulGraphDatabase.java:279)",
@@ -317,7 +317,7 @@ operations for getting properties and relationships.</p>
     "exception": "NotFoundException",
     "fullname": "org.neo4j.graphdb.NotFoundException",
     "stackTrace": [
-      "org.neo4j.kernel.impl.factory.GraphDatabaseFacade.getNodeById(GraphDatabaseFacade.java:226)",
+      "org.neo4j.kernel.impl.factory.GraphDatabaseFacade.getNodeById(GraphDatabaseFacade.java:228)",
       "org.neo4j.server.rest.web.DatabaseActions.node(DatabaseActions.java:170)",
       "org.neo4j.server.rest.web.DatabaseActions.getNode(DatabaseActions.java:219)",
       "org.neo4j.server.rest.web.RestfulGraphDatabase.getNode(RestfulGraphDatabase.java:279)",
@@ -337,7 +337,7 @@ operations for getting properties and relationships.</p>
 </section>
 <section class="section" id="rest-api-delete-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Delete node</h3></div></div></div>
 
-<div class="figure" id="d5e17166"><p class="title"><strong>Figure 21.17. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17265"><p class="title"><strong>Figure 21.17. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Delete-node.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Delete-node.svg" alt="Final-Graph-Delete-node.svg" /></span>
 </a>
@@ -364,7 +364,7 @@ operations for getting properties and relationships.</p>
 
 <p>The relationships on a node has to be deleted before the node can be
 deleted.</p>
-<div class="figure" id="d5e17199"><p class="title"><strong>Figure 21.18. Final Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e17298"><p class="title"><strong>Figure 21.18. Final Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" alt="Final-Graph-Nodes-with-relationships-cannot-be-deleted.svg" /></span>
 </a>

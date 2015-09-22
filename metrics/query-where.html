@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>11.3. Where -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-optional-match.html" title="11.2. Optional Match" /><link rel="next" href="query-start.html" title="11.4. Start" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="11.3. Where" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -84,7 +84,7 @@
 It should not be seen as a filter after the matching is finished.</p>
 <div class="admonitionblock Note"><table><tr><td class="icon"><img alt="[Note]" src="images/icons/admon/note.svg" /></td><td class="content"><b>Note</b><p>In the case of multiple (<code class="literal">OPTIONAL</code>) <code class="literal">MATCH</code> clauses, the predicate in <code class="literal">WHERE</code> is always a part of the patterns in the directly preceding <code class="literal">MATCH</code>.
 Both results and performance may be impacted if the <code class="literal">WHERE</code> is put inside the wrong <code class="literal">MATCH</code> clause.</p></td></tr></table></div>
-<div class="figure" id="d5e8508"><p class="title"><strong>Figure 11.3. Graph</strong></p><div class="figure-contents">
+<div class="figure" id="d5e8573"><p class="title"><strong>Figure 11.3. Graph</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-where-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-where-graph.svg" alt="cypher-where-graph.svg" /></span>
 </a>
@@ -100,7 +100,7 @@ WHERE n.name = 'Peter' XOR (n.age &lt; 30 AND n.name = "Tobias") OR NOT (n.name 
   n.name="Peter")
 RETURN n</pre><p>
 </p>
-<div class="queryresult table" id="d5e8530"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8595"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filter-on-node-label"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on node label</h4></div></div></div>
 
@@ -111,7 +111,7 @@ WHERE n:Swedish
 RETURN n</pre><p>
 </p>
 <p>The "<code class="literal">Andres</code>" node will be returned.</p>
-<div class="queryresult table" id="d5e8564"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8629"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filter-on-node-property"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on node property</h4></div></div></div>
 
@@ -122,7 +122,7 @@ WHERE n.age &lt; 30
 RETURN n</pre><p>
 </p>
 <p>"<code class="literal">Tobias</code>" is returned because he is younger than 30.</p>
-<div class="queryresult table" id="d5e8589"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8654"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filter-on-dynamic-node-property"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on dynamic node property</h4></div></div></div>
 
@@ -138,7 +138,7 @@ WHERE n[toLower({ prop })]&lt; 30
 RETURN n</pre><p>
 </p>
 <p>"<code class="literal">Tobias</code>" is returned because he is younger than 30.</p>
-<div class="queryresult table" id="d5e8617"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8682"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-property-exists"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Property exists</h4></div></div></div>
 
@@ -149,7 +149,7 @@ WHERE HAS (n.belt)
 RETURN n</pre><p>
 </p>
 <p>"<code class="literal">Andres</code>" will be returned because he is the only one with a <code class="literal">belt</code> property.</p>
-<div class="queryresult table" id="d5e8643"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8708"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_regular_expressions"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Regular expressions</h3></div></div></div>
@@ -167,7 +167,7 @@ WHERE n.name =~ 'Tob.*'
 RETURN n</pre><p>
 </p>
 <p>"<code class="literal">Tobias</code>" is returned because his name starts with <code class="literal">Tob</code>.</p>
-<div class="queryresult table" id="d5e8679"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8744"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-escaping-in-regular-expressions"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Escaping in regular expressions</h4></div></div></div>
 
@@ -178,7 +178,7 @@ WHERE n.address =~ 'Sweden\\/Malmo'
 RETURN n</pre><p>
 </p>
 <p>"<code class="literal">Tobias</code>" is returned because his address is in <code class="literal">Sweden/Malmo</code>.</p>
-<div class="queryresult table" id="d5e8704"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8769"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-case-insensitive-regular-expressions"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Case insensitive regular expressions</h4></div></div></div>
 
@@ -189,7 +189,7 @@ WHERE n.name =~ '(?i)ANDR.*'
 RETURN n</pre><p>
 </p>
 <p>"<code class="literal">Andres</code>" is returned because his name starts with <code class="literal">ANDR</code> regardless of case.</p>
-<div class="queryresult table" id="d5e8730"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8795"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="query-where-patterns"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using path patterns in WHERE</h3></div></div></div>
@@ -211,7 +211,7 @@ WHERE others.name IN ['Andres', 'Peter'] AND (tobias)&lt;--(others)
 RETURN others</pre><p>
 </p>
 <p>Nodes that have an outgoing relationship to the "<code class="literal">Tobias</code>" node are returned.</p>
-<div class="queryresult table" id="d5e8770"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>others</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8835"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>others</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filter-on-patterns-using-not"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on patterns using NOT</h4></div></div></div>
 
@@ -222,7 +222,7 @@ WHERE NOT (persons)--&gt;(peter)
 RETURN persons</pre><p>
 </p>
 <p>Nodes that do not have an outgoing relationship to the "<code class="literal">Peter</code>" node are returned.</p>
-<div class="queryresult table" id="d5e8795"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>persons</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8860"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>persons</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filter-on-patterns-with-properties"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on patterns with properties</h4></div></div></div>
 
@@ -233,7 +233,7 @@ WHERE (n)-[:KNOWS]-({ name:'Tobias' })
 RETURN n</pre><p>
 </p>
 <p>Finds all nodes that have a <code class="literal">KNOWS</code> relationship to a node with the name "<code class="literal">Tobias</code>".</p>
-<div class="queryresult table" id="d5e8824"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8889"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filtering-on-relationship-type"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filtering on relationship type</h4></div></div></div>
 
@@ -244,7 +244,7 @@ WHERE n.name='Andres' AND type(r)=~ 'K.*'
 RETURN r</pre><p>
 </p>
 <p>This returns relationships that has a type whose name starts with <code class="literal">K</code>.</p>
-<div class="queryresult table" id="d5e8850"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[1]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[0]{}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8915"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>r</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">:KNOWS[1]{}</code></p></td></tr><tr><td><p><code class="literal">:KNOWS[0]{}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_collections"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Collections</h3></div></div></div>
@@ -258,7 +258,7 @@ WHERE a.name IN ["Peter", "Tobias"]
 RETURN a</pre><p>
 </p>
 <p>This query shows how to check if a property exists in a literal collection.</p>
-<div class="queryresult table" id="d5e8880"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8945"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_missing_properties_and_values"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Missing properties and values</h3></div></div></div>
@@ -272,7 +272,7 @@ WHERE n.belt = 'white'
 RETURN n</pre><p>
 </p>
 <p>Only nodes with white belts are returned.</p>
-<div class="queryresult table" id="d5e8912"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e8977"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-default-to-true-if-property-is-missing"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Default to true if property is missing</h4></div></div></div>
 
@@ -283,7 +283,7 @@ WHERE n.belt = 'white' OR n.belt IS NULL RETURN n
 ORDER BY n.name</pre><p>
 </p>
 <p>This returns all nodes, even those without the belt property.</p>
-<div class="queryresult table" id="d5e8936"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9001"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>3 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[2]{name:"Andres",age:36,belt:"white"}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-filter-on-null"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Filter on NULL</h4></div></div></div>
 
@@ -293,7 +293,7 @@ ORDER BY n.name</pre><p>
 WHERE person.name = 'Peter' AND person.belt IS NULL RETURN person</pre><p>
 </p>
 <p>Nodes that have name <code class="literal">Peter</code> but no belt property are returned.</p>
-<div class="queryresult table" id="d5e8972"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9037"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>person</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 <section class="section" id="_using_ranges"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Using ranges</h3></div></div></div>
@@ -307,7 +307,7 @@ WHERE a.name &gt;= 'Peter'
 RETURN a</pre><p>
 </p>
 <p>Nodes having a name property lexicographically greater than or equal to <span class="emphasis"><em>Peter</em></span> are returned.</p>
-<div class="queryresult table" id="d5e9002"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9067"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>2 rows</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{address:"Sweden/Malmo",name:"Tobias",age:25}</code></p></td></tr><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="where-composite-range"><div xmlns="" class="titlepage"><div><div><h4 xmlns="http://www.w3.org/1999/xhtml" class="title">Composite range</h4></div></div></div>
 
@@ -318,7 +318,7 @@ WHERE a.name &gt; 'Andres' AND a.name &lt; 'Tobias'
 RETURN a</pre><p>
 </p>
 <p>Nodes having a name property lexicographically between <span class="emphasis"><em>Andres</em></span> and <span class="emphasis"><em>Tobias</em></span> are returned.</p>
-<div class="queryresult table" id="d5e9031"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e9096"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>a</th></tr></thead><tfoot><tr><th>1 row</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{email:"peter_n@example.com",name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 </section>

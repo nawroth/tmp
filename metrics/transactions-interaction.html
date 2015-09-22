@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>18.1. Interaction cycle -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="transactions.html" title="Chapter 18. Transaction Management" /><link rel="next" href="transactions-isolation.html" title="18.2. Isolation levels" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="18.1. Interaction cycle" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -105,7 +105,7 @@ Finishing the transaction will perform commit or rollback depending on the succe
 <div class="admonitionblock Caution"><table><tr><td class="icon"><img alt="[Caution]" src="images/icons/admon/caution.svg" /></td><td class="content"><b>Caution</b><p><span class="emphasis"><em>All modifications performed in a transaction are kept in memory.</em></span>
 This means that very large updates have to be split into several top level transactions to avoid running out of memory.
 It must be a top level transaction since splitting up the work in many nested transactions will just add all the work to the top level transaction.</p></td></tr></table></div>
-<p>In an environment that makes use of <span class="emphasis"><em><a id="d5e15000" class="indexterm"></a>thread pooling</em></span> other errors may occur when failing to finish a transaction properly.
+<p>In an environment that makes use of <span class="emphasis"><em><a id="d5e15081" class="indexterm"></a>thread pooling</em></span> other errors may occur when failing to finish a transaction properly.
 Consider a leaked transaction that did not get finished properly.
 It will be tied to a thread and when that thread gets scheduled to perform work starting a new (what looks to be a) top level transaction it will actually be a nested transaction.
 If the leaked transaction state is “marked for rollback” (which will happen if a deadlock was detected) no more work can be performed on that transaction.

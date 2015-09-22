@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.3. Set -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-merge.html" title="12.2. Merge" /><link rel="next" href="query-delete.html" title="12.4. Delete" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.3. Set" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -96,7 +96,7 @@ SET n.surname = 'Taylor'
 RETURN n</pre><p>
 </p>
 <p>The newly changed node is returned by the query.</p>
-<div class="queryresult table" id="d5e10619"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10689"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{surname:"Taylor",name:"Andres",age:36,hungry:true}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-remove-a-property"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Remove a property</h3></div></div></div>
@@ -108,7 +108,7 @@ it using the <code class="literal">SET</code> command. One example is if the pro
 SET n.name = NULL RETURN n</pre><p>
 </p>
 <p>The node is returned by the query, and the name property is now missing.</p>
-<div class="queryresult table" id="d5e10647"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10717"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{hungry:true,age:36}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-copying-properties-between-nodes-and-relationships"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Copying properties between nodes and relationships</h3></div></div></div>
@@ -121,7 +121,7 @@ SET at = pn
 RETURN at, pn</pre><p>
 </p>
 <p>The Andres node has had all it’s properties replaced by the properties in the Peter node.</p>
-<div class="queryresult table" id="d5e10673"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>at</th><th>pn</th></tr></thead><tfoot><tr><th colspan="2">1 row
+<div class="queryresult table" id="d5e10743"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>at</th><th>pn</th></tr></thead><tfoot><tr><th colspan="2">1 row
 </th></tr><tr><th colspan="2">Properties set: 3</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Peter",age:34}</code></p></td><td><p><code class="literal">Node[2]{name:"Peter",age:34}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-adding-properties-from-maps"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Adding properties from maps</h3></div></div></div>
@@ -132,7 +132,7 @@ to only add properties, and not remove any of the existing properties on the gra
 </p><pre class="programlisting" data-lang="cypher">MATCH (peter { name: 'Peter' })
 SET peter += { hungry: TRUE , position: 'Entrepreneur' }</pre><p>
 </p>
-<div class="queryresult table" id="d5e10704"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10774"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-a-property-using-a-parameter"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set a property using a parameter</h3></div></div></div>
 
@@ -148,7 +148,7 @@ SET n.surname = { surname }
 RETURN n</pre><p>
 </p>
 <p>The Andres node has got an surname added.</p>
-<div class="queryresult table" id="d5e10728"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10798"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{surname:"Taylor",name:"Andres",age:36,hungry:true}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-all-properties-using-a-parameter"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set all properties using a parameter</h3></div></div></div>
@@ -168,7 +168,7 @@ SET n = { props }
 RETURN n</pre><p>
 </p>
 <p>The Andres node has had all it’s properties replaced by the properties in the <code class="literal">props</code> parameter.</p>
-<div class="queryresult table" id="d5e10758"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10828"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[3]{name:"Andres",position:"Developer"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-multiple-properties-using-one-set-clause"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set multiple properties using one SET clause</h3></div></div></div>
@@ -178,7 +178,7 @@ RETURN n</pre><p>
 </p><pre class="programlisting" data-lang="cypher">MATCH (n { name: 'Andres' })
 SET n.position = 'Developer', n.surname = 'Taylor'</pre><p>
 </p>
-<div class="queryresult table" id="d5e10782"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e10852"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 2</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-a-label-on-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set a label on a node</h3></div></div></div>
 
@@ -189,7 +189,7 @@ SET n :German
 RETURN n</pre><p>
 </p>
 <p>The newly labeled node is returned by the query.</p>
-<div class="queryresult table" id="d5e10803"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10873"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels added: 1</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[1]{name:"Stefan"}</code></p></td></tr></tbody></table></div></div>
 </section>
 <section class="section" id="set-set-multiple-labels-on-a-node"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Set multiple labels on a node</h3></div></div></div>
@@ -201,7 +201,7 @@ SET n :Swedish:Bossman
 RETURN n</pre><p>
 </p>
 <p>The newly labeled node is returned by the query.</p>
-<div class="queryresult table" id="d5e10830"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
+<div class="queryresult table" id="d5e10900"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><thead><tr><th>n</th></tr></thead><tfoot><tr><th>1 row
 </th></tr><tr><th>Labels added: 2</th></tr></tfoot><tbody><tr><td><p><code class="literal">Node[0]{name:"Emil"}</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>

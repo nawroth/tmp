@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>21.21. Unique Indexing -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="rest-api-indexes.html" title="21.20. Legacy indexing" /><link rel="next" href="rest-api-wadl-support.html" title="21.22. WADL Support" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="21.21. Unique Indexing" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -96,7 +96,7 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481706_1?uniqueness=get_or_create</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451814_1?uniqueness=get_or_create</code>
 
 </li><li class="listitem">
 
@@ -126,7 +126,7 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481706_1/name/Tobias/368</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451814_1/name/Tobias/368</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -152,7 +152,7 @@ URL Parameter <code class="literal">uniqueness=create_or_fail</code>: Create a n
     "sequence" : 1,
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/index_1442410481706_1/name/Tobias/368"
+  "indexed" : "http://localhost:7474/db/data/index/node/index_1442935451814_1/name/Tobias/368"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-node-existing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique node (existing)</h3></div></div></div>
@@ -164,7 +164,7 @@ already existing node.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481176_1?uniqueness=get_or_create</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451389_1?uniqueness=get_or_create</code>
 
 </li><li class="listitem">
 
@@ -194,7 +194,7 @@ already existing node.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481176_1/name/Peter/358</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451389_1/name/Peter/358</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -220,7 +220,7 @@ already existing node.</p>
     "sequence" : 1,
     "name" : "Peter"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/index_1442410481176_1/name/Peter/358"
+  "indexed" : "http://localhost:7474/db/data/index/node/index_1442935451389_1/name/Peter/358"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-node-or-return-fail-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique node or return fail (create)</h3></div></div></div>
@@ -231,7 +231,7 @@ example, no existing indexed node is found and a new node is created.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481671_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451771_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -261,7 +261,7 @@ example, no existing indexed node is found and a new node is created.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481671_1/name/Tobias/367</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451771_1/name/Tobias/367</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -287,7 +287,7 @@ example, no existing indexed node is found and a new node is created.</p>
     "sequence" : 1,
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/index_1442410481671_1/name/Tobias/367"
+  "indexed" : "http://localhost:7474/db/data/index/node/index_1442935451771_1/name/Tobias/367"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-node-or-return-fail-fail"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique node or return fail (fail)</h3></div></div></div>
@@ -299,7 +299,7 @@ is found and an error is returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442410480921_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451134_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -351,7 +351,7 @@ is found and an error is returned.</p>
     "sequence" : 1,
     "name" : "Peter"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/index_1442410480921_1/name/Peter/352"
+  "indexed" : "http://localhost:7474/db/data/index/node/index_1442935451134_1/name/Peter/352"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-node-to-unique-index-not-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing node to unique index (not indexed)</h3></div></div></div>
@@ -362,7 +362,7 @@ index.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481576_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451646_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -389,7 +389,7 @@ index.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481576_1/some-key/some%20value/363</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451646_1/some-key/some%20value/363</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -412,7 +412,7 @@ index.</p>
     "labels" : [ ]
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/node/index_1442410481576_1/some-key/some%20value/363"
+  "indexed" : "http://localhost:7474/db/data/index/node/index_1442935451646_1/some-key/some%20value/363"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-node-to-unique-index-already-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing node to unique index (already indexed)</h3></div></div></div>
@@ -422,7 +422,7 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442410481640_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/node/index_1442935451732_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -470,7 +470,7 @@ as we have set the uniqueness to <code class="literal">create_or_fail</code>.</p
   "data" : {
     "some-key" : "some value"
   },
-  "indexed" : "http://localhost:7474/db/data/index/node/index_1442410481640_1/some-key/some%20value/365"
+  "indexed" : "http://localhost:7474/db/data/index/node/index_1442935451732_1/some-key/some%20value/365"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-relationship-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique relationship (create)</h3></div></div></div>
@@ -482,7 +482,7 @@ If not, a new relationship will be created.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492542_1/?uniqueness=get_or_create</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460954_1/?uniqueness=get_or_create</code>
 
 </li><li class="listitem">
 
@@ -511,7 +511,7 @@ If not, a new relationship will be created.</p>
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492542_1/name/Tobias/7</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460954_1/name/Tobias/7</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -529,7 +529,7 @@ If not, a new relationship will be created.</p>
   "data" : {
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442410492542_1/name/Tobias/7"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442935460954_1/name/Tobias/7"
 }</pre>
 </section>
 <section class="section" id="rest-api-get-or-create-unique-relationship-existing"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Get or create unique relationship (existing)</h3></div></div></div>
@@ -540,7 +540,7 @@ existing relationship returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492598_1?uniqueness=get_or_create</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460986_1?uniqueness=get_or_create</code>
 
 </li><li class="listitem">
 
@@ -581,7 +581,7 @@ existing relationship returned.</p>
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442410492598_1/name/Peter/8"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442935460986_1/name/Peter/8"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-relationship-or-return-fail-create"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique relationship or return fail (create)</h3></div></div></div>
@@ -592,7 +592,7 @@ example, no existing relationship is found and a new relationship is created.</p
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492677_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935461080_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -621,7 +621,7 @@ example, no existing relationship is found and a new relationship is created.</p
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492677_1/name/Tobias/11</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935461080_1/name/Tobias/11</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -639,7 +639,7 @@ example, no existing relationship is found and a new relationship is created.</p
   "data" : {
     "name" : "Tobias"
   },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442410492677_1/name/Tobias/11"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442935461080_1/name/Tobias/11"
 }</pre>
 </section>
 <section class="section" id="rest-api-create-a-unique-relationship-or-return-fail-fail"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Create a unique relationship or return fail (fail)</h3></div></div></div>
@@ -650,7 +650,7 @@ example, an existing relationship is found and an error is returned.</p>
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492421_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460860_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -691,7 +691,7 @@ example, an existing relationship is found and an error is returned.</p>
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442410492421_1/name/Peter/3"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442935460860_1/name/Peter/3"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-relationship-to-a-unique-index-not-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing relationship to a unique index (not indexed)</h3></div></div></div>
@@ -703,7 +703,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492388_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460831_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -730,7 +730,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 
 </li><li class="listitem">
 
-<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492388_1/name/Peter/2</code>
+<span class="strong"><strong><code class="literal">Location:</code></strong></span> <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460831_1/name/Peter/2</code>
 
 </li></ul></div>
 <pre class="programlisting" data-lang="javascript">{
@@ -746,7 +746,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442410492388_1/name/Peter/2"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442935460831_1/name/Peter/2"
 }</pre>
 </section>
 <section class="section" id="rest-api-add-an-existing-relationship-to-a-unique-index-already-indexed"><div xmlns="" class="titlepage"><div><div><h3 xmlns="http://www.w3.org/1999/xhtml" class="title">Add an existing relationship to a unique index (already indexed)</h3></div></div></div>
@@ -754,7 +754,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
 <p><span class="emphasis"><em>Example request</em></span></p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
 
-<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442410492478_1?uniqueness=create_or_fail</code>
+<span class="strong"><strong><code class="literal">POST</code></strong></span>  <code class="literal">http://localhost:7474/db/data/index/relationship/index_1442935460892_1?uniqueness=create_or_fail</code>
 
 </li><li class="listitem">
 
@@ -793,7 +793,7 @@ If not, an <code class="literal">HTTP 409</code> (conflict) status will be retur
     "type" : "KNOWS"
   },
   "data" : { },
-  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442410492478_1/name/Peter/4"
+  "indexed" : "http://localhost:7474/db/data/index/relationship/index_1442935460892_1/name/Peter/4"
 }</pre>
 </section>
 </section>

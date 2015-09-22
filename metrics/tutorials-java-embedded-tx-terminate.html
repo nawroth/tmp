@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>33.13. Terminating a running transaction -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="tutorials-java-embedded-unique-nodes.html" title="33.12. How to create unique nodes" /><link rel="next" href="tutorials-cypher-java.html" title="33.14. Execute Cypher Queries from Java" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="33.13. Terminating a running transaction" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -119,7 +119,7 @@ This is done from a separate thread.</p>
 <p>Running this will execute the long running transaction for about one second and prints the maximum depth of the tree that was created before the transaction was terminated.
 No changes are actually made to the data — because the transaction has been terminated, the end result is as if no operations were performed.</p>
 <p><strong>Example output </strong>
-</p><pre class="programlisting" data-lang="plain">Created tree up to depth 16 in 1 sec</pre><p>
+</p><pre class="programlisting" data-lang="plain">Created tree up to depth 17 in 1 sec</pre><p>
 </p>
 <p>Finally, let’s shut down the database again.</p>
 <pre class="programlisting" data-lang="java">graphDb.shutdown();

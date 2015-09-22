@@ -3,7 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>12.6. Foreach -  - The Neo4j Manual v2.3-SNAPSHOT</title><meta name="generator" content="DocBook XSL Stylesheets V1.78.1" /><link rel="prev" href="query-remove.html" title="12.5. Remove" /><link rel="next" href="query-create-unique.html" title="12.7. Create Unique" /><link rel="copyright" href="ln-d5e39.html" title="License: Creative Commons 3.0" /><meta name="Section-title" content="12.6. Foreach" /><script type="text/javascript">
       //The id for tree cookie
-      var treeCookieId = "treeview-73202";
+      var treeCookieId = "treeview-74899";
       var language = "en";
       var w = new Object();
       //Localization
@@ -85,7 +85,7 @@ It allows you to do updating commands on elements in a collection — a path
 This means that  if you <code class="literal">CREATE</code> a node identifier inside of a <code class="literal">FOREACH</code>, you will <span class="emphasis"><em>not</em></span> be able to use it outside of the foreach statement, unless you match to find it.</p>
 <p>Inside of the <code class="literal">FOREACH</code> parentheses, you can do any of the updating commands — <code class="literal">CREATE</code>, <code class="literal">CREATE UNIQUE</code>, <code class="literal">MERGE</code>, <code class="literal">DELETE</code>, and <code class="literal">FOREACH</code>.</p>
 <p>If you want to execute an additional <code class="literal">MATCH</code> for each element in a collection then <code class="literal">UNWIND</code> (see <a class="xref" href="query-unwind.html" title="10.6. Unwind">Section 10.6, “Unwind”</a>) would be a more appropriate command.</p>
-<div class="figure" id="d5e11044"><p class="title"><strong>Figure 12.2. Data for the examples</strong></p><div class="figure-contents">
+<div class="figure" id="d5e11114"><p class="title"><strong>Figure 12.2. Data for the examples</strong></p><div class="figure-contents">
 <a class="ulink" href="images/cypher-foreach-graph.svg" target="_blank">
 <span class="inlinemediaobject"><img src="images/cypher-foreach-graph.svg" alt="cypher-foreach-graph.svg" /></span>
 </a>
@@ -99,7 +99,7 @@ WHERE begin.name='A' AND END .name='D'
 FOREACH (n IN nodes(p)| SET n.marked = TRUE )</pre><p>
 </p>
 <p>Nothing is returned from this query, but four properties are set.</p>
-<div class="queryresult table" id="d5e11061"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
+<div class="queryresult table" id="d5e11131"><p class="title"><strong>Result</strong></p><div class="queryresult table-contents"><table cellspacing="0" cellpadding="0"><tfoot><tr><th>Properties set: 4</th></tr></tfoot><tbody><tr><td class="emptyresult"><p><code class="literal">(empty result)</code></p></td></tr></tbody></table></div></div>
 </section>
 </section>
 
