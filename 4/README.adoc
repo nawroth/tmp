@@ -1,0 +1,48 @@
+= DocGist
+Anders Nawroth
+
+DocGist is a URL proxy tool that converts AsciiDoc documents fetched from Gists (http://gist.github.com), GitHub repositories, Dropbox folders and other sources to HTML.
+The conversion to HTML is performed in the browser (client-side) using the https://github.com/asciidoctor/asciidoctor.js[Asciidoctor.js] JavaScript library
+
+NOTE: DocGist is a hosted alternative to the Asciidoctor.js Live Preview extension for Chrome.
+
+== Hosted Demo
+
+See it live at http://gist.asciidoctor.org.
+
+== Run Locally
+
+To run DocGist locally, make it available somewhere on `localhost`.
+First, check out the code:
+
+[source,shell]
+git clone git@github.com:asciidoctor/docgist.git
+cd docgist
+
+With Ruby, you can then do something like this:
+
+[source,ruby]
+ruby -run -e httpd . -p 9090
+
+With Python, there's this:
+
+[source,python]
+python -m SimpleHTTPServer
+
+If you have Apache httpd running on your machine, you can for example add a symlink along the lines of the following to make it serve DocGist:
+
+[source,shell]
+sudo ln -s /home/anders/git/docgist /var/www/docgist
+
+The above makes DocGist available at http://localhost/docgist/.
+
+== History
+
+The original idea and code for DocGist came from http://gist.neo4j.org[GraphGist].
+GraphGist is an interactive documentation tool for the Neo4j database and Cypher query language.
+Both tools were created by Anders Nawroth, an engineer at Neo Technology.
+
+== Copyright and License
+
+Copyright (C) 2013-2014 Anders Nawroth and the Asciidoctor Project.
+Free use of this software is granted under the terms of the Apache License, Version 2.0.

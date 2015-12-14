@@ -1,0 +1,37 @@
+= DocGist
+
+DocGist is a URL proxy tool that converts http://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc] documents fetched from Gists (http://gist.github.com), GitHub repositories, Dropbox folders and other sources to HTML.
+The conversion to HTML is performed in the browser (client-side) using the https://github.com/asciidoctor/asciidoctor.js[Asciidoctor.js] JavaScript library.
+DocGist can render documents located anywhere, as long as the host permits cross-domain access.
+
+[NOTE]
+DocGist uses the http://asciidoctor.org/news/2014/08/12/asciidoctor-1-5-0-released/[latest release (1.5.2)] of Asciidoctor.
+If you want to use the syntax of older versions, add `:compat-mode:` to the document header.
+There's more information on this in the link:./?github-asciidoctor%2Fasciidoctor.org%2F%2Fdocs%2Fmigration.adoc[migration guide].
+
+The original idea and code for DocGist came from http://gist.neo4j.org[GraphGist].
+GraphGist is an interactive documentation tool for the Neo4j database and Cypher query language.
+
+== How To Use
+
+* Create/locate a gist on GitHub (or use a file in Dropbox).
+** Write text using AsciiDoc syntax in it.
+** Save it.
+* Enter the URL (or id) of the gist in the form on top of this page and hit Enter on your keyboard.
+* The page is rendered.
+* Share the URL with others so they can read the page.
+
+== Tips and tricks
+
+Links to other DocGists can use this syntax: `+link:./?5897167[DocGist intro]+` which renders as link:./?5897167[DocGist intro].
+This makes things easier in case you run DocGist locally to fiddle with the "`backend`" (it's a frontend really).
+
+You can view the source Gist of this page by clicking on the green button in the navbar.
+
+How about some UML?
+The following image is included using the syntax `image::http://yuml.me/c9ce39b0.png[]`.
+
+image::http://yuml.me/c9ce39b0.png[]
+
+The URL is a reference to a yUML image.
+yUML is tool for creating UML diagrams online.
