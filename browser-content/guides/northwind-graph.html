@@ -1,0 +1,551 @@
+<style type="text/css" media="screen">
+  .imageblock .content img {
+    max-width: 900px;
+    max-height: 300px;
+  }
+
+  article.asciidoc .deck h3 {
+    display: block !important;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
+
+  .listingblock {
+    margin: 8px;
+  }
+
+  article.asciidoc .pull-bottom {
+    position: relative;
+    bottom: 1em;
+  }
+
+  /* Runnable content */
+
+  article.asciidoc p > code.runnable:before {
+    content: "\f144";
+    color: #428bca;
+    font-family: FontAwesome;
+    padding-right: 4px;
+  }
+
+  /* Labeled lists */
+
+  .hdlist > .title {
+    line-height: 1.45;
+    color: #7a2518;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+
+  .hdlist > table, .colist > table {
+    border: 0;
+    background: none;
+  }
+
+  .hdlist > table > tbody > tr, .colist > table > tbody > tr {
+    background: none;
+  }
+
+  td.hdlist1, td.hdlist2 {
+    vertical-align: top;
+    padding: 0 .625em;
+  }
+
+  td.hdlist1 {
+    font-weight: bold;
+    padding-bottom: 1.25em;
+  }
+
+  article.asciidoc div.hdlist table tr.even, article.asciidoc div.hdlist table tr.alt, article.asciidoc div.hdlist
+  table tr:nth-of-type(even) {
+    background: none;
+  }
+
+  /* Lists */
+
+  article.asciidoc div.ulist > ul div.ulist > ul {
+    list-style-type: circle;
+  }
+
+  /* Admonition Blocks */
+  .admonitionblock td.icon [class^="fa icon-"] {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    cursor: default;
+  }
+
+  .admonitionblock td.icon .icon-note:before {
+    content: "\f05a";
+    color: #19407c;
+  }
+
+  .admonitionblock td.icon .icon-tip:before {
+    content: "\f0eb";
+    text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+    color: #111;
+  }
+
+  .admonitionblock td.icon .icon-warning:before {
+    content: "\f071";
+    color: #bf6900;
+  }
+
+  .admonitionblock td.icon .icon-caution:before {
+    content: "\f06d";
+    color: #bf3400;
+  }
+
+  .admonitionblock td.icon .icon-important:before {
+    content: "\f06a";
+    color: #bf0000;
+  }
+
+  .admonitionblock > table {
+    border-collapse: separate;
+    border: 0;
+    background: none;
+    width: 100%;
+  }
+
+  .admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px;
+  }
+
+  .admonitionblock > table td.icon img {
+    max-width: none;
+  }
+
+  .admonitionblock > table td.icon .title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.25em;
+    border-left: 1px solid #ddddd8;
+    font-size: 1.1539em;
+    color: rgba(0, 0, 0, .6);
+  }
+
+  .admonitionblock > table td.content > :last-child > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* kbd */
+  article.asciidoc kbd {
+    display: inline-block;
+    color: rgba(0, 0, 0, 1);
+    font-size: .75em;
+    line-height: 1.4;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #fff inset;
+    margin: -.15em .15em 0 .15em;
+    padding: .2em .6em .2em .5em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  article.asciidoc .keyseq kbd:first-child {
+    margin-left: 0;
+  }
+
+  article.asciidoc .keyseq kbd:last-child {
+    margin-right: 0;
+  }
+
+  /* Tables */
+  article.asciidoc table thead {
+    background: #f7f8f7;
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table thead tr td {
+    padding: .5em .625em .625em;
+    color: rgba(0, 0, 0, .8);
+    text-align: left
+  }
+
+  article.asciidoc table tr th, article.asciidoc table tr td {
+    padding: .5625em .625em;
+    font-size: inherit;
+    color: rgba(0, 0, 0, .8)
+  }
+
+  article.asciidoc table tr.even, article.asciidoc table tr.alt, article.asciidoc table tr:nth-of-type(even) {
+    background: #f8f8f7
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table tbody tr td, article.asciidoc table tr td {
+    display: table-cell;
+    line-height: 1.6
+  }
+
+  table.tableblock {
+    max-width: 100%;
+    border-collapse: separate
+  }
+
+  table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
+    margin-bottom: 0
+  }
+
+  table.spread {
+    width: 100%
+  }
+
+  table.tableblock, th.tableblock, td.tableblock {
+    border: 0 solid #dedede
+  }
+
+  th.halign-left, td.halign-left {
+    text-align: left
+  }
+
+  th.halign-right, td.halign-right {
+    text-align: right
+  }
+
+  th.halign-center, td.halign-center {
+    text-align: center
+  }
+
+  th.valign-top, td.valign-top {
+    vertical-align: top
+  }
+
+  th.valign-bottom, td.valign-bottom {
+    vertical-align: bottom
+  }
+
+  th.valign-middle, td.valign-middle {
+    vertical-align: middle
+  }
+
+  article.asciidoc table thead th {
+    font-size: 1.2em;
+  }
+
+  article.asciidoc tbody tr th {
+    background: #f7f8f7;
+  }
+
+  p.tableblock > code:only-child {
+    background: none;
+    padding: 0
+  }
+</style>
+<article class="guide asciidoc">
+  <carousel class="deck container-fluid">
+    
+    
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Northwind Graph</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>From RDBMS to Graph, using a classic dataset</p>
+</div>
+<div class="paragraph">
+<p>The<em>Northwind Graph</em> demonstrates how to migrate from a relational
+database to Neo4j. The transformation is iterative and deliberate,
+emphasizing the conceptual shift from relational tables to the nodes and
+relationships of a graph.</p>
+</div>
+<div class="paragraph">
+<p>This guide will show you how to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Load: create data from external CSV files</p>
+</li>
+<li>
+<p>Index: index nodes based on label</p>
+</li>
+<li>
+<p>Relate: transform foreign key references into data relationships</p>
+</li>
+<li>
+<p>Promote: transform join records into relationships</p>
+</li>
+</ol>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Product Catalog</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Northwind sells food products in a few categories, provided by
+suppliers. Let&#8217;s start by loading the product catalog tables.</p>
+</div>
+<div class="paragraph">
+<p>The load statements to the right require public internet
+access.<code>LOAD CSV</code> will retrieve a CSV file from a valid URL, applying a
+Cypher statement to each row using a named map (here we&#8217;re using the
+name <code>row</code>).</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/northwind/product-category-supplier.png" alt="image"></span></p>
+</div>
+<hr>
+<div class="paragraph">
+<p>:help cypher LOAD CSV</p>
+</div>
+
+
+    <div class="paragraph">
+<p>code,pre-scrollable,code,runnable--------------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/products.csv" AS row
+CREATE (n:Product)
+SET n = row,
+  n.unitPrice = toFloat(row.unitPrice),
+  n.unitsInStock = toInt(row.unitsInStock), n.unitsOnOrder = toInt(row.unitsOnOrder),
+  n.reorderLevel = toInt(row.reorderLevel), n.discontinued = (row.discontinued &lt;&gt; "0")</p>
+</div>
+
+<div class="listingblock">
+  
+  <div class="content">
+    
+        <pre>code,pre-scrollable,code,runnable----------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/categories.csv" AS row
+CREATE (n:Category)
+SET n = row
+----------------------------------------------------------------------------------
+
+code,pre-scrollable,code,runnable---------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/suppliers.csv" AS row
+CREATE (n:Supplier)
+SET n = row
+---------------------------------------------------------------------------------
+
+[[create-indexes]]
+==== Create indexes
+
+code,pre-scrollable,code,runnable-----------------------------------
+code,pre-scrollable,code,runnable
+CREATE INDEX ON :Product(productID)
+-----------------------------------
+
+code,pre-scrollable,code,runnable-------------------------------------
+code,pre-scrollable,code,runnable
+CREATE INDEX ON :Category(categoryID)
+-------------------------------------
+
+code,pre-scrollable,code,runnable-------------------------------------
+code,pre-scrollable,code,runnable
+CREATE INDEX ON :Supplier(supplierID)
+-------------------------------------
+
+[[product-catalog-graph]]
+=== Product Catalog Graph
+
+The products, categories and suppliers are related through foreign key
+references. Let's promote those to data relationships to realize the
+graph.
+
+image:images/northwind/product-graph.png[image]
+
+'''''
+
+:help cypher MATCH
+
+[[create-data-relationships]]
+==== Create data relationships
+
+code,pre-scrollable,code,runnable---------------------------------
+code,pre-scrollable,code,runnable
+MATCH (p:Product),(c:Category)
+WHERE p.categoryID = c.categoryID
+CREATE (p)-[:PART_OF]-&gt;(c)
+---------------------------------
+
+Note you only need to compare property values like this when first
+creating relationships
+
+Calculate join, materialize relationship.
+(See http://neo4j.com/developer/guide-importing-data-and-etl[  importing
+guide] for more details)
+
+code,pre-scrollable,code,runnable---------------------------------
+code,pre-scrollable,code,runnable
+MATCH (p:Product),(s:Supplier)
+WHERE p.supplierID = s.supplierID
+CREATE (s)-[:SUPPLIES]-&gt;(p)
+---------------------------------
+
+Note you only need to compare property values like this when first
+creating relationships
+
+[[querying-product-catalog-graph]]
+=== Querying Product Catalog Graph
+
+Lets try some queries using patterns.
+
+image:images/northwind/product-graph.png[image]
+
+'''''
+
+:help cypher MATCH
+
+[[query-using-patterns]]
+==== Query using patterns
+
+code,pre-scrollable,code,runnable-------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+MATCH (s:Supplier)--&gt;(:Product)--&gt;(c:Category)
+RETURN s.companyName as Company, collect(distinct c.categoryName) as Categories
+-------------------------------------------------------------------------------
+
+List the product categories provided by each supplier.
+
+code,pre-scrollable,code,runnable-----------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+MATCH (c:Category {categoryName:"Produce"})&lt;--(:Product)&lt;--(s:Supplier)
+RETURN DISTINCT s.companyName as ProduceSuppliers
+-----------------------------------------------------------------------
+
+Find the produce suppliers.
+
+[[customer-orders]]
+=== Customer Orders
+
+Northwind customers place orders which may detail multiple
+products.image:images/northwind/customer-orders.png[image]
+
+'''''
+
+:help cypher LOAD CSV
+
+[[load-and-index-records]]
+==== Load and index records
+
+code,pre-scrollable,code,runnable---------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/customers.csv" AS row
+CREATE (n:Customer)
+SET n = row
+---------------------------------------------------------------------------------
+
+code,pre-scrollable,code,runnable------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/orders.csv" AS row
+CREATE (n:Order)
+SET n = row
+------------------------------------------------------------------------------
+
+code,pre-scrollable,code,runnable-------------------------------------
+code,pre-scrollable,code,runnable
+CREATE INDEX ON :Customer(customerID)
+-------------------------------------
+
+code,pre-scrollable,code,runnable-------------------------------
+code,pre-scrollable,code,runnable
+CREATE INDEX ON :Order(orderID)
+-------------------------------
+
+[[create-data-relationships-1]]
+==== Create data relationships
+
+code,pre-scrollable,code,runnable---------------------------------
+code,pre-scrollable,code,runnable
+MATCH (c:Customer),(o:Order)
+WHERE c.customerID = o.customerID
+CREATE (c)-[:PURCHASED]-&gt;(o)
+---------------------------------
+
+Note you only need to compare property values like this when first
+creating relationships
+
+[[customer-order-graph]]
+=== Customer Order Graph
+
+Notice that Order Details are always part of an Order and that
+they__relate__ the Order to a Product — they're a join table. Join
+tables are always a sign of a data relationship, indicating shared
+information between two other records.
+
+Here, we'll directly promote each OrderDetail record into a relationship
+in the graph.image:images/northwind/order-graph.png[image]
+
+'''''
+
+:help cypher LOAD CSV
+
+[[load-and-index-records-1]]
+==== Load and index records
+
+code,pre-scrollable,code,runnable-------------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+LOAD CSV WITH HEADERS FROM "http://data.neo4j.com/northwind/order-details.csv" AS row
+MATCH (p:Product), (o:Order)
+WHERE p.productID = row.productID AND o.orderID = row.orderID
+CREATE (o)-[details:ORDERS]-&gt;(p)
+SET details = row,
+  details.quantity = toInt(row.quantity)
+-------------------------------------------------------------------------------------
+
+Note you only need to compare property values like this when first
+creating relationships
+
+[[query-using-patterns-1]]
+==== Query using patterns
+
+code,pre-scrollable,code,runnable-------------------------------------------------------------------------------------------
+code,pre-scrollable,code,runnable
+MATCH (cust:Customer)-[:PURCHASED]-&gt;(:Order)-[o:ORDERS]-&gt;(p:Product),
+      (p)-[:PART_OF]-&gt;(c:Category {categoryName:"Produce"})
+RETURN DISTINCT cust.contactName as CustomerName, SUM(o.quantity) AS TotalProductsPurchased
+-------------------------------------------------------------------------------------------
+
+[[northwind-graph-1]]
+==== Northwind Graph
+
+ +
+
+[[next-steps]]
+=== Next steps
+
+[[more-code]]
+=== More code
+
+* Movie Graph - actors &amp; movies
+* Query Templates - common ad-hoc queries
+* Cypher - query language fundamentals
+
+[[reference]]
+=== Reference
+
+* http://neo4j.com/developer/guide-importing-data-and-etl/[Full
+Northwind import example]
+* http://neo4j.com/developer[Developer resources]
+* http://neo4j.com/docs/%7B%7Bneo4j.version%20%7C%20neo4jdoc%20%7D%7D/[Neo4j
+Manual]</pre>
+    
+  </div>
+</div>
+
+        </div>
+      </div>
+    </slide>
+
+  </carousel>
+</article>

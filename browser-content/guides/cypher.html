@@ -1,0 +1,618 @@
+<style type="text/css" media="screen">
+  .imageblock .content img {
+    max-width: 900px;
+    max-height: 300px;
+  }
+
+  article.asciidoc .deck h3 {
+    display: block !important;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
+
+  .listingblock {
+    margin: 8px;
+  }
+
+  article.asciidoc .pull-bottom {
+    position: relative;
+    bottom: 1em;
+  }
+
+  /* Runnable content */
+
+  article.asciidoc p > code.runnable:before {
+    content: "\f144";
+    color: #428bca;
+    font-family: FontAwesome;
+    padding-right: 4px;
+  }
+
+  /* Labeled lists */
+
+  .hdlist > .title {
+    line-height: 1.45;
+    color: #7a2518;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+
+  .hdlist > table, .colist > table {
+    border: 0;
+    background: none;
+  }
+
+  .hdlist > table > tbody > tr, .colist > table > tbody > tr {
+    background: none;
+  }
+
+  td.hdlist1, td.hdlist2 {
+    vertical-align: top;
+    padding: 0 .625em;
+  }
+
+  td.hdlist1 {
+    font-weight: bold;
+    padding-bottom: 1.25em;
+  }
+
+  article.asciidoc div.hdlist table tr.even, article.asciidoc div.hdlist table tr.alt, article.asciidoc div.hdlist
+  table tr:nth-of-type(even) {
+    background: none;
+  }
+
+  /* Lists */
+
+  article.asciidoc div.ulist > ul div.ulist > ul {
+    list-style-type: circle;
+  }
+
+  /* Admonition Blocks */
+  .admonitionblock td.icon [class^="fa icon-"] {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    cursor: default;
+  }
+
+  .admonitionblock td.icon .icon-note:before {
+    content: "\f05a";
+    color: #19407c;
+  }
+
+  .admonitionblock td.icon .icon-tip:before {
+    content: "\f0eb";
+    text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+    color: #111;
+  }
+
+  .admonitionblock td.icon .icon-warning:before {
+    content: "\f071";
+    color: #bf6900;
+  }
+
+  .admonitionblock td.icon .icon-caution:before {
+    content: "\f06d";
+    color: #bf3400;
+  }
+
+  .admonitionblock td.icon .icon-important:before {
+    content: "\f06a";
+    color: #bf0000;
+  }
+
+  .admonitionblock > table {
+    border-collapse: separate;
+    border: 0;
+    background: none;
+    width: 100%;
+  }
+
+  .admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px;
+  }
+
+  .admonitionblock > table td.icon img {
+    max-width: none;
+  }
+
+  .admonitionblock > table td.icon .title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.25em;
+    border-left: 1px solid #ddddd8;
+    font-size: 1.1539em;
+    color: rgba(0, 0, 0, .6);
+  }
+
+  .admonitionblock > table td.content > :last-child > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* kbd */
+  article.asciidoc kbd {
+    display: inline-block;
+    color: rgba(0, 0, 0, 1);
+    font-size: .75em;
+    line-height: 1.4;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #fff inset;
+    margin: -.15em .15em 0 .15em;
+    padding: .2em .6em .2em .5em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  article.asciidoc .keyseq kbd:first-child {
+    margin-left: 0;
+  }
+
+  article.asciidoc .keyseq kbd:last-child {
+    margin-right: 0;
+  }
+
+  /* Tables */
+  article.asciidoc table thead {
+    background: #f7f8f7;
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table thead tr td {
+    padding: .5em .625em .625em;
+    color: rgba(0, 0, 0, .8);
+    text-align: left
+  }
+
+  article.asciidoc table tr th, article.asciidoc table tr td {
+    padding: .5625em .625em;
+    font-size: inherit;
+    color: rgba(0, 0, 0, .8)
+  }
+
+  article.asciidoc table tr.even, article.asciidoc table tr.alt, article.asciidoc table tr:nth-of-type(even) {
+    background: #f8f8f7
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table tbody tr td, article.asciidoc table tr td {
+    display: table-cell;
+    line-height: 1.6
+  }
+
+  table.tableblock {
+    max-width: 100%;
+    border-collapse: separate
+  }
+
+  table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
+    margin-bottom: 0
+  }
+
+  table.spread {
+    width: 100%
+  }
+
+  table.tableblock, th.tableblock, td.tableblock {
+    border: 0 solid #dedede
+  }
+
+  th.halign-left, td.halign-left {
+    text-align: left
+  }
+
+  th.halign-right, td.halign-right {
+    text-align: right
+  }
+
+  th.halign-center, td.halign-center {
+    text-align: center
+  }
+
+  th.valign-top, td.valign-top {
+    vertical-align: top
+  }
+
+  th.valign-bottom, td.valign-bottom {
+    vertical-align: bottom
+  }
+
+  th.valign-middle, td.valign-middle {
+    vertical-align: middle
+  }
+
+  article.asciidoc table thead th {
+    font-size: 1.2em;
+  }
+
+  article.asciidoc tbody tr th {
+    background: #f7f8f7;
+  }
+
+  p.tableblock > code:only-child {
+    background: none;
+    padding: 0
+  }
+</style>
+<article class="guide asciidoc">
+  <carousel class="deck container-fluid">
+    
+    
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Cypher</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Neo4j&#8217;s graph query language.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Neo4j&#8217;s Cypher language is purpose built for working with graph data.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>uses patterns to describe graph data</p>
+</li>
+<li>
+<p>familiar SQL-like clauses</p>
+</li>
+<li>
+<p>declarative, describing what to find, not how to find it</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>CREATE</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Create a node.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s use Cypher to generate a small social graph.</p>
+</div>
+
+<div class="listingblock code pre-scrollable runnable">
+  
+  <div class="content">
+    
+        <pre mode="cypher"  class="highlight pre-scrollable code runnable"><code class="cypher language-cypher">CREATE (ee:Person { name: "Emil", from: "Sweden", klout: 99 })</code></pre>
+    
+  </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>CREATE</code> clause to create data</p>
+</li>
+<li>
+<p><code>()</code> parenthesis to indicate a node</p>
+</li>
+<li>
+<p><code>ee:Person</code> a variable 'ee' and label 'Person' for the new node</p>
+</li>
+<li>
+<p><code>{}</code> brackets to add properties to the node</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>MATCH</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Finding nodes.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Now find the node representing Emil:</p>
+</div>
+
+<div class="listingblock code pre-scrollable runnable">
+  
+  <div class="content">
+    
+        <pre mode="cypher"  class="highlight pre-scrollable code runnable"><code class="cypher language-cypher">MATCH (ee:Person) WHERE ee.name = "Emil" RETURN ee;</code></pre>
+    
+  </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MATCH</code> clause to specify a pattern of nodes and relationships</p>
+</li>
+<li>
+<p><code>(ee:Person)</code> a single node pattern with label 'Person' which will
+assign matches to the variable 'ee'</p>
+</li>
+<li>
+<p><code>WHERE</code> clause to constrain the results</p>
+</li>
+<li>
+<p><code>ee.name = "Emil"</code> compares name property to the value "Emil"</p>
+</li>
+<li>
+<p><code>RETURN</code> clause used to request particular results</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>CREATE more</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Nodes and relationships.
+</blockquote>
+</div>
+<div class="paragraph">
+<p><code>CREATE</code> clauses can create many nodes and relationships at once.</p>
+</div>
+
+<div class="listingblock code pre-scrollable runnable">
+  
+  <div class="content">
+    
+        <pre mode="cypher"  class="highlight pre-scrollable code runnable"><code class="cypher language-cypher">MATCH (ee:Person) WHERE ee.name = "Emil"
+CREATE (js:Person { name: "Johan", from: "Sweden", learn: "surfing" }),
+(ir:Person { name: "Ian", from: "England", title: "author" }),
+(rvb:Person { name: "Rik", from: "Belgium", pet: "Orval" }),
+(ally:Person { name: "Allison", from: "California", hobby: "surfing" }),
+(ee)-[:KNOWS {since: 2001}]-&gt;(js),(ee)-[:KNOWS {rating: 5}]-&gt;(ir),
+(js)-[:KNOWS]-&gt;(ir),(js)-[:KNOWS]-&gt;(rvb),
+(ir)-[:KNOWS]-&gt;(js),(ir)-[:KNOWS]-&gt;(ally),
+(rvb)-[:KNOWS]-&gt;(ally)</code></pre>
+    
+  </div>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Pattern matching</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Describe what to find in the graph.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>For instance, a pattern can be used to find Emil&#8217;s friends:</p>
+</div>
+
+<div class="listingblock code pre-scrollable runnable">
+  
+  <div class="content">
+    
+        <pre mode="cypher"  class="highlight pre-scrollable code runnable"><code class="cypher language-cypher">MATCH (ee:Person)-[:KNOWS]-(friends)
+WHERE ee.name = "Emil" RETURN ee, friends</code></pre>
+    
+  </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`MATCH`clause to describe the pattern from known Nodes to found Nodes</p>
+</li>
+<li>
+<p>`(ee)`starts the pattern with a Person (qualified by WHERE)</p>
+</li>
+<li>
+<p>`-[:KNOWS]-`matches "KNOWS" relationships (in either direction)</p>
+</li>
+<li>
+<p>`(friends)`will be bound to Emil&#8217;s friends</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Recommend</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Using patterns.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Pattern matching can be used to make recommendations. Johan is learning
+to surf, so he may want to find a new friend who already does:</p>
+</div>
+
+<div class="listingblock code pre-scrollable runnable">
+  
+  <div class="content">
+    
+        <pre mode="cypher"  class="highlight pre-scrollable code runnable"><code class="cypher language-cypher">MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer)
+WHERE js.name = "Johan" AND surfer.hobby = "surfing"
+RETURN DISTINCT surfer</code></pre>
+    
+  </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>`()`empty parenthesis to ignore these nodes</p>
+</li>
+<li>
+<p>`DISTINCT`because more than one path will match the pattern</p>
+</li>
+<li>
+<p>`surfer`will contain Allison, a friend of a friend who surfs</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Analyze</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Using the visual query plan.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Understand how your query works by prepending <code>EXPLAIN</code>  or  <code>PROFILE</code>:</p>
+</div>
+
+<div class="listingblock code pre-scrollable runnable">
+  
+  <div class="content">
+    
+        <pre mode="cypher"  class="highlight pre-scrollable code runnable"><code class="cypher language-cypher">PROFILE MATCH (js:Person)-[:KNOWS]-()-[:KNOWS]-(surfer)
+WHERE js.name = "Johan" AND surfer.hobby = "surfing"
+RETURN DISTINCT surfer</code></pre>
+    
+  </div>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Live Cypher warnings</h3>
+        <br/>
+        <div>
+          <div class="quoteblock abstract">
+<blockquote>
+Identify query problems in real time.
+</blockquote>
+</div>
+<div class="paragraph">
+<p>As you type, the query editor notifies you about deprecated features and
+potentially expensive queries.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/screen_cypher_warn.png" alt="image"></span></p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Next steps</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Start your application using Cypher to create and query graph data. Use
+the REST API to monitor the database. In special cases, consider a
+plugin.</p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Keep getting started</h3>
+        <br/>
+        <div>
+          <div class="ulist">
+<ul>
+<li>
+<p>Intro&#8201;&#8212;&#8201;a guided tour</p>
+</li>
+<li>
+<p>Concepts&#8201;&#8212;&#8201;GraphDB 101</p>
+</li>
+<li>
+<p>The Movie Graph&#8201;&#8212;&#8201;create the movie graph</p>
+</li>
+<li>
+<p>Northwind Graph&#8201;&#8212;&#8201;from RDBMS to graph</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Reference</h3>
+        <br/>
+        <div>
+          <div class="ulist">
+<ul>
+<li>
+<p><a href="http://neo4j.com/developer/guide-importing-data-and-etl/">Full
+Northwind import example</a></p>
+</li>
+<li>
+<p><a href="http://neo4j.com/docs/%7B%7Bneo4j.version%20%7C%20neo4jdoc%20%7D%7D/cypher-refcard">Cypher</a></p>
+</li>
+<li>
+<p><a href="http://neo4j.com/docs/%7B%7Bneo4j.version%20%7C%20neo4jdoc%20%7D%7D/">Neo4j
+Manual</a></p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+  </carousel>
+</article>

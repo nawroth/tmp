@@ -1,0 +1,558 @@
+<style type="text/css" media="screen">
+  .imageblock .content img {
+    max-width: 900px;
+    max-height: 300px;
+  }
+
+  article.asciidoc .deck h3 {
+    display: block !important;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
+
+  .listingblock {
+    margin: 8px;
+  }
+
+  article.asciidoc .pull-bottom {
+    position: relative;
+    bottom: 1em;
+  }
+
+  /* Runnable content */
+
+  article.asciidoc p > code.runnable:before {
+    content: "\f144";
+    color: #428bca;
+    font-family: FontAwesome;
+    padding-right: 4px;
+  }
+
+  /* Labeled lists */
+
+  .hdlist > .title {
+    line-height: 1.45;
+    color: #7a2518;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+
+  .hdlist > table, .colist > table {
+    border: 0;
+    background: none;
+  }
+
+  .hdlist > table > tbody > tr, .colist > table > tbody > tr {
+    background: none;
+  }
+
+  td.hdlist1, td.hdlist2 {
+    vertical-align: top;
+    padding: 0 .625em;
+  }
+
+  td.hdlist1 {
+    font-weight: bold;
+    padding-bottom: 1.25em;
+  }
+
+  article.asciidoc div.hdlist table tr.even, article.asciidoc div.hdlist table tr.alt, article.asciidoc div.hdlist
+  table tr:nth-of-type(even) {
+    background: none;
+  }
+
+  /* Lists */
+
+  article.asciidoc div.ulist > ul div.ulist > ul {
+    list-style-type: circle;
+  }
+
+  /* Admonition Blocks */
+  .admonitionblock td.icon [class^="fa icon-"] {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    cursor: default;
+  }
+
+  .admonitionblock td.icon .icon-note:before {
+    content: "\f05a";
+    color: #19407c;
+  }
+
+  .admonitionblock td.icon .icon-tip:before {
+    content: "\f0eb";
+    text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+    color: #111;
+  }
+
+  .admonitionblock td.icon .icon-warning:before {
+    content: "\f071";
+    color: #bf6900;
+  }
+
+  .admonitionblock td.icon .icon-caution:before {
+    content: "\f06d";
+    color: #bf3400;
+  }
+
+  .admonitionblock td.icon .icon-important:before {
+    content: "\f06a";
+    color: #bf0000;
+  }
+
+  .admonitionblock > table {
+    border-collapse: separate;
+    border: 0;
+    background: none;
+    width: 100%;
+  }
+
+  .admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px;
+  }
+
+  .admonitionblock > table td.icon img {
+    max-width: none;
+  }
+
+  .admonitionblock > table td.icon .title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.25em;
+    border-left: 1px solid #ddddd8;
+    font-size: 1.1539em;
+    color: rgba(0, 0, 0, .6);
+  }
+
+  .admonitionblock > table td.content > :last-child > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* kbd */
+  article.asciidoc kbd {
+    display: inline-block;
+    color: rgba(0, 0, 0, 1);
+    font-size: .75em;
+    line-height: 1.4;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #fff inset;
+    margin: -.15em .15em 0 .15em;
+    padding: .2em .6em .2em .5em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  article.asciidoc .keyseq kbd:first-child {
+    margin-left: 0;
+  }
+
+  article.asciidoc .keyseq kbd:last-child {
+    margin-right: 0;
+  }
+
+  /* Tables */
+  article.asciidoc table thead {
+    background: #f7f8f7;
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table thead tr td {
+    padding: .5em .625em .625em;
+    color: rgba(0, 0, 0, .8);
+    text-align: left
+  }
+
+  article.asciidoc table tr th, article.asciidoc table tr td {
+    padding: .5625em .625em;
+    font-size: inherit;
+    color: rgba(0, 0, 0, .8)
+  }
+
+  article.asciidoc table tr.even, article.asciidoc table tr.alt, article.asciidoc table tr:nth-of-type(even) {
+    background: #f8f8f7
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table tbody tr td, article.asciidoc table tr td {
+    display: table-cell;
+    line-height: 1.6
+  }
+
+  table.tableblock {
+    max-width: 100%;
+    border-collapse: separate
+  }
+
+  table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
+    margin-bottom: 0
+  }
+
+  table.spread {
+    width: 100%
+  }
+
+  table.tableblock, th.tableblock, td.tableblock {
+    border: 0 solid #dedede
+  }
+
+  th.halign-left, td.halign-left {
+    text-align: left
+  }
+
+  th.halign-right, td.halign-right {
+    text-align: right
+  }
+
+  th.halign-center, td.halign-center {
+    text-align: center
+  }
+
+  th.valign-top, td.valign-top {
+    vertical-align: top
+  }
+
+  th.valign-bottom, td.valign-bottom {
+    vertical-align: bottom
+  }
+
+  th.valign-middle, td.valign-middle {
+    vertical-align: middle
+  }
+
+  article.asciidoc table thead th {
+    font-size: 1.2em;
+  }
+
+  article.asciidoc tbody tr th {
+    background: #f7f8f7;
+  }
+
+  p.tableblock > code:only-child {
+    background: none;
+    padding: 0
+  }
+</style>
+<article class="guide asciidoc">
+  <carousel class="deck container-fluid">
+    
+    
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Query Template&#8201;&#8212;&#8201;Create</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Generate nodes and relationships.</p>
+</div>
+<form class="ng-valid ng-dirty ng-valid-parse">
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">From Node A</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelA" class="form-control ng-valid ng-dirty ng-valid-parse ng-touched">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relationship">
+    <div class="form-group">
+      <p class="help-block">through a Relationship</p>
+      <label>Type</label>
+      <input ng-model="relationshipType" class="ng-pristine ng-untouched ng-valid">
+    </div>
+  </div>
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">to Node B</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelB" class="ng-pristine ng-untouched ng-valid">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="col-sm-8 ng-scope">
+  <table class="table table-striped table-bordered table-fixed th-100">
+    <tbody><tr>
+      <th>Using Data</th>
+      <td class="ng-binding">
+        From a node labeled "Person"
+         with a property called "name"
+         which has value "Ann"
+         , through a relationship of type "KNOWS"
+         to another node labeled "Person"
+         with a property called "name"
+         which has value "Dan"
+      </td>
+    </tr>
+    <tr>
+      <th>Create</th>
+      <td class="ng-binding">
+        Create a "Person" node
+         with a property called "name"
+         that has value "Ann". (Or create Node B)
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">CREATE (n:Person { name: 'Ann' }) RETURN n</pre>
+        </figure>
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">CREATE (n:Person { name: 'Dan' }) RETURN n</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Relate</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name" property
+         of "Ann"
+         create a "KNOWS"
+         relationship to a "Person" with "name" value "Dan".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (a:Person { name: 'Ann' }), (b:Person { name: 'Dan' })
+CREATE (a)-[:KNOWS]-&gt;(b)</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Merge node</th>
+      <td class="ng-binding">
+        Find or create a "Person" node
+         with "name" of "Ann".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MERGE (n:Person { name: 'Ann' }) RETURN n</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Merge relationship</th>
+      <td class="ng-binding">
+        Find or create a relationship from a "Person with "name" of "Ann"
+         through a "KNOWS" relationship
+         to a "Person" node with "name" of "Dan".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (a:Person { name: 'Ann' }), (b:Person { name: 'Dan' })
+MERGE (a)-[:KNOWS]-&gt;(b)</pre>
+        </figure>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Query Template&#8201;&#8212;&#8201;Find</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Find data using common graph patterns.</p>
+</div>
+<form class="ng-pristine ng-valid">
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">From Node A</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelA" class="form-control ng-pristine ng-untouched ng-valid">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueA" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="relationship">
+    <div class="form-group">
+      <p class="help-block">through a Relationship</p>
+      <label>Type</label>
+      <input ng-model="relationshipType" class="ng-pristine ng-untouched ng-valid">
+    </div>
+  </div>
+  <div class="node">
+    <div class="form-group">
+      <p class="help-block">to Node B</p>
+      <label>Label</label>
+      <input ng-model="nodeLabelB" class="ng-pristine ng-untouched ng-valid">
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Property</label>
+          <input ng-model="propertyKeyB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+        <div class="col-sm-6">
+          <label>Value</label>
+          <input ng-model="propertyValueB" class="form-control ng-pristine ng-untouched ng-valid">
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<div class="col-sm-8 ng-scope">
+  <table class="table table-striped table-bordered table-fixed th-100">
+    <tbody><tr>
+      <th>Using Data</th>
+      <td class="ng-binding">
+        From a node labeled "Person"
+         with a property called "name"
+         which has value "Ann"
+         , through a relationship of type "KNOWS"
+         to another node labeled "Person"
+         with a property called "name"
+         which has value "Dan"
+      </td>
+    </tr>
+    <tr>
+      <th>Find one</th>
+      <td class="ng-binding">
+        Find a node labeled "Person"
+         with a property called "name"
+         that has value "Ann".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (n:Person { name: 'Ann' }) RETURN n</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Find related neighbors</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name"
+         of "Ann"
+         find neighbors related by "KNOWS".
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (n:Person { name: 'Ann' })-[:KNOWS]-(neighbors) RETURN n,neighbors</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Variable length paths</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name"
+         of "Ann"
+         follow "KNOWS" relationships up to 3 hops away.
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH (n:Person { name: 'Ann' })-[:KNOWS*1..3]-(neighbors) RETURN n, collect(DISTINCT neighbors)</pre>
+        </figure>
+      </td>
+    </tr>
+    <tr>
+      <th>Shortest path</th>
+      <td class="ng-binding">
+        From a "Person" node
+         with a "name"
+         of "Ann"
+         find the shortest "KNOWS" path to
+        a "Person" node with "name" of "Dan"
+        <figure>
+          <pre class="code runnable standalone-example ng-binding">MATCH p=shortestPath(
+(a:Person { name: 'Ann' })-[:KNOWS]-(b:Person { name: 'Dan'})
+)
+RETURN p
+</pre>
+        </figure>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Next steps</h3>
+        <br/>
+        <div>
+          
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>More code</h3>
+        <br/>
+        <div>
+          <div class="ulist">
+<ul>
+<li>
+<p>Northwind Graph&#8201;&#8212;&#8201;from RDBMS to graph</p>
+</li>
+<li>
+<p>Movie Graph&#8201;&#8212;&#8201;common ad-hoc queries</p>
+</li>
+<li>
+<p>Cypher&#8201;&#8212;&#8201;query language fundamentals</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Reference</h3>
+        <br/>
+        <div>
+          <div class="ulist">
+<ul>
+<li>
+<p><a href="http://neo4j.com/developer">Developer resources</a></p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+        </div>
+      </div>
+    </slide>
+
+  </carousel>
+</article>

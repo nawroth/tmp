@@ -1,0 +1,562 @@
+<style type="text/css" media="screen">
+  .imageblock .content img {
+    max-width: 900px;
+    max-height: 300px;
+  }
+
+  article.asciidoc .deck h3 {
+    display: block !important;
+    margin-bottom: 8px;
+    margin-top: 5px;
+  }
+
+  .listingblock {
+    margin: 8px;
+  }
+
+  article.asciidoc .pull-bottom {
+    position: relative;
+    bottom: 1em;
+  }
+
+  /* Runnable content */
+
+  article.asciidoc p > code.runnable:before {
+    content: "\f144";
+    color: #428bca;
+    font-family: FontAwesome;
+    padding-right: 4px;
+  }
+
+  /* Labeled lists */
+
+  .hdlist > .title {
+    line-height: 1.45;
+    color: #7a2518;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: .25em;
+  }
+
+  .hdlist > table, .colist > table {
+    border: 0;
+    background: none;
+  }
+
+  .hdlist > table > tbody > tr, .colist > table > tbody > tr {
+    background: none;
+  }
+
+  td.hdlist1, td.hdlist2 {
+    vertical-align: top;
+    padding: 0 .625em;
+  }
+
+  td.hdlist1 {
+    font-weight: bold;
+    padding-bottom: 1.25em;
+  }
+
+  article.asciidoc div.hdlist table tr.even, article.asciidoc div.hdlist table tr.alt, article.asciidoc div.hdlist
+  table tr:nth-of-type(even) {
+    background: none;
+  }
+
+  /* Lists */
+
+  article.asciidoc div.ulist > ul div.ulist > ul {
+    list-style-type: circle;
+  }
+
+  /* Admonition Blocks */
+  .admonitionblock td.icon [class^="fa icon-"] {
+    font-size: 2.5em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+    cursor: default;
+  }
+
+  .admonitionblock td.icon .icon-note:before {
+    content: "\f05a";
+    color: #19407c;
+  }
+
+  .admonitionblock td.icon .icon-tip:before {
+    content: "\f0eb";
+    text-shadow: 1px 1px 2px rgba(155, 155, 0, .8);
+    color: #111;
+  }
+
+  .admonitionblock td.icon .icon-warning:before {
+    content: "\f071";
+    color: #bf6900;
+  }
+
+  .admonitionblock td.icon .icon-caution:before {
+    content: "\f06d";
+    color: #bf3400;
+  }
+
+  .admonitionblock td.icon .icon-important:before {
+    content: "\f06a";
+    color: #bf0000;
+  }
+
+  .admonitionblock > table {
+    border-collapse: separate;
+    border: 0;
+    background: none;
+    width: 100%;
+  }
+
+  .admonitionblock > table td.icon {
+    text-align: center;
+    width: 80px;
+  }
+
+  .admonitionblock > table td.icon img {
+    max-width: none;
+  }
+
+  .admonitionblock > table td.icon .title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .admonitionblock > table td.content {
+    padding-left: 1.125em;
+    padding-right: 1.25em;
+    border-left: 1px solid #ddddd8;
+    font-size: 1.1539em;
+    color: rgba(0, 0, 0, .6);
+  }
+
+  .admonitionblock > table td.content > :last-child > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* kbd */
+  article.asciidoc kbd {
+    display: inline-block;
+    color: rgba(0, 0, 0, 1);
+    font-size: .75em;
+    line-height: 1.4;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em white inset;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, .2), 0 0 0 .1em #fff inset;
+    margin: -.15em .15em 0 .15em;
+    padding: .2em .6em .2em .5em;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  article.asciidoc .keyseq kbd:first-child {
+    margin-left: 0;
+  }
+
+  article.asciidoc .keyseq kbd:last-child {
+    margin-right: 0;
+  }
+
+  /* Tables */
+  article.asciidoc table thead {
+    background: #f7f8f7;
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table thead tr td {
+    padding: .5em .625em .625em;
+    color: rgba(0, 0, 0, .8);
+    text-align: left
+  }
+
+  article.asciidoc table tr th, article.asciidoc table tr td {
+    padding: .5625em .625em;
+    font-size: inherit;
+    color: rgba(0, 0, 0, .8)
+  }
+
+  article.asciidoc table tr.even, article.asciidoc table tr.alt, article.asciidoc table tr:nth-of-type(even) {
+    background: #f8f8f7
+  }
+
+  article.asciidoc table thead tr th, article.asciidoc table tbody tr td, article.asciidoc table tr td {
+    display: table-cell;
+    line-height: 1.6
+  }
+
+  table.tableblock {
+    max-width: 100%;
+    border-collapse: separate
+  }
+
+  table.tableblock td > .paragraph:last-child p > p:last-child, table.tableblock th > p:last-child, table.tableblock td > p:last-child {
+    margin-bottom: 0
+  }
+
+  table.spread {
+    width: 100%
+  }
+
+  table.tableblock, th.tableblock, td.tableblock {
+    border: 0 solid #dedede
+  }
+
+  th.halign-left, td.halign-left {
+    text-align: left
+  }
+
+  th.halign-right, td.halign-right {
+    text-align: right
+  }
+
+  th.halign-center, td.halign-center {
+    text-align: center
+  }
+
+  th.valign-top, td.valign-top {
+    vertical-align: top
+  }
+
+  th.valign-bottom, td.valign-bottom {
+    vertical-align: bottom
+  }
+
+  th.valign-middle, td.valign-middle {
+    vertical-align: middle
+  }
+
+  article.asciidoc table thead th {
+    font-size: 1.2em;
+  }
+
+  article.asciidoc tbody tr th {
+    background: #f7f8f7;
+  }
+
+  p.tableblock > code:only-child {
+    background: none;
+    padding: 0
+  }
+</style>
+<article class="guide asciidoc">
+  <carousel class="deck container-fluid">
+    
+    
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Start Learning</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Graph database fundamentals.</p>
+</div>
+<div class="paragraph">
+<p>Neo4j is a graph database. You can store any data in Neo4j, then ask
+questions about how that data is related.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>What is a graph database?</p>
+</li>
+<li>
+<p>How can I query a graph?</p>
+</li>
+<li>
+<p>What do people do with Neo4j?</p>
+</li>
+</ol>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>A <em>Graph</em> Database</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Neo4j stores data in a Graph, with records called Nodes.</p>
+</div>
+<div class="paragraph">
+<p>The simplest graph has just a single node with some named values called
+Properties. Let&#8217;s draw a social graph of our friends on the Neo4j team:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Start by drawing a circle for the node</p>
+</li>
+<li>
+<p>Add the name Emil</p>
+</li>
+<li>
+<p>Note that he is from Sweden</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Nodes are the name for data records in a graph</p>
+</li>
+<li>
+<p>Data is stored as Properties</p>
+</li>
+<li>
+<p>Properties are simple name/value pairs</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/one_node.png" alt="image"></span></p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Labels</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Associate a set of nodes.</p>
+</div>
+<div class="paragraph">
+<p>Nodes can be grouped together by applying a Label to each member. In our
+social graph, we&#8217;ll label each node that represents a Person.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Apply the label "Person" to the node we created for Emil</p>
+</li>
+<li>
+<p>Color "Person" nodes red</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A node can have zero or more labels</p>
+</li>
+<li>
+<p>Labels do not have any properties</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/labeled_node.png" alt="image"></span></p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>More Nodes</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Schema-free, nodes can have a mix of common and unique properties.</p>
+</div>
+<div class="paragraph">
+<p>Like any database, storing data in Neo4j can be as simple as adding more
+records. We&#8217;ll add a few more nodes:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Emil has a klout score of 99</p>
+</li>
+<li>
+<p>Johan, from Sweden, who is learning to surf</p>
+</li>
+<li>
+<p>Ian, from England, who is an author</p>
+</li>
+<li>
+<p>Rik, from Belgium, has a cat named Orval</p>
+</li>
+<li>
+<p>Allison, from California, who surfs</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Similar nodes can have different properties</p>
+</li>
+<li>
+<p>Properties can be strings, numbers, or booleans</p>
+</li>
+<li>
+<p>Neo4j can store billions of nodes</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/more_nodes.png" alt="image"></span></p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Consider Relationships</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Connect nodes in the graph</p>
+</div>
+<div class="paragraph">
+<p>The real power of Neo4j is in connected data. To associate any two
+nodes, add a Relationship which describes how the records are related.</p>
+</div>
+<div class="paragraph">
+<p>In our social graph, we simply say who KNOWS whom:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Emil KNOWS Johan and Ian</p>
+</li>
+<li>
+<p>Johan KNOWS Ian and Rik</p>
+</li>
+<li>
+<p>Rik and Ian KNOWS Allison</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Relationships always have direction</p>
+</li>
+<li>
+<p>Relationships always have a type</p>
+</li>
+<li>
+<p>Relationships form patterns of data</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/relationships.png" alt="image"></span></p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Relationship properties</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>Store information shared by two nodes.</p>
+</div>
+<div class="paragraph">
+<p>In a property graph, relationships are data records that can also
+contain properties. Looking more closely at Emil&#8217;s relationships, note
+that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Emil has known Johan since 2001</p>
+</li>
+<li>
+<p>Emil rates Ian 5 (out of 5)</p>
+</li>
+<li>
+<p>Everyone else can have similar relationship properties</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./images/images/rel-props.png" alt="image"></span></p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Next steps</h3>
+        <br/>
+        <div>
+          <div class="paragraph">
+<p>A property graph contains nodes and relationships, with properties on
+both.</p>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Keep getting started</h3>
+        <br/>
+        <div>
+          <div class="ulist">
+<ul>
+<li>
+<p>Intro - a guided tour</p>
+</li>
+<li>
+<p>Cypher - query language</p>
+</li>
+<li>
+<p><a href="http://neo4j.com/docs/%7B%7Bneo4j.version%20%7C%20neo4jdoc%7D%7D/graphdb-concepts.html">Neo4j
+Manual</a> - section on graphdb concepts</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+
+
+    <slide class="row-fluid">
+      <div class="col-sm-12">
+        <h3>Jump into code</h3>
+        <br/>
+        <div>
+          <div class="ulist">
+<ul>
+<li>
+<p>The Movie Graph</p>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </slide>
+
+  </carousel>
+</article>
